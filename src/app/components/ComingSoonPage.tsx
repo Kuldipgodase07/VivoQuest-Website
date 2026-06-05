@@ -50,7 +50,7 @@ function TypewriterText({ text, delay = 0, speed = 55 }: { text: string; delay?:
 
 // ─── Countdown ────────────────────────────────────────────
 function CountdownTimer() {
-  const target = new Date('2026-10-01T00:00:00Z');
+  const target = new Date('2026-07-20T00:00:00Z');
   const [t, setT] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
