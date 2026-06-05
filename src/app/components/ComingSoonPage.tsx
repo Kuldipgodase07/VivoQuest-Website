@@ -10,7 +10,8 @@ import {
 } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-
+import { collection, addDoc, query, where, getDocs, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
 // ─── Easing ───────────────────────────────────────────────
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
@@ -367,16 +368,24 @@ function EarlyAccessForm() {
   const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful }, reset } = useForm<FormData>();
   const onSubmit = async (data: FormData) => {
     setApiError(null);
-    const res = await fetch('/api/early-access', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      throw new Error(body.error || 'Submission failed. Please try again.');
+    try {
+      const q = query(collection(db, 'early_access_signups'), where('email', '==', data.email.trim().toLowerCase()));
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        throw new Error('This email has already signed up for early access.');
+      }
+      await addDoc(collection(db, 'early_access_signups'), {
+        name: data.name.trim(),
+        email: data.email.trim().toLowerCase(),
+        phone: data.phone?.trim() || null,
+        organization: data.organization?.trim() || null,
+        country: data.country.trim(),
+        createdAt: serverTimestamp(),
+      });
+      reset();
+    } catch (e: any) {
+      throw new Error(e.message || 'Submission failed. Please try again.');
     }
-    reset();
   };
   const wrappedSubmit = handleSubmit(async (data) => {
     try { await onSubmit(data); } catch (e: any) { setApiError(e.message); }

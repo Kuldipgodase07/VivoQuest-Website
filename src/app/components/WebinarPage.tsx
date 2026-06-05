@@ -10,7 +10,8 @@ import {
 } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-
+import { collection, addDoc, query, where, getDocs, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 // ─── Data ─────────────────────────────────────────────────
@@ -211,16 +212,24 @@ function RegistrationForm() {
   const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful }, reset } = useForm<RegData>();
   const onSubmit = async (data: RegData) => {
     setApiError(null);
-    const res = await fetch('/api/webinar-registrations', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...data, webinar: data.webinar }),
-    });
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      throw new Error(body.error || 'Submission failed. Please try again.');
+    try {
+      const q = query(collection(db, 'webinar_registrations'), where('email', '==', data.email.trim().toLowerCase()));
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        throw new Error('This email is already registered for a webinar.');
+      }
+      await addDoc(collection(db, 'webinar_registrations'), {
+        name: data.name.trim(),
+        email: data.email.trim().toLowerCase(),
+        phone: data.phone?.trim() || null,
+        organization: data.organization?.trim() || null,
+        webinar_session: data.webinar,
+        createdAt: serverTimestamp(),
+      });
+      reset();
+    } catch (e: any) {
+      throw new Error(e.message || 'Submission failed. Please try again.');
     }
-    reset();
   };
   const wrappedSubmit = handleSubmit(async (data) => {
     try { await onSubmit(data); } catch (e: any) { setApiError(e.message); }
