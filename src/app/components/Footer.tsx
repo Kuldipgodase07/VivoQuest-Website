@@ -68,13 +68,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm" style={{ fontFamily: 'Sora, sans-serif' }}>
-            © 2026 VivoQuest, Inc. All rights reserved.
-          </p>
-          <p className="text-white/30 text-xs" style={{ fontFamily: 'Sora, sans-serif' }}>
-            AI-Powered Metabolic Health Platform · Healthcare Technology
-          </p>
+        <div className="border-t border-white/10 pt-8 flex flex-col gap-6">
+          <div className="text-white/40 text-xs leading-relaxed max-w-5xl" style={{ fontFamily: 'Sora, sans-serif' }}>
+            <span className="font-semibold text-white/50">Disclaimer:</span>
+            <br />
+            VivoQuest, Inc. does not provide any clinical services. All clinical services are provided by licensed physicians and clinicians practicing within an independently owned and operated medical practices. The content available on this website is not a substitute for professional medical advice, diagnosis, or treatment. All decisions regarding medical care should be made with your healthcare provider.
+          </div>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-white/40 text-sm" style={{ fontFamily: 'Sora, sans-serif' }}>
+              © 2026 VivoQuest. All rights reserved.
+            </p>
+            <p className="text-white/30 text-xs" style={{ fontFamily: 'Sora, sans-serif' }}>
+              AI-Powered Metabolic Health Platform · Healthcare Technology
+            </p>
+          </div>
         </div>
       </div>
     </footer>
