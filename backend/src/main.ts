@@ -76,6 +76,11 @@ async function bootstrap() {
 }
 
 bootstrap().catch((err) => {
-  console.error('Fatal error during VivoQuest startup:', err);
+  if (err && err.code === 'EADDRINUSE') {
+    console.error(`\x1b[31m[Port Error]\x1b[0m Port ${process.env.PORT || 8080} is already in use by another process.`);
+    console.error(`\x1b[33m[Fix]\x1b[0m Run 'npm run free-ports' from project root to free port ${process.env.PORT || 8080}.`);
+  } else {
+    console.error('Fatal error during VivoQuest startup:', err);
+  }
   process.exit(1);
 });

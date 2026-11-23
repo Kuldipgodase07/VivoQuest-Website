@@ -87,3 +87,4 @@ files.forEach(f => {
 });
 
 console.log('All landing files updated with large flags and proper country names!');
+
