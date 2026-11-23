@@ -10,7 +10,9 @@
   --warn: #A96513;
   --bad: #B42332;
 
-  --font-sans: 'Poppins', 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Manrope', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-english: 'Manrope', sans-serif;
+  --font-marathi: 'Poppins', sans-serif;
   --font-marathi: 'Poppins', sans-serif;
   --radius-sm: 8px;
   --radius-md: 14px;
