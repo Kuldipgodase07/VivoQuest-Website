@@ -70,17 +70,24 @@ async function bootstrap() {
   const port = parseInt(process.env.PORT || '8080', 10);
   const host = '0.0.0.0';
 
-  await app.listen(port, host);
-  logger.log(`VivoQuest API Modular Monolith running at http://${host}:${port}`);
-  logger.log(`OpenAPI 3.1 Contract Explorer available at http://${host}:${port}/docs`);
+  try {
+    await app.listen(port, host);
+    logger.log(`VivoQuest API Modular Monolith running at http://${host}:${port}`);
+    logger.log(`OpenAPI 3.1 Contract Explorer available at http://${host}:${port}/docs`);
+  } catch (err: any) {
+    if (err.code === 'EADDRINUSE') {
+      const fallbackPort = port + 1;
+      logger.warn(`Port ${port} is already in use, starting on fallback port ${fallbackPort}...`);
+      await app.listen(fallbackPort, host);
+      logger.log(`VivoQuest API Modular Monolith running at http://${host}:${fallbackPort}`);
+      logger.log(`OpenAPI 3.1 Contract Explorer available at http://${host}:${fallbackPort}/docs`);
+    } else {
+      throw err;
+    }
+  }
 }
 
 bootstrap().catch((err) => {
-  if (err && err.code === 'EADDRINUSE') {
-    console.error(`\x1b[31m[Port Error]\x1b[0m Port ${process.env.PORT || 8080} is already in use by another process.`);
-    console.error(`\x1b[33m[Fix]\x1b[0m Run 'npm run free-ports' from project root to free port ${process.env.PORT || 8080}.`);
-  } else {
-    console.error('Fatal error during VivoQuest startup:', err);
-  }
+  console.error('Fatal error during VivoQuest startup:', err);
   process.exit(1);
 });
