@@ -107,7 +107,7 @@ a{text-decoration:none;color:inherit}
     </div>
     <nav class="nav" aria-label="Main">
       <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
-        <button class="navb {{ n.cls }}" sc-camel-on-click="{{ n.tap }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button>
+        <button class="navb {{ n.cls }}" sc-camel-on-click="{{ n.tap }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button>
       </sc-for>
     </nav>
     <div class="sidefoot col" style="gap:12px">
@@ -125,7 +125,7 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <!-- connectivity strip -->
-    <div class="conn {{ conn.cls }}" role="status"><svg class="ic {{ conn.spinCls }}" sc-camel-view-box="0 0 24 24"><path d="{{ conn.icon }}"></path></svg><span style="flex:1">{{ conn.text }}</span><sc-if value="{{ conn.hasAct }}" hint-placeholder-val="{{ false }}"><button class="btn sm g" sc-camel-on-click="{{ a.connTap }}">{{ conn.act }}</button></sc-if></div>
+    <div class="conn {{ conn.cls }}" role="status"><svg class="ic {{ conn.spinCls }}" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ conn.icon }}"></path></svg><span style="flex:1">{{ conn.text }}</span><sc-if value="{{ conn.hasAct }}" hint-placeholder-val="{{ false }}"><button class="btn sm g" sc-camel-on-click="{{ a.connTap }}">{{ conn.act }}</button></sc-if></div>
 
     <!-- ============ TODAY ============ -->
     <sc-if value="{{ s.dash }}" hint-placeholder-val="{{ true }}">
@@ -252,7 +252,7 @@ a{text-decoration:none;color:inherit}
     <sc-if value="{{ s.done }}" hint-placeholder-val="{{ false }}">
     <div class="page" style="max-width:620px;margin:20px auto;text-align:center">
       <div class="card" style="padding:40px">
-        <div style="width:88px;height:88px;border-radius:50%;background:{{ dn.bg }};color:{{ dn.fg }};display:inline-flex;align-items:center;justify-content:center;animation:pop .4s ease both"><svg class="ic lg" sc-camel-view-box="0 0 24 24" style="width:46px;height:46px"><path d="{{ dn.icon }}"></path></svg></div>
+        <div style="width:88px;height:88px;border-radius:50%;background:{{ dn.bg }};color:{{ dn.fg }};display:inline-flex;align-items:center;justify-content:center;animation:pop .4s ease both"><svg class="ic lg" sc-camel-view-box="0 0 24 24" style="width:46px;height:46px"><path sc-camel-d="{{ dn.icon }}"></path></svg></div>
         <h2 class="h2" style="font-size:28px;margin:18px 0 8px">{{ dn.title }}</h2><div><span class="badge {{ dn.cls }}">{{ dn.badge }}</span></div>
         <p class="sub" style="font-size:16px;margin:14px 0 24px">{{ dn.text }}</p>
         <div class="row" style="justify-content:center;flex-wrap:wrap"><button class="btn p" sc-camel-on-click="{{ a.leave }}">Back to today</button><button class="btn g" sc-camel-on-click="{{ n.sync }}">Open sync centre</button></div>
@@ -274,11 +274,11 @@ a{text-decoration:none;color:inherit}
       </sc-if>
       <sc-if value="{{ es.sent }}" hint-placeholder-val="{{ false }}">
       <div class="card" style="text-align:center;padding:36px">
-        <div style="width:80px;height:80px;border-radius:50%;background:{{ es.bg }};color:{{ es.fg }};display:inline-flex;align-items:center;justify-content:center"><svg class="ic lg" sc-camel-view-box="0 0 24 24"><path d="{{ es.icon }}"></path></svg></div>
+        <div style="width:80px;height:80px;border-radius:50%;background:{{ es.bg }};color:{{ es.fg }};display:inline-flex;align-items:center;justify-content:center"><svg class="ic lg" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ es.icon }}"></path></svg></div>
         <h2 class="h2" style="font-size:26px;margin:16px 0 8px">{{ es.title }}</h2><span class="badge {{ es.cls }}">{{ es.badge }}</span>
         <p class="sub" style="font-size:16px;margin:14px 0 20px">{{ es.text }}</p>
         <div class="card" style="background:#F7F5FF;box-shadow:none;text-align:left;margin-bottom:20px"><div class="li" style="padding:8px 0"><span class="sub" style="width:100px">Reason</span><b>{{ es.reason }}</b></div><div class="li" style="padding:8px 0"><span class="sub" style="width:100px">Urgency</span><b>{{ es.urgency }}</b></div></div>
-        <sc-if value="{{ es.fallback }}" hint-placeholder-val="{{ false }}"><div class="row" style="justify-content:center;flex-wrap:wrap;margin-bottom:12px"><button class="btn r" sc-camel-on-click="{{ a.callOnCall }}"><svg class="ic sm" sc-camel-view-box="0 0 24 24"><path d="{{ i.phone }}"></path></svg>Call Dr. Joshi</button><button class="btn g" sc-camel-on-click="{{ a.smsOnCall }}">Send SMS now</button></div></sc-if>
+        <sc-if value="{{ es.fallback }}" hint-placeholder-val="{{ false }}"><div class="row" style="justify-content:center;flex-wrap:wrap;margin-bottom:12px"><button class="btn r" sc-camel-on-click="{{ a.callOnCall }}"><svg class="ic sm" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ i.phone }}"></path></svg>Call Dr. Joshi</button><button class="btn g" sc-camel-on-click="{{ a.smsOnCall }}">Send SMS now</button></div></sc-if>
         <button class="btn p" sc-camel-on-click="{{ a.leave }}">Back to today</button>
       </div>
       </sc-if>
@@ -292,7 +292,7 @@ a{text-decoration:none;color:inherit}
         <sc-if value="{{ sy.empty }}" hint-placeholder-val="{{ true }}"><div class="sub" style="padding:36px 0;text-align:center">Nothing waiting. Visit records and alerts appear here when saved offline.</div></sc-if>
         <sc-for list="{{ sy.items }}" as="x" hint-placeholder-count="2"><div class="li" style="align-items:flex-start"><div style="flex:1;min-width:0"><div style="font-weight:800;font-size:15px">{{ x.label }}</div><div class="sub" style="font-size:13px">{{ x.when }}</div><sc-if value="{{ x.hasMsg }}" hint-placeholder-val="{{ false }}"><div class="sub" style="font-size:13px;margin-top:6px;color:#33304F">{{ x.msg }}</div></sc-if></div><span class="badge {{ x.cls }}">{{ x.badge }}</span><sc-if value="{{ x.review }}" hint-placeholder-val="{{ false }}"><button class="btn s sm" sc-camel-on-click="{{ x.tap }}">Review</button></sc-if></div></sc-for>
       </div>
-      <div class="card" style="background:{{ sy.bg }};box-shadow:none"><div class="row"><svg class="ic lg {{ sy.spinCls }}" sc-camel-view-box="0 0 24 24" style="color:{{ sy.fg }}"><path d="{{ sy.icon }}"></path></svg><div style="font-weight:800;font-size:19px;color:{{ sy.ink }}">{{ sy.title }}</div></div><p style="margin:10px 0 16px;font-weight:600;color:{{ sy.ink }};line-height:1.5">{{ sy.sub }}</p><button class="btn {{ sy.btnCls }} w" sc-camel-on-click="{{ a.syncNow }}">{{ sy.btn }}</button></div>
+      <div class="card" style="background:{{ sy.bg }};box-shadow:none"><div class="row"><svg class="ic lg {{ sy.spinCls }}" sc-camel-view-box="0 0 24 24" style="color:{{ sy.fg }}"><path sc-camel-d="{{ sy.icon }}"></path></svg><div style="font-weight:800;font-size:19px;color:{{ sy.ink }}">{{ sy.title }}</div></div><p style="margin:10px 0 16px;font-weight:600;color:{{ sy.ink }};line-height:1.5">{{ sy.sub }}</p><button class="btn {{ sy.btnCls }} w" sc-camel-on-click="{{ a.syncNow }}">{{ sy.btn }}</button></div>
     </div>
     </sc-if>
 
@@ -310,7 +310,7 @@ a{text-decoration:none;color:inherit}
       <div class="card" style="display:flex;flex-direction:column;height:620px;padding:0;overflow:hidden">
         <div class="row" style="padding:16px 22px;border-bottom:1px solid #E6E2F0"><div class="avatar" style="width:44px;height:44px">{{ th0.ini }}</div><div><div style="font-weight:800">{{ th0.name }}</div><div class="sub" style="font-size:13px">{{ th0.role }}</div></div></div>
         <div style="flex:1;overflow-y:auto;padding:22px;display:flex;flex-direction:column;gap:12px;background:#FBFAFF"><sc-for list="{{ th0.msgs }}" as="b" hint-placeholder-count="2"><div style="display:flex;flex-direction:column;align-items:{{ b.align }}"><div class="bub" style="background:{{ b.bg }};color:{{ b.fg }};border-radius:{{ b.rad }};box-shadow:0 1px 2px rgba(23,20,58,.08)">{{ b.text }}</div><span class="sub" style="font-size:11px;margin-top:4px">{{ b.time }}</span></div></sc-for></div>
-        <div class="row" style="padding:16px 22px;border-top:1px solid #E6E2F0"><label for="nm" style="position:absolute;width:1px;height:1px;overflow:hidden">Message</label><input id="nm" class="input" style="flex:1;border-radius:26px" placeholder="Write a message" value="{{ th0.draft }}" sc-camel-on-change="{{ a.onDraft }}"><button class="btn p" style="border-radius:26px;min-width:52px;padding:0 18px" aria-label="Send" sc-camel-on-click="{{ a.sendMsg }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ i.send }}"></path></svg></button></div>
+        <div class="row" style="padding:16px 22px;border-top:1px solid #E6E2F0"><label for="nm" style="position:absolute;width:1px;height:1px;overflow:hidden">Message</label><input id="nm" class="input" style="flex:1;border-radius:26px" placeholder="Write a message" value="{{ th0.draft }}" sc-camel-on-change="{{ a.onDraft }}"><button class="btn p" style="border-radius:26px;min-width:52px;padding:0 18px" aria-label="Send" sc-camel-on-click="{{ a.sendMsg }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ i.send }}"></path></svg></button></div>
       </div>
     </div>
     </sc-if>
@@ -349,7 +349,7 @@ a{text-decoration:none;color:inherit}
 
 <sc-if value="{{ lock.on }}" hint-placeholder-val="{{ false }}">
 <div style="position:fixed;inset:0;z-index:80;background:radial-gradient(120% 70% at 50% 0%,#EAE4FF 0%,#F7F5FF 65%);display:flex;align-items:center;justify-content:center;padding:24px"><div style="width:100%;max-width:340px;text-align:center">
-  <div style="width:72px;height:72px;border-radius:22px;background:#4520B8;color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px"><svg class="ic lg" sc-camel-view-box="0 0 24 24"><path d="{{ i.lock }}"></path></svg></div>
+  <div style="width:72px;height:72px;border-radius:22px;background:#4520B8;color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px"><svg class="ic lg" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ i.lock }}"></path></svg></div>
   <h2 class="h2" style="font-size:26px">VivoQuest is locked</h2><div class="sub" style="margin:6px 0 20px">Enter your PIN to continue</div>
   <div class="row" style="justify-content:center;gap:14px;margin-bottom:8px"><sc-for list="{{ lock.dots }}" as="d" hint-placeholder-count="4"><span style="width:16px;height:16px;border-radius:8px;background:{{ d.bg }};box-shadow:inset 0 0 0 2px #4520B8"></span></sc-for></div>
   <div class="err-t" style="min-height:22px;text-align:center">{{ lock.err }}</div>

@@ -539,7 +539,7 @@ a{text-decoration:none;color:inherit}
     </div>
     <nav class="nav" aria-label="Main">
       <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="9">
-        <button class="navb {{ n.cls }}" onClick="{{ n.tap }}"><svg class="ic" viewBox="0 0 24 24"><path d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button>
+        <button class="navb {{ n.cls }}" onClick="{{ n.tap }}"><svg class="ic" viewBox="0 0 24 24"><path sc-camel-d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button>
       </sc-for>
     </nav>
     <div class="sidefoot col" style="gap:12px">
@@ -566,12 +566,12 @@ a{text-decoration:none;color:inherit}
           <sc-if value="{{ hasRes }}" hint-placeholder-val="{{ false }}">
             <div class="drop">
               <sc-for list="{{ results }}" as="r" hint-placeholder-count="3">
-                <button class="row hov" style="width:100%;padding:12px;border-radius:12px" onClick="{{ r.tap }}"><svg class="ic sm" viewBox="0 0 24 24" style="color:#4520B8"><path d="{{ r.icon }}"></path></svg><div><div style="font-weight:800;font-size:14px">{{ r.title }}</div><div class="sub" style="font-size:12px">{{ r.sub }}</div></div></button>
+                <button class="row hov" style="width:100%;padding:12px;border-radius:12px" onClick="{{ r.tap }}"><svg class="ic sm" viewBox="0 0 24 24" style="color:#4520B8"><path sc-camel-d="{{ r.icon }}"></path></svg><div><div style="font-weight:800;font-size:14px">{{ r.title }}</div><div class="sub" style="font-size:12px">{{ r.sub }}</div></div></button>
               </sc-for>
             </div>
           </sc-if>
         </div>
-        <button class="ibtn" aria-label="{{ t.notifs }}" onClick="{{ a.toNotes }}"><svg class="ic" viewBox="0 0 24 24"><path d="{{ i.bell }}"></path></svg><sc-if value="{{ unreadAny }}" hint-placeholder-val="{{ true }}"><span class="dot"></span></sc-if></button>
+        <button class="ibtn" aria-label="{{ t.notifs }}" onClick="{{ a.toNotes }}"><svg class="ic" viewBox="0 0 24 24"><path sc-camel-d="{{ i.bell }}"></path></svg><sc-if value="{{ unreadAny }}" hint-placeholder-val="{{ true }}"><span class="dot"></span></sc-if></button>
         <div class="seg"><button class="{{ lang.enCls }}" onClick="{{ a.setEn }}">EN</button><button class="{{ lang.mrCls }}" onClick="{{ a.setMr }}">मर</button></div>
       </div>
     </div>
@@ -591,7 +591,7 @@ a{text-decoration:none;color:inherit}
               <div class="eyebrow" style="color:#D6C9FF">{{ t.next }}</div>
               <div style="font-size:34px;font-weight:800;letter-spacing:-.02em;margin:8px 0 4px">{{ t.today2 }}, 11:30 AM</div>
               <div style="font-size:16px;font-weight:600;color:#E2D9FF">Wound care and vitals check · Priya Kulkarni, RN</div>
-              <div class="row" style="margin-top:14px;gap:8px;flex-wrap:wrap"><span class="badge" style="background:rgba(255,255,255,.18);color:#fff"><svg class="ic sm" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="{{ nv.icon }}"></path></svg>{{ nv.label }}</span><span class="badge" style="background:rgba(255,255,255,.18);color:#fff">45 min · Home visit</span></div>
+              <div class="row" style="margin-top:14px;gap:8px;flex-wrap:wrap"><span class="badge" style="background:rgba(255,255,255,.18);color:#fff"><svg class="ic sm" viewBox="0 0 24 24" style="width:14px;height:14px"><path sc-camel-d="{{ nv.icon }}"></path></svg>{{ nv.label }}</span><span class="badge" style="background:rgba(255,255,255,.18);color:#fff">45 min · Home visit</span></div>
             </div>
             <div class="col" style="gap:10px;flex:0 0 190px">
               <button class="btn" style="background:#fff;color:#4520B8" onClick="{{ a.openV1 }}">{{ t.viewDetails }}</button>
@@ -625,7 +625,7 @@ a{text-decoration:none;color:inherit}
             <h2 class="h2" style="margin-bottom:12px">{{ t.quick }}</h2>
             <div class="col" style="gap:8px">
               <sc-for list="{{ quick }}" as="q" hint-placeholder-count="5">
-                <button class="opt" style="padding:12px 14px" onClick="{{ q.tap }}"><div class="avatar" style="width:40px;height:40px;border-radius:12px"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ q.icon }}"></path></svg></div><span style="flex:1;font-weight:700;font-size:15px">{{ q.label }}</span><svg class="ic sm" viewBox="0 0 24 24" style="color:#9A93B5"><path d="M9 6l6 6-6 6"></path></svg></button>
+                <button class="opt" style="padding:12px 14px" onClick="{{ q.tap }}"><div class="avatar" style="width:40px;height:40px;border-radius:12px"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ q.icon }}"></path></svg></div><span style="flex:1;font-weight:700;font-size:15px">{{ q.label }}</span><svg class="ic sm" viewBox="0 0 24 24" style="color:#9A93B5"><path d="M9 6l6 6-6 6"></path></svg></button>
               </sc-for>
             </div>
           </div>
@@ -654,17 +654,17 @@ a{text-decoration:none;color:inherit}
         <div class="row" style="justify-content:space-between;flex-wrap:wrap;margin-bottom:8px"><h2 class="h2">{{ t.planTitle }}</h2><div class="seg"><button class="{{ plan.todayCls }}" onClick="{{ a.planToday }}">{{ t.todayShort }}</button><button class="{{ plan.allCls }}" onClick="{{ a.planAll }}">{{ t.allShort }}</button></div></div>
         <sc-for list="{{ plan.items }}" as="p" hint-placeholder-count="4">
           <button class="li hov {{ p.selCls }}" style="padding:16px 12px;border-radius:14px" onClick="{{ p.tap }}">
-            <div class="avatar" style="width:46px;height:46px;border-radius:14px"><svg class="ic" viewBox="0 0 24 24"><path d="{{ p.icon }}"></path></svg></div>
+            <div class="avatar" style="width:46px;height:46px;border-radius:14px"><svg class="ic" viewBox="0 0 24 24"><path sc-camel-d="{{ p.icon }}"></path></svg></div>
             <div style="flex:1;min-width:0"><div style="font-weight:800;font-size:16px">{{ p.title }}</div><div class="sub" style="font-size:13px;margin-bottom:8px">{{ p.meta }}</div><div class="bar"><i style="width:{{ p.pctW }}"></i></div></div>
             <span style="font-weight:800;font-size:14px;color:#4520B8">{{ p.pct }}%</span>
           </button>
         </sc-for>
       </div>
       <div class="card" style="position:relative">
-        <div class="row" style="margin-bottom:16px"><div class="avatar" style="width:56px;height:56px;border-radius:18px;background:#4520B8;color:#fff"><svg class="ic lg" viewBox="0 0 24 24"><path d="{{ pl.icon }}"></path></svg></div><div><h2 class="h2">{{ pl.title }}</h2><div class="sub">{{ pl.meta }}</div></div></div>
+        <div class="row" style="margin-bottom:16px"><div class="avatar" style="width:56px;height:56px;border-radius:18px;background:#4520B8;color:#fff"><svg class="ic lg" viewBox="0 0 24 24"><path sc-camel-d="{{ pl.icon }}"></path></svg></div><div><h2 class="h2">{{ pl.title }}</h2><div class="sub">{{ pl.meta }}</div></div></div>
         <div style="font-size:16px;line-height:1.6;font-weight:500;margin-bottom:16px">{{ pl.detail }}</div>
-        <div class="row" style="padding:14px;border-radius:14px;background:#F7F5FF;align-items:flex-start"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path d="{{ i.users }}"></path></svg><div class="sub" style="color:#33304F;font-weight:600">{{ pl.who }}</div></div>
-        <div class="row" style="margin-top:18px;gap:10px;flex-wrap:wrap"><button class="btn p" onClick="{{ n.msgs }}"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ i.msg }}"></path></svg>{{ t.askTeam }}</button><button class="btn g" onClick="{{ a.reportSym }}">{{ t.recordSym }}</button></div>
+        <div class="row" style="padding:14px;border-radius:14px;background:#F7F5FF;align-items:flex-start"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path sc-camel-d="{{ i.users }}"></path></svg><div class="sub" style="color:#33304F;font-weight:600">{{ pl.who }}</div></div>
+        <div class="row" style="margin-top:18px;gap:10px;flex-wrap:wrap"><button class="btn p" onClick="{{ n.msgs }}"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ i.msg }}"></path></svg>{{ t.askTeam }}</button><button class="btn g" onClick="{{ a.reportSym }}">{{ t.recordSym }}</button></div>
         <p class="sub" style="margin:18px 0 0;font-size:12px">{{ t.disc }}</p>
       </div>
     </div>
@@ -675,7 +675,7 @@ a{text-decoration:none;color:inherit}
     <div class="page cols">
       <div class="col" style="gap:24px">
         <div class="card">
-          <div class="row" style="justify-content:space-between;margin-bottom:16px"><h2 class="h2">{{ t.weekTitle }}</h2><button class="btn p sm" onClick="{{ a.openReq }}"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ i.plus }}"></path></svg>{{ t.reqVisit }}</button></div>
+          <div class="row" style="justify-content:space-between;margin-bottom:16px"><h2 class="h2">{{ t.weekTitle }}</h2><button class="btn p sm" onClick="{{ a.openReq }}"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ i.plus }}"></path></svg>{{ t.reqVisit }}</button></div>
           <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px">
             <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
               <button aria-label="{{ d.aria }}" onClick="{{ d.tap }}" style="min-height:84px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:{{ d.bg }};color:{{ d.fg }};box-shadow:{{ d.sh }};transition:all .15s">
@@ -703,10 +703,10 @@ a{text-decoration:none;color:inherit}
         <span class="badge {{ sv.cls }}">{{ sv.label }}</span>
         <div class="row" style="margin:18px 0"><div class="avatar" style="width:52px;height:52px">{{ sv.ini }}</div><div><div style="font-weight:800;font-size:16px">{{ sv.who }}</div><div class="sub">{{ sv.role }}</div></div></div>
         <div class="col" style="gap:12px;font-size:15px;font-weight:600">
-          <div class="row" style="align-items:flex-start"><svg class="ic sm" viewBox="0 0 24 24" style="color:#4520B8;margin-top:2px"><path d="{{ i.clock }}"></path></svg><span>{{ sv.when }} · {{ sv.dur }}</span></div>
+          <div class="row" style="align-items:flex-start"><svg class="ic sm" viewBox="0 0 24 24" style="color:#4520B8;margin-top:2px"><path sc-camel-d="{{ i.clock }}"></path></svg><span>{{ sv.when }} · {{ sv.dur }}</span></div>
           <div class="row" style="align-items:flex-start"><svg class="ic sm" viewBox="0 0 24 24" style="color:#4520B8;margin-top:2px"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg><span>{{ sv.where }}</span></div>
         </div>
-        <sc-if value="{{ sv.changeReq }}" hint-placeholder-val="{{ false }}"><div class="row" style="margin-top:16px;padding:14px;border-radius:14px;background:#FBF0DC;color:#5E3607;align-items:flex-start"><svg class="ic" viewBox="0 0 24 24"><path d="{{ i.clock }}"></path></svg><div style="font-weight:700;font-size:14px">Change requested: {{ sv.newSlot }}. The nurse will confirm.</div></div></sc-if>
+        <sc-if value="{{ sv.changeReq }}" hint-placeholder-val="{{ false }}"><div class="row" style="margin-top:16px;padding:14px;border-radius:14px;background:#FBF0DC;color:#5E3607;align-items:flex-start"><svg class="ic" viewBox="0 0 24 24"><path sc-camel-d="{{ i.clock }}"></path></svg><div style="font-weight:700;font-size:14px">Change requested: {{ sv.newSlot }}. The nurse will confirm.</div></div></sc-if>
         <div class="row" style="margin-top:20px;gap:10px;flex-wrap:wrap">
           <sc-if value="{{ sv.canChange }}" hint-placeholder-val="{{ true }}"><button class="btn p" onClick="{{ a.openResched }}">{{ t.resched }}</button></sc-if>
           <button class="btn g" onClick="{{ n.msgs }}">{{ t.msgTeam }}</button>
@@ -723,7 +723,7 @@ a{text-decoration:none;color:inherit}
           <div class="card">
             <div class="row" style="justify-content:space-between;margin-bottom:6px"><h2 class="h2">{{ g.title }}</h2><span class="badge b-info">{{ g.count }}</span></div>
             <sc-for list="{{ g.items }}" as="m" hint-placeholder-count="3">
-              <div class="li"><div class="avatar" style="width:46px;height:46px;border-radius:14px"><svg class="ic" viewBox="0 0 24 24"><path d="{{ i.pill }}"></path></svg></div><div style="flex:1;min-width:0"><div style="font-weight:800;font-size:16px">{{ m.name }}</div><div class="sub" style="font-size:13px">{{ m.how }}</div></div><button class="btn sm {{ m.btnCls }}" onClick="{{ m.tap }}">{{ m.btn }}</button></div>
+              <div class="li"><div class="avatar" style="width:46px;height:46px;border-radius:14px"><svg class="ic" viewBox="0 0 24 24"><path sc-camel-d="{{ i.pill }}"></path></svg></div><div style="flex:1;min-width:0"><div style="font-weight:800;font-size:16px">{{ m.name }}</div><div class="sub" style="font-size:13px">{{ m.how }}</div></div><button class="btn sm {{ m.btnCls }}" onClick="{{ m.tap }}">{{ m.btn }}</button></div>
             </sc-for>
           </div>
         </sc-for>
@@ -751,12 +751,12 @@ a{text-decoration:none;color:inherit}
         <div class="row" style="padding:16px 22px;border-top:1px solid #E6E2F0">
           <label for="msg" style="position:absolute;width:1px;height:1px;overflow:hidden">Message</label>
           <input id="msg" class="input" style="flex:1;border-radius:26px" placeholder="{{ t.writeMsg }}" value="{{ chat.draft }}" onChange="{{ a.onDraft }}">
-          <button class="btn p" style="border-radius:26px;min-width:52px;padding:0 18px" aria-label="Send" onClick="{{ a.sendMsg }}"><svg class="ic" viewBox="0 0 24 24"><path d="{{ i.send }}"></path></svg></button>
+          <button class="btn p" style="border-radius:26px;min-width:52px;padding:0 18px" aria-label="Send" onClick="{{ a.sendMsg }}"><svg class="ic" viewBox="0 0 24 24"><path sc-camel-d="{{ i.send }}"></path></svg></button>
         </div>
       </div>
       <div class="col" style="gap:24px">
         <div class="card"><h2 class="h2" style="margin-bottom:6px">{{ t.team }}</h2>
-          <sc-for list="{{ team }}" as="m" hint-placeholder-count="3"><div class="li"><div class="avatar" style="width:44px;height:44px">{{ m.ini }}</div><div style="flex:1"><div style="font-weight:800;font-size:15px">{{ m.name }}</div><div class="sub" style="font-size:13px">{{ m.role }}</div></div><button class="ibtn" style="width:40px;height:40px" aria-label="Call" onClick="{{ a.toastCall }}"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ i.phone }}"></path></svg></button></div></sc-for>
+          <sc-for list="{{ team }}" as="m" hint-placeholder-count="3"><div class="li"><div class="avatar" style="width:44px;height:44px">{{ m.ini }}</div><div style="flex:1"><div style="font-weight:800;font-size:15px">{{ m.name }}</div><div class="sub" style="font-size:13px">{{ m.role }}</div></div><button class="ibtn" style="width:40px;height:40px" aria-label="Call" onClick="{{ a.toastCall }}"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ i.phone }}"></path></svg></button></div></sc-for>
         </div>
         <div class="card" style="background:#FCE8EA;box-shadow:none"><div style="font-weight:800;color:#7D1824;font-size:16px;margin-bottom:6px">{{ t.urgentTitle }}</div><div class="sub" style="color:#7D1824;font-weight:600">{{ t.urgentText }}</div></div>
       </div>
@@ -771,7 +771,7 @@ a{text-decoration:none;color:inherit}
         <div class="card" style="padding:8px 22px">
           <sc-for list="{{ nt.items }}" as="x" hint-placeholder-count="5">
             <button class="li hov" style="padding:18px 8px;border-radius:12px" onClick="{{ x.tap }}">
-              <div class="avatar" style="width:46px;height:46px;border-radius:14px"><svg class="ic" viewBox="0 0 24 24"><path d="{{ x.icon }}"></path></svg></div>
+              <div class="avatar" style="width:46px;height:46px;border-radius:14px"><svg class="ic" viewBox="0 0 24 24"><path sc-camel-d="{{ x.icon }}"></path></svg></div>
               <div style="flex:1;min-width:0"><div style="font-weight:800;font-size:16px">{{ x.title }}</div><div class="sub" style="color:#33304F">{{ x.text }}</div><div class="sub" style="font-size:12px;margin-top:4px">{{ x.time }}</div></div>
               <sc-if value="{{ x.unread }}" hint-placeholder-val="{{ false }}"><span style="width:10px;height:10px;border-radius:5px;background:#6D42E8"></span></sc-if>
             </button>
@@ -805,7 +805,7 @@ a{text-decoration:none;color:inherit}
         <sc-if value="{{ chk.s3 }}" hint-placeholder-val="{{ false }}">
           <h2 class="h2" style="font-size:24px;margin-bottom:6px">Anything else to tell the team?</h2><div class="sub" style="margin-bottom:14px">Optional. The nurse and clinician will read this.</div>
           <label for="note" class="lbl">Note</label><textarea id="note" class="ta" placeholder="For example: He slept well but felt tired after lunch." onChange="{{ a.onNote }}">{{ chk.note }}</textarea>
-          <div class="row" style="margin-top:16px;padding:14px;border-radius:14px;background:#F7F5FF;align-items:flex-start"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path d="{{ i.doc }}"></path></svg><div><div style="font-weight:800;font-size:14px">Summary</div><div class="sub" style="color:#33304F">{{ chk.summary }}</div></div></div>
+          <div class="row" style="margin-top:16px;padding:14px;border-radius:14px;background:#F7F5FF;align-items:flex-start"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path sc-camel-d="{{ i.doc }}"></path></svg><div><div style="font-weight:800;font-size:14px">Summary</div><div class="sub" style="color:#33304F">{{ chk.summary }}</div></div></div>
           <sc-if value="{{ chk.flag }}" hint-placeholder-val="{{ false }}"><div class="row" style="margin-top:14px;padding:14px;border-radius:14px;background:#FCE8EA;color:#7D1824;align-items:flex-start"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3 2 20h20zM12 10v4M12 17h.01"></path></svg><div style="font-weight:700;font-size:14px">This looks serious. The care team will be alerted right away. If Kamal is in danger, call 112 now.</div></div></sc-if>
         </sc-if>
         <sc-if value="{{ chk.done }}" hint-placeholder-val="{{ false }}">
@@ -825,7 +825,7 @@ a{text-decoration:none;color:inherit}
         <sc-for list="{{ perms }}" as="p" hint-placeholder-count="4"><div class="li" style="padding:18px 0"><div style="flex:1"><div style="font-weight:800;font-size:16px">{{ p.title }}</div><div class="sub">{{ p.sub }}</div></div><button class="switch {{ p.cls }}" role="switch" aria-checked="{{ p.on }}" aria-label="{{ p.title }}" onClick="{{ p.tap }}"><i></i></button></div></sc-for>
       </div>
       <div class="col" style="gap:24px">
-        <div class="card" style="background:#EAE4FF;box-shadow:none"><div class="row"><svg class="ic lg" viewBox="0 0 24 24" style="color:#4520B8"><path d="{{ i.lock }}"></path></svg><div style="font-weight:800;font-size:17px">You stay in control</div></div><p class="sub" style="color:#33304F;margin:10px 0 0;font-weight:600">Every time someone opens a record, it is written to the access history. Clinicians can see who viewed what.</p></div>
+        <div class="card" style="background:#EAE4FF;box-shadow:none"><div class="row"><svg class="ic lg" viewBox="0 0 24 24" style="color:#4520B8"><path sc-camel-d="{{ i.lock }}"></path></svg><div style="font-weight:800;font-size:17px">You stay in control</div></div><p class="sub" style="color:#33304F;margin:10px 0 0;font-weight:600">Every time someone opens a record, it is written to the access history. Clinicians can see who viewed what.</p></div>
         <div class="card"><h2 class="h2" style="margin-bottom:6px">Recent access</h2>
           <div class="li"><div class="avatar" style="width:40px;height:40px">AD</div><div style="flex:1"><div style="font-weight:700;font-size:14px">You viewed visit schedule</div><div class="sub" style="font-size:12px">Today 9:42 AM</div></div></div>
           <div class="li"><div class="avatar" style="width:40px;height:40px">RD</div><div style="flex:1"><div style="font-weight:700;font-size:14px">Medication records: access denied</div><div class="sub" style="font-size:12px">Yesterday 8:15 PM</div></div><span class="badge b-bad">Denied</span></div>
@@ -847,7 +847,7 @@ a{text-decoration:none;color:inherit}
         <div class="li"><span class="sub">Patient</span><span style="margin-left:auto;font-weight:700">Kamal Deshmukh, 72</span></div>
         <div class="li"><span class="sub">Home</span><span style="margin-left:auto;font-weight:700;text-align:right">Shivneri Apartments, Kothrud, Pune</span></div>
         <div class="li"><span class="sub">Care team</span><span style="margin-left:auto;font-weight:700">3 people</span></div>
-        <div class="row" style="margin-top:18px;gap:10px;flex-wrap:wrap"><button class="btn g" onClick="{{ a.toastEdit }}"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ i.edit }}"></path></svg>Edit details</button><button class="btn d" onClick="{{ a.askSignout }}"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ i.out }}"></path></svg>{{ t.signOut }}</button></div>
+        <div class="row" style="margin-top:18px;gap:10px;flex-wrap:wrap"><button class="btn g" onClick="{{ a.toastEdit }}"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ i.edit }}"></path></svg>Edit details</button><button class="btn d" onClick="{{ a.askSignout }}"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ i.out }}"></path></svg>{{ t.signOut }}</button></div>
       </div>
     </div>
     </sc-if>
@@ -864,7 +864,7 @@ a{text-decoration:none;color:inherit}
           <div class="card" style="background:#FCE8EA;box-shadow:none">
             <div class="row"><svg class="ic lg" viewBox="0 0 24 24" style="color:#B42332"><path d="M12 3 2 20h20zM12 10v4M12 17h.01"></path></svg><div style="font-weight:800;font-size:19px;color:#7D1824">{{ t.emTitle }}</div></div>
             <p style="margin:10px 0 16px;color:#7D1824;font-weight:600;line-height:1.55">{{ t.emText }}</p>
-            <div class="row" style="flex-wrap:wrap"><button class="btn" style="background:#B42332;color:#fff" onClick="{{ a.call112 }}"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ i.phone }}"></path></svg>Call 112</button><button class="btn g" onClick="{{ a.call108 }}">Ambulance 108</button></div>
+            <div class="row" style="flex-wrap:wrap"><button class="btn" style="background:#B42332;color:#fff" onClick="{{ a.call112 }}"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ i.phone }}"></path></svg>Call 112</button><button class="btn g" onClick="{{ a.call108 }}">Ambulance 108</button></div>
           </div>
           <div class="card"><h2 class="h2" style="margin-bottom:6px">{{ t.faqTitle }}</h2>
             <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="3">
@@ -884,9 +884,9 @@ a{text-decoration:none;color:inherit}
       <div class="cols">
         <div class="col" style="gap:24px">
           <div class="card"><h2 class="h2" style="margin-bottom:6px">What VivoQuest keeps</h2>
-            <div class="li"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path d="{{ i.list }}"></path></svg><span style="font-weight:600">Your care plan, visit records and medicines</span></div>
-            <div class="li"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path d="{{ i.pulse }}"></path></svg><span style="font-weight:600">Check-in answers and family updates</span></div>
-            <div class="li"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path d="{{ i.msg }}"></path></svg><span style="font-weight:600">Messages with your care team</span></div>
+            <div class="li"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path sc-camel-d="{{ i.list }}"></path></svg><span style="font-weight:600">Your care plan, visit records and medicines</span></div>
+            <div class="li"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path sc-camel-d="{{ i.pulse }}"></path></svg><span style="font-weight:600">Check-in answers and family updates</span></div>
+            <div class="li"><svg class="ic" viewBox="0 0 24 24" style="color:#4520B8"><path sc-camel-d="{{ i.msg }}"></path></svg><span style="font-weight:600">Messages with your care team</span></div>
           </div>
           <div class="card"><h2 class="h2" style="margin-bottom:6px">Who can see it</h2><div class="sub" style="font-size:15px;margin-bottom:14px">Only people you add can see your care information, and only the parts you choose to share.</div><button class="btn s" onClick="{{ n.consent }}">Review consent</button></div>
           <div class="card"><div class="row"><div style="flex:1"><div style="font-weight:800;font-size:16px">Share anonymous usage</div><div class="sub">Helps improve the app. No names or health details.</div></div><button class="switch {{ anCls }}" role="switch" aria-checked="{{ an }}" aria-label="Share anonymous usage" onClick="{{ a.togAn }}"><i></i></button></div></div>
@@ -911,8 +911,8 @@ a{text-decoration:none;color:inherit}
           <div style="padding-top:18px"><span class="lbl">Auto-lock after</span><div class="seg"><sc-for list="{{ autos }}" as="z" hint-placeholder-count="4"><button class="{{ z.cls }}" onClick="{{ z.tap }}">{{ z.label }}</button></sc-for></div><p class="sub" style="margin:10px 0 0">{{ autoNote }}</p></div>
         </div>
         <div class="col" style="gap:24px">
-          <div class="card" style="background:{{ secBg }};box-shadow:none"><div class="row"><svg class="ic lg" viewBox="0 0 24 24" style="color:{{ secFg }}"><path d="{{ i.shield }}"></path></svg><div><div style="font-weight:800;font-size:17px">Security check</div><div class="sub" style="color:#33304F;font-weight:600">{{ secMsg }}</div></div></div></div>
-          <div class="card"><div class="row" style="flex-wrap:wrap"><button class="btn p" onClick="{{ a.lockNow }}"><svg class="ic sm" viewBox="0 0 24 24"><path d="{{ i.lock }}"></path></svg>Lock now</button><button class="btn g" onClick="{{ a.changePin }}">Change PIN</button></div><p class="sub" style="margin:12px 0 0;font-size:12px">VivoQuest version 2.4.0 · Prototype PIN 1234</p></div>
+          <div class="card" style="background:{{ secBg }};box-shadow:none"><div class="row"><svg class="ic lg" viewBox="0 0 24 24" style="color:{{ secFg }}"><path sc-camel-d="{{ i.shield }}"></path></svg><div><div style="font-weight:800;font-size:17px">Security check</div><div class="sub" style="color:#33304F;font-weight:600">{{ secMsg }}</div></div></div></div>
+          <div class="card"><div class="row" style="flex-wrap:wrap"><button class="btn p" onClick="{{ a.lockNow }}"><svg class="ic sm" viewBox="0 0 24 24"><path sc-camel-d="{{ i.lock }}"></path></svg>Lock now</button><button class="btn g" onClick="{{ a.changePin }}">Change PIN</button></div><p class="sub" style="margin:12px 0 0;font-size:12px">VivoQuest version 2.4.0 · Prototype PIN 1234</p></div>
           <div class="card"><h2 class="h2" style="margin-bottom:6px">About and legal</h2><div class="li"><span style="font-weight:600">Terms of use</span></div><div class="li"><span style="font-weight:600">Privacy policy</span></div><div class="li"><span style="font-weight:600">Accessibility statement</span></div><div class="li"><span style="font-weight:600">Medical disclaimer</span></div></div>
         </div>
       </div>
@@ -974,7 +974,7 @@ a{text-decoration:none;color:inherit}
 <sc-if value="{{ lock.on }}" hint-placeholder-val="{{ false }}">
 <div style="position:fixed;inset:0;z-index:80;background:radial-gradient(120% 70% at 50% 0%,#EAE4FF 0%,#F7F5FF 65%);display:flex;align-items:center;justify-content:center;padding:24px">
   <div style="width:100%;max-width:340px;text-align:center">
-    <div style="width:72px;height:72px;border-radius:22px;background:#4520B8;color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px"><svg class="ic lg" viewBox="0 0 24 24"><path d="{{ i.lock }}"></path></svg></div>
+    <div style="width:72px;height:72px;border-radius:22px;background:#4520B8;color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px"><svg class="ic lg" viewBox="0 0 24 24"><path sc-camel-d="{{ i.lock }}"></path></svg></div>
     <h2 class="h2" style="font-size:26px">VivoQuest is locked</h2><div class="sub" style="margin:6px 0 20px">Enter your PIN to continue</div>
     <div class="row" style="justify-content:center;gap:14px;margin-bottom:8px"><sc-for list="{{ lock.dots }}" as="d" hint-placeholder-count="4"><span style="width:16px;height:16px;border-radius:8px;background:{{ d.bg }};box-shadow:inset 0 0 0 2px #4520B8"></span></sc-for></div>
     <div class="err-t" style="min-height:22px;text-align:center">{{ lock.err }}</div>

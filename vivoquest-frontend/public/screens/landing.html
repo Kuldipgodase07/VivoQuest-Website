@@ -551,7 +551,7 @@ a{text-decoration:none;color:inherit}
         <button class="tab {{ pg.vaccCls }}" sc-camel-on-click="{{ a.openVacc }}">{{ ct.n6 }}<svg class="ic" sc-camel-view-box="0 0 24 24" style="width:16px;height:16px" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
         <button class="tab {{ pg.safeCls }}" sc-camel-on-click="{{ a.openSafe }}">{{ ct.n7 }}</button>
       </nav>
-      <sc-if value="{{ sm.open }}" hint-placeholder-val="{{ false }}"><div class="sm-ov" sc-camel-on-click="{{ a.closeSm }}"></div><div class="sm-panel" role="region" aria-label="{{ sm.title }}"><div class="sm-eye">{{ sm.title }}</div><div class="sm-grid"><sc-for list="{{ sm.items }}" as="m" hint-placeholder-count="10"><button class="sm-i" sc-camel-on-click="{{ m.tap }}"><span class="sm-ic"><sc-if value="{{ m.img }}" hint-placeholder-val="{{ true }}"><img src="{{ m.img }}" alt="" aria-hidden="true" draggable="false"></sc-if><sc-if value="{{ m.noimg }}" hint-placeholder-val="{{ false }}"><svg class="ic" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path d="{{ m.d }}"></path></svg></sc-if></span><span class="sm-n">{{ m.name }}</span></button></sc-for></div></div></sc-if>
+      <sc-if value="{{ sm.open }}" hint-placeholder-val="{{ false }}"><div class="sm-ov" sc-camel-on-click="{{ a.closeSm }}"></div><div class="sm-panel" role="region" aria-label="{{ sm.title }}"><div class="sm-eye">{{ sm.title }}</div><div class="sm-grid"><sc-for list="{{ sm.items }}" as="m" hint-placeholder-count="10"><button class="sm-i" sc-camel-on-click="{{ m.tap }}"><span class="sm-ic"><sc-if value="{{ m.img }}" hint-placeholder-val="{{ true }}"><img sc-camel-src="{{ m.img }}" alt="" aria-hidden="true" draggable="false"></sc-if><sc-if value="{{ m.noimg }}" hint-placeholder-val="{{ false }}"><svg class="ic" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path sc-camel-d="{{ m.d }}"></path></svg></sc-if></span><span class="sm-n">{{ m.name }}</span></button></sc-for></div></div></sc-if>
       <div class="nb-act">
         <button sc-camel-on-click="{{ a.soon }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:26px;height:26px" aria-hidden="true"><path d="M12 16V4M7.5 8.5 12 4l4.5 4.5M4 14v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"></path></svg><span>{{ ct.upl }}</span></button>
         <button sc-camel-on-click="{{ a.soon }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:26px;height:26px" aria-hidden="true"><path d="M9.5 3h5M10.5 3v6.2L5 19a1.3 1.3 0 0 0 1.2 2h11.6a1.3 1.3 0 0 0 1.2-2l-5.5-9.8V3M7.5 15h9"></path></svg><span>{{ ct.lab }}</span></button>
@@ -596,7 +596,7 @@ a{text-decoration:none;color:inherit}
     <div class="wrap">
       <h2 class="h2 svc-h">{{ sv.title }}</h2>
       <div class="svc-grid {{ sv.anim }}">
-        <sc-for list="{{ sv.items }}" as="s" hint-placeholder-count="8"><div class="svc-c"><sc-if value="{{ s.img }}" hint-placeholder-val="{{ true }}"><img class="svc-img" src="{{ s.img }}" alt="" aria-hidden="true" draggable="false"></sc-if><sc-if value="{{ s.noimg }}" hint-placeholder-val="{{ false }}"><svg class="ic svc-i" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path d="{{ s.d }}"></path></svg></sc-if><div class="svc-n">{{ s.name }}</div></div></sc-for>
+        <sc-for list="{{ sv.items }}" as="s" hint-placeholder-count="8"><div class="svc-c"><sc-if value="{{ s.img }}" hint-placeholder-val="{{ true }}"><img class="svc-img" sc-camel-src="{{ s.img }}" alt="" aria-hidden="true" draggable="false"></sc-if><sc-if value="{{ s.noimg }}" hint-placeholder-val="{{ false }}"><svg class="ic svc-i" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path sc-camel-d="{{ s.d }}"></path></svg></sc-if><div class="svc-n">{{ s.name }}</div></div></sc-for>
       </div>
       <div class="svc-dots"><sc-for list="{{ sv.dots }}" as="d" hint-placeholder-count="3"><button class="svd {{ d.cls }}" aria-label="{{ d.label }}" sc-camel-on-click="{{ d.tap }}"><i></i></button></sc-for></div>
     </div>
@@ -606,7 +606,7 @@ a{text-decoration:none;color:inherit}
   <section class="sec" style="padding:12px 0 72px" aria-label="Offers">
     <div class="wrap">
       <div class="bn-view"><div class="bn-track" style="{{ bn.style }}">
-        <sc-for list="{{ bn.items }}" as="b" hint-placeholder-count="5"><div class="bn-slide"><img src="{{ b.src }}" alt="{{ b.alt }}" draggable="false"></div></sc-for>
+        <sc-for list="{{ bn.items }}" as="b" hint-placeholder-count="5"><div class="bn-slide"><img sc-camel-src="{{ b.src }}" alt="{{ b.alt }}" draggable="false"></div></sc-for>
       </div></div>
     </div>
   </section>
@@ -623,7 +623,7 @@ a{text-decoration:none;color:inherit}
         <sc-for list="{{ values }}" as="v" hint-placeholder-count="3">
           <article class="card vcard">
             <div class="vnum">{{ v.n }}</div>
-            <div class="vic"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:30px;height:30px"><path d="{{ v.icon }}"></path></svg></div>
+            <div class="vic"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:30px;height:30px"><path sc-camel-d="{{ v.icon }}"></path></svg></div>
             <div class="vt">{{ v.title }}</div>
             <div class="vx">{{ v.text }}</div>
           </article>
@@ -644,7 +644,7 @@ a{text-decoration:none;color:inherit}
       <div class="grid4" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))">
         <sc-for list="{{ roles }}" as="r" hint-placeholder-count="5">
           <button class="rc" sc-camel-on-click="{{ r.pick }}">
-            <div class="rc-ic"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path d="{{ r.icon }}"></path></svg></div>
+            <div class="rc-ic"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path sc-camel-d="{{ r.icon }}"></path></svg></div>
             <div class="rc-t">{{ r.title }}</div>
             <div class="rc-d">{{ r.desc }}</div>
             <span class="rc-go">{{ t.open }}<svg class="ic" sc-camel-view-box="0 0 24 24" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
@@ -698,7 +698,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div class="mk-grid">
           <sc-for list="{{ mkCats }}" as="c" hint-placeholder-count="6">
-            <div class="mk-c"><div class="mk-i"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ c.icon }}"></path></svg></div><span>{{ c.label }}</span></div>
+            <div class="mk-c"><div class="mk-i"><svg class="ic" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ c.icon }}"></path></svg></div><span>{{ c.label }}</span></div>
           </sc-for>
         </div>
       </div>
@@ -716,7 +716,7 @@ a{text-decoration:none;color:inherit}
       <div class="grid4" style="margin-bottom:24px">
         <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
           <article class="card" style="display:flex;flex-direction:column;gap:12px">
-            <div style="width:48px;height:48px;border-radius:14px;background:#E3F4EC;color:#18845B;display:flex;align-items:center;justify-content:center"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ p.icon }}"></path></svg></div>
+            <div style="width:48px;height:48px;border-radius:14px;background:#E3F4EC;color:#18845B;display:flex;align-items:center;justify-content:center"><svg class="ic" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ p.icon }}"></path></svg></div>
             <div style="font-size:18px;font-weight:800;line-height:1.3">{{ p.title }}</div>
             <div style="font-size:15px;line-height:1.55;color:#4B5565;font-weight:500">{{ p.text }}</div>
           </article>
@@ -773,7 +773,7 @@ a{text-decoration:none;color:inherit}
     <sc-if value="{{ ltc.rehab }}" hint-placeholder-val="{{ false }}">
     <section id="lt-how" class="rh-sec"><div class="wrap">
       <h2 class="rh-h">{{ rh.t.svcH }}</h2>
-      <div class="rh-grid"><sc-for list="{{ rh.items }}" as="c" hint-placeholder-count="7"><div class="rh-card"><img class="rh-ic" src="{{ c.icon }}" alt="" aria-hidden="true" draggable="false"><div class="rh-n">{{ c.name }}</div><a class="rh-enq" href="#rh-cta" sc-camel-on-click="{{ c.tap }}">{{ rh.t.enq }}</a></div></sc-for></div>
+      <div class="rh-grid"><sc-for list="{{ rh.items }}" as="c" hint-placeholder-count="7"><div class="rh-card"><img class="rh-ic" sc-camel-src="{{ c.icon }}" alt="" aria-hidden="true" draggable="false"><div class="rh-n">{{ c.name }}</div><a class="rh-enq" href="#rh-cta" sc-camel-on-click="{{ c.tap }}">{{ rh.t.enq }}</a></div></sc-for></div>
     </div></section>
     <section class="rh-pk" aria-label="{{ rh.t.pkH }}"><div class="wrap">
       <h2 class="rh-pt">{{ rh.t.pkH }}</h2>
@@ -806,7 +806,7 @@ a{text-decoration:none;color:inherit}
     </section>
     <section id="hv-svc" class="rh-sec"><div class="wrap">
       <h2 class="rh-h">{{ hvp.t.h }}</h2>
-      <div class="rh-grid"><sc-for list="{{ hvp.items }}" as="c" hint-placeholder-count="9"><div class="rh-card"><img class="rh-ic" src="{{ c.icon }}" alt="" aria-hidden="true" draggable="false"><div class="rh-n hv-n">{{ c.name }}</div><button class="rh-enq" sc-camel-on-click="{{ c.book }}">{{ hvp.t.book }}</button></div></sc-for></div>
+      <div class="rh-grid"><sc-for list="{{ hvp.items }}" as="c" hint-placeholder-count="9"><div class="rh-card"><img class="rh-ic" sc-camel-src="{{ c.icon }}" alt="" aria-hidden="true" draggable="false"><div class="rh-n hv-n">{{ c.name }}</div><button class="rh-enq" sc-camel-on-click="{{ c.book }}">{{ hvp.t.book }}</button></div></sc-for></div>
     </div></section>
   </main>
   </sc-if>
@@ -824,7 +824,7 @@ a{text-decoration:none;color:inherit}
     </section>
     <section id="hd-svc" class="rh-sec"><div class="wrap">
       <h2 class="rh-h">{{ hdp.t.h }}</h2>
-      <div class="rh-grid hd-grid"><sc-for list="{{ hdp.items }}" as="c" hint-placeholder-count="3"><div class="rh-card"><img class="rh-ic" src="{{ c.icon }}" alt="" aria-hidden="true" draggable="false"><div class="rh-n hv-n">{{ c.name }}</div><button class="rh-enq" sc-camel-on-click="{{ c.book }}">{{ hdp.t.book }}</button></div></sc-for></div>
+      <div class="rh-grid hd-grid"><sc-for list="{{ hdp.items }}" as="c" hint-placeholder-count="3"><div class="rh-card"><img class="rh-ic" sc-camel-src="{{ c.icon }}" alt="" aria-hidden="true" draggable="false"><div class="rh-n hv-n">{{ c.name }}</div><button class="rh-enq" sc-camel-on-click="{{ c.book }}">{{ hdp.t.book }}</button></div></sc-for></div>
     </div></section>
   </main>
   </sc-if>
@@ -878,7 +878,7 @@ a{text-decoration:none;color:inherit}
 <div class="sf-wrap sf-strip">
   <div class="sf-strip-in">
     <sc-for list="{{ sf.promises }}" as="p" hint-placeholder-count="4">
-      <div class="sf-st"><span class="sf-st-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path d="{{ p.ic }}"></path></svg></span><div><b>{{ p.t }}</b><span>{{ p.d }}</span></div></div>
+      <div class="sf-st"><span class="sf-st-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path sc-camel-d="{{ p.ic }}"></path></svg></span><div><b>{{ p.t }}</b><span>{{ p.d }}</span></div></div>
     </sc-for>
   </div>
 </div>
@@ -892,7 +892,7 @@ a{text-decoration:none;color:inherit}
   <div class="sf-pg">
     <sc-for list="{{ sf.pillars }}" as="p" hint-placeholder-count="6">
       <article class="sf-pc">
-        <span class="sf-pc-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" style="width:26px;height:26px" aria-hidden="true"><path d="{{ p.ic }}"></path></svg></span>
+        <span class="sf-pc-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" style="width:26px;height:26px" aria-hidden="true"><path sc-camel-d="{{ p.ic }}"></path></svg></span>
         <h3>{{ p.t }}</h3>
         <p>{{ p.d }}</p>
         <ul>
@@ -969,7 +969,7 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="sf-dg">
       <sc-for list="{{ sf.security }}" as="d" hint-placeholder-count="6">
-        <div class="sf-di"><span class="sf-di-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path d="{{ d.ic }}"></path></svg></span><div><b>{{ d.t }}</b><span>{{ d.d }}</span></div></div>
+        <div class="sf-di"><span class="sf-di-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path sc-camel-d="{{ d.ic }}"></path></svg></span><div><b>{{ d.t }}</b><span>{{ d.d }}</span></div></div>
       </sc-for>
     </div>
   </div>
@@ -983,7 +983,7 @@ a{text-decoration:none;color:inherit}
   </div>
   <div class="sf-std">
     <sc-for list="{{ sf.standards }}" as="s" hint-placeholder-count="6">
-      <div class="sf-sd"><span class="sf-sd-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path d="{{ s.ic }}"></path></svg></span><div><b>{{ s.t }}</b><span class="sf-sdd">{{ s.d }}</span><span class="sf-tag">{{ s.tag }}</span></div></div>
+      <div class="sf-sd"><span class="sf-sd-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path sc-camel-d="{{ s.ic }}"></path></svg></span><div><b>{{ s.t }}</b><span class="sf-sdd">{{ s.d }}</span><span class="sf-tag">{{ s.tag }}</span></div></div>
     </sc-for>
   </div>
 </section>
@@ -997,7 +997,7 @@ a{text-decoration:none;color:inherit}
   <div class="sf-two">
     <sc-for list="{{ sf.trade }}" as="t" hint-placeholder-count="2">
       <article class="sf-feat">
-        <span class="sf-pc-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" style="width:26px;height:26px" aria-hidden="true"><path d="{{ t.ic }}"></path></svg></span>
+        <span class="sf-pc-ic"><svg class="sf-ic" sc-camel-view-box="0 0 24 24" style="width:26px;height:26px" aria-hidden="true"><path sc-camel-d="{{ t.ic }}"></path></svg></span>
         <h3>{{ t.t }}</h3>
         <p>{{ t.d }}</p>
         <ul>
@@ -1230,7 +1230,7 @@ a{text-decoration:none;color:inherit}
         <div style="display:flex;flex-direction:column;gap:12px">
           <sc-for list="{{ roles }}" as="r" hint-placeholder-count="5">
             <button class="opt {{ r.cls }}" sc-camel-on-click="{{ r.choose }}">
-              <div style="width:48px;height:48px;border-radius:14px;background:#EAE4FF;color:#4520B8;display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ r.icon }}"></path></svg></div>
+              <div style="width:48px;height:48px;border-radius:14px;background:#EAE4FF;color:#4520B8;display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ r.icon }}"></path></svg></div>
               <div style="flex:1"><div style="font-weight:800;font-size:17px">{{ r.title }}</div><div style="font-size:14px;color:#667085;font-weight:500;margin-top:2px">{{ r.desc }}</div></div>
               <sc-if value="{{ r.on }}" hint-placeholder-val="{{ false }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="color:#4520B8"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>
             </button>
@@ -1255,7 +1255,7 @@ a{text-decoration:none;color:inherit}
 <div class="cm-back"><div class="cm" role="dialog" aria-modal="true" aria-labelledby="cm-t">
   <button class="cm-x" aria-label="Close" sc-camel-on-click="{{ a.closeCity }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:22px;height:22px"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
   <h2 id="cm-t" class="cm-t">{{ ct.title }}</h2>
-  <div class="cm-grid"><sc-for list="{{ cities }}" as="c" hint-placeholder-count="15"><button class="cm-c {{ c.cls }}" sc-camel-on-click="{{ c.pick }}"><span class="cm-ic"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:44px;height:44px"><path d="{{ c.d }}"></path></svg></span><span class="cm-n">{{ c.name }}</span></button></sc-for></div>
+  <div class="cm-grid"><sc-for list="{{ cities }}" as="c" hint-placeholder-count="15"><button class="cm-c {{ c.cls }}" sc-camel-on-click="{{ c.pick }}"><span class="cm-ic"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:44px;height:44px"><path sc-camel-d="{{ c.d }}"></path></svg></span><span class="cm-n">{{ c.name }}</span></button></sc-for></div>
 </div></div>
 </sc-if>
 
