@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>VivoQuest Administrator</title>
+<script src="b8660688-3458-454c-b804-b6ff5b7c6cc0"></script><script src="d6449adc-ec2c-4948-b727-4ed9d44f2a68"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("5863c7f2-66bb-43bc-a48f-c52b4dc3afe4") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("4b5432d9-c612-4cc9-b47c-c7f84ff4941e") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fc0c66f0-175b-439e-b383-356ab2e73ea6") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("1dc6e0e8-ff69-4174-8524-6287018b1b75") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("4bd68054-651d-4f73-b657-48a7737419c5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("0bafd5c7-1194-4c8f-b254-bec5a2c79d1b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("5863c7f2-66bb-43bc-a48f-c52b4dc3afe4") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("4b5432d9-c612-4cc9-b47c-c7f84ff4941e") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fc0c66f0-175b-439e-b383-356ab2e73ea6") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("1dc6e0e8-ff69-4174-8524-6287018b1b75") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("4bd68054-651d-4f73-b657-48a7737419c5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("0bafd5c7-1194-4c8f-b254-bec5a2c79d1b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("5863c7f2-66bb-43bc-a48f-c52b4dc3afe4") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("4b5432d9-c612-4cc9-b47c-c7f84ff4941e") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fc0c66f0-175b-439e-b383-356ab2e73ea6") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("1dc6e0e8-ff69-4174-8524-6287018b1b75") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("4bd68054-651d-4f73-b657-48a7737419c5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("0bafd5c7-1194-4c8f-b254-bec5a2c79d1b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("5863c7f2-66bb-43bc-a48f-c52b4dc3afe4") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("4b5432d9-c612-4cc9-b47c-c7f84ff4941e") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fc0c66f0-175b-439e-b383-356ab2e73ea6") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("1dc6e0e8-ff69-4174-8524-6287018b1b75") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("4bd68054-651d-4f73-b657-48a7737419c5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("0bafd5c7-1194-4c8f-b254-bec5a2c79d1b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("40bf85f8-2b9f-4ffc-9d46-36921fbc7972") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("1f8c60a4-4d14-4586-9ce5-274bb490144a") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("51dd29ca-1249-4acf-83e6-c00c152bebe7") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("f3319d8d-2dbb-44aa-a40a-56d36a435ea0") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("da67aee5-18d0-4e55-a833-e24c453f6354") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("172193cd-b0c3-4b7a-b5d1-622aabcf7332") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F7F5FF;font-family:'Manrope',system-ui,sans-serif;color:#17143A}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none;padding:0;text-align:left}
+:focus-visible{outline:3px solid #6D42E8;outline-offset:2px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:flex;width:100%;height:1000px;background:#F7F5FF}
+.side{width:280px;flex:none;background:#fff;border-right:1px solid #E6E2F0;padding:20px 16px;display:flex;flex-direction:column;gap:20px}
+.nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.navb{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4B5565}
+.navb:hover{background:#F7F5FF}.navb.on{background:#EAE4FF;color:#4520B8}
+.cnt{margin-left:auto;background:#B42332;color:#fff;border-radius:99px;font-size:12px;padding:2px 8px}
+.main{flex:1;min-width:0;overflow:auto;padding:32px 40px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:16px}
+.h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:#4520B8}
+.sub{color:#667085}.row{display:flex;align-items:center;gap:12px}.col{display:flex;flex-direction:column;gap:12px}
+.grid{display:grid;gap:20px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1.4fr 1fr}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 1px 2px rgba(23,20,58,.05),0 10px 28px rgba(69,32,184,.07)}
+.card h2{margin:0 0 14px;font-size:18px;font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:700;font-size:15px;background:#4520B8;color:#fff}
+.btn:hover{background:#3A1A9C}.btn.g{background:#fff;color:#17143A;box-shadow:inset 0 0 0 1.5px #E6E2F0}.btn.s{background:#EAE4FF;color:#4520B8}.btn.d{background:#B42332}
+.item{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1.5px #E6E2F0;background:#fff;font-weight:700}
+.item:hover{box-shadow:inset 0 0 0 1.5px #6D42E8}.item.on{background:#EAE4FF;box-shadow:inset 0 0 0 2px #4520B8;color:#4520B8}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid #C9C3DD;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}.on .chk{background:#18845B;border-color:#18845B}
+.avatar{width:42px;height:42px;border-radius:99px;background:#EAE4FF;color:#4520B8;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:800;background:#EAE4FF;color:#4520B8}.pill.bad{background:#FBE4E7;color:#B42332}.pill.warn{background:#FDEFD6;color:#A96513}.pill.ok{background:#DDF3EA;color:#18845B}
+.switch{width:52px;height:30px;border-radius:99px;background:#C9C3DD;position:relative;flex:none}.switch i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff;transition:left .15s}.switch.on{background:#4520B8}.switch.on i{left:25px}
+.input{width:100%;min-height:52px;border-radius:14px;border:1.5px solid #E6E2F0;background:#fff;padding:12px 16px;font-size:15px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20}
+.dlgbg{position:fixed;inset:0;background:rgba(23,20,58,.45);display:flex;align-items:center;justify-content:center;z-index:10}.dlg{background:#fff;border-radius:22px;padding:28px;width:440px}
+.rowline{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #E6E2F0}.rowline:last-child{border:0}
+.app{display:flex;width:100%;height:1000px;background:#F4F1FD}
+.side{width:248px;flex:none;background:linear-gradient(180deg,#26106E 0%,#3A1A9C 100%);color:#fff;border:0;padding:20px 14px;overflow:auto}
+.side .sub{color:#C9BDF5}.nh{font-size:11px;font-weight:800;letter-spacing:.1em;color:#A895EE;padding:14px 12px 6px}
+.side .navb{color:#E2DAFB;min-height:42px;font-size:14px;border-radius:12px;padding:0 12px}.side .navb:hover{background:rgba(255,255,255,.1)}.side .navb.on{background:#fff;color:#3A1A9C}
+.side nav,.side .nav{display:flex!important;flex-direction:column!important;gap:4px!important;flex:none!important;background:transparent!important;background-color:transparent!important;box-shadow:none!important;border:0!important;padding:0!important;margin:0!important}.side .navb,.side button.navb{display:flex!important;align-items:center!important;gap:12px!important;min-height:42px!important;padding:0 12px!important;border-radius:12px!important;font-size:14px!important;font-weight:600!important;border:0!important;box-shadow:none!important;width:100%!important;cursor:pointer!important;text-align:left!important;transition:all .15s ease!important}.side .navb:not(.on),.side button.navb:not(.on){background:transparent!important;background-color:transparent!important;color:#E2DAFB!important}.side .navb:not(.on):hover,.side button.navb:not(.on):hover{background:rgba(255,255,255,.12)!important;color:#fff!important}.side .navb.on,.side button.navb.on{background:#fff!important;background-color:#fff!important;color:#3A1A9C!important;font-weight:700!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important}.side .navb .ic,.side button.navb .ic{width:20px!important;height:20px!important;flex:none!important}.side .navb.on .ic,.side button.navb.on .ic{stroke:#3A1A9C!important}.side .navb:not(.on) .ic,.side button.navb:not(.on) .ic{stroke:#E2DAFB!important}.side .navb:not(.on):hover .ic,.side button.navb:not(.on):hover .ic{stroke:#fff!important}.side .cnt{margin-left:auto!important;background:#B42332!important;color:#fff!important;border-radius:99px!important;font-size:11px!important;font-weight:800!important;padding:2px 8px!important}.side .ic{width:20px;height:20px}
+.wrapm{flex:1;min-width:0;display:flex;flex-direction:column}
+.bar0{display:flex;align-items:center;gap:14px;padding:12px 32px;background:#fff;border-bottom:1px solid #E6E2F0}
+.srch{flex:1;max-width:420px;height:42px;border-radius:12px;background:#F4F1FD;display:flex;align-items:center;padding:0 14px;color:#667085;font-weight:600;font-size:14px;gap:8px}
+.main{padding:24px 32px 40px}.h1{font-size:28px}
+.tabs{display:flex;gap:6px;border-bottom:1.5px solid #E6E2F0;margin-bottom:20px;overflow:auto}
+.tab{padding:10px 16px;font-weight:800;font-size:14px;color:#667085;border-bottom:3px solid transparent;margin-bottom:-1.5px;white-space:nowrap}.tab:hover{color:#4520B8}.tab.on{color:#4520B8;border-color:#4520B8}
+.card{padding:20px;border-radius:18px}.card h2{font-size:16px;margin:0}
+.ch{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}.cs{font-size:12px;color:#667085;font-weight:600;margin-top:2px}
+.kv{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:4px 0}.dl{font-size:12px;font-weight:800;padding:3px 8px;border-radius:99px}.dl.up{background:#DDF3EA;color:#18845B}.dl.dn{background:#FBE4E7;color:#B42332}
+.kp{display:flex;flex-direction:column}.kr{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sbtn{min-height:34px;padding:0 14px;font-size:13px;border-radius:10px}
+.tbl{overflow:auto}.th,.tr{display:grid;gap:12px;align-items:center;padding:10px 12px;min-width:640px}.th{font-size:11px;font-weight:800;letter-spacing:.06em;color:#667085;background:#F7F5FF;border-radius:10px}.tr{border-bottom:1px solid #EFEBF8;font-size:14px;font-weight:600}.tr:hover{background:#FAF8FF}
+.td{display:flex;align-items:center;gap:10px;min-width:0}.td span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.avatar.sm{width:32px;height:32px;font-size:12px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}.chip{padding:6px 14px;border-radius:99px;font-weight:700;font-size:13px;background:#F4F1FD;color:#4B5565}.chip.on{background:#4520B8;color:#fff}
+.inp{height:38px;border-radius:10px;border:1.5px solid #E6E2F0;padding:0 12px;font-weight:600;font-size:14px;min-width:220px;background:#fff}
+.vb{display:flex;align-items:flex-end;gap:10px;height:190px}.vb>div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%;font-size:11px;font-weight:700;color:#667085}.vb i{display:block;width:100%;max-width:44px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,#8E5CFF,#4520B8);transition:filter .15s}.vb i:hover{filter:brightness(1.2)}
+.prog{height:9px;border-radius:99px;background:#EFEBF8;overflow:hidden}.prog i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6D42E8,#4520B8)}
+.pie{width:150px;height:150px;border-radius:50%;flex:none;position:relative}.pie::after{content:"";position:absolute;inset:30px;border-radius:50%;background:#fff}.pc{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center}.pc b{font-size:22px;font-weight:800}.pc span{font-size:11px;color:#667085;font-weight:700}
+.lg{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}.lg i{width:11px;height:11px;border-radius:4px;flex:none}
+.hm{display:grid;gap:4px}.hc{height:22px;border-radius:5px}.h0{background:#F4F1FD}.h1c{background:#DCD2FF}.h2{background:#B9A3FF}.h3{background:#8E5CFF}.h4{background:#4520B8}
+.ls{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #EFEBF8}.ls:last-child{border:0}
+.sw{width:46px;height:26px;border-radius:99px;background:#C9C3DD;position:relative;flex:none}.sw i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:99px;background:#fff;transition:left .15s}.sw.on{background:#4520B8}.sw.on i{left:23px}
+.mx{width:28px;height:28px;border-radius:8px;border:2px solid #C9C3DD;margin:auto;display:flex;align-items:center;justify-content:center;color:#fff}.mx.on{background:#4520B8;border-color:#4520B8}
+.dot{width:9px;height:9px;border-radius:50%;background:#18845B;flex:none;box-shadow:0 0 0 4px #DDF3EA}.dot.w{background:#E08A1E;box-shadow:0 0 0 4px #FDEFD6}.dot.b{background:#B42332;box-shadow:0 0 0 4px #FBE4E7}
+.env{font-size:12px;font-weight:800;padding:6px 12px;border-radius:99px;background:#DDF3EA;color:#18845B}
+.seg{display:inline-flex;padding:4px;background:#F0ECFB;border-radius:12px;gap:2px;flex-wrap:wrap}.seg button{padding:8px 14px;border-radius:9px;font-weight:700;font-size:13px;color:#4B5565;white-space:nowrap}.seg button:hover{color:#4520B8}.seg button.on{background:#fff;color:#4520B8;box-shadow:0 1px 4px rgba(23,20,58,.18)}
+.fbar{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;background:#fff;border-radius:18px;padding:16px 20px;margin-bottom:20px;box-shadow:0 1px 2px rgba(23,20,58,.05),0 10px 28px rgba(69,32,184,.07);border:1.5px solid #E6DEFF}
+.fl{font-size:11px;font-weight:800;letter-spacing:.08em;color:#667085;margin-bottom:6px}.fr{margin-left:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.sumtxt{font-size:13px;font-weight:700;color:#4520B8;background:#EAE4FF;padding:7px 12px;border-radius:99px}
+.rg{stroke:#fff;stroke-width:2.5;cursor:pointer;transition:filter .15s}.rg:hover{filter:brightness(1.12)}.rg.sel{stroke:#17143A;stroke-width:3}
+.mp{font:800 14px Manrope,sans-serif;text-anchor:middle;pointer-events:none}.mc{font:700 8.5px Manrope,sans-serif;fill:#17143A;paint-order:stroke;stroke:#fff;stroke-width:2.5px;pointer-events:none}
+.cv{font:800 11px Manrope,sans-serif;fill:#4B5565;text-anchor:middle}.cl{font:700 11px Manrope,sans-serif;fill:#98A2B3;text-anchor:middle}
+.rl{display:block;width:100%;padding:8px 10px;border-radius:10px;text-align:left}.rl:hover{background:#F7F5FF}.rl.on{background:#EAE4FF}
+
+.d-vq{background:linear-gradient(160deg,#F3EDFF,#DCD0FF);color:#4520B8}.d-nut{background:linear-gradient(160deg,#EAF8F0,#CDEBDB);color:#0F6B47}.d-med{background:linear-gradient(160deg,#EBF2FF,#CFE0FF);color:#1D4FB8}.d-bk{background:linear-gradient(160deg,#FFF4E2,#FFE1B3);color:#8F5200}.d-sec{background:linear-gradient(160deg,#EBEFF6,#CBD6E6);color:#243B63}.d-sw{background:linear-gradient(160deg,#F2ECFC,#D9CCF2);color:#4520B8}
+.toast{z-index:80}
+.cat-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 20px 14px}
+.cat-tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:0 20px 14px}
+.cat-s{display:flex;align-items:center;gap:8px;height:38px;min-width:260px;padding:0 12px;border-radius:10px;border:1.5px solid #E6E2F0;background:#fff;color:#667085}.cat-s input{border:0;outline:0;background:transparent;font-weight:600;font-size:14px;flex:1;min-width:0;height:100%}.cat-s:focus-within{border-color:#6D42E8}
+.cat-n{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:18px;padding:0 6px;margin-left:8px;border-radius:99px;background:rgba(23,20,58,.08);font-size:11px;font-weight:800;line-height:1}.chip.on .cat-n{background:rgba(255,255,255,.25)}
+.cth{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}.cth img,.cpi,.cupi{display:block;width:100%;height:100%;object-fit:cover}
+.cat-mrp{margin-left:8px;color:#667085;text-decoration:line-through;font-size:12.5px;font-weight:600}.cat-off{color:#0E6B47;font-weight:800;font-size:13px}
+.cat-empty{padding:44px 20px;text-align:center;color:#667085;font-weight:600}
+.cbg{position:fixed;inset:0;background:rgba(23,20,58,.5);z-index:40}
+.cdrw{position:fixed;top:0;right:0;bottom:0;width:min(980px,100%);background:#fff;z-index:50;display:flex;flex-direction:column;box-shadow:-24px 0 60px rgba(23,20,58,.28)}
+.cdh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 28px;border-bottom:1px solid #E6E2F0}
+.cdb{flex:1;min-height:0;display:grid;grid-template-columns:1fr 330px}
+.cdf{overflow:auto;padding:22px 28px 28px;display:flex;flex-direction:column;gap:18px}
+.cdp{overflow:auto;background:#F4F1FD;border-left:1px solid #E6E2F0;padding:22px;display:flex;flex-direction:column;gap:12px}
+.cdx{display:flex;align-items:center;justify-content:flex-end;gap:12px;padding:16px 28px;border-top:1px solid #E6E2F0;background:#fff}
+.cat-err{flex:1;color:#B42332;font-weight:800;font-size:14px}
+.cs2{font-size:12px;font-weight:800;letter-spacing:.08em;color:#4520B8;text-transform:uppercase;padding-bottom:2px;border-bottom:1.5px solid #EFEBF8}
+.cl2{display:block;font-size:13px;font-weight:800;margin:0 0 6px}.ch2{font-size:12px;font-weight:600;color:#667085;margin-top:5px}
+.cin{width:100%;min-height:46px;border-radius:12px;border:1.5px solid #E6E2F0;background:#fff;padding:10px 14px;font-size:14.5px;font-weight:600;font-family:inherit}.cin:focus{border-color:#6D42E8;outline:0}textarea.cin{resize:vertical;line-height:1.5}
+.cg2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.cup{display:flex;gap:16px;align-items:center;padding:14px;border:1.5px dashed #C9C3DD;border-radius:16px;background:#FAF8FF}
+.cup .cupw{width:96px;height:96px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid #E6E2F0;display:flex;align-items:center;justify-content:center;color:#A895EE;flex:none}
+.cpv{background:#fff;border:1px solid #ECE8F7;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(69,32,184,.1)}
+.cpt{position:relative;height:170px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cpr{position:absolute;left:12px;top:12px;background:#B42332;color:#fff;font-size:12px;font-weight:800;padding:5px 9px;border-radius:7px;line-height:1}
+.cpn{font-weight:800;font-size:15.5px;line-height:1.3}.cpd{font-size:13px;line-height:1.45;color:#667085}.cpp{font-size:21px;font-weight:800}
+.cat-ship{font-size:12.5px;font-weight:700;color:#0E6B47}
+.cpl{font-size:12px;font-weight:700;color:#4B5565;text-align:center}
+</style>
+</helmet>
+<div class="app">
+<aside class="side"><div class="row" style="padding:4px 8px 10px"><div style="width:42px;height:42px;border-radius:13px;background:#fff;color:#4520B8;display:flex;align-items:center;justify-content:center"><svg class="ic" sc-camel-view-box="0 0 24 24" role="img" aria-label="VivoQuest logo" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#4520B8" stroke="none"></path></svg></div><div><div style="font-size:19px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Administrator console</div></div></div>
+<sc-for list="{{ groups }}" as="g"><div class="nh">{{ g.h }}</div><nav class="nav" aria-label="{{ g.h }}"><sc-for list="{{ g.items }}" as="n"><button class="navb {{ n.cls }}" onclick="{{ n.tap }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button></sc-for></nav></sc-for></aside>
+<div class="wrapm"><div class="bar0"><div class="srch"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:18px;height:18px"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-5-5"></path></svg>Search members, orders, incidents</div><span class="env">Production · AWS Mumbai</span><span class="pill">Sample data</span><div style="margin-left:auto" class="row"><button class="btn g sbtn" onclick="{{ a.help }}">Support</button><div class="row" style="padding-left:12px;border-left:1px solid #E6E2F0"><div class="avatar">AK</div><div><div style="font-weight:800;font-size:14px">Anita Kulkarni</div><div class="sub" style="font-size:12px">Platform administrator</div></div></div></div></div>
+<div style="flex:1;overflow:auto"><main class="main"><div class="top" style="margin-bottom:14px"><div><div class="eyebrow">{{ eyebrow }}</div><h1 class="h1">{{ title }}</h1></div><div class="row"><sc-for list="{{ acts }}" as="x"><button class="btn {{ x.c }} sbtn" style="min-height:40px" onclick="{{ x.tap }}">{{ x.l }}</button></sc-for></div></div>
+<sc-if value="{{ hasTabs }}" hint-placeholder-val="{{ true }}"><div class="tabs"><sc-for list="{{ tabs }}" as="t"><button class="tab {{ t.cls }}" onclick="{{ t.tap }}">{{ t.l }}</button></sc-for></div></sc-if>
+<sc-if value="{{ hasFb }}" hint-placeholder-val="{{ false }}"><div class="fbar"><sc-for list="{{ fb.groups }}" as="g"><div><div class="fl">{{ g.label }}</div><div class="seg"><sc-for list="{{ g.opts }}" as="o"><button class="{{ o.cls }}" onclick="{{ o.tap }}">{{ o.l }}</button></sc-for></div></div></sc-for><sc-if value="{{ fb.hasTg }}" hint-placeholder-val="{{ false }}"><div><div class="fl">COMPARE</div><div class="row" style="height:40px"><button class="sw {{ fb.tgc }}" role="switch" aria-checked="{{ fb.tgo }}" aria-label="Compare with previous period" onclick="{{ fb.tgt }}"><i></i></button><span style="font-size:13px;font-weight:700">Previous period</span></div></div></sc-if><div class="fr"><span class="sumtxt">{{ fb.sum }}</span><sc-if value="{{ fb.hasReset }}" hint-placeholder-val="{{ false }}"><button class="btn g sbtn" onclick="{{ fb.reset }}">Reset</button></sc-if><sc-if value="{{ fb.hasPrimary }}" hint-placeholder-val="{{ false }}"><button class="btn" style="min-height:44px" onclick="{{ fb.ptap }}">{{ fb.pl }}</button></sc-if></div></div></sc-if>
+<sc-if value="{{ hasChips }}" hint-placeholder-val="{{ false }}"><div class="tools"><sc-for list="{{ chips }}" as="c"><button class="chip {{ c.cls }}" onclick="{{ c.tap }}">{{ c.l }}</button></sc-for></div></sc-if>
+<sc-for list="{{ rows }}" as="r"><div class="grid" style="grid-template-columns:{{ r.cols }};margin-bottom:20px"><sc-for list="{{ r.bl }}" as="b"><div class="card" style="min-width:0">
+<sc-if value="{{ b.f_kpi }}" hint-placeholder-val="{{ false }}"><div class="kp"><div class="eyebrow sub">{{ b.l }}</div><div class="kv">{{ b.v }}</div><div class="kr"><span class="dl {{ b.dc }}">{{ b.d }}</span><svg sc-camel-view-box="0 0 100 30" style="width:84px;height:26px"><polyline points="{{ b.sp }}" fill="none" stroke="#6D42E8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></div></div></sc-if>
+<sc-if value="{{ b.f_area }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div><div class="col" style="gap:4px"><sc-for list="{{ b.leg }}" as="l"><div class="lg"><i style="background:{{ l.c }}"></i>{{ l.n }}</div></sc-for></div></div><svg sc-camel-view-box="0 0 600 200" style="width:100%;height:auto"><defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6D42E8" stop-opacity=".32"></stop><stop offset="1" stop-color="#6D42E8" stop-opacity="0"></stop></linearGradient></defs><sc-for list="{{ b.grid }}" as="g"><line x1="20" x2="590" y1="{{ g.y }}" y2="{{ g.y }}" stroke="#EFEBF8"></line><text x="0" y="{{ g.ty }}" font-size="10" fill="#98A2B3" font-weight="700">{{ g.l }}</text></sc-for><path d="{{ b.fill }}" fill="url(#ag)"></path><polyline points="{{ b.line2 }}" fill="none" stroke="#B9B2D3" stroke-width="2" stroke-dasharray="5 5"></polyline><polyline points="{{ b.line }}" fill="none" stroke="#4520B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline><sc-for list="{{ b.xl }}" as="x"><text x="{{ x.x }}" y="196" font-size="10" fill="#98A2B3" font-weight="700">{{ x.l }}</text></sc-for></svg></sc-if>
+<sc-if value="{{ b.f_pie }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><div class="row" style="gap:22px;flex-wrap:wrap"><div class="pie" style="background:conic-gradient({{ b.pie }})"><div class="pc"><b>{{ b.c1 }}</b><span>{{ b.c2 }}</span></div></div><div class="col" style="gap:9px;flex:1;min-width:130px"><sc-for list="{{ b.items }}" as="i"><div class="lg"><i style="background:{{ i.c }}"></i><span style="flex:1">{{ i.n }}</span><span>{{ i.v }}</span></div></sc-for></div></div></sc-if>
+<sc-if value="{{ b.f_cols }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><svg sc-camel-view-box="0 0 400 210" style="width:100%;height:auto"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8E5CFF"></stop><stop offset="1" stop-color="#5B33D6"></stop></linearGradient></defs><sc-for list="{{ b.grid }}" as="g"><line x1="20" x2="390" y1="{{ g.y }}" y2="{{ g.y }}" stroke="#EFEBF8"></line></sc-for><sc-for list="{{ b.items }}" as="i"><g><title>{{ i.tt }}</title><rect x="{{ i.x }}" y="{{ i.y }}" width="{{ i.w }}" height="{{ i.h }}" rx="7" fill="{{ i.fill }}"></rect></g><text class="cv" x="{{ i.vx }}" y="{{ i.vy }}">{{ i.v }}</text><text class="cl" x="{{ i.vx }}" y="200">{{ i.l }}</text></sc-for></svg></sc-if>
+<sc-if value="{{ b.f_map }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div><div class="row" style="gap:10px"><sc-for list="{{ b.legend }}" as="l"><div class="lg"><i style="background:{{ l.c }}"></i>{{ l.n }}</div></sc-for></div></div><div class="row" style="gap:24px;align-items:center;flex-wrap:wrap"><svg sc-camel-view-box="0 0 364 301" style="flex:1.1;min-width:260px;max-width:430px;height:auto"><sc-for list="{{ b.regions }}" as="r"><path class="rg {{ r.cls }}" d="{{ r.d }}" fill="{{ r.fill }}" onclick="{{ r.tap }}"><title>{{ r.tt }}</title></path><text class="mp" x="{{ r.tx }}" y="{{ r.ty }}" fill="{{ r.tc }}">{{ r.pct }}</text></sc-for><sc-for list="{{ b.cities }}" as="c"><circle cx="{{ c.x }}" cy="{{ c.y }}" r="3" fill="#fff" stroke="#17143A" stroke-width="1.5"></circle><text class="mc" x="{{ c.tx }}" y="{{ c.y }}">{{ c.n }}</text></sc-for></svg><div class="col" style="flex:1;min-width:230px;gap:14px"><div style="background:#F7F5FF;border-radius:16px;padding:16px"><div class="eyebrow">{{ b.det.n }}</div><div class="row" style="align-items:flex-end;gap:8px"><div class="kv" style="margin:0">{{ b.det.pct }}</div><div class="cs" style="margin-bottom:6px">visits on time</div></div><div class="row" style="gap:18px;margin-top:8px"><div><div class="cs">Visits today</div><b>{{ b.det.v }}</b></div><div><div class="cs">Members</div><b>{{ b.det.m }}</b></div><div><div class="cs">Response</div><b>{{ b.det.r }}</b></div></div><div class="cs" style="margin-top:8px">{{ b.det.c }}</div></div><div class="col" style="gap:4px"><sc-for list="{{ b.list }}" as="i"><button class="rl {{ i.cls }}" onclick="{{ i.tap }}"><div class="row" style="justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:5px"><span>{{ i.n }}</span><span>{{ i.v }}</span></div><div class="prog"><i style="width:{{ i.p }}%"></i></div></button></sc-for></div></div></div></sc-if>
+<sc-if value="{{ b.f_vb }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><div class="vb"><sc-for list="{{ b.items }}" as="i"><div title="{{ i.tt }}"><span>{{ i.v }}</span><i style="height:{{ i.h }}%"></i><span>{{ i.l }}</span></div></sc-for></div></sc-if>
+<sc-if value="{{ b.f_hb }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><div class="col" style="gap:14px"><sc-for list="{{ b.items }}" as="i"><div><div class="row" style="justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:5px"><span>{{ i.l }}</span><span>{{ i.v }}</span></div><div class="prog"><i style="width:{{ i.p }}%"></i></div></div></sc-for></div></sc-if>
+<sc-if value="{{ b.f_ht }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><div class="col" style="gap:4px"><sc-for list="{{ b.items }}" as="i"><div class="row" style="gap:8px"><span class="cs" style="width:62px;margin:0">{{ i.l }}</span><div class="hm" style="flex:1;grid-template-columns:repeat({{ b.n }},1fr)"><sc-for list="{{ i.cells }}" as="c"><div class="hc {{ c.c }}" title="{{ c.tt }}"></div></sc-for></div></div></sc-for><div class="row" style="gap:8px"><span style="width:62px"></span><div class="hm" style="flex:1;grid-template-columns:repeat({{ b.n }},1fr)"><sc-for list="{{ b.xl }}" as="x"><span class="cs" style="margin:0;text-align:center">{{ x }}</span></sc-for></div></div></div></sc-if>
+<sc-if value="{{ b.f_ls }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><sc-for list="{{ b.items }}" as="i"><div class="ls"><sc-if value="{{ i.dc }}" hint-placeholder-val="{{ false }}"><span class="dot {{ i.dc }}"></span></sc-if><sc-if value="{{ i.av }}" hint-placeholder-val="{{ false }}"><div class="avatar sm">{{ i.av }}</div></sc-if><div style="flex:1;min-width:0"><div style="font-weight:800;font-size:14px">{{ i.t }}</div><div class="cs">{{ i.d }}</div></div><sc-if value="{{ i.tag }}" hint-placeholder-val="{{ false }}"><span class="pill {{ i.tc }}">{{ i.tag }}</span></sc-if><sc-if value="{{ i.b }}" hint-placeholder-val="{{ false }}"><button class="btn s sbtn {{ i.bc }}" onclick="{{ i.tap }}">{{ i.b }}</button></sc-if></div></sc-for></sc-if>
+<sc-if value="{{ b.f_tg }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><sc-for list="{{ b.items }}" as="i"><div class="ls"><div style="flex:1"><div style="font-weight:800;font-size:14px">{{ i.n }}</div><div class="cs">{{ i.d }}</div></div><button class="sw {{ i.cls }}" role="switch" aria-checked="{{ i.on }}" aria-label="{{ i.n }}" onclick="{{ i.tap }}"><i></i></button></div></sc-for></sc-if>
+<sc-if value="{{ b.f_mx }}" hint-placeholder-val="{{ false }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div></div><div class="tbl"><div class="th" style="grid-template-columns:{{ b.cols }}"><span>ROLE</span><sc-for list="{{ b.heads }}" as="h"><span style="text-align:center">{{ h }}</span></sc-for></div><sc-for list="{{ b.rows }}" as="r"><div class="tr" style="grid-template-columns:{{ b.cols }}"><span style="font-weight:800">{{ r.n }}</span><sc-for list="{{ r.cells }}" as="c"><button class="mx {{ c.cls }}" aria-label="{{ c.al }}" onclick="{{ c.tap }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:16px;height:16px"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></sc-for></div></sc-for></div></sc-if>
+<sc-if value="{{ b.f_tbl }}" hint-placeholder-val="{{ true }}"><div class="ch"><div><h2>{{ b.title }}</h2><div class="cs">{{ b.sub }}</div></div><sc-if value="{{ b.search }}" hint-placeholder-val="{{ false }}"><input class="inp" placeholder="Search" aria-label="Search" value="{{ b.q }}" oninput="{{ a.q }}"></sc-if></div><sc-if value="{{ b.hasChips }}" hint-placeholder-val="{{ false }}"><div class="tools"><sc-for list="{{ b.chips }}" as="c"><button class="chip {{ c.cls }}" onclick="{{ c.tap }}">{{ c.l }}</button></sc-for></div></sc-if><div class="tbl"><div class="th" style="grid-template-columns:{{ b.cols }}"><sc-for list="{{ b.heads }}" as="h"><span>{{ h }}</span></sc-for></div><sc-for list="{{ b.rows }}" as="r"><div class="tr" style="grid-template-columns:{{ b.cols }}"><sc-for list="{{ r.cells }}" as="c"><div class="td"><sc-if value="{{ c.av }}" hint-placeholder-val="{{ false }}"><div class="avatar sm">{{ c.av }}</div></sc-if><sc-if value="{{ c.k_t }}" hint-placeholder-val="{{ true }}"><span class="nm">{{ c.t }}</span></sc-if><sc-if value="{{ c.k_p }}" hint-placeholder-val="{{ false }}"><span class="pill {{ c.pc }}">{{ c.t }}</span></sc-if><sc-if value="{{ c.k_b }}" hint-placeholder-val="{{ false }}"><button class="btn s sbtn {{ c.bc }}" onclick="{{ c.tap }}">{{ c.t }}</button></sc-if><sc-if value="{{ c.k_pb }}" hint-placeholder-val="{{ false }}"><div class="prog" style="width:70px;flex:none"><i style="width:{{ c.p }}%"></i></div><span>{{ c.t }}</span></sc-if><sc-if value="{{ c.k_h }}" hint-placeholder-val="{{ false }}"><div class="hc {{ c.hc }}" style="width:100%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#17143A">{{ c.t }}</div></sc-if></div></sc-for></div></sc-for></div><sc-if value="{{ b.empty }}" hint-placeholder-val="{{ false }}"><div class="sub" style="padding:18px 4px">Nothing matches. Clear the search or filter.</div></sc-if></sc-if>
+</div></sc-for></div></sc-for>
+<sc-if value="{{ cat.on }}" hint-placeholder-val="{{ false }}"><div class="card" style="padding:0;overflow:hidden">
+<div class="cat-head"><div><h2>Marketplace catalogue</h2><div class="cs">Products, services, books and software. Anything marked Live appears on the VivoQuest marketplace straight away.</div></div><button class="btn sbtn" style="min-height:42px" onclick="{{ cat.add }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:18px;height:18px"><path d="M12 5v14M5 12h14"></path></svg>Add product</button></div>
+<div class="cat-tb"><label class="cat-s"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:18px;height:18px"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-5-5"></path></svg><input placeholder="Search by name, vendor or type" aria-label="Search catalogue" value="{{ cat.q }}" oninput="{{ cat.search }}"></label><sc-for list="{{ cat.depts }}" as="c"><button class="chip {{ c.cls }}" onclick="{{ c.tap }}">{{ c.l }}<span class="cat-n">{{ c.n }}</span></button></sc-for><div class="seg" style="margin-left:auto"><sc-for list="{{ cat.stats }}" as="s"><button class="{{ s.cls }}" onclick="{{ s.tap }}">{{ s.l }}</button></sc-for></div></div>
+<div class="tbl"><div class="th" style="grid-template-columns:{{ cat.cols }};min-width:980px;margin:0 20px"><span>PRODUCT</span><span>DEPARTMENT</span><span>VENDOR</span><span>PRICE</span><span>STOCK</span><span>STATUS</span><span>ACTIONS</span></div>
+<sc-for list="{{ cat.rows }}" as="p"><div class="tr" style="grid-template-columns:{{ cat.cols }};min-width:980px;margin:0 20px"><div class="td"><span class="cth {{ p.dcls }}"><sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}"><img src="{{ p.img }}" alt=""></sc-if><sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:22px;height:22px"><path d="{{ p.icon }}"></path></svg></sc-if></span><span style="min-width:0"><span class="nm" style="display:block;font-weight:800">{{ p.name }}</span><span class="cs" style="display:block;margin:0">{{ p.kind }}</span></span></div><div class="td"><span class="pill">{{ p.dept }}</span></div><div class="td"><span class="nm">{{ p.vendor }}</span></div><div><b>{{ p.price }}</b><sc-if value="{{ p.hasOff }}" hint-placeholder-val="{{ true }}"><span class="cat-mrp">{{ p.mrp }}</span></sc-if></div><div class="td"><span class="pill {{ p.stc }}">{{ p.stock }}</span></div><div class="td"><span class="pill {{ p.sc }}">{{ p.status }}</span></div><div class="row" style="gap:6px"><button class="btn s sbtn" onclick="{{ p.edit }}">Edit</button><button class="btn g sbtn" onclick="{{ p.toggle }}">{{ p.tl }}</button><button class="btn {{ p.dc }} sbtn" onclick="{{ p.del }}">{{ p.dl }}</button></div></div></sc-for>
+<sc-if value="{{ cat.empty }}" hint-placeholder-val="{{ false }}"><div class="cat-empty">No products match. Clear the search or add a new product.</div></sc-if></div></div></sc-if>
+</main></div></div>
+<sc-if value="{{ cf }}" hint-placeholder-val="{{ false }}"><div class="cbg" onclick="{{ cf.close }}"></div><div class="cdrw" role="dialog" aria-label="{{ cf.title }}">
+<div class="cdh"><div><div class="eyebrow">MARKETPLACE CATALOGUE</div><h2 style="margin:2px 0 0;font-size:22px">{{ cf.title }}</h2></div><button class="btn g sbtn" onclick="{{ cf.close }}">Close</button></div>
+<div class="cdb"><div class="cdf">
+<div class="cs2">Basics</div>
+<div><label class="cl2" for="pf-name">Product name</label><input id="pf-name" class="cin" placeholder="For example, Low-sodium meal kit, 7 days" value="{{ cf.name }}" oninput="{{ cf.h.name }}"></div>
+<div><div class="cl2">Department</div><div class="seg"><sc-for list="{{ cf.depts }}" as="d"><button class="{{ d.cls }}" onclick="{{ d.tap }}">{{ d.l }}</button></sc-for></div></div>
+<div class="cg2"><div><div class="cl2">Product type</div><div class="seg"><sc-for list="{{ cf.kinds }}" as="k"><button class="{{ k.cls }}" onclick="{{ k.tap }}">{{ k.l }}</button></sc-for></div></div><div><label class="cl2" for="pf-ven">Sold by (vendor)</label><input id="pf-ven" class="cin" placeholder="Vendor or brand name" value="{{ cf.vendor }}" oninput="{{ cf.h.vendor }}"></div></div>
+<div><label class="cl2" for="pf-note">Short description</label><textarea id="pf-note" class="cin" rows="2" placeholder="One or two lines shoppers see on the product card" oninput="{{ cf.h.note }}">{{ cf.note }}</textarea><div class="ch2">{{ cf.noteN }}</div></div>
+<div><label class="cl2" for="pf-hl">Highlights</label><textarea id="pf-hl" class="cin" rows="4" placeholder="One highlight per line, up to 4" oninput="{{ cf.h.hl }}">{{ cf.hl }}</textarea><div class="ch2">Shown as a checklist in the product quick view.</div></div>
+<div class="cs2">Pricing and stock</div>
+<div class="cg3"><div><label class="cl2" for="pf-price">Selling price (₹)</label><input id="pf-price" class="cin" inputmode="numeric" placeholder="1499" value="{{ cf.price }}" oninput="{{ cf.h.price }}"></div><div><label class="cl2" for="pf-mrp">MRP (₹)</label><input id="pf-mrp" class="cin" inputmode="numeric" placeholder="1799" value="{{ cf.mrp }}" oninput="{{ cf.h.mrp }}"></div><div><label class="cl2" for="pf-stock">Stock</label><input id="pf-stock" class="cin" inputmode="numeric" placeholder="Unlimited" value="{{ cf.stock }}" oninput="{{ cf.h.stock }}"></div></div>
+<div class="ch2" style="margin-top:-8px">{{ cf.priceHint }}</div>
+<div class="cs2">Image</div>
+<div class="cup"><div class="cupw"><sc-if value="{{ cf.hasImg }}" hint-placeholder-val="{{ false }}"><img class="cupi" src="{{ cf.img }}" alt="Product image preview"></sc-if><sc-if value="{{ cf.noImg }}" hint-placeholder-val="{{ true }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:34px;height:34px"><path d="M4 5h16v14H4zM4 16l5-5 4 4 3-3 4 4M9 9h.01"></path></svg></sc-if></div><div style="flex:1"><div style="font-weight:800">{{ cf.imgT }}</div><div class="ch2" style="margin:2px 0 10px">JPG or PNG. It is resized to 640 px and saved with the product.</div><div class="row" style="gap:8px"><label class="btn s sbtn" style="cursor:pointer;position:relative">{{ cf.imgB }}<input type="file" accept="image/*" aria-label="Upload product image" onchange="{{ cf.pick }}" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%"></label><sc-if value="{{ cf.hasImg }}" hint-placeholder-val="{{ false }}"><button class="btn g sbtn" onclick="{{ cf.rmImg }}">Remove</button></sc-if></div></div></div>
+<div class="cs2">Merchandising and visibility</div>
+<div class="cg2"><div><div class="cl2">Badge</div><div class="seg"><sc-for list="{{ cf.badges }}" as="b"><button class="{{ b.cls }}" onclick="{{ b.tap }}">{{ b.l }}</button></sc-for></div></div><div><div class="cl2">Status</div><div class="seg"><sc-for list="{{ cf.stats }}" as="s"><button class="{{ s.cls }}" onclick="{{ s.tap }}">{{ s.l }}</button></sc-for></div><div class="ch2">Draft products stay hidden from the marketplace.</div></div></div>
+<div class="row" style="gap:14px;padding:12px 14px;border-radius:14px;background:#F4F1FD"><button class="sw {{ cf.okc }}" role="switch" aria-checked="{{ cf.oko }}" aria-label="Clinician-approved" onclick="{{ cf.okt }}"><i></i></button><div><div style="font-weight:800;font-size:14px">Clinician-approved</div><div class="ch2" style="margin:0">Included when shoppers filter by Clinician-approved.</div></div></div>
+</div>
+<aside class="cdp"><div class="cs2" style="border:0">Marketplace preview</div><div class="cpv"><div class="cpt {{ cf.dcls }}"><sc-if value="{{ cf.hasImg }}" hint-placeholder-val="{{ false }}"><img class="cpi" src="{{ cf.img }}" alt=""></sc-if><sc-if value="{{ cf.noImg }}" hint-placeholder-val="{{ true }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:60px;height:60px;stroke-width:1.4"><path d="{{ cf.icon }}"></path></svg></sc-if><sc-if value="{{ cf.hasOff }}" hint-placeholder-val="{{ false }}"><span class="cpr">{{ cf.offN }}</span></sc-if></div><div style="padding:16px;display:flex;flex-direction:column;gap:8px"><div class="row" style="gap:6px;flex-wrap:wrap"><span class="pill">{{ cf.deptL }}</span><sc-if value="{{ cf.badge }}" hint-placeholder-val="{{ false }}"><span class="pill warn">{{ cf.badge }}</span></sc-if></div><div class="cpn">{{ cf.pname }}</div><div class="cpd">{{ cf.pnote }}</div><div><span class="cpp">{{ cf.pprice }}</span><sc-if value="{{ cf.hasOff }}" hint-placeholder-val="{{ false }}"><span class="cat-mrp">{{ cf.pmrp }}</span> <span class="cat-off">{{ cf.off }}</span></sc-if></div><div class="cat-ship">{{ cf.ship }}</div></div></div><div class="cpl">This is how the product card looks to shoppers.</div></aside></div>
+<div class="cdx"><div class="cat-err" role="alert">{{ cf.err }}</div><button class="btn g" onclick="{{ cf.close }}">Cancel</button><button class="btn" onclick="{{ cf.save }}">{{ cf.saveL }}</button></div></div></sc-if>
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div class="toast">{{ toast }}</div></sc-if></div>
+
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000}}">
+const VQ=(()=>{
+  const KEY='vq_catalog_v2';
+  const IC={leaf:'M5 19c0-8 5-14 14-14 0 9-6 14-14 14zM5 19l8-8',book:'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M9 8h6',eq:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h4l2-5 4 10 2-5h4',svc:'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',sec:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',sw:'M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14'};
+  const KI={'Nutrition':'leaf','Equipment':'eq','Care service':'svc','Guide':'book','Book':'book','Service':'sec','Product':'sec','Software':'sw'};
+  const DEPTS=[['vq','VivoQuest Care'],['nut','Nutrition'],['med','Medical products'],['bk','Books'],['sec','Security'],['sw','Software']];
+  const KINDS={vq:['Care service','Guide'],nut:['Nutrition'],med:['Equipment'],bk:['Book'],sec:['Service','Product'],sw:['Software']};
+  const VEN={vq:'VivoQuest Care',nut:'Nourish Kitchen',med:'HealthSense',bk:'IGVP Press',sec:'Engineers Global Venture Partners',sw:'Engineers Global Venture Partners'};
+  const RAW=[
+['p1','nut','Nutrition','leaf','Low-sodium meal kit, 7 days',1499,1799,'Home-cooked style meals for heart and BP care.',1,'Bestseller','Seven days of meals|Low salt, no pickles or papad|Reviewed by a dietitian'],
+['p2','nut','Nutrition','leaf','High-protein recovery mix',899,999,'Easy to digest. Supports healing after surgery.',1,'','Mixes with water or milk|Easy to digest|Reviewed by a dietitian'],
+['p3','nut','Nutrition','leaf','Diabetes-friendly millet pack',549,649,'Whole-grain staples with a lower sugar load.',1,'New','Whole grains|Lower sugar load|Family-size pack'],
+['p6','med','Equipment','eq','Digital BP monitor',1899,2299,'Upper-arm cuff with large, clear readings.',1,'Bestseller','Large display|Stores recent readings|Syncs with the VivoQuest app'],
+['p7','med','Equipment','eq','Pulse oximeter',1299,1599,'Fingertip SpO₂ and pulse in seconds.',1,'','Reads in seconds|Bright display|Carry pouch included'],
+['p8','med','Equipment','eq','Folding walker',2499,2999,'Height adjustable. Set up by a physiotherapist.',1,'','Height adjustable|Folds flat|Physiotherapist set-up available'],
+['p9','med','Equipment','eq','Weekly pill organiser',299,399,'Seven day, twice daily compartments.',0,'','Seven days|Morning and night|Easy-open lids'],
+['n4','nut','Nutrition','leaf','Oral rehydration sachets, 20 pack',349,429,'Electrolyte drink mix for dehydration and recovery.',1,'','Replaces salts and fluids|Lemon flavour|20 sachets'],
+['n5','nut','Nutrition','leaf','Low-salt seasoning blend',249,299,'Herb and spice mix that adds flavour without salt.',1,'New','No added salt|Everyday cooking|250 g jar'],
+['n6','nut','Nutrition','leaf','Diabetes-friendly protein bars, 12 pack',699,849,'Low-sugar bars for steady energy between meals.',1,'','Low sugar|High protein|12 bars'],
+['m1','med','Equipment','eq','Digital thermometer',349,449,'Fast, accurate temperature reading.',1,'','Reads in seconds|Fever alarm|Memory of last reading'],
+['m2','med','Equipment','eq','Glucometer with 50 strips',1099,1399,'Blood sugar monitor with a large display.',1,'Bestseller','Large display|50 test strips|Stores readings'],
+['m3','med','Equipment','eq','Steam nebuliser',1699,1999,'Quiet, compact unit for breathing therapy at home.',1,'','Compact design|Adult and child masks|Easy to clean'],
+['p10','vq','Care service','svc','Home physiotherapy visit',899,1099,'Mobility check and home safety review.',1,'','Licensed physiotherapist|Home safety review|Progress shared in the app'],
+['p11','vq','Care service','svc','Dietitian video consult',699,899,'Plan low-salt and diabetic meals with a dietitian.',1,'','30 minute video call|Personal meal plan|Follow-up in the app'],
+['p12','vq','Care service','svc','Nurse wellness visit',799,999,'Vitals, wound check and medicine review at home.',1,'','Vitals and wound check|Medicine review|Notes shared with the care team'],
+['p13','vq','Guide','book','Caregiver home guide',449,549,'Plain-language steps for daily care at home.',0,'','Plain language|Daily routines|Printed, 120 pages'],
+['p14','vq','Guide','book','Stroke recovery workbook',399,499,'Exercises and routines to follow with your care team.',0,'','Illustrated exercises|Weekly planner|Printed workbook'],
+['b1','bk','Book','book','Book [title 1]',499,599,'[Add book description and author]',0,'Bestseller','[Add highlight 1]|[Add highlight 2]|Paperback and e-book'],
+['b2','bk','Book','book','Book [title 2]',549,649,'[Add book description and author]',0,'','[Add highlight 1]|[Add highlight 2]|Paperback and e-book'],
+['s1','sec','Service','sec','Managed security monitoring, per month',7999,9499,'Round-the-clock monitoring and alerting for your systems.',0,'Popular','24x7 monitoring|Alert triage|Monthly report'],
+['s2','sec','Product','sec','Endpoint protection, 10 devices',3499,4299,'Antivirus and threat protection for laptops and phones.',0,'','10 device licence|Automatic updates|Central dashboard'],
+['s3','sec','Service','sec','Cybersecurity risk assessment',12999,14999,'A review of your setup with a clear fix list.',0,'','Expert review|Prioritised fixes|Summary for leadership'],
+['w1','sw','Software','sw','Care workflow software licence',9999,11999,'Scheduling and care records for small teams.',0,'New','Team scheduling|Care records|Role-based access'],
+['w2','sw','Software','sw','Cloud backup suite, 1 TB',2499,2999,'Encrypted backup for documents and records.',0,'','1 TB storage|Encrypted at rest|Restore in a click']
+  ];
+  const defaults=()=>RAW.map((r)=>{let h=0;for(const c of r[0])h=(h*31+c.charCodeAt(0))%997;const phys=['Nutrition','Equipment','Guide','Book'].indexOf(r[2])>=0;return {id:r[0],dept:r[1],kind:r[2],name:r[4],price:r[5],mrp:r[6],note:r[7],ok:!!r[8],badge:r[9],hl:r[10].split('|'),vendor:VEN[r[1]],stock:r[0]==='p9'?4:(phys?40:null),status:'Live',img:'',rate:+(4+(h%9)/10).toFixed(1),rv:60+(h*37)%2400};});
+  const icon=(kind,dept)=>IC[KI[kind]||({vq:'svc',nut:'leaf',med:'eq',bk:'book',sec:'sec',sw:'sw'}[dept])||'svc'];
+  const load=()=>{try{const s=window.localStorage.getItem(KEY);if(s){const a=JSON.parse(s);if(Array.isArray(a))return a;}}catch(e){}return Array.isArray(window.__vqCat)?window.__vqCat:defaults();};
+  const save=(items)=>{window.__vqCat=items;let ok=true;try{window.localStorage.setItem(KEY,JSON.stringify(items));}catch(e){ok=false;}try{window.dispatchEvent(new Event('vq-catalog'));}catch(e){}return ok;};
+  const uid=()=>'u'+Date.now().toString(36)+Math.floor(Math.random()*1296).toString(36);
+  const blank=()=>({id:'',name:'',dept:'nut',kind:'Nutrition',vendor:'',note:'',hl:'',price:'',mrp:'',badge:'None',ok:true,stock:'',status:'Live',img:'',err:'',rate:0,rv:0});
+  return {load,save,uid,blank,icon,DEPTS,KINDS,VEN};
+})();
+const COL=['#4520B8','#6D42E8','#8E5CFF','#B9A3FF','#DCD2FF'];
+const pie=(v)=>{const t=v.reduce((a,b)=>a+b,0);let s=0;return v.map((x,i)=>{const a=s/t*100;s+=x;return COL[i%5]+' '+a+'% '+(s/t*100)+'%';}).join(',');};
+const sp=(v)=>{const mn=Math.min(...v),mx=Math.max(...v);return v.map((y,i)=>(i*100/(v.length-1)).toFixed(1)+','+(27-(y-mn)/((mx-mn)||1)*24).toFixed(1)).join(' ');};
+const ser=(n,b,a,t,s)=>Array.from({length:n},(_,i)=>+(b+t*i/n+a*Math.sin(i*.9+s)).toFixed(1));
+const ar=(a,b,lb)=>{const n=a.length,mx=Math.max(...a,...(b||[0]))*1.12;const X=(i)=>20+i*(570/(n-1)),Y=(v)=>176-(v/mx)*156;const L=(v)=>v.map((y,i)=>X(i).toFixed(1)+','+Y(y).toFixed(1)).join(' ');const l1=L(a);const st=Math.ceil(n/6);
+  return {line:l1,line2:b?L(b):'',fill:'M'+l1.replace(/ /g,' L')+' L'+X(n-1)+',176 L20,176Z',grid:[0,1,2,3,4].map((i)=>({y:176-i*39,ty:179-i*39,l:(mx*i/4>=1000?(mx*i/4/1000).toFixed(1)+'k':(mx*i/4).toFixed(mx<20?1:0))})),xl:lb.map((l,i)=>i%st===0?{x:X(i)-8,l}:null).filter(Boolean)};};
+const fl=(o)=>({...o,['f_'+o.t]:true});
+const R=(cols,...bl)=>({cols,bl:bl.map(fl)});
+const K=(l,v,d,up,s)=>({t:'kpi',l,v,d,dc:up?'up':'dn',sp:sp(s)});
+const SC={Success:'ok',Refunded:'warn',Locked:'bad',Active:'ok',Delivered:'ok',Verified:'ok',Approved:'ok',Resolved:'ok',Healthy:'ok',Published:'ok',Paid:'ok',Low:'ok',On:'ok',Suspended:'bad',Failed:'bad',High:'bad',Open:'bad',Unpublished:'bad',Off:'bad',Pending:'warn',Medium:'warn',Invited:'warn',Investigating:'warn',Packed:'warn',Scheduled:'warn',Shipped:''};
+const ini=(n)=>n.replace('Dr. ','').split(' ').map((x)=>x[0]).join('').slice(0,2);
+const tx=(t,av)=>({k_t:true,t:String(t),av:av||''});const pl=(t)=>({k_p:true,t,pc:SC[t]||''});const bt=(t,tap,bc)=>({k_b:true,t,tap,bc:bc||''});const pb=(p,t)=>({k_pb:true,p,t:t||p+'%'});
+const hcl=(v)=>['h0','h1c','h2','h3','h4'][Math.min(4,Math.floor(v/20))];const hh=(v)=>({k_h:true,t:v+'%',hc:hcl(v)});
+const T=(title,cols,heads,rows,o)=>({t:'tbl',title,cols,heads,rows:rows.map((c)=>({cells:c})),empty:rows.length===0,...(o||{})});
+const VB=(title,sub,items)=>{const mx=Math.max(...items.map((i)=>i.h))*1.18,n=items.length,sl=360/n,bw=Math.min(40,sl*.58);const top=items.reduce((a,i)=>i.h>a.h?i:a,items[0]);return {t:'cols',title,sub,grid:[0,1,2,3,4].map((i)=>({y:20+i*40})),items:items.map((i,k)=>{const h=i.h/mx*150;return {x:30+k*sl+(sl-bw)/2,y:180-h,w:bw,h,vx:30+k*sl+sl/2,vy:180-h-6,l:i.l,v:i.v,tt:i.tt||i.l,fill:i===top?'#3A1A9C':'url(#cg)'};})};};const HB=(title,sub,items)=>({t:'hb',title,sub,items});
+const DN=(title,sub,c1,c2,items)=>({t:'pie',title,sub,c1,c2,pie:pie(items.map((i)=>i.n2)),items:items.map((i,k)=>({n:i.n,v:i.v,c:COL[k%5]}))});
+const LS=(title,sub,items)=>({t:'ls',title,sub,items});const TG=(title,sub,items)=>({t:'tg',title,sub,items});
+const HM=(title,sub,items,xl)=>({t:'ht',title,sub,items,xl,n:xl.length});
+const px=([lo,la])=>((lo-72.5)*40+12).toFixed(1)+','+((22.1-la)*42+12).toFixed(1);
+const RG={Konkan:{pts:[[72.75,20.1],[73.4,20.3],[73.5,19.4],[73.4,18.6],[73.6,17.6],[73.9,16.8],[74.0,15.9],[73.7,15.7],[73.5,16.5],[73.3,17.2],[73.1,17.9],[72.9,18.6],[72.85,19.2]],lab:[73.2,17.9],pct:96,v:'318',m:'2,940',r:'4.0 min',c:'Mumbai, Thane, Raigad, Ratnagiri, Sindhudurg'},
+ Western:{pts:[[73.5,19.4],[74.5,19.6],[75.4,19.9],[75.5,19.0],[75.4,18.3],[75.9,17.6],[75.7,17.2],[75.0,17.0],[74.8,16.5],[74.3,16.2],[74.0,15.9],[73.9,16.8],[73.6,17.6],[73.4,18.6]],lab:[74.55,18.0],pct:97,v:'412',m:'4,820',r:'3.6 min',c:'Pune, Satara, Sangli, Kolhapur, Solapur, Ahmednagar'},
+ North:{pts:[[73.4,20.3],[73.4,20.9],[73.8,21.8],[74.5,21.5],[75.3,21.6],[76.0,21.4],[76.2,20.6],[75.4,19.9],[74.5,19.6],[73.5,19.4]],lab:[74.7,20.7],pct:92,v:'176',m:'1,860',r:'5.1 min',c:'Nashik, Dhule, Nandurbar, Jalgaon'},
+ Marathwada:{pts:[[75.4,19.9],[76.2,20.6],[77.0,20.3],[77.6,19.6],[78.3,19.4],[77.9,19.0],[77.6,18.6],[77.2,18.4],[76.8,18.0],[75.9,17.6],[75.4,18.3],[75.5,19.0]],lab:[76.6,19.2],pct:89,v:'152',m:'1,520',r:'6.2 min',c:'Chhatrapati Sambhajinagar, Latur, Nanded, Beed'},
+ Vidarbha:{pts:[[76.2,20.6],[76.0,21.4],[76.8,21.5],[77.8,21.6],[78.3,21.6],[79.3,21.7],[80.0,21.7],[80.5,21.6],[80.9,21.3],[80.5,20.6],[80.3,20.0],[80.1,19.5],[80.2,19.0],[79.9,18.6],[79.4,19.3],[79.0,19.6],[78.6,19.4],[78.3,19.4],[77.6,19.6],[77.0,20.3]],lab:[78.6,20.7],pct:91,v:'188',m:'1,340',r:'5.4 min',c:'Nagpur, Amravati, Akola, Chandrapur'}};
+const CIT=[['Mumbai',72.9,19.1],['Pune',73.85,18.5],['Nashik',73.8,20.0],['Nagpur',79.1,21.15],['Kolhapur',74.2,16.7],['Sambhajinagar',75.3,19.9]];
+const shade=(p)=>p>=96?'#4520B8':p>=93?'#6D42E8':p>=90?'#8E5CFF':'#B9A3FF';
+const TX=[['412908332145',0,'10:42','Lata Kulkarni','Meal kit x2',8400,'UPI','Success'],['412907118820',0,'10:15','Kamal Deshmukh','Oxygen concentrator',32500,'Insurance','Success'],['412905560931',0,'09:48','Sunita Patil','BP monitor',1850,'UPI','Success'],['412903221478',0,'09:12','Vijay More','Pulse oximeter',1250,'UPI','Failed'],['412861774209',1,'18:30','Ramesh Jadhav','Walker with seat',3400,'Card','Success'],['412858091342',1,'16:05','Meena Joshi','Nurse home visit x3',3600,'Insurance','Success'],['412851447706',2,'11:20','Rekha Gaikwad','Wound dressing pack',650,'UPI','Success'],['412790335521',3,'14:44','Prakash Pawar','Physiotherapy x4',3600,'UPI','Pending'],['412733908814',5,'12:10','Shalini Naik','Meal kit x1',4200,'Card','Success'],['412698220173',7,'10:02','Dinesh Rane','Hospital bed',28900,'Insurance','Success'],['412610551936',12,'15:30','Anil Shinde','Nutrition shake x6',5394,'UPI','Refunded'],['412544877012',20,'09:25','Kavita Bhosale','Nurse visit x2',2400,'UPI','Success'],['412401229845',34,'17:15','Lata Kulkarni','BP monitor',1850,'Card','Success'],['412288903467',75,'13:40','Vijay More','Walker with seat',3400,'UPI','Success'],['411950127744',140,'11:05','Kamal Deshmukh','Oxygen concentrator rental',9800,'Insurance','Success'],['411420866391',260,'10:30','Meena Joshi','Meal kit x4',16800,'UPI','Success']];
+const ACC=[['Kamal Deshmukh','Patient or Family','+91 98•••• 4521','App'],['Rahul Deshmukh','Caregiver','+91 97•••• 1180','SMS'],['Priya Menon','Nurse','priya.m•••@vivoquest.in','App'],['Dr. Meera Joshi','Clinician','meera.j•••@vivoquest.in','App'],['Asha Kulkarni','Field worker','+91 90•••• 7732','SMS'],['Vikram Rao','Field worker','+91 99•••• 2064','SMS'],['Sunita Patil','Patient or Family','+91 98•••• 8307','None'],['Neha Shinde','Field worker','+91 88•••• 5519','None'],['Dr. Arun Patwardhan','Clinician','arun.p•••@vivoquest.in','App'],['Anita Kulkarni','Administrator','anita.k•••@vivoquest.in','App']];
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const WD=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const US=[['Kamal Deshmukh','Medicare Advantage','High',82,'2 min ago','Active'],['Sunita Patil','Managed Medicaid','High',54,'1 h ago','Active'],['Ramesh Jadhav','ACO','Medium',71,'Yesterday','Active'],['Lata Kulkarni','Medicare Advantage','Low',90,'5 min ago','Active'],['Anil Shinde','Managed Medicaid','Medium',38,'6 days ago','Suspended'],['Meena Joshi','ACO','Low',77,'3 h ago','Active'],['Prakash Pawar','Medicare Advantage','Medium',63,'Today','Invited'],['Rekha Gaikwad','Managed Medicaid','High',48,'2 days ago','Active'],['Vijay More','ACO','Low',85,'10 min ago','Active'],['Shalini Naik','Medicare Advantage','Medium',69,'Yesterday','Active'],['Dinesh Rane','ACO','Low',74,'4 h ago','Active'],['Kavita Bhosale','Managed Medicaid','High',41,'3 days ago','Suspended']];
+const STF=[['Priya Menon','Nurse','Pune','On','Today 09:12'],['Dr. Meera Joshi','Clinician','Pune','On','Today 08:40'],['Asha Kulkarni','Phlebotomist','Pune','On','Today 07:55'],['Vikram Rao','Physical therapist','Mumbai','On','Yesterday'],['Neha Shinde','Social care worker','Nashik','Off','5 days ago'],['Rahul Deshmukh','Caregiver','Pune','On','Today 10:02'],['Dr. Arun Patwardhan','Clinician','Nagpur','On','Today 09:30'],['Sneha Iyer','Nurse','Mumbai','Off','12 days ago']];
+const PERMS=['View records','Edit care plans','Approve orders','Export data','Manage users','Marketplace','View audit log','Backups'];
+const ROLES=['Patient or Family','Caregiver','Nurse','Clinician','Field worker','Administrator'];
+const PM0=[[1,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0],[1,1,0,0,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,0,0,0,0,0,0],[1,1,1,1,1,1,1,1]];
+const PRD=[['Oxygen concentrator 5L','Equipment','MediCare Equipments',32500,14],['Hospital bed, 3-function','Equipment','MediCare Equipments',28900,6],['Low-salt meal kit (7 days)','Nutrition','Nourish Kitchen',4200,120],['Digital BP monitor','Devices','HealthSense',1850,64],['Pulse oximeter','Devices','HealthSense',1250,3],['Walker with seat','Equipment','Mobility Plus',3400,22],['Diabetic nutrition shake','Nutrition','Nourish Kitchen',899,210],['Wound dressing pack','Supplies','CarePoint',650,0],['Nurse home visit','Service','VivoQuest Network',1200,999],['Physiotherapy session','Service','VivoQuest Network',900,999]];
+const ORD=[['VQ-10482','Kamal Deshmukh','Oxygen concentrator',32500,'Insurance','Packed'],['VQ-10481','Lata Kulkarni','Meal kit x2',8400,'UPI','Shipped'],['VQ-10480','Sunita Patil','BP monitor',1850,'UPI','Delivered'],['VQ-10479','Ramesh Jadhav','Walker with seat',3400,'Card','Pending'],['VQ-10478','Meena Joshi','Nurse home visit x3',3600,'Insurance','Delivered'],['VQ-10477','Vijay More','Pulse oximeter',1250,'UPI','Failed'],['VQ-10476','Rekha Gaikwad','Wound dressing pack',650,'UPI','Delivered']];
+const NXT={Pending:['Packed','Pack order'],Packed:['Shipped','Ship'],Shipped:['Delivered','Mark delivered'],Delivered:['Delivered','Invoice'],Failed:['Pending','Retry payment']};
+const VND=[['MediCare Equipments','Equipment','Licence verified','Active'],['Nourish Kitchen','Nutrition','FSSAI pending','Pending'],['HealthSense','Devices','CDSCO verified','Active'],['Mobility Plus','Equipment','Licence verified','Active'],['CarePoint','Supplies','Documents missing','Pending'],['Ayu Therapy Co.','Service','Council registration','Pending']];
+const RFD=[['R-2201','Vijay More · pulse oximeter','₹1,250'],['R-2200','Anil Shinde · duplicate charge','₹899'],['R-2198','Rekha Gaikwad · cancelled order','₹650']];
+const DSET=[['Patient records','Clinician, Admin','Every 15 min','02:00 today','212 GB','7 years'],['Triage and telemetry','Remote care desk','Continuous','Streaming','96 GB','2 years'],['Care plans and messages','Nurse, Clinician','Hourly','10:00 today','38 GB','7 years'],['Orders and payments','Admin','Hourly','10:00 today','27 GB','8 years'],['Audit logs','Admin, Security','Daily','02:00 today','31 GB','10 years'],['Configuration and roles','Admin','On every change','09:41 today','2 GB','Forever']];
+const RPT=[['Today 10:00','Hourly snapshot · all datasets'],['Today 02:00','Daily full backup · verified'],['Yesterday 02:00','Daily full backup · verified'],['3 days ago 02:00','Weekly full backup · verified']];
+const SES=[['Priya Menon','Nurse','Android · Pune','Today 09:12'],['Dr. Meera Joshi','Clinician','Chrome · Pune','Today 08:40'],['Anita Kulkarni','Administrator','Chrome · Pune','Now'],['Unknown user','Clinician','Linux · outside India','Today 03:15']];
+const REQ=[['Data access','Kamal Deshmukh','Due in 5 days'],['Data deletion','Anil Shinde','Due in 2 days'],['Correction','Lata Kulkarni','Due in 12 days'],['Consent withdrawal','Kavita Bhosale','Due today']];
+const AUD=[['10:42','Anita Kulkarni','Exported the user register','Data'],['10:15','Dr. Meera Joshi','Approved a care plan','Access'],['09:58','System','Blocked 38 sign-in attempts','Access'],['09:41','Anita Kulkarni','Changed Nurse permissions','Config'],['09:12','Priya Menon','Viewed a patient record','Access'],['08:50','Anita Kulkarni','Approved a vendor','Config'],['08:30','System','Backup completed','Data'],['Yesterday','Dr. Arun Patwardhan','Exported lab results','Data']];
+const TB={ov:[],us:[['pt','Members'],['st','Staff and field workers'],['cr','Credentials'],['rl','Roles and access'],['en','Engagement']],co:[['ov','Overview'],['at','Audit trail'],['fa','Financial controls'],['tx','Tax and filings'],['cp','Healthcare and data'],['au','Auditor access'],['rp','Reports']],pay:[['ov','Overview'],['tx','Transactions'],['st','Settlements'],['rf','Refunds and disputes'],['rc','Reconciliation'],['iv','Invoices and tax'],['rp','Reports']],mk:[['pr','Catalogue'],['or','Orders'],['pa','Payments'],['vn','Vendors']],an:[['out','Clinical outcomes'],['fun','Funnel and cohorts'],['ops','Operations'],['fin','Financial']],dt:[['bk','Backups'],['rc','Recovery'],['gv','Governance']],sc:[['ps','Posture'],['ac','Access'],['pv','Privacy'],['au','Audit log'],['in','Incidents']]};
+const TT={ov:['PLATFORM OVERVIEW','Operations center'],us:['USERS AND ROLES','People and access'],mk:['MARKETPLACE','Catalogue, orders and payments'],pay:['PAYMENTS','Money in, money out and reconciliation'],co:['AUDIT AND COMPLIANCE','Audit, finance controls and statutory rules'],an:['ANALYTICS','Insights and reporting'],dt:['DATA AND BACKUPS','Protect and recover data'],sc:['SECURITY AND PRIVACY','Trust and compliance']};
+const NAV=[['MONITOR',[['ov','Overview','M4 13h6V4H4zM14 20h6V4h-6zM4 20h6v-4H4z']]],['MANAGE',[['us','Users and roles','M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2 20a7 7 0 0 1 14 0M18 14a6 6 0 0 1 4 6'],['mk','Marketplace','M6 8h12l-1 12H7zM9 8a3 3 0 0 1 6 0'],['pay','Payments','M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M7 15h4'],['co','Audit and compliance','M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4']]],['INSIGHT',[['an','Analytics','M4 20V10M10 20V4M16 20v-8M22 20H2']]],['GOVERN',[['dt','Data and backups','M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3zM4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6'],['sc','Security and privacy','M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z']]]];
+const PAYX=(()=>{
+  const TODAY=new Date(2026,10,14);
+  const INR=(v)=>'₹'+Math.round(v).toLocaleString('en-IN');
+  const CMP=(v)=>v>=1e7?'₹'+(v/1e7).toFixed(2)+' Cr':v>=1e5?'₹'+(v/1e5).toFixed(1)+' L':INR(v);
+  const dstr=(d)=>{const x=new Date(TODAY.getFullYear(),TODAY.getMonth(),TODAY.getDate()-d);return x.getDate()+' '+MON[x.getMonth()]+' '+x.getFullYear();};
+  const p2=(n)=>String(n).padStart(2,'0');
+  let seed=11;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+  const pick=(a)=>a[Math.floor(rnd()*a.length)];
+  const PAT=['Lata Kulkarni','Kamal Deshmukh','Sunita Patil','Vijay More','Ramesh Jadhav','Meena Joshi','Rekha Gaikwad','Prakash Pawar','Anil Shinde','Shalini Naik','Dinesh Rane','Neelam Bhosale'];
+  const HOS=['Sunrise Multispeciality Hospital','Lotus Heart Institute','Godavari Care Hospital','Shivneri Medical Centre','Mahalaxmi Nursing Home'];
+  const INS=['SafeLife Insurance TPA','Mediguard TPA','Arogya Health Cover'];
+  const MKT=['Meal kit x2','BP monitor','Pulse oximeter','Walker with seat','Oxygen concentrator','Glucometer with 50 strips','Wound dressing pack'];
+  const SVC=['Nurse home visit x3','Physiotherapy x4','Lab tests at home','Dietitian video consult','Doctor visit','Sleep study at home','Full body health check-up'];
+  const HSV=['Remote monitoring licence','Discharge follow-up programme','Care coordination fee','Telemetry device bundle'];
+  const FEE={UPI:.002,Card:.019,'Net banking':.012,Wallet:.01,'Bank transfer':0,'Insurance (TPA)':0};
+  const FORCE={3:'Failed',11:'Failed',17:'Failed',29:'Failed',5:'Pending',20:'Pending',8:'Refunded',33:'Refunded',14:'Disputed'};
+  const TX=Array.from({length:48},(_,i)=>{
+    const day=Math.floor(Math.pow(i/48,1.55)*88);const r=rnd();
+    const seg=r<.4?'Patient':r<.65?'Marketplace':r<.85?'Hospital':'Insurance';
+    let payer,item,amt,method;const m=rnd();
+    if(seg==='Patient'){payer=pick(PAT);item=pick(SVC);amt=Math.round((600+rnd()*8400)/50)*50;method=m<.6?'UPI':m<.85?'Card':m<.95?'Net banking':'Wallet';}
+    else if(seg==='Marketplace'){payer=pick(PAT);item=pick(MKT);amt=Math.round((250+rnd()*33000)/50)*50;method=m<.6?'UPI':m<.85?'Card':m<.95?'Net banking':'Wallet';}
+    else if(seg==='Hospital'){payer=pick(HOS);item=pick(HSV);amt=Math.round((25000+rnd()*425000)/500)*500;method='Bank transfer';}
+    else{payer=pick(INS);item='Claim settlement · '+pick(PAT);amt=Math.round((8000+rnd()*172000)/500)*500;method='Insurance (TPA)';}
+    let status=FORCE[i]||'Success';
+    if((status==='Failed'||status==='Pending')&&(seg==='Hospital'||seg==='Insurance')){status='Success';}
+    const d=new Date(2026,10,14-day);
+    const id='PAY-'+String(d.getFullYear()).slice(2)+p2(d.getMonth()+1)+p2(d.getDate())+'-'+String(1000+Math.floor(rnd()*8999));
+    return {id,day,time:p2(8+Math.floor(rnd()*11))+':'+p2(Math.floor(rnd()*60)),payer,seg,item,amt,method,status,fee:Math.round(amt*(FEE[method]||0))};
+  });
+  const SETL=[
+    ['ST-4101','Sunrise Multispeciality Hospital','Hospital','1–15 Nov',1840000,12,1,'Scheduled'],
+    ['ST-4102','Lotus Heart Institute','Hospital','1–15 Nov',2260000,12,1,'Scheduled'],
+    ['ST-4103','Godavari Care Hospital','Hospital','1–15 Nov',960000,12,1,'Processing'],
+    ['ST-4104','Shivneri Medical Centre','Hospital','1–15 Nov',720000,12,1,'On hold'],
+    ['ST-4105','Mahalaxmi Nursing Home','Hospital','1–15 Nov',410000,12,1,'Paid'],
+    ['ST-4106','MediCare Equipments','Marketplace vendor','Oct cycle',320000,9,1,'Scheduled'],
+    ['ST-4107','Nourish Kitchen','Marketplace vendor','Oct cycle',210000,9,1,'Scheduled'],
+    ['ST-4108','HealthSense','Marketplace vendor','Oct cycle',160000,9,1,'Paid'],
+    ['ST-4109','Mobility Plus','Marketplace vendor','Oct cycle',90000,9,1,'On hold'],
+    ['ST-4110','Home-visit clinicians, Pune','Clinician network','1–15 Nov',684000,15,10,'Scheduled'],
+    ['ST-4111','Home-visit nurses, Mumbai','Clinician network','1–15 Nov',538000,15,10,'Processing'],
+    ['ST-4112','Field phlebotomists, Nashik','Clinician network','1–15 Nov',212000,15,10,'Paid']
+  ].map((r)=>({id:r[0],name:r[1],type:r[2],period:r[3],gross:r[4],ded:Math.round(r[4]*(r[5]+r[6])/100),net:r[4]-Math.round(r[4]*(r[5]+r[6])/100),status:r[7]}));
+  const REF=[
+    ['RF-2201','Vijay More','Pulse oximeter',1250,'Payment failed, amount debited','12 Nov'],
+    ['RF-2202','Anil Shinde','Nurse home visit x3',3600,'Visit cancelled by provider','12 Nov'],
+    ['RF-2203','Rekha Gaikwad','Wound dressing pack',650,'Item damaged on delivery','11 Nov'],
+    ['RF-2204','Ramesh Jadhav','Walker with seat',3400,'Duplicate payment','10 Nov'],
+    ['RF-2205','Meena Joshi','Physiotherapy x4',3600,'Service not as described','09 Nov'],
+    ['RF-2206','Dinesh Rane','Meal kit x2',2998,'Visit cancelled by provider','08 Nov'],
+    ['RF-2207','Neelam Bhosale','Lab tests at home',1450,'Duplicate payment','07 Nov'],
+    ['RF-2208','Prakash Pawar','BP monitor',1850,'Item damaged on delivery','06 Nov']
+  ].map((r)=>({id:r[0],payer:r[1],item:r[2],amt:r[3],reason:r[4],on:r[5]}));
+  const CB=[
+    ['CB-7712','Sunita Patil',1850,'Item not received','18 Nov','Open'],
+    ['CB-7711','Kamal Deshmukh',32500,'Card holder disputes charge','20 Nov','Open'],
+    ['CB-7708','Shalini Naik',899,'Duplicate transaction','24 Nov','Under review'],
+    ['CB-7701','Lata Kulkarni',8400,'Service not received','Closed 2 Nov','Won'],
+    ['CB-7695','Vijay More',1299,'Fraud claim','Closed 29 Oct','Lost']
+  ].map((r)=>({id:r[0],payer:r[1],amt:r[2],reason:r[3],due:r[4],status:r[5]}));
+  const REC=[[1,2486500,2486500,''],[2,2214000,2212160,'Gateway fee not booked'],[3,1986200,1986200,''],[4,2641800,2641800,''],[5,2310400,2322900,'Duplicate UPI callback'],[6,1904500,1904500,''],[7,2158700,2152500,'Chargeback hold'],[8,2392100,2392100,''],[9,2077300,2077300,''],[10,2265000,2265000,'']]
+    .map((r)=>({id:'D'+r[0],day:r[0],ledger:r[1],bank:r[2],why:r[3]}));
+  const INV=[
+    ['INV-2026-0412','Sunrise Multispeciality Hospital','Hospital','Remote monitoring licence · Q3',-10,640000,0],
+    ['INV-2026-0418','Lotus Heart Institute','Hospital','Discharge follow-up programme',-34,820000,400000],
+    ['INV-2026-0421','Godavari Care Hospital','Hospital','Care coordination fee',12,380000,0],
+    ['INV-2026-0425','Mediguard TPA','Insurer','Claims processing fee',-68,265000,0],
+    ['INV-2026-0430','Shivneri Medical Centre','Hospital','Telemetry device bundle',18,540000,0],
+    ['INV-2026-0433','Vertex Engineering (corporate plan)','Corporate','Employee wellness plan',-4,310000,0],
+    ['INV-2026-0436','Mahalaxmi Nursing Home','Hospital','Remote monitoring licence · Q3',-21,250000,295000],
+    ['INV-2026-0439','Arogya Health Cover','Insurer','Claims processing fee',25,190000,0],
+    ['INV-2026-0402','Lotus Heart Institute','Hospital','Remote monitoring licence · Q2',-52,720000,849600]
+  ].map((r)=>({no:r[0],cust:r[1],type:r[2],desc:r[3],due:r[4],base:r[5],gst:Math.round(r[5]*.18),total:Math.round(r[5]*1.18),paid:r[6]}));
+  const REPORTS=[
+    ['Daily collections','Every payment received, by source and method','Daily'],
+    ['Transaction ledger','Full list with UTR, gateway fee and status','On demand'],
+    ['Settlement statement','Payouts to hospitals, vendors and clinicians','Fortnightly'],
+    ['Refunds and chargebacks','Requests, decisions and dispute outcomes','Weekly'],
+    ['Bank reconciliation','Platform ledger against bank credits','Daily'],
+    ['Receivables ageing','Unpaid invoices by days overdue','Weekly'],
+    ['GST and TDS summary','Output tax, input credit and deductions','Monthly'],
+    ['Revenue by source','Patients, hospitals, marketplace and insurers','Monthly']
+  ];
+  const table=(head,data)=>{const esc=(v)=>String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;');return '<html><head><meta charset="utf-8"></head><body><sc-raw-table border="1"><sc-raw-tr>'+head.map((h)=>'<sc-raw-th>'+esc(h)+'</sc-raw-th>').join('')+'</sc-raw-tr>'+data.map((r)=>'<sc-raw-tr>'+r.map((c)=>'<sc-raw-td>'+esc(c)+'</sc-raw-td>').join('')+'</sc-raw-tr>').join('')+'</sc-raw-table></body></html>';};
+  const makePdf=(title,head,data)=>{
+    const cl=(v)=>String(v).replace(/₹/g,'Rs ').replace(/[–—]/g,'-').replace(/·/g,'|').replace(/•/g,'*').replace(/[^\x20-\x7E]/g,'?');
+    const W=842,H=595,M=30,FS=7,CW=FS*.6,LH=10,MAXC=Math.floor((W-2*M)/CW);
+    const hs=head.map(cl),rs=data.map((r)=>r.map(cl));
+    let w=hs.map((h,i)=>Math.min(34,Math.max(h.length,...rs.map((r)=>r[i].length))));
+    const gap=2;while(w.reduce((a,b)=>a+b,0)+gap*(w.length-1)>MAXC){const m=Math.max(...w);const i=w.indexOf(m);w[i]=Math.max(6,m-1);if(w.every((x)=>x<=6))break;}
+    const fit=(s,n)=>s.length>n?s.slice(0,Math.max(1,n-2))+'..':s.padEnd(n);
+    const line=(r)=>r.map((c,i)=>fit(c,w[i])).join(' '.repeat(gap));
+    const rule='-'.repeat(Math.min(MAXC,w.reduce((a,b)=>a+b,0)+gap*(w.length-1)));
+    const per=Math.floor((H-2*M-54)/LH);const pages=[];for(let i=0;i<Math.max(rs.length,1);i+=per)pages.push(rs.slice(i,i+per));
+    const esc=(t)=>t.replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
+    const objs=[];const add=(s)=>{objs.push(s);return objs.length;};
+    add('<< /Type /Catalog /Pages 2 0 R >>');add('PAGES');add('<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>');add('<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>');
+    const kids=[];
+    pages.forEach((pg,pi)=>{
+      let y=H-M-4;let c='';
+      const t=(f,sz,x,yy,s)=>{c+='BT /'+f+' '+sz+' Tf '+x+' '+yy+' Td ('+esc(s)+') Tj ET\n';};
+      c+='0.27 0.125 0.72 rg 0 '+(H-14)+' '+W+' 14 re f 0 g\n';
+      t('F2',12,M,y-8,cl(title));y-=22;
+      t('F1',7,M,y,'VivoQuest | Confidential | Generated 14 Nov 2026 | Sample data for illustration');y-=14;
+      t('F2',FS,M,y,line(hs));y-=LH;t('F1',FS,M,y,rule);y-=LH;
+      pg.forEach((r)=>{t('F1',FS,M,y,line(r));y-=LH;});
+      t('F1',7,M,M-8,'Page '+(pi+1)+' of '+pages.length+' | '+rs.length+' rows');
+      const ci=add('<< /Length '+c.length+' >>\nstream\n'+c+'endstream');
+      kids.push(add('<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+W+' '+H+'] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents '+ci+' 0 R >>'));
+    });
+    objs[1]='<< /Type /Pages /Kids ['+kids.map((k)=>k+' 0 R').join(' ')+'] /Count '+kids.length+' >>';
+    let out='%PDF-1.4\n';const off=[];objs.forEach((o,i)=>{off.push(out.length);out+=(i+1)+' 0 obj\n'+o+'\nendobj\n';});
+    const xr=out.length;out+='xref\n0 '+(objs.length+1)+'\n0000000000 65535 f \n'+off.map((o)=>String(o).padStart(10,'0')+' 00000 n \n').join('')+'trailer\n<< /Size '+(objs.length+1)+' /Root 1 0 R >>\nstartxref\n'+xr+'\n%%EOF';
+    const bytes=new Uint8Array(out.length);for(let i=0;i<out.length;i++)bytes[i]=out.charCodeAt(i)&255;
+    return new Blob([bytes],{type:'application/pdf'});
+  };
+  const save=(fmt,name,head,data,title)=>{try{if((fmt==='PDF'||fmt==='Excel')&&window.VQApp&&VQApp.tbl){return VQApp.tbl(fmt,name,head,data,title);}let blob,fn;if(fmt==='PDF'){blob=makePdf(title||name,head,data);fn=name+'.pdf';}else if(fmt==='Excel'){blob=new Blob(['﻿'+table(head,data)],{type:'application/vnd.ms-excel;charset=utf-8'});fn=name+'.xls';}else{const esc=(v)=>'"'+String(v).replace(/"/g,'""')+'"';blob=new Blob(['﻿'+[head,...data].map((r)=>r.map(esc).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});fn=name+'.csv';}const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=fn;a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);return fn;}catch(e){return '';}};
+  const txs=(st)=>TX.map((t)=>({...t,status:st.pstat[t.id]||t.status}));
+  const setl=(st)=>SETL.map((s)=>({...s,status:st.pset[s.id]||s.status}));
+  const refs=(st)=>REF.map((r)=>({...r,status:st.prf[r.id]||'Pending'}));
+  const cbs=(st)=>CB.map((c)=>({...c,status:st.pcb[c.id]||c.status}));
+  const recs=(st)=>REC.map((r)=>({...r,diff:r.bank-r.ledger,status:st.prc[r.id]||(r.bank===r.ledger?'Matched':'Mismatch')}));
+  const invs=(st)=>INV.map((v)=>{const paid=st.pinv[v.no]?v.total:v.paid;const bal=v.total-paid;return {...v,paid,bal,status:bal<=0?'Paid':v.due<0?'Overdue':paid>0?'Partially paid':'Due'};});
+  const attn=(st)=>({fail:txs(st).filter((t)=>t.status==='Failed').length,hold:setl(st).filter((s)=>s.status==='On hold').length,mis:recs(st).filter((r)=>r.status==='Mismatch').length,od:invs(st).filter((v)=>v.status==='Overdue').length,cb:cbs(st).filter((c)=>c.status==='Open').length,rf:refs(st).filter((r)=>r.status==='Pending').length});
+  const total=(st)=>{const a=attn(st);return a.fail+a.hold+a.mis+a.od+a.cb+a.rf;};
+  return {TODAY,INR,CMP,dstr,TX,SETL,REF,CB,REC,INV,REPORTS,save,txs,setl,refs,cbs,recs,invs,attn,total};
+})();
+Object.assign(SC,{Matched:'ok',Mismatch:'bad',Overdue:'bad','On hold':'bad',Won:'ok',Lost:'bad','Under review':'warn',Processing:'warn',Disputed:'bad','Partially paid':'warn',Due:'warn',Rejected:'bad',Settled:'ok'});
+const COMP=(()=>{
+  const P=PAYX;const INR=P.INR,CMP=P.CMP;
+  let seed=5;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+  const p2=(n)=>String(n).padStart(2,'0');
+  const fnv=(s)=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16).padStart(8,'0');};
+  const USERS=[['Anita Kulkarni','Administrator'],['Rohit Menon','Finance manager'],['Pooja Desai','Accounts executive'],['Neha Joshi','Internal auditor'],['CA Rajesh Kulkarni','Chartered accountant (external)'],['System','Automated job']];
+  const EV=[
+    ['Payments','Released settlement ST-4102 (₹19,89,120 net)',0,'Success'],['Payments','Approved refund RF-2204 (₹3,400)',1,'Success'],['Payments','Retried failed payment PAY-261112-4417',2,'Success'],['Payments','Exported transactions as CSV',1,'Success'],['Payments','Changed card gateway fee rule to 1.9%',0,'Success'],['Payments','Marked bank day D2 as matched',2,'Success'],['Payments','Released payout above ₹5,00,000 without second approver',2,'Blocked'],
+    ['Marketplace','Published product Digital BP monitor',0,'Success'],['Marketplace','Changed price of Pulse oximeter, ₹1,399 to ₹1,299',0,'Success'],['Marketplace','Approved vendor Ayu Therapy Co.',0,'Success'],['Marketplace','Suspended listing, Oxygen concentrator 5L',0,'Success'],['Marketplace','Vendor bank account changed, MediCare Equipments',2,'Success'],
+    ['Users and access','Created login for Neha Shinde',0,'Success'],['Users and access','Changed role of Priya Menon to Nurse lead',0,'Success'],['Users and access','Revoked all other sessions',0,'Success'],['Users and access','Failed sign-in, 5 attempts from one network',5,'Blocked'],['Users and access','Granted auditor read-only access',0,'Success'],
+    ['Clinical data','Viewed care record of Kamal Deshmukh',0,'Success'],['Clinical data','Exported member list (4,210 rows)',0,'Success'],['Clinical data','Processed consent withdrawal for Sunita Patil',5,'Success'],['Clinical data','Tried to open care record without clinical role',2,'Blocked'],
+    ['Settings','Nightly backup completed',5,'Success'],['Settings','Updated retention policy to 8 years',0,'Success'],['Settings','Locked October books',1,'Success'],['Settings','Tried to edit a locked period',2,'Blocked']
+  ];
+  const AT=Array.from({length:64},(_,i)=>{const e=EV[(i*7+Math.floor(rnd()*5))%EV.length];const day=Math.floor(Math.pow(i/64,1.4)*40);
+    const cand=USERS.filter((u)=>e[2]===0?u[1]==='Administrator':e[2]===1?u[1]==='Finance manager':e[2]===2?u[1]==='Accounts executive':e[2]===5?u[1]==='Automated job':true);const u=cand[Math.floor(rnd()*cand.length)];
+    const t=p2(7+Math.floor(rnd()*13))+':'+p2(Math.floor(rnd()*60))+':'+p2(Math.floor(rnd()*60));
+    const ip=e[2]===5?'internal':'10.20.'+(3+Math.floor(rnd()*6))+'.'+(10+Math.floor(rnd()*200));
+    return {id:'AE-'+(90000-i),day,time:t,user:u[0],role:u[1],mod:e[0],what:e[1],res:e[3],ip,hash:fnv(e[1]+u[0]+day+t)};});
+  const FC=[
+    ['FC-01','Payouts above ₹5,00,000 need a second approver','Payments','Finance manager','Daily',2,'Passed'],
+    ['FC-02','Refunds are approved by someone other than the requester','Payments','Finance manager','Daily',2,'Passed'],
+    ['FC-03','Bank reconciliation done within 3 working days','Reconciliation','Accounts executive','Weekly',4,'Failed'],
+    ['FC-04','Invoice numbers are continuous with no gaps','Revenue','Accounts executive','Monthly',9,'Passed'],
+    ['FC-05','GST charged at the right rate on every invoice','Tax','Finance manager','Monthly',9,'Passed'],
+    ['FC-06','TDS deducted on vendor and clinician payouts','Tax','Finance manager','Monthly',9,'Passed'],
+    ['FC-07','Quarterly review of who has finance access','Access','Administrator','Quarterly',96,'Due'],
+    ['FC-08','No user can both create and approve a payment','Access','Administrator','Monthly',14,'Passed'],
+    ['FC-09','Books are locked after month-end close','Close','Finance manager','Monthly',14,'Passed'],
+    ['FC-10','Vendor licence and bank details verified before listing','Marketplace','Administrator','On change',5,'Passed'],
+    ['FC-11','Card details are never stored on VivoQuest systems','Payments','Administrator','Quarterly',44,'Passed'],
+    ['FC-12','Audit log cannot be edited or deleted','Platform','Administrator','Continuous',0,'Passed']
+  ].map((r)=>({id:r[0],name:r[1],area:r[2],owner:r[3],freq:r[4],last:r[5],res:r[6]}));
+  const APR=[
+    ['MK-501','Payout to Lotus Heart Institute','Pooja Desai',2260000,'Today 11:20','Payout'],
+    ['MK-502','Manual journal: gateway fee adjustment','Pooja Desai',2420,'Today 10:05','Journal'],
+    ['MK-503','Refund above ₹25,000, Oxygen concentrator','Rohit Menon',32500,'Yesterday','Refund'],
+    ['MK-504','Vendor bank account change, MediCare Equipments','Pooja Desai',0,'Yesterday','Vendor'],
+    ['MK-505','Write-off of balance on INV-2026-0402','Rohit Menon',0,'12 Nov','Write-off']
+  ].map((r)=>({id:r[0],what:r[1],maker:r[2],amt:r[3],on:r[4],kind:r[5]}));
+  const FIL=[
+    ['FL-01','GSTR-1, outward supplies','GST portal','October 2026',-3,0,true],
+    ['FL-02','GSTR-8, TCS by marketplace operator','GST portal','October 2026',-4,184000,true],
+    ['FL-03','TDS deposit, challan 281','Income tax','October 2026',-7,226000,true],
+    ['FL-04','GSTR-3B, summary return and tax','GST portal','October 2026',6,1642000,false],
+    ['FL-05','PF and ESIC contribution','EPFO and ESIC','October 2026',1,318000,false],
+    ['FL-06','Professional tax','State government','October 2026',16,48000,false],
+    ['FL-07','Advance tax instalment','Income tax','Q3, FY 2026-27',31,2450000,false],
+    ['FL-08','TDS return, Form 26Q','Income tax','Q2, FY 2026-27',-14,0,true],
+    ['FL-09','TDS on e-commerce sellers, Section 194-O','Income tax','October 2026',-7,38000,true],
+    ['FL-10','Tax audit report, Form 3CD','Income tax','FY 2025-26',-45,0,true],
+    ['FL-11','Annual accounts, Form AOC-4','Registrar of companies','FY 2025-26',45,0,false],
+    ['FL-12','Annual return, Form MGT-7','Registrar of companies','FY 2025-26',75,0,false]
+  ].map((r)=>({id:r[0],name:r[1],auth:r[2],period:r[3],due:r[4],amt:r[5],base:r[6]}));
+  const CP=[
+    ['CP-01','Consent is captured before care data is used','DPDP Act 2023','Data protection officer','Consent log, 97% rate',20,'Compliant'],
+    ['CP-02','Member data requests are answered on time','DPDP Act 2023','Privacy lead','Request tracker, avg 3.1 days',20,'Compliant'],
+    ['CP-03','Personal data is erased after the retention period','DPDP Act and company policy','Data protection officer','Retention job logs',-6,'Review due'],
+    ['CP-04','Breach response plan tested, reporting within 6 hours','CERT-In directions','Security lead','Tabletop exercise report',-30,'Review due'],
+    ['CP-05','Card details are never stored','PCI DSS','Security lead','Quarterly scan report',44,'Compliant'],
+    ['CP-06','Online payments only through authorised payment aggregators','RBI guidelines','Finance manager','Aggregator agreements',90,'Compliant'],
+    ['CP-07','Vendor licences verified: CDSCO, FSSAI, councils','CDSCO, FSSAI, state councils','Marketplace lead','Licence register, 2 pending',7,'Gap'],
+    ['CP-08','Clinician and nurse registrations are current','State medical and nursing councils','Clinical lead','Registration tracker',35,'Compliant'],
+    ['CP-09','Video consults follow telemedicine rules','Telemedicine Practice Guidelines 2020','Clinical lead','Consult checklist',60,'Compliant'],
+    ['CP-10','Access to care records reviewed every quarter','Internal policy','Administrator','Access review sign-off',-3,'Review due']
+  ].map((r)=>({id:r[0],req:r[1],std:r[2],owner:r[3],ev:r[4],next:r[5],base:r[6]}));
+  const AUD=[
+    ['AU-01','CA Rajesh Kulkarni','Kulkarni and Associates, statutory auditor','Ledgers, invoices, audit trail',90,'Read only'],
+    ['AU-02','Neha Joshi','Internal audit','All finance modules, audit trail',60,'Read only'],
+    ['AU-03','Mehta Tax Advisors','GST and TDS consultant','Tax working papers only',30,'Read only']
+  ].map((r)=>({id:r[0],name:r[1],firm:r[2],scope:r[3],exp:r[4],mode:r[5]}));
+  const PBC=[
+    ['PB-01','Bank statements, April to October','CA Rajesh Kulkarni',4,'Open'],
+    ['PB-02','Top 10 vendor agreements','CA Rajesh Kulkarni',6,'Open'],
+    ['PB-03','Evidence of payout approvals above ₹5,00,000','CA Rajesh Kulkarni',6,'Shared'],
+    ['PB-04','TDS challans and Form 26Q acknowledgements','Mehta Tax Advisors',9,'Open'],
+    ['PB-05','Board minutes approving the budget','CA Rajesh Kulkarni',12,'Open']
+  ].map((r)=>({id:r[0],req:r[1],from:r[2],due:r[3],base:r[4]}));
+  const MON2=[['Apr',true],['May',true],['Jun',true],['Jul',true],['Aug',true],['Sep',true],['Oct',true],['Nov',false]];
+  const REPORTS=[
+    ['Audit trail extract','Every action with user, role, module and tamper-check hash','Monthly'],
+    ['User access review','Who can see and approve what, with last sign-in','Quarterly'],
+    ['Financial controls test results','Each control, last test date and result','Quarterly'],
+    ['Maker-checker approvals','Requests, makers, checkers and decisions','Monthly'],
+    ['Statutory filing tracker','Due dates, amounts and filing status','Monthly'],
+    ['Healthcare and data compliance register','Requirements, evidence and review dates','Quarterly'],
+    ['Auditor requests (PBC list)','Documents asked for and shared','On demand'],
+    ['Period lock register','Months locked, by whom and when','Monthly']
+  ];
+  const fil=(st)=>FIL.map((f)=>{const filed=st.kfile[f.id]||f.base;return {...f,filed,status:filed?'Filed':f.due<0?'Overdue':f.due<=10?'Due soon':'Upcoming'};});
+  const fcs=(st)=>FC.map((c)=>({...c,res:st.kres[c.id]||c.res}));
+  const aprs=(st)=>APR.map((a)=>({...a,status:st.kapp[a.id]||'Pending'}));
+  const cps=(st)=>CP.map((c)=>({...c,status:st.kev[c.id]?'Compliant':c.base}));
+  const pbcs=(st)=>PBC.map((p)=>({...p,status:st.kdoc[p.id]||p.base}));
+  const auds=(st)=>AUD.map((a)=>({...a,status:st.kaud[a.id]||'Active'}));
+  const att=(st)=>{const f=fil(st),c=fcs(st),a=aprs(st),k=cps(st),pb=pbcs(st);return {ctl:c.filter((x)=>x.res!=='Passed').length,fil:f.filter((x)=>x.status==='Overdue'||x.status==='Due soon').length,apr:a.filter((x)=>x.status==='Pending').length,cp:k.filter((x)=>x.status!=='Compliant').length,pbc:pb.filter((x)=>x.status==='Open').length};};
+  const score=(st)=>{const c=fcs(st),f=fil(st),k=cps(st);return Math.round(c.filter((x)=>x.res==='Passed').length/c.length*40+k.filter((x)=>x.status==='Compliant').length/k.length*30+f.filter((x)=>x.status!=='Overdue').length/f.length*30);};
+  const total=(st)=>{const a=att(st);return a.ctl+a.fil+a.apr+a.cp;};
+  return {AT,FC,APR,FIL,CP,AUD,PBC,MON2,REPORTS,fil,fcs,aprs,cps,pbcs,auds,att,score,total,USERS};
+})();
+class Component extends DCLogic {
+  state={cq:'',cd:'All',cs:'All',fm:null,cdel:'',cvt:0,pp:'Daily',pf:'Excel',reg:'Western',cr:{},pol:[true,true,true,true],sc:'ov',tab:{ov:'',pay:'ov',co:'ov',us:'pt',mk:'pr',an:'out',dt:'bk',sc:'ps'},q:'',f:{us:'All',or:'All',au:'All',cr:'All',ptx:'All',pst:'All',prf:'All',prc:'All',pinv:'All',kat:'All',kfa:'All',kfl:'All',kcp:'All'},kfy:'FY 2026-27',kres:{},kapp:{},kfile:{},kev:{},kdoc:{},klock:false,kaud:{},ksch:[true,true,false,true],pyp:'30',pys:'All',pyr:'This month',pstat:{},pset:{},prf:{},pcb:{},prc:{},pinv:{},psch:[true,true,false,true,true],rg:'30',sg:'All',cmp:true,us:{},sm:{},ps:{},os:{},vs:{},bk:{},rp:0,pm:PM0,sr:{},rq:{},po:{},rf:{},ctl:[true,true,true,true,false],gv:[true,true,false,true],inc:[{id:1,n:'Telemetry delay in Pune cluster',d:'Device data arriving 4 minutes late · Severity 2',own:'',s:'Open',c:'w'},{id:2,n:'Failed sign-in spike',d:'38 attempts from one network, auto-blocked · Severity 1',own:'',s:'Open',c:'b'},{id:3,n:'Payment gateway retries',d:'UPI callbacks retried twice · Severity 3',own:'',s:'Open',c:'w'}],toast:''};
+  say=(m)=>{this.setState({toast:m});clearTimeout(this._t);this._t=setTimeout(()=>this.setState({toast:''}),2600);};
+  go=(sc,tab)=>this.setState((x)=>({sc,q:'',tab:tab?{...x.tab,[sc]:tab}:x.tab}));
+  renderVals(){const st=this.state,sc=st.sc,tab=st.tab[sc],say=this.say;
+    const openInc=st.inc.filter((i)=>i.s!=='Resolved').length;const pendV=VND.filter((v)=>(st.vs[v[0]]||v[3])==='Pending').length;const pendR=REQ.filter((r)=>!st.rq[r[1]]).length;const low=PRD.filter((p)=>p[4]<5&&p[4]>0).length;
+    const nav=NAV.map(([h,it])=>({h,items:it.map(([k,l,ic])=>({label:l,icon:ic,cls:sc===k?'on':'',badge:(k==='sc'&&openInc>0)||(k==='mk'&&pendV>0)||(k==='pay'&&PAYX.total(st)>0)||(k==='co'&&COMP.total(st)>0),count:k==='sc'?openInc:k==='pay'?PAYX.total(st):k==='co'?COMP.total(st):pendV,tap:()=>this.go(k)}))}));
+    const f=(k,v)=>this.setState((x)=>({f:{...x.f,[k]:v}}));
+    const chips=(k,list)=>list.map((l)=>({l,cls:st.f[k]===l?'on':'',tap:()=>f(k,l)}));
+    const sg={All:1,'Medicare Advantage':.46,'Managed Medicaid':.32,ACO:.22}[st.sg];const n=st.rg==='7'?7:st.rg==='30'?15:18;const lab=Array.from({length:n},(_,i)=>st.rg==='7'?WD[i]:(st.rg==='30'?'D'+(i*2+1):'W'+(i+1)));
+    const ex=(l)=>()=>say(l+' prepared (simulated)');const xr=(f)=>()=>{const a=f();VQApp.tblRun(say,a[0],a[1],a[2],a[3],a[4]);};
+    let rows=[],acts=[],hasChips=false,chp=[],fb=null,cat={on:false},cf=null;
+    const q=st.q.toLowerCase();
+    if(sc==='ov'){
+      acts=[{l:'Download summary',c:'',tap:xr(()=>['PDF','Platform summary',['Metric','Value','Change'],[['Active members','12,480','+8.2%'],['Home visits today','1,246','+5.1%'],['Open incidents',String(openInc),openInc?'Action needed':'All clear'],['Marketplace sales','₹48.2L','+14%']],{module:'Overview',subtitle:'Today',kpiRows:1}])}];
+      rows=[R('repeat(4,1fr)',K('ACTIVE MEMBERS','12,480','+8.2%',true,[9,9.4,10,10.6,11.2,11.8,12.48]),K('HOME VISITS TODAY','1,246','+5.1%',true,[900,1000,980,1100,1150,1200,1246]),K('OPEN INCIDENTS',String(openInc),openInc?'Action needed':'All clear',!openInc,[4,3,5,2,3,2,openInc]),K('MARKETPLACE SALES','₹48.2L','+14%',true,[30,33,36,38,41,45,48.2])),
+        R('repeat(4,1fr)',K('DEVICES ONLINE','98.4%','+0.6%',true,[96,97,97.5,98,97.8,98.2,98.4]),K('ALERT RESPONSE','4.2 min','-18%',true,[7,6.5,6,5.4,5,4.6,4.2]),K('READMISSIONS AVOIDED','109','+21%',true,[40,52,61,74,88,99,109]),K('UPTIME (30 DAYS)','99.98%','+0.01%',true,[99.9,99.95,99.97,99.96,99.98,99.98,99.98])),
+        R('2fr 1fr',{t:'area',title:'Home visits and triage alerts',sub:'Last 14 days',leg:[{n:'Home visits',c:'#4520B8'},{n:'Previous period',c:'#B9B2D3'}],...ar(ser(14,980,160,260,0),ser(14,900,120,120,2),Array.from({length:14},(_,i)=>'D'+(i+1)))},DN('Members by plan','Total enrolled','12,480','members',[{n:'Medicare Advantage',v:'5,740',n2:46},{n:'Managed Medicaid',v:'3,990',n2:32},{n:'ACO',v:'2,750',n2:22}])),
+        R('1.5fr 1fr',{t:'map',title:'Region performance · Maharashtra',sub:'Visits completed on time. Tap a region for details',legend:[{n:'96%+',c:'#4520B8'},{n:'93–95%',c:'#6D42E8'},{n:'90–92%',c:'#8E5CFF'},{n:'Below 90%',c:'#B9A3FF'}],regions:Object.keys(RG).map((k)=>{const g=RG[k];const [tx_,ty_]=px(g.lab).split(',');return {d:'M'+g.pts.map(px).join(' L')+'Z',fill:shade(g.pct),tx:tx_,ty:ty_,pct:g.pct+'%',tc:g.pct<90?'#17143A':'#fff',cls:st.reg===k?'sel':'',tt:k+': '+g.pct+'% on time',tap:()=>this.setState({reg:k})};}),cities:CIT.map(([n,lo,la])=>{const [x,y]=px([lo,la]).split(',');return {n,x,y,tx:+x+6};}),det:{n:(st.reg==='North'?'North Maharashtra':st.reg==='Western'?'Western Maharashtra':st.reg).toUpperCase(),pct:RG[st.reg].pct+'%',v:RG[st.reg].v,m:RG[st.reg].m,r:RG[st.reg].r,c:RG[st.reg].c},list:Object.keys(RG).sort((x,y)=>RG[y].pct-RG[x].pct).map((k)=>({n:k==='North'?'North Maharashtra':k==='Western'?'Western Maharashtra':k,v:RG[k].pct+'%',p:RG[k].pct,cls:st.reg===k?'on':'',tap:()=>this.setState({reg:k})}))},VB('Visits by weekday','Average completed visits per day',[['Mon',820],['Tue',910],['Wed',880],['Thu',1020],['Fri',1100],['Sat',640],['Sun',520]].map(([l,v])=>({l,v,tt:l+': '+v+' visits',h:v})))),
+        R('1fr 1fr',HM('Alert activity','By weekday and time of day',WD.map((l,i)=>({l,cells:Array.from({length:6},(_,j)=>{const v=Math.round(20+60*Math.abs(Math.sin(i*1.7+j*.8)));return {c:hcl(v),tt:l+' · '+v+' alerts'};})})),['6a','10a','2p','6p','10p','2a']),DN('Visits by type','Completed today','1,246','visits',[{n:'Nursing',v:'46%',n2:46},{n:'Therapy',v:'24%',n2:24},{n:'Lab draw',v:'18%',n2:18},{n:'Social care',v:'12%',n2:12}])),
+        R('1.4fr 1fr',T('Service health','1.2fr .8fr .8fr .8fr',['SERVICE','LATENCY','UPTIME','STATUS'],[['API and web app','120 ms','99.99%','Healthy'],['Telemetry ingest','4 min lag','99.90%',st.inc[0].s==='Resolved'?'Healthy':'Investigating'],['AI care agents','340 ms','99.95%','Healthy'],['Payments and UPI','210 ms','99.92%',st.inc[2].s==='Resolved'?'Healthy':'Pending'],['Health record gateway','180 ms','99.97%','Healthy']].map((r)=>[tx(r[0]),tx(r[1]),tx(r[2]),pl(r[3])])),LS('Needs your action','Resolve or review',[{t:openInc+' open incidents',d:'Security and privacy',dc:openInc?'b':'',b:'Review',tap:()=>this.go('sc','in')},{t:pendV+' vendors waiting',d:'Marketplace approvals',dc:pendV?'w':'',b:'Approve',tap:()=>this.go('mk','vn')},{t:pendR+' privacy requests',d:'Due within 12 days',dc:pendR?'w':'',b:'Handle',tap:()=>this.go('sc','pv')},{t:low+' products low on stock',d:'Reorder from vendors',dc:low?'w':'',b:'View',tap:()=>this.go('mk','pr')}]))];
+    }
+    if(sc==='us'&&tab==='pt'){acts=[{l:'Invite member',c:'',tap:()=>say('Invitation sent (simulated)')},{l:'Export list',c:'g',tap:xr(()=>['Excel','Member register',['Member','Health plan','Risk','Engagement','Last active','Status'],L.map((u)=>[u[0],u[1],u[2],u[3]+'%',u[4],st.us[u[0]]||u[5]]),{module:'Users',subtitle:'Filter '+uf}])}];
+      const uf=st.f.us;const L=US.filter((u)=>(uf==='All'||(uf==='High risk'?u[2]==='High':(st.us[u[0]]||u[5])===uf))&&(!q||u[0].toLowerCase().includes(q)||u[1].toLowerCase().includes(q)));
+      rows=[R('repeat(4,1fr)',K('MEMBERS','12,480','+8.2%',true,[9,10,11,12,12.48]),K('ACTIVE THIS WEEK','9,310','+4.0%',true,[8,8.6,9,9.1,9.31]),K('HIGH RISK','1,126','-6%',true,[1.4,1.3,1.25,1.2,1.126]),K('SUSPENDED','84','+2',false,[70,74,78,80,84])),
+        R('1fr',T('Member management','1.6fr 1.3fr .8fr 1fr .9fr .9fr 1fr',['MEMBER','PLAN','RISK','ENGAGEMENT','LAST ACTIVE','STATUS','ACTION'],L.map((u)=>{const s=st.us[u[0]]||u[5];return [tx(u[0],ini(u[0])),tx(u[1]),pl(u[2]),pb(u[3]),tx(u[4]),pl(s),bt(s==='Active'?'Suspend':s==='Suspended'?'Reactivate':'Resend invite',()=>{this.setState((x)=>({us:{...x.us,[u[0]]:s==='Active'?'Suspended':'Active'}}));say(u[0]+(s==='Active'?' suspended':s==='Suspended'?' reactivated':': invite resent'));})]}),{search:true,q:st.q,hasChips:true,chips:chips('us',['All','Active','Suspended','Invited','High risk']),sub:L.length+' members shown'}))];}
+    if(sc==='us'&&tab==='st'){acts=[{l:'Add staff member',c:'',tap:()=>say('Invitation sent (simulated)')}];
+      rows=[R('repeat(4,1fr)',K('STAFF AND FIELD','1,702','+3.4%',true,[1.4,1.5,1.6,1.7]),K('MFA COVERAGE','94%','+2%',true,[88,90,92,94]),K('ON DUTY NOW','412','+9',true,[300,350,380,412]),K('INACTIVE 30+ DAYS','11','-3',true,[16,14,13,11])),
+        R('1fr',T('Staff and field workers','1.6fr 1.3fr 1fr .8fr 1.2fr 1.2fr',['NAME','ROLE','REGION','TWO-STEP','LAST SIGN-IN','ACTION'],STF.map((s)=>{const m=st.sm[s[0]]||s[3];return [tx(s[0],ini(s[0])),tx(s[1]),tx(s[2]),pl(m),tx(s[4]),m==='Off'?bt('Require two-step',()=>{this.setState((x)=>({sm:{...x.sm,[s[0]]:'On'}}));say('Two-step sign-in required for '+s[0]);}):bt('Reset access',()=>say('Access reset link sent to '+s[0]))]}),{sub:'Nurses, clinicians, therapists, phlebotomists, social care workers'}))];}
+    if(sc==='us'&&tab==='cr'){acts=[{l:'Create login',c:'',tap:()=>say('New login created. A set-password link was sent (simulated)')},{l:'Export access list',c:'g',tap:xr(()=>['Excel','Access list',['User','Role','Contact (masked)','Two-step method'],L.map((u)=>[u[0],u[1],u[2],u[3]]),{module:'Users',subtitle:'Role '+cf}])}];
+      const cf=st.f.cr;const L=ACC.filter((u)=>cf==='All'||u[1]===cf);const pol=[['At least 12 characters','Passwords must be long and hard to guess'],['Expire every 90 days','Staff are asked to choose a new one'],['Lock after 5 wrong attempts','An administrator unlocks the account'],['One-time code at sign-in','Sent by app or SMS']];
+      rows=[R('repeat(4,1fr)',K('LOCKED ACCOUNTS',String(Object.values(st.cr).filter((v)=>v==='Locked').length+7),'Review',false,[12,10,9,7]),K('PASSWORD RESETS (30D)','42','-8',true,[60,55,50,42]),K('TWO-STEP COVERAGE','94%','+2%',true,[88,90,92,94]),K('NEVER SIGNED IN','18','-5',true,[30,26,22,18])),
+        R('1fr',T('Login credentials','1.5fr 1.2fr 1.6fr .8fr 1fr .8fr 1fr .9fr',['ACCOUNT','ROLE','LOGIN ID','TWO-STEP','PASSWORD CHANGED','STATUS','PASSWORD','ACCESS'],L.map((u,i)=>{const s=st.cr[u[0]]||'Active';return [tx(u[0],ini(u[0])),tx(u[1]),tx(u[2]),pl(u[3]==='None'?'Off':'On')&&{k_t:true,t:u[3]==='None'?'Off':u[3],av:''},tx(['12 days ago','3 days ago','45 days ago','8 days ago','70 days ago','21 days ago','95 days ago','33 days ago','5 days ago','2 days ago'][ACC.indexOf(u)]),pl(s),bt('Reset',()=>say('Reset link sent to '+u[0]+"'s registered "+(u[2].includes('@')?'email':'phone')+' (simulated)')),bt(s==='Locked'?'Unlock':'Lock',()=>{this.setState((x)=>({cr:{...x.cr,[u[0]]:s==='Locked'?'Active':'Locked'}}));say(u[0]+(s==='Locked'?' unlocked':' locked and signed out'));})]}),{hasChips:true,chips:chips('cr',['All',...ROLES]),sub:'Administrators reset and lock logins. Passwords are never visible to anyone'})),
+        R('1fr 1fr',TG('Sign-in policy','Applies to every stakeholder',pol.map((p,i)=>({n:p[0],d:p[1],on:st.pol[i],cls:st.pol[i]?'on':'',tap:()=>this.setState((x)=>({pol:x.pol.map((v,j)=>j===i?!v:v)}))}))),LS('Recent credential activity','From the audit log',[{t:'Password reset for Sunita Patil',d:'Requested by the member · today 09:30',av:'SP'},{t:'Account locked: Neha Shinde',d:'5 wrong attempts · yesterday',av:'NS'},{t:'Two-step required for Sneha Iyer',d:'Anita Kulkarni · 2 days ago',av:'AK'}]))];}
+    if(sc==='us'&&tab==='rl'){acts=[{l:'Save changes',c:'',tap:()=>say('Permissions saved and written to the audit log')},{l:'Create role',c:'g',tap:()=>say('Custom role created (simulated)')}];
+      rows=[R('1fr',{t:'mx',title:'Role and permission matrix',sub:'Tap a cell to grant or remove access',cols:'1.4fr repeat(8,1fr)',heads:PERMS,rows:ROLES.map((r,ri)=>({n:r,cells:PERMS.map((p,pi)=>({cls:st.pm[ri][pi]?'on':'',al:r+': '+p,tap:()=>this.setState((x)=>({pm:x.pm.map((row,i)=>i===ri?row.map((v,j)=>j===pi?(v?0:1):v):row)}))}))}))}),
+        R('1fr 1fr',DN('Users by role','Platform total','13,000','accounts',[{n:'Patient or Family',v:'8,420',n2:8420},{n:'Caregiver',v:'2,310',n2:2310},{n:'Nurse',v:'1,150',n2:1150},{n:'Clinician',v:'540',n2:540},{n:'Admin and field',v:'580',n2:580}]),LS('Recent access changes','From the audit log',[{t:'Nurse role: export removed',d:'Anita Kulkarni · today 09:41',av:'AK'},{t:'Field worker role created',d:'Anita Kulkarni · 3 days ago',av:'AK'},{t:'Clinician: approve orders added',d:'Anita Kulkarni · last week',av:'AK'}]))];}
+    if(sc==='us'&&tab==='en'){acts=[{l:'Export',c:'',tap:xr(()=>['PDF','Engagement report',['Metric','Value','Change'],[['Daily active','6,240','+5%'],['Weekly active','9,310','+4%'],['Monthly active','11,420','+3%'],['Stickiness','54%','+2%'],['Feature adoption: daily check-in','78%',''],['Feature adoption: medicine reminders','71%',''],['Feature adoption: care team messages','58%',''],['Feature adoption: marketplace','34%','']],{module:'Users',subtitle:'Last 30 days',kpiRows:1}])}];
+      rows=[R('repeat(4,1fr)',K('DAILY ACTIVE','6,240','+5%',true,[5,5.4,5.8,6,6.24]),K('WEEKLY ACTIVE','9,310','+4%',true,[8,8.5,9,9.31]),K('MONTHLY ACTIVE','11,420','+3%',true,[10,10.6,11,11.42]),K('STICKINESS','54%','+2%',true,[48,50,52,54])),
+        R('2fr 1fr',{t:'area',title:'Daily active members',sub:'Last 30 days',leg:[{n:'This month',c:'#4520B8'},{n:'Last month',c:'#B9B2D3'}],...ar(ser(15,5800,420,500,0),ser(15,5400,380,200,2),Array.from({length:15},(_,i)=>'D'+(i*2+1)))},DN('App platform','Active devices','11,420','devices',[{n:'Android',v:'72%',n2:72},{n:'iOS',v:'18%',n2:18},{n:'Web',v:'10%',n2:10}])),
+        R('1fr 1fr',HB('Feature adoption','Share of active members',[{l:'Daily check-in',v:'78%',p:78},{l:'Medicine reminders',v:'71%',p:71},{l:'Care team messages',v:'58%',p:58},{l:'Marketplace',v:'34%',p:34},{l:'Video visits',v:'22%',p:22}]),VB('Check-in completion by day','Share of members',WD.map((l,i)=>({l,v:[82,84,81,86,80,69,64][i]+'%',tt:l,h:[82,84,81,86,80,69,64][i]})))) ];}
+    if(sc==='mk'&&tab==='pr'){
+      const items=VQ.load();const nz=(s)=>String(s||'').toLowerCase();const INR=(n)=>'₹'+Number(n||0).toLocaleString('en-IN');const DL=Object.fromEntries(VQ.DEPTS);
+      const liveN=items.filter((p)=>p.status==='Live').length,draftN=items.length-liveN,lowN=items.filter((p)=>p.stock!=null&&p.stock>0&&p.stock<=5).length,outN=items.filter((p)=>p.stock===0).length;
+      const commit=(next,msg)=>{const ok=VQ.save(next);this.setState({cvt:Date.now(),cdel:''});say(ok?msg:msg+' (this session only, browser storage is full)');};
+      acts=[{l:'Add product',c:'',tap:()=>this.setState({fm:VQ.blank(),cdel:''})}];
+      rows=[R('repeat(4,1fr)',K('LIVE ON MARKETPLACE',String(liveN),'Visible to shoppers',true,[Math.max(1,liveN-3),Math.max(1,liveN-2),Math.max(1,liveN-1),Math.max(1,liveN)]),K('DRAFTS',String(draftN),draftN?'Hidden from shoppers':'None pending',true,[2,3,2,draftN]),K('LOW STOCK',String(lowN),lowN?'Reorder soon':'All good',!lowN,[3,2,4,lowN]),K('OUT OF STOCK',String(outN),outN?'Restock to sell':'All in stock',!outN,[1,1,2,outN]))];
+      const qq=nz(st.cq);const L=items.filter((p)=>(st.cd==='All'||p.dept===st.cd)&&(st.cs==='All'||(st.cs==='Low stock'?(p.stock!=null&&p.stock<=5):p.status===st.cs))&&(!qq||nz(p.name+' '+p.vendor+' '+p.kind).includes(qq)));
+      cat={on:true,q:st.cq,cols:'2.4fr 1.1fr 1.3fr 1.1fr .9fr .8fr 1.9fr',empty:L.length===0,add:()=>this.setState({fm:VQ.blank(),cdel:''}),search:(e)=>this.setState({cq:e.target.value}),
+        depts:[['All','All']].concat(VQ.DEPTS).map(([k,l])=>({l,n:k==='All'?items.length:items.filter((p)=>p.dept===k).length,cls:st.cd===k?'on':'',tap:()=>this.setState({cd:k})})),
+        stats:['All','Live','Draft','Low stock'].map((l)=>({l,cls:st.cs===l?'on':'',tap:()=>this.setState({cs:l})})),
+        rows:L.map((p)=>{const hasOff=p.mrp>p.price;return {name:p.name,kind:p.kind,dept:DL[p.dept],vendor:p.vendor||'—',price:INR(p.price),mrp:INR(p.mrp),hasOff,stock:p.stock==null?'Unlimited':p.stock===0?'Out of stock':p.stock+' left',stc:p.stock===0?'bad':(p.stock!=null&&p.stock<=5)?'warn':'',status:p.status,sc:p.status==='Live'?'ok':'warn',img:p.img,hasImg:!!p.img,noImg:!p.img,dcls:'d-'+p.dept,icon:VQ.icon(p.kind,p.dept),tl:p.status==='Live'?'Unpublish':'Publish',dl:st.cdel===p.id?'Confirm':'Delete',dc:st.cdel===p.id?'d':'g',
+          edit:()=>this.setState({cdel:'',fm:{id:p.id,name:p.name,dept:p.dept,kind:p.kind,vendor:p.vendor||'',note:p.note,hl:(p.hl||[]).join('\n'),price:String(p.price),mrp:String(p.mrp),badge:p.badge||'None',ok:!!p.ok,stock:p.stock==null?'':String(p.stock),status:p.status,img:p.img||'',err:'',rate:p.rate||0,rv:p.rv||0}}),
+          toggle:()=>commit(items.map((x)=>x.id===p.id?{...x,status:x.status==='Live'?'Draft':'Live'}:x),p.status==='Live'?'Moved to drafts. Hidden from the marketplace':'Published. Now live on the marketplace'),
+          del:()=>{if(st.cdel===p.id)commit(items.filter((x)=>x.id!==p.id),'Product deleted and removed from the marketplace');else this.setState({cdel:p.id});}};})};
+      if(st.fm){const f=st.fm;const price=Number(f.price)||0,mrp=Number(f.mrp)||0;const hasOff=price>0&&mrp>price;const setv=(k,fn)=>(e)=>{const v=fn?fn(e.target.value):e.target.value;this.setState((x)=>({fm:{...x.fm,[k]:v,err:''}}));};const dig=(v)=>String(v).replace(/\D/g,'');const upd=(o)=>this.setState((x)=>({fm:{...x.fm,...o,err:''}}));
+        const save=()=>{const g=st.fm;const err=(m)=>this.setState((x)=>({fm:{...x.fm,err:m}}));const name=g.name.trim(),pr=Number(g.price),mr=Number(g.mrp||g.price);
+          if(!name)return err('Enter a product name.');if(!g.note.trim())return err('Add a short description.');if(!(pr>0))return err('Enter a selling price.');if(mr<pr)return err('MRP cannot be lower than the selling price.');
+          const rec={id:g.id||VQ.uid(),dept:g.dept,kind:g.kind,name,vendor:g.vendor.trim(),note:g.note.trim(),price:pr,mrp:mr,ok:!!g.ok,badge:g.badge==='None'?'':g.badge,hl:g.hl.split('\n').map((s)=>s.trim()).filter(Boolean).slice(0,4),stock:g.stock===''?null:Number(g.stock),status:g.status,img:g.img||'',rate:g.rate||0,rv:g.rv||0};
+          const cur=VQ.load();const next=g.id?cur.map((x)=>x.id===g.id?rec:x):[rec,...cur];const ok=VQ.save(next);this.setState({fm:null,cvt:Date.now()});
+          const msg=g.status==='Live'?(g.id?'Changes saved. Live on the marketplace':'Product published. It is now on the marketplace'):'Saved as a draft. Not visible to shoppers';say(ok?msg:msg+' (this session only, browser storage is full)');};
+        const pick=(e)=>{const file=e.target.files&&e.target.files[0];if(!file)return;if(!/^image\//.test(file.type)){upd({err:'Choose an image file (JPG or PNG).'});return;}const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const mx=640,sc_=Math.min(1,mx/Math.max(im.width,im.height));const cv=document.createElement('canvas');cv.width=Math.max(1,Math.round(im.width*sc_));cv.height=Math.max(1,Math.round(im.height*sc_));const g2=cv.getContext('2d');g2.fillStyle='#fff';g2.fillRect(0,0,cv.width,cv.height);g2.drawImage(im,0,0,cv.width,cv.height);upd({img:cv.toDataURL('image/jpeg',0.82)});};im.onerror=()=>upd({err:'That image could not be read. Try another file.'});im.src=rd.result;};rd.readAsDataURL(file);e.target.value='';};
+        cf={title:f.id?'Edit product':'Add a product',saveL:f.id?'Save changes':(f.status==='Live'?'Publish product':'Save draft'),err:f.err,name:f.name,note:f.note,hl:f.hl,vendor:f.vendor,price:f.price,mrp:f.mrp,stock:f.stock,noteN:f.note.length+' / 140 characters',
+          priceHint:hasOff?('Shoppers see '+Math.round((1-price/mrp)*100)+'% off. Leave MRP blank for no discount. Leave stock blank for unlimited.'):'Leave MRP blank for no discount. Leave stock blank for services and digital products.',
+          h:{name:setv('name'),note:setv('note',(v)=>v.slice(0,140)),hl:setv('hl'),vendor:setv('vendor'),price:setv('price',dig),mrp:setv('mrp',dig),stock:setv('stock',dig)},
+          depts:VQ.DEPTS.map(([k,l])=>({l,cls:f.dept===k?'on':'',tap:()=>upd({dept:k,kind:VQ.KINDS[k][0]})})),kinds:VQ.KINDS[f.dept].map((l)=>({l,cls:f.kind===l?'on':'',tap:()=>upd({kind:l})})),
+          badges:['None','Bestseller','New','Popular'].map((l)=>({l,cls:f.badge===l?'on':'',tap:()=>upd({badge:l})})),stats:['Live','Draft'].map((l)=>({l,cls:f.status===l?'on':'',tap:()=>upd({status:l})})),
+          okc:f.ok?'on':'',oko:f.ok,okt:()=>upd({ok:!f.ok}),hasImg:!!f.img,noImg:!f.img,img:f.img,imgT:f.img?'Product image added':'Add a product image',imgB:f.img?'Replace image':'Upload image',pick,rmImg:()=>upd({img:''}),
+          dcls:'d-'+f.dept,icon:VQ.icon(f.kind,f.dept),hasOff,offN:hasOff?'-'+Math.round((1-price/mrp)*100)+'%':'',off:hasOff?'Save '+Math.round((1-price/mrp)*100)+'%':'',deptL:DL[f.dept],badge:f.badge==='None'?'':f.badge,
+          pname:f.name||'Product name',pnote:f.note||'A short description appears here.',pprice:INR(price),pmrp:INR(mrp),ship:price>=999?'FREE delivery':'Delivery ₹79',close:()=>this.setState({fm:null}),save};}
+    }
+    if(false&&sc==='mk'&&tab==='pr'){acts=[{l:'Add product',c:'',tap:()=>say('Product form opened (simulated)')},{l:'Download Excel',c:'s',tap:xr(()=>['Excel','Products report',['Product','Category','Vendor','Price (INR)','Stock (units)'],L.map((p)=>[p[0],p[1],p[2],p[3],p[4]]),{module:'Marketplace'}])},{l:'Download PDF',c:'g',tap:xr(()=>['PDF','Products report',['Product','Category','Vendor','Price (INR)','Stock (units)'],L.map((p)=>[p[0],p[1],p[2],p[3],p[4]]),{module:'Marketplace'}])}];
+      const L=PRD.filter((p)=>!q||p[0].toLowerCase().includes(q)||p[1].toLowerCase().includes(q));
+      rows=[R('repeat(4,1fr)',K('PRODUCTS LIVE',String(PRD.filter((p)=>(st.ps[p[0]]||'Published')==='Published').length+190),'+12',true,[180,190,196,200]),K('LOW STOCK',String(low),low?'Reorder':'OK',!low,[6,5,4,3,low]),K('AVERAGE RATING','4.6','+0.1',true,[4.3,4.4,4.5,4.6]),K('RETURN RATE','1.8%','-0.4%',true,[2.4,2.2,2,1.8])),
+        R('1fr',T('Product catalogue','1.8fr 1fr 1.4fr .9fr .8fr 1fr 1fr',['PRODUCT','CATEGORY','VENDOR','PRICE','STOCK','STATUS','ACTION'],L.map((p)=>{const s=st.ps[p[0]]||'Published';return [tx(p[0]),tx(p[1]),tx(p[2]),tx('₹'+p[3].toLocaleString('en-IN')),p[4]>900?tx('n/a'):pl(p[4]===0?'Failed':p[4]<5?'Pending':'Low')&&{k_t:true,t:String(p[4])+(p[4]<5?' · low':''),av:''},pl(s),bt(s==='Published'?'Unpublish':'Publish',()=>{this.setState((x)=>({ps:{...x.ps,[p[0]]:s==='Published'?'Unpublished':'Published'}}));say(p[0]+(s==='Published'?' unpublished':' published'));})]}),{search:true,q:st.q,sub:L.length+' products'}))];}
+    if(sc==='mk'&&tab==='or'){acts=[{l:'Download Excel',c:'s',tap:xr(()=>['Excel','Orders report',['Order','Member','Items','Amount (INR)','Payment','Status'],L.map((o)=>[o[0],o[1],o[2],o[3],o[4],st.os[o[0]]||o[5]]),{module:'Marketplace',subtitle:'Filter '+of}])},{l:'Download PDF',c:'g',tap:xr(()=>['PDF','Orders report',['Order','Member','Items','Amount (INR)','Payment','Status'],L.map((o)=>[o[0],o[1],o[2],o[3],o[4],st.os[o[0]]||o[5]]),{module:'Marketplace',subtitle:'Filter '+of}])},{l:'Download CSV',c:'g',tap:xr(()=>['CSV','Orders report',['Order','Member','Items','Amount (INR)','Payment','Status'],L.map((o)=>[o[0],o[1],o[2],o[3],o[4],st.os[o[0]]||o[5]]),{module:'Marketplace',subtitle:'Filter '+of}])}];
+      const of=st.f.or;const L=ORD.filter((o)=>of==='All'||(st.os[o[0]]||o[5])===of);
+      rows=[R('repeat(4,1fr)',K('ORDERS TODAY','386','+9%',true,[300,320,350,386]),K('AVERAGE ORDER','₹3,860','+4%',true,[3.4,3.6,3.7,3.86]),K('FULFILMENT TIME','1.6 days','-12%',true,[2.2,2,1.8,1.6]),K('FAILED PAYMENTS','2.1%','-0.5%',true,[3,2.8,2.4,2.1])),
+        R('1fr',T('Orders','1fr 1.4fr 1.5fr .9fr .9fr .9fr 1.2fr',['ORDER','MEMBER','ITEMS','AMOUNT','PAYMENT','STATUS','ACTION'],L.map((o)=>{const s=st.os[o[0]]||o[5];const nx=NXT[s];return [tx(o[0]),tx(o[1],ini(o[1])),tx(o[2]),tx('₹'+o[3].toLocaleString('en-IN')),tx(o[4]),pl(s),bt(nx[1],()=>{if(s==='Delivered'){VQApp.inv(say,{id:'VQ-INV-'+String(o[0]).replace(/^VQ-/,''),order:o[0],buyer:[o[1],'Delivery address on file','Member account'],items:[{name:o[2],type:'Shipped',qty:1,unit:o[3]}],couponPct:0,coupon:'None',shipping:0,pay:[['Gateway',o[4]==='UPI'?'Razorpay':o[4]==='Card'?'Stripe':'Insurance claim'],['Method',o[4]],['Payment ID','Recorded in the ledger'],['Order placed',VQApp.today()],['Verification','Prototype data']]});return;}this.setState((x)=>({os:{...x.os,[o[0]]:nx[0]}}));say(o[0]+' is now '+nx[0]);})]}),{hasChips:true,chips:chips('or',['All','Pending','Packed','Shipped','Delivered','Failed']),sub:L.length+' orders'}))];}
+    if(sc==='mk'&&tab==='pa'){acts=[{l:'Settlement report',c:'g',tap:()=>VQApp.run(say,'payments','xlsx',{periodSlug:st.pp})}];
+      const lim={Daily:0,Weekly:6,Monthly:29,Yearly:364}[st.pp];const L=TX.filter((t)=>t[1]<=lim);const ok=L.filter((t)=>t[7]==='Success');const sum=ok.reduce((a,t)=>a+t[5],0);const fmt=(v)=>'₹'+v.toLocaleString('en-IN');
+      const dt=(d)=>{const x=new Date(2026,10,12-d);return x.getDate()+' '+MON[x.getMonth()]+' '+x.getFullYear();};
+      fb={groups:[{label:'STATEMENT PERIOD',opts:['Daily','Weekly','Monthly','Yearly'].map((l)=>({l,cls:st.pp===l?'on':'',tap:()=>this.setState({pp:l})}))},{label:'FORMAT',opts:['Excel','PDF','CSV'].map((l)=>({l,cls:st.pf===l?'on':'',tap:()=>this.setState({pf:l})}))}],sum:L.length+' transactions · '+fmt(sum)+' collected',pl:'Download '+st.pp.toLowerCase()+' statement',ptap:()=>VQApp.run(say,'payments','xlsx',{periodSlug:st.pp}),hasPrimary:true};
+      rows=[R('repeat(4,1fr)',K('TRANSACTIONS',String(L.length),st.pp,true,[3,5,4,7,L.length]),K('COLLECTED',fmt(sum),'Successful only',true,[2,4,3,6,5]),K('FAILED',String(L.filter((t)=>t[7]==='Failed').length),'Retry from Orders',false,[1,2,1,2,1]),K('REFUNDED',fmt(L.filter((t)=>t[7]==='Refunded').reduce((a,t)=>a+t[5],0)),'Returned to payer',false,[0,1,0,1,1])),
+        R('1fr',T('Payment transactions','1.3fr 1.3fr 1.4fr 1.5fr .9fr .8fr .8fr .8fr',['UTR / REFERENCE','DATE AND TIME','PAID BY','FOR','AMOUNT','METHOD','STATUS','RECEIPT'],L.map((t)=>[tx(t[0]),tx(dt(t[1])+' · '+t[2]),tx(t[3],ini(t[3])),tx(t[4]),tx(fmt(t[5])),tx(t[6]),pl(t[7]),bt('Receipt',()=>VQApp.inv(say,{id:'VQ-RCT-'+String(t[0]).slice(-6),order:'UTR '+t[0],buyer:[t[3],'Billing address on file','Member account'],items:[{name:t[4],type:'Payment',qty:1,unit:t[5]}],couponPct:0,coupon:'None',shipping:0,pay:[['Gateway',t[6]==='Card'?'Stripe':'Razorpay'],['Method',t[6]],['Bank reference (UTR)',t[0]],['Paid on',dt(t[1])+' '+t[2]],['Verification',t[7]]]}))]),{sub:'Every payment with its bank reference (UTR), date and payer · '+st.pp+' view'})),
+        R('2fr 1fr',{t:'area',title:'Daily collections',sub:'₹ lakh, last 14 days',leg:[{n:'Collected',c:'#4520B8'},{n:'Previous period',c:'#B9B2D3'}],...ar(ser(14,5.2,.9,2,0),ser(14,4.6,.7,1,2),Array.from({length:14},(_,i)=>'D'+(i+1)))},DN('Payment methods','Share of value','₹48.2L','this month',[{n:'UPI',v:'58%',n2:58},{n:'Insurance',v:'24%',n2:24},{n:'Card',v:'13%',n2:13},{n:'Net banking',v:'5%',n2:5}])),
+        R('1fr 1fr',LS('Refund queue','Approve or review',RFD.map((r)=>({t:r[1],d:r[0]+' · '+r[2],tag:st.rf[r[0]]?'Approved':'Pending',tc:st.rf[r[0]]?'ok':'warn',b:st.rf[r[0]]?'':'Approve refund',tap:()=>{this.setState((x)=>({rf:{...x.rf,[r[0]]:1}}));say('Refund '+r[0]+' approved');}}))),T('Vendor payouts','1.4fr 1fr .9fr',['VENDOR','AMOUNT','ACTION'],[['MediCare Equipments','₹3.2L'],['Nourish Kitchen','₹2.1L'],['HealthSense','₹1.6L'],['Mobility Plus','₹0.9L']].map((r)=>[tx(r[0]),tx(r[1]),st.po[r[0]]?pl('Paid'):bt('Release',()=>{this.setState((x)=>({po:{...x.po,[r[0]]:1}}));say('Payout released to '+r[0]);})]),{sub:'Scheduled for Friday'}))];}
+    if(sc==='mk'&&tab==='vn'){acts=[{l:'Invite vendor',c:'',tap:()=>say('Invitation sent to the vendor (simulated)')},{l:'Download Excel',c:'s',tap:xr(()=>['Excel','Vendor report',['Vendor','Category','Compliance','Status'],VND.map((v)=>[v[0],v[1],v[2],st.vs[v[0]]||v[3]]),{module:'Marketplace'}])},{l:'Download PDF',c:'g',tap:xr(()=>['PDF','Vendor report',['Vendor','Category','Compliance','Status'],VND.map((v)=>[v[0],v[1],v[2],st.vs[v[0]]||v[3]]),{module:'Marketplace'}])}];
+      rows=[R('1fr',T('Vendor management','1.6fr 1fr 1.4fr 1fr 1.2fr',['VENDOR','CATEGORY','COMPLIANCE','STATUS','ACTION'],VND.map((v)=>{const s=st.vs[v[0]]||v[3];return [tx(v[0],ini(v[0])),tx(v[1]),tx(v[2]),pl(s),bt(s==='Pending'?'Approve':s==='Active'?'Suspend':'Reactivate',()=>{this.setState((x)=>({vs:{...x.vs,[v[0]]:s==='Pending'||s==='Suspended'?'Active':'Suspended'}}));say(v[0]+(s==='Active'?' suspended':' approved'));})]}),{sub:'Licences and compliance are checked before approval'}))];}
+    if(sc==='an'){const seg=['All','Medicare Advantage','Managed Medicaid','ACO'];const pl_={'7':'Last 7 days','30':'Last 30 days','90':'Last 90 days'}[st.rg];fb={groups:[{label:'PERIOD',opts:[['7','7 days'],['30','30 days'],['90','90 days']].map(([k,l])=>({l,cls:st.rg===k?'on':'',tap:()=>this.setState({rg:k})}))},{label:'HEALTH PLAN',opts:seg.map((l)=>({l:l==='All'?'All plans':l,cls:st.sg===l?'on':'',tap:()=>this.setState({sg:l})}))}],hasTg:true,tgc:st.cmp?'on':'',tgo:st.cmp,tgt:()=>this.setState((x)=>({cmp:!x.cmp})),sum:pl_+' · '+(st.sg==='All'?'All plans':st.sg)+(st.cmp?' · vs previous period':''),hasReset:st.rg!=='30'||st.sg!=='All'||!st.cmp,reset:()=>this.setState({rg:'30',sg:'All',cmp:true})};
+      acts=[{l:'Export PDF',c:'',tap:()=>VQApp.run(say,'outcomes','pdf',{periodSlug:pl_})},{l:'Export Excel',c:'s',tap:()=>VQApp.run(say,'outcomes','xlsx',{periodSlug:pl_})},{l:'Export CSV',c:'g',tap:xr(()=>['CSV','Outcomes summary',['Metric','Value'],[['Period',pl_],['Health plan',st.sg==='All'?'All plans':st.sg],['Readmission rate','9.2%'],['Readmissions avoided',Math.round(109*sg)],['Care gaps closed','86%'],['Medicine adherence','91%']],{module:'Analytics',subtitle:pl_}])}];
+      const A=(t,s,a,b)=>({t:'area',title:t,sub:s,leg:[{n:'Selected period',c:'#4520B8'},...(st.cmp?[{n:'Previous period',c:'#B9B2D3'}]:[])],...ar(a,st.cmp?b:null,lab)});
+      const F=(v)=>Math.round(v*sg).toLocaleString('en-IN');
+      if(tab==='out')rows=[R('repeat(4,1fr)',K('READMISSION RATE','9.2%','-3.4 pts',true,[16,14,12,11,9.2]),K('AVOIDED',F(109),'+21%',true,[40,60,80,109]),K('CARE GAPS CLOSED','86%','+5 pts',true,[78,80,83,86]),K('MEDICINE ADHERENCE','91%','+4 pts',true,[84,87,89,91])),
+        R('2fr 1fr',A('Readmission rate (%)','30-day readmissions, with VivoQuest vs baseline',ser(n,12-0,1.2,-4,0),ser(n,17,.8,0,2)),DN('Care gaps closed','By type',Math.round(86)+'%','closed',[{n:'Wellness exams',v:'89%',n2:30},{n:'Medicine refills',v:'93%',n2:26},{n:'Lab tests',v:'81%',n2:24},{n:'Follow-ups',v:'85%',n2:20}])),
+        R('1fr 1fr 1fr',VB('Readmission by condition','Rate, %',[['Heart',11],['Stroke',9],['Cancer',8],['COPD',12],['Diabetes',7]].map(([l,v])=>({l,v:v+'%',tt:l,h:v*7.5}))),HM('Medicine adherence','By weekday and time',WD.map((l,i)=>({l,cells:Array.from({length:4},(_,j)=>{const v=Math.round(70+25*Math.sin(i+j));return {c:hcl(v),tt:l+' · '+v+'%'};})})),['Morning','Noon','Evening','Night']),LS('Scheduled reports','Sent automatically',[{t:'Weekly outcomes report',d:'Mondays · health plans',tag:'PDF',av:''},{t:'Monthly care-gap report',d:'1st of the month · ACOs',tag:'Excel',av:''},{t:'Quarterly board summary',d:'Quarter end · leadership',tag:'PDF',av:''}])),
+        R('1fr',T('Cohort performance','1.4fr 1fr 1fr 1fr 1fr',['COHORT','MEMBERS','READMISSION','CARE GAPS','ADHERENCE'],[['Heart failure',1840,'11%',84,91],['Stroke',960,'9%',88,89],['Cancer',720,'8%',86,93],['COPD',1210,'12%',81,87]].map((r)=>[tx(r[0]),tx(F(r[1])),tx(r[2]),pb(r[3]),pb(r[4])]),{sub:'Segment: '+st.sg}))];
+      if(tab==='fun')rows=[R('1fr 1fr',HB('Onboarding funnel','Invited to care plan complete',[{l:'Invited',v:F(15200),p:100},{l:'Registered',v:F(13900),p:91},{l:'First check-in',v:F(12480),p:82},{l:'Weekly active',v:F(9310),p:61},{l:'Care plan completed',v:F(7440),p:49}]),DN('Acquisition channel','Where members come from','100%','of members',[{n:'Hospital discharge',v:'52%',n2:52},{n:'Health plan outreach',v:'28%',n2:28},{n:'Caregiver referral',v:'14%',n2:14},{n:'Other',v:'6%',n2:6}])),
+        R('1fr',T('Weekly retention by signup month','1.2fr repeat(6,1fr)',['COHORT','WEEK 0','WEEK 1','WEEK 2','WEEK 3','WEEK 4','WEEK 5'],[['June',100,84,76,71,68,66],['July',100,86,78,73,70,68],['August',100,88,80,75,72,70],['September',100,89,82,77,74,0],['October',100,90,83,78,0,0]].map((r)=>[tx(r[0]),...r.slice(1).map((v)=>v?hh(v):tx('')) ]),{sub:'Share of the cohort still active'}))];
+      if(tab==='ops')rows=[R('repeat(4,1fr)',K('ON-TIME VISITS','96%','+2 pts',true,[91,93,94,96]),K('AVG DISPATCH TIME','38 min','-9 min',true,[52,48,44,38]),K('STAFF UTILISATION','78%','+3 pts',true,[70,73,76,78]),K('TELEMETRY UPTIME','98.4%','+0.6',true,[96,97,98,98.4])),
+        R('2fr 1fr',A('Home visits completed','Per period',ser(n,1000,150,300,0).map((v)=>Math.round(v*sg)),ser(n,900,100,100,2).map((v)=>Math.round(v*sg))),DN('Visits by type','Completed',F(1246),'visits',[{n:'Nursing',v:'46%',n2:46},{n:'Therapy',v:'24%',n2:24},{n:'Lab draw',v:'18%',n2:18},{n:'Social care',v:'12%',n2:12}])),
+        R('1fr 1fr',HB('Region performance','On-time visits',[{l:'Pune',v:'97%',p:97},{l:'Mumbai',v:'95%',p:95},{l:'Nashik',v:'93%',p:93},{l:'Nagpur',v:'90%',p:90}]),T('Field staff leaderboard','1.4fr 1fr 1fr',['STAFF','VISITS','ON TIME'],[['Priya Menon',142,'99%'],['Asha Kulkarni',131,'98%'],['Vikram Rao',118,'96%'],['Neha Shinde',96,'94%']].map((r)=>[tx(r[0],ini(r[0])),tx(r[1]),tx(r[2])]),{sub:'This month'}))];
+      if(tab==='fin')rows=[R('repeat(4,1fr)',K('REVENUE','₹'+(1.84*sg).toFixed(2)+' Cr','+12%',true,[1.2,1.4,1.6,1.84]),K('PER-MEMBER FEES','₹'+(0.92*sg).toFixed(2)+' Cr','+8%',true,[.7,.8,.86,.92]),K('MARKETPLACE COMMISSION','₹'+(0.48*sg).toFixed(2)+' Cr','+19%',true,[.3,.36,.42,.48]),K('SHARED BONUS','₹'+(0.31*sg).toFixed(2)+' Cr','+27%',true,[.15,.2,.25,.31])),
+        R('2fr 1fr',A('Revenue vs target','₹ lakh',ser(n,120,14,60,0).map((v)=>Math.round(v*sg)),ser(n,130,6,40,2).map((v)=>Math.round(v*sg))),DN('Revenue streams','Share of revenue','₹1.84 Cr','total',[{n:'Per-member fees',v:'50%',n2:50},{n:'Visit fees',v:'24%',n2:24},{n:'Marketplace commission',v:'16%',n2:16},{n:'Shared bonus',v:'10%',n2:10}])),
+        R('1fr',T('Plan profitability','1.4fr 1fr 1fr 1fr 1fr',['PLAN','REVENUE','COST TO SERVE','MARGIN','MEMBERS'],[['Medicare Advantage','₹0.84 Cr','₹0.52 Cr','38%','5,740'],['Managed Medicaid','₹0.59 Cr','₹0.41 Cr','30%','3,990'],['ACO','₹0.41 Cr','₹0.24 Cr','41%','2,750']].map((r)=>r.map((v,i)=>tx(v))),{sub:'Sample figures'}))];
+    }
+    if(sc==='dt'&&tab==='bk'){acts=[{l:'Run backup now',c:'',tap:()=>{this.setState((x)=>({bk:DSET.reduce((a,d)=>({...a,[d[0]]:'Just now'}),{})}));say('Full backup completed and verified');}}];
+      rows=[R('repeat(4,1fr)',K('LAST BACKUP','2 h ago','Verified',true,[1,2,1,2,2]),K('SUCCESS RATE (30D)','100%','+0%',true,[99,100,100,100]),K('RECOVERY POINT','15 min','Target met',true,[30,20,15,15]),K('RECOVERY TIME','1 h','Target met',true,[3,2,1.5,1])),
+        R('1fr',T('Backup by data section','1.6fr 1.4fr 1.1fr 1fr .8fr .8fr 1fr',['DATA SECTION','OWNER ROLE','SCHEDULE','LAST RUN','SIZE','KEPT FOR','ACTION'],DSET.map((d)=>[tx(d[0]),tx(d[1]),tx(d[2]),tx(st.bk[d[0]]||d[3]),tx(d[4]),tx(d[5]),bt('Run now',()=>{this.setState((x)=>({bk:{...x.bk,[d[0]]:'Just now'}}));say('Backup of '+d[0]+' completed');})]),{sub:'Each section is backed up on its own schedule and kept in AWS Mumbai'}))];}
+    if(sc==='dt'&&tab==='rc'){acts=[{l:'Restore selected point',c:'',tap:()=>say('Restore from '+RPT[st.rp][0]+' started (simulated)')},{l:'Test restore',c:'g',tap:()=>say('Test restore passed in the sandbox')}];
+      rows=[R('1fr 1fr',LS('Restore points','Choose a point in time',RPT.map((r,i)=>({t:r[0],d:r[1],dc:i===st.rp?'':'w',tag:i===st.rp?'Selected':'',tc:'',b:i===st.rp?'':'Select',tap:()=>this.setState({rp:i})}))),LS('Disaster recovery','Replication and checks',[{t:'Primary region: Mumbai',d:'Live',dc:''},{t:'Secondary region: Hyderabad',d:'Replicating · 3 sec behind',dc:''},{t:'Last full restore test',d:'6 days ago · passed in 42 min',dc:''},{t:'Failover drill',d:'Next drill in 3 weeks',dc:'w'}]))];}
+    if(sc==='dt'&&tab==='gv'){acts=[{l:'Save policy',c:'',tap:()=>say('Policy saved and logged')}];
+      const gv=[['Encrypt backups','AES-256, keys rotated every 90 days'],['Keep all data in India','AWS Mumbai only (DPDP Act)'],['Archive old records to cold storage','After 2 years, still searchable'],['Remove names from analytics data','Analysts see only anonymised records']];
+      rows=[R('1fr 1fr',DN('Storage by data section','406 GB used of 1 TB','406 GB','used',[{n:'Patient records',v:'212 GB',n2:212},{n:'Telemetry',v:'96 GB',n2:96},{n:'Care plans and messages',v:'38 GB',n2:38},{n:'Audit logs',v:'31 GB',n2:31},{n:'Other',v:'29 GB',n2:29}]),TG('Data policies','Applied to the whole platform',gv.map((g,i)=>({n:g[0],d:g[1],on:st.gv[i],cls:st.gv[i]?'on':'',tap:()=>this.setState((x)=>({gv:x.gv.map((v,j)=>j===i?!v:v)}))})))),
+        R('1fr',HB('Retention compliance','Share of records inside their retention rule',[{l:'Patient records (7 years)',v:'100%',p:100},{l:'Orders and payments (8 years)',v:'100%',p:100},{l:'Audit logs (10 years)',v:'100%',p:100},{l:'Telemetry (2 years)',v:'97%',p:97}]))];}
+    if(sc==='sc'&&tab==='ps'){acts=[{l:'Run security scan',c:'',tap:()=>say('Scan complete: no new issues')}];
+      const ctl=[['Two-step sign-in for all staff','Nurses, clinicians, admins'],['Encrypt data at rest and in transit','AES-256 and TLS 1.3'],['Auto sign-out after 10 minutes','Protects shared devices'],['Block unknown locations','Alert on sign-ins outside India'],['Allow API keys for partners','Turn off if not needed']];
+      rows=[R('repeat(4,1fr)',K('SECURITY SCORE','92 / 100','+3',true,[84,87,89,92]),K('TWO-STEP COVERAGE','94%','+2%',true,[88,90,92,94]),K('BLOCKED THREATS (24H)','156','+12',false,[90,110,130,156]),K('COMPLIANCE CHECKS','48 / 48','Passing',true,[44,46,47,48])),
+        R('1fr 1fr',TG('Security controls','Applied to everyone',ctl.map((c,i)=>({n:c[0],d:c[1],on:st.ctl[i],cls:st.ctl[i]?'on':'',tap:()=>this.setState((x)=>({ctl:x.ctl.map((v,j)=>j===i?!v:v)}))}))),DN('Compliance coverage','Controls passing','92','score',[{n:'DPDP Act',v:'100%',n2:30},{n:'HIPAA ready',v:'96%',n2:26},{n:'ABDM and ABHA',v:'94%',n2:24},{n:'Encryption',v:'100%',n2:20}]))];}
+    if(sc==='sc'&&tab==='ac'){acts=[{l:'Revoke all sessions',c:'d',tap:()=>say('All other sessions revoked (simulated)')}];
+      rows=[R('repeat(4,1fr)',K('ACTIVE SESSIONS','1,284','+6%',true,[1,1.1,1.2,1.284]),K('LOCKED ACCOUNTS','7','-2',true,[12,10,9,7]),K('API KEYS','12','+1',false,[10,10,11,12]),K('RISKY SIGN-INS (24H)','1','-4',true,[5,4,2,1])),
+        R('1fr',T('Active sessions','1.4fr 1.2fr 1.6fr 1.2fr 1fr',['USER','ROLE','DEVICE','LAST SEEN','ACTION'],SES.map((s)=>[tx(s[0],ini(s[0])),tx(s[1]),tx(s[2]),tx(s[3]),st.sr[s[0]]?pl('Resolved'):bt('Revoke',()=>{this.setState((x)=>({sr:{...x.sr,[s[0]]:1}}));say('Session revoked for '+s[0]);},s[0]==='Unknown user'?'':'')]),{sub:'The unknown sign-in from outside India needs review'}))];}
+    if(sc==='sc'&&tab==='pv'){acts=[{l:'Privacy report',c:'g',tap:xr(()=>['PDF','Privacy report',['Request','Member','Due'],REQ.map((r)=>[r[0],r[1],r[2]]),{module:'Security',subtitle:'DPDP Act member data requests',kpis:[{l:'OPEN REQUESTS',v:String(pendR),txt:1,d:'Due soon'},{l:'CONSENT RATE',v:'97%',txt:1,d:'+1%'},{l:'AVG RESPONSE',v:'3.1 days',txt:1,d:'-0.8 days'},{l:'REQUESTS LISTED',v:String(REQ.length),txt:1,d:'In this report'}]}])}];
+      rows=[R('repeat(3,1fr)',K('OPEN REQUESTS',String(pendR),'Due soon',false,[6,5,5,pendR]),K('CONSENT RATE','97%','+1%',true,[95,96,96,97]),K('AVG RESPONSE','3.1 days','-0.8',true,[5,4.2,3.6,3.1])),
+        R('1.4fr 1fr',T('Member data requests','1fr 1.3fr 1fr 1fr',['REQUEST','MEMBER','DUE','ACTION'],REQ.map((r)=>[tx(r[0]),tx(r[1],ini(r[1])),tx(r[2]),st.rq[r[1]]?pl('Approved'):bt('Approve',()=>{this.setState((x)=>({rq:{...x.rq,[r[1]]:1}}));say(r[0]+' request approved for '+r[1]);})]),{sub:'Under the DPDP Act'}),HB('Consent by purpose','Members who agreed',[{l:'Care and treatment',v:'99%',p:99},{l:'Sharing with family',v:'88%',p:88},{l:'Research (anonymised)',v:'61%',p:61}]))];}
+    if(sc==='sc'&&tab==='au'){acts=[{l:'Export log',c:'g',tap:xr(()=>['Excel','Audit log',['Time','User','Action','Type'],L.map((a)=>[a[0],a[1],a[2],a[3]]),{module:'Security',subtitle:'Filter '+af}])}];
+      const af=st.f.au;const L=AUD.filter((a)=>af==='All'||a[3]===af);
+      rows=[R('1fr',T('Audit log','.8fr 1.4fr 2fr .8fr',['TIME','WHO','WHAT','TYPE'],L.map((a)=>[tx(a[0]),tx(a[1],ini(a[1])),tx(a[2]),pl(a[3]==='Config'?'Pending':a[3]==='Data'?'Low':'Active')&&{k_t:true,t:a[3],av:''}]),{hasChips:true,chips:chips('au',['All','Access','Config','Data']),sub:'Every action is recorded and cannot be edited'}))];}
+    if(sc==='sc'&&tab==='in'){acts=[];
+      rows=[R('repeat(3,1fr)',K('OPEN INCIDENTS',String(openInc),openInc?'Action needed':'All clear',!openInc,[4,3,5,3,openInc]),K('AVG TIME TO RESOLVE','42 min','-11 min',true,[70,60,55,42]),K('RESOLVED THIS WEEK',String(14+st.inc.filter((i)=>i.s==='Resolved').length),'+3',true,[8,10,12,14])),
+        R('1fr',LS('Incidents','You are responsible for resolving these',st.inc.map((i)=>({t:i.n,d:i.d+(i.own?' · Owner: Anita Kulkarni':' · Unassigned'),dc:i.s==='Resolved'?'':i.c,tag:i.s,tc:SC[i.s]||'',b:i.s==='Open'?'Take ownership':i.s==='Investigating'?'Mark resolved':'',tap:()=>{this.setState((x)=>({inc:x.inc.map((y)=>y.id===i.id?{...y,s:y.s==='Open'?'Investigating':'Resolved',own:'me'}:y)}));say(i.s==='Open'?'You now own: '+i.n:'Resolved and logged: '+i.n);}})))) ];}
+    if(sc==='pay'){const P=PAYX;const INR=P.INR,CMP=P.CMP;
+      const pf={'7':.24,'30':1,'90':2.9}[st.pyp],sf={All:1,Patients:.34,Hospitals:.38,Marketplace:.18,Insurance:.1}[st.pys],F=pf*sf;
+      const plab={'7':'Last 7 days','30':'Last 30 days','90':'Last 90 days'}[st.pyp];
+      const upd=(k,id,v)=>this.setState((x)=>({[k]:{...x[k],[id]:v}}));
+      const fmt0=st.pf;
+      const exp=(name,head,data)=>{if(fmt0==='Excel'&&/transaction|reconcil|collection|finance pack|daily|gateway/i.test(name)){VQApp.run(say,'payments','xlsx',{periodSlug:plab});return;}const fn=P.save(fmt0,name,head,data,name);say(fn?fn+' downloaded · '+data.length+' rows':name+' prepared (the preview blocked the download)');};
+      const segMap={Patients:'Patient',Hospitals:'Hospital',Marketplace:'Marketplace',Insurance:'Insurance'};
+      const perSeg=[{label:'PERIOD',opts:[['7','7 days'],['30','30 days'],['90','90 days']].map(([k,l])=>({l,cls:st.pyp===k?'on':'',tap:()=>this.setState({pyp:k})}))},{label:'SOURCE',opts:['All','Patients','Hospitals','Marketplace','Insurance'].map((l)=>({l,cls:st.pys===l?'on':'',tap:()=>this.setState({pys:l})}))}];
+      const fmtG={label:'FORMAT',opts:['CSV','Excel','PDF'].map((l)=>({l,cls:st.pf===l?'on':'',tap:()=>this.setState({pf:l})}))};
+      const gross=2860000*10*F;
+      if(tab==='ov'){
+        const A=P.attn(st);const n=st.pyp==='7'?7:st.pyp==='30'?15:18;const unit=st.pyp==='7'?1:st.pyp==='30'?2:5;const base=9.5*sf*unit;
+        acts=[{l:'Download finance pack',c:'',tap:()=>exp('VivoQuest finance pack '+plab,['Metric','Value'],[['Gross collections',Math.round(gross)],['Platform revenue',Math.round(gross*.184)],['Settled to partners',Math.round(gross*.71)],['Pending settlements',Math.round(gross*.114)],['Refunds',Math.round(gross*.019)],['Open attention items',P.total(st)]])},{l:'Reconcile bank',c:'g',tap:()=>this.go('pay','rc')}];
+        fb={groups:perSeg,sum:plab+' · '+st.pys+' · figures are sample data',hasPrimary:false};
+        const rev=[{n:'Patients and families',v:CMP(gross*.34),n2:34},{n:'Hospitals',v:CMP(gross*.38),n2:38},{n:'Marketplace',v:CMP(gross*.18),n2:18},{n:'Insurers (TPA)',v:CMP(gross*.1),n2:10}];
+        const ls=[];
+        if(A.fail)ls.push({t:A.fail+' failed payments to retry',d:'Money may be debited from the payer. Retry or refund from Transactions',dc:'b',tag:'Action',tc:'bad',b:'Review',tap:()=>this.go('pay','tx')});
+        if(A.mis)ls.push({t:A.mis+' bank reconciliation mismatches',d:'Ledger and bank credit differ. Month-end close is blocked',dc:'b',tag:'Action',tc:'bad',b:'Reconcile',tap:()=>this.go('pay','rc')});
+        if(A.od)ls.push({t:A.od+' overdue hospital and insurer invoices',d:'Send reminders or record the payment received',dc:'w',tag:'Overdue',tc:'warn',b:'Open invoices',tap:()=>this.go('pay','iv')});
+        if(A.hold)ls.push({t:A.hold+' settlements on hold',d:'Partner payouts paused until you resume',dc:'w',tag:'On hold',tc:'warn',b:'Review',tap:()=>this.go('pay','st')});
+        if(A.cb)ls.push({t:A.cb+' chargebacks need evidence',d:'Bank deadline is 18 Nov for the earliest case',dc:'b',tag:'Due soon',tc:'bad',b:'Respond',tap:()=>this.go('pay','rf')});
+        if(A.rf)ls.push({t:A.rf+' refund requests waiting',d:'Approve within 2 days to meet the refund promise',dc:'w',tag:'Pending',tc:'warn',b:'Decide',tap:()=>this.go('pay','rf')});
+        if(!ls.length)ls.push({t:'All clear',d:'Nothing needs your attention right now',dc:'',tag:'Healthy',tc:'ok'});
+        const inv=P.invs(st);const hosT=['Lotus Heart Institute','Sunrise Multispeciality Hospital','Godavari Care Hospital','Shivneri Medical Centre','Mahalaxmi Nursing Home'];const hv=[[9.4,8.9],[7.8,7.1],[6.2,6.0],[4.9,4.3],[3.3,3.2]];
+        rows=[R('repeat(4,1fr)',K('GROSS COLLECTIONS',CMP(gross),'+11.4%',true,[2.1,2.3,2.2,2.5,2.6,2.8,2.86]),K('PLATFORM REVENUE',CMP(gross*.184),'+9.8%',true,[.38,.41,.4,.45,.47,.5,.53]),K('SETTLED TO PARTNERS',CMP(gross*.71),'+10.6%',true,[1.4,1.6,1.6,1.8,1.9,2,2.03]),K('PENDING SETTLEMENTS',CMP(gross*.114),'Next run Fri',false,[.2,.3,.28,.31,.3,.33,.33])),
+          R('repeat(4,1fr)',K('SUCCESS RATE','97.4%','+0.6%',true,[96.2,96.5,96.9,96.8,97.1,97.2,97.4]),K('REFUNDS ISSUED',CMP(gross*.019),'-0.3%',true,[2.4,2.3,2.2,2.2,2.1,2,1.9]),K('OUTSTANDING INVOICES',CMP(P.invs(st).reduce((a,v)=>a+v.bal,0)*3.1),'DSO 21 days',false,[40,44,43,47,46,48,46]),K('OPEN DISPUTES',String(P.cbs(st).filter((c)=>c.status==='Open'||c.status==='Under review').length),CMP(5.4e5)+' at risk',false,[3,4,4,5,3,4,3]))
+          ,R('2fr 1fr',{t:'area',title:'Collections and settlements',sub:'₹ lakh · '+plab+' · '+st.pys,leg:[{n:'Collected',c:'#4520B8'},{n:'Settled to partners',c:'#B9B2D3'}],...ar(ser(n,base,base*.16,base*.18,0).map((v)=>+v.toFixed(1)),ser(n,base*.8,base*.12,base*.14,2).map((v)=>+v.toFixed(1)),Array.from({length:n},(_,i)=>st.pyp==='7'?WD[i]:(st.pyp==='30'?'D'+(i*2+1):'W'+(i+1))))},DN('Revenue by source','Share of gross collections',CMP(gross),'collected',rev)),
+          R('1fr 1fr',LS('Needs your attention','Live from the payment queues. Resolve these to close the month',ls),T('Top hospitals by billed value','1.7fr 1fr 1fr 1.2fr',['HOSPITAL','BILLED','COLLECTED','COLLECTED %'],hosT.map((h,i)=>[tx(h,ini(h)),tx(CMP(hv[i][0]*1e5*pf)),tx(CMP(hv[i][1]*1e5*pf)),pb(Math.round(hv[i][1]/hv[i][0]*100))]),{sub:plab+' · billed through VivoQuest'})),
+          R('1fr 1fr',DN('Payment methods','Share of value',CMP(gross),'collected',[{n:'UPI',v:'46%',n2:46},{n:'Bank transfer (hospitals)',v:'30%',n2:30},{n:'Cards',v:'12%',n2:12},{n:'Insurance (TPA)',v:'8%',n2:8},{n:'Net banking',v:'4%',n2:4}]),HB('Payment success rate by route','Higher is better',[{l:'Bank transfer',v:'99.4%',p:99.4},{l:'UPI',v:'98.6%',p:98.6},{l:'Cards',v:'96.9%',p:96.9},{l:'Net banking',v:'95.2%',p:95.2},{l:'Insurance claims approved',v:'91.8%',p:91.8}]))];
+      }
+      if(tab==='tx'){
+        const L0=P.txs(st).filter((t)=>t.day<=({'7':6,'30':29,'90':89}[st.pyp])&&(st.pys==='All'||t.seg===segMap[st.pys]));
+        const tf=st.f.ptx;const L=L0.filter((t)=>(tf==='All'||t.status===tf)&&(!q||(t.id+t.payer+t.item+t.method).toLowerCase().indexOf(q)>=0));
+        const ok=L0.filter((t)=>t.status==='Success');const sum=ok.reduce((a,t)=>a+t.amt,0);
+        const head=['Transaction ID','Date','Time','Payer','Source','For','Method','Amount (INR)','Gateway fee (INR)','Status'];const data=L.map((t)=>[t.id,P.dstr(t.day),t.time,t.payer,t.seg,t.item,t.method,t.amt,t.fee,t.status]);
+        acts=[{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest transactions '+plab,head,data)}];
+        fb={groups:[...perSeg,fmtG],sum:L.length+' of '+L0.length+' transactions · '+INR(sum)+' collected',hasPrimary:false};
+        const act=(t)=>t.status==='Success'?bt('Refund',()=>{upd('pstat',t.id,'Refunded');say(INR(t.amt)+' refund started for '+t.payer+' ('+t.id+')');},'g'):t.status==='Failed'?bt('Retry',()=>{upd('pstat',t.id,'Success');say('Retry succeeded. '+INR(t.amt)+' collected from '+t.payer);}):t.status==='Pending'?bt('Verify',()=>{upd('pstat',t.id,'Success');say('Bank confirmed '+t.id+'. Marked successful');}):bt('View',()=>say(t.id+': '+t.status+' · see Refunds and disputes'),'g');
+        rows=[R('repeat(4,1fr)',K('TRANSACTIONS',String(L0.length),plab,true,[8,12,10,14,L0.length]),K('COLLECTED',INR(sum),'Successful only',true,[2,4,3,6,5]),K('FAILED OR PENDING',String(L0.filter((t)=>t.status==='Failed'||t.status==='Pending').length),'Retry or verify',false,[1,2,1,3,2]),K('GATEWAY FEES',INR(L0.reduce((a,t)=>a+(t.status==='Success'?t.fee:0),0)),'Deducted at source',false,[1,2,2,3,3])),
+          R('1fr',T('Payment transactions','1.35fr .95fr 1.3fr .9fr 1.4fr .85fr .95fr .8fr .8fr',['TRANSACTION ID','DATE','PAYER','SOURCE','FOR','METHOD','AMOUNT','STATUS','ACTION'],L.map((t)=>[tx(t.id),tx(P.dstr(t.day)+' · '+t.time),tx(t.payer,ini(t.payer)),tx(t.seg),tx(t.item),tx(t.method),tx(INR(t.amt)),pl(t.status),act(t)]),{hasChips:true,chips:chips('ptx',['All','Success','Pending','Failed','Refunded','Disputed']),search:true,q:st.q,sub:'Every rupee in with its reference, payer, method and status'}))];
+      }
+      if(tab==='st'){
+        const S0=P.setl(st);const sf2=st.f.pst;const L=S0.filter((s)=>sf2==='All'||s.status===sf2||(sf2==='Hospitals'&&s.type==='Hospital')||(sf2==='Vendors'&&s.type==='Marketplace vendor')||(sf2==='Clinicians'&&s.type==='Clinician network'));
+        const sch=S0.filter((s)=>s.status==='Scheduled');const due=sch.reduce((a,s)=>a+s.net,0);
+        const head=['Settlement ID','Beneficiary','Type','Period','Gross (INR)','Deductions (INR)','Net payout (INR)','Status'];const data=L.map((s)=>[s.id,s.name,s.type,s.period,s.gross,s.ded,s.net,s.status]);
+        acts=[{l:'Release all due ('+sch.length+')',c:'',tap:()=>{if(!sch.length){say('Nothing is scheduled right now');return;}this.setState((x)=>({pset:{...x.pset,...sch.reduce((a,s)=>({...a,[s.id]:'Paid'}),{})}}));say(CMP(due)+' released to '+sch.length+' beneficiaries. UTRs added to the ledger');}},{l:'Download statement',c:'s',tap:()=>exp('VivoQuest settlements',head,data)}];
+        fb={groups:[fmtG],sum:L.length+' payouts · '+CMP(L.reduce((a,s)=>a+s.net,0))+' net',hasPrimary:false};
+        const rel=(s)=>s.status==='Scheduled'?bt('Release',()=>{upd('pset',s.id,'Paid');say(INR(s.net)+' sent to '+s.name+' by NEFT');}):s.status==='On hold'?bt('Resume',()=>{upd('pset',s.id,'Scheduled');say('Payout to '+s.name+' is back in the next run');}):s.status==='Processing'?bt('Track',()=>say('With the bank. Expected credit by 5 pm today'),'g'):bt('Advice',()=>VQApp.tblRun(say,'PDF','Payment advice '+s.id,['Field','Detail'],[['Settlement ID',s.id],['Beneficiary',s.name],['Type',s.type],['Period',s.period],['Gross','₹'+Number(s.gross).toLocaleString('en-IN')],['Deductions','₹'+Number(s.ded).toLocaleString('en-IN')],['Net payout','₹'+Number(s.net).toLocaleString('en-IN')],['Status',s.status]],{module:'Payments',subtitle:s.name,kv:1,kpis:[{l:'NET PAYOUT',v:'₹'+Number(s.net).toLocaleString('en-IN'),txt:1,d:s.status},{l:'GROSS',v:'₹'+Number(s.gross).toLocaleString('en-IN'),txt:1,d:s.period},{l:'DEDUCTIONS',v:'₹'+Number(s.ded).toLocaleString('en-IN'),txt:1,d:'Fees and tax'},{l:'BENEFICIARY',v:s.name,txt:1,d:s.type}]}),'g');
+        const hold=(s)=>s.status==='Scheduled'?bt('Hold',()=>{upd('pset',s.id,'On hold');say('Payout to '+s.name+' held. Add a reason in the audit log');},'g'):tx('');
+        rows=[R('repeat(4,1fr)',K('NEXT PAYOUT RUN','Fri 20 Nov',sch.length+' payouts queued',true,[3,4,4,5,sch.length]),K('SCHEDULED',CMP(due),'Net of commission and TDS',true,[10,12,11,14,12]),K('ON HOLD',CMP(S0.filter((s)=>s.status==='On hold').reduce((a,s)=>a+s.net,0)),S0.filter((s)=>s.status==='On hold').length+' payouts',false,[1,2,2,3,2]),K('PAID THIS MONTH',CMP(S0.filter((s)=>s.status==='Paid').reduce((a,s)=>a+s.net,0)*5.2),'+8%',true,[20,24,26,29,33])),
+          R('1fr',T('Partner payouts','1.8fr 1.1fr .8fr .95fr .95fr 1fr .85fr .8fr .7fr',['BENEFICIARY','TYPE','PERIOD','GROSS','DEDUCTIONS','NET PAYOUT','STATUS','ACTION',''],L.map((s)=>[tx(s.name,ini(s.name)),tx(s.type),tx(s.period),tx(INR(s.gross)),tx(INR(s.ded)),tx(INR(s.net)),pl(s.status),rel(s),hold(s)]),{hasChips:true,chips:chips('pst',['All','Hospitals','Vendors','Clinicians','Scheduled','On hold','Paid']),sub:'Deductions are VivoQuest commission plus TDS. Release is logged with the approver'})),
+          R('1fr 1fr',HB('Payout mix','Share of net payouts',[{l:'Hospitals',v:'60%',p:60},{l:'Clinician network',v:'27%',p:27},{l:'Marketplace vendors',v:'13%',p:13}]),LS('Payout rules','Applied automatically on every run',[{t:'Hospitals: fortnightly, T+2',d:'1st–15th paid on the 20th, 16th–end on the 5th',dc:''},{t:'Vendors: monthly, after delivery',d:'Held until return window of 7 days closes',dc:''},{t:'Clinicians: fortnightly with TDS',d:'10% under professional fees, certificate each quarter',dc:''},{t:'Maker and checker approval',d:'Payouts above ₹5,00,000 need a second approver',dc:'w'}]))];
+      }
+      if(tab==='rf'){
+        const RF=P.refs(st),CB=P.cbs(st);const rfl=st.f.prf;const L=RF.filter((r)=>rfl==='All'||r.status===rfl);
+        const pend=RF.filter((r)=>r.status==='Pending');
+        const head=['Refund ID','Payer','For','Amount (INR)','Reason','Requested','Status'];const data=RF.map((r)=>[r.id,r.payer,r.item,r.amt,r.reason,r.on,r.status]);
+        acts=[{l:'Approve all pending ('+pend.length+')',c:'',tap:()=>{if(!pend.length){say('No refunds are waiting');return;}this.setState((x)=>({prf:{...x.prf,...pend.reduce((a,r)=>({...a,[r.id]:'Approved'}),{})}}));say(pend.length+' refunds approved, '+INR(pend.reduce((a,r)=>a+r.amt,0))+' returned to payers');}},{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest refunds and disputes',head,data)}];
+        fb={groups:[fmtG],sum:RF.length+' refunds · '+INR(RF.reduce((a,r)=>a+r.amt,0))+' requested',hasPrimary:false};
+        rows=[R('repeat(4,1fr)',K('PENDING REFUNDS',String(pend.length),INR(pend.reduce((a,r)=>a+r.amt,0)),false,[6,7,5,8,pend.length]),K('REFUND RATE','1.9%','-0.3%',true,[2.4,2.3,2.2,2.2,1.9]),K('AVG REFUND TIME','1.8 days','-0.6',true,[3,2.6,2.4,2.1,1.8]),K('CHARGEBACK WIN RATE','68%','+6%',true,[52,58,60,64,68])),
+          R('1fr',T('Refund requests','.8fr 1.2fr 1.3fr .9fr 1.7fr .7fr .9fr .8fr .8fr',['REFUND','PAYER','FOR','AMOUNT','REASON','ON','STATUS','',''],L.map((r)=>[tx(r.id),tx(r.payer,ini(r.payer)),tx(r.item),tx(INR(r.amt)),tx(r.reason),tx(r.on),pl(r.status),r.status==='Pending'?bt('Approve',()=>{upd('prf',r.id,'Approved');say(INR(r.amt)+' refunded to '+r.payer+' to the original method');}):tx(''),r.status==='Pending'?bt('Reject',()=>{upd('prf',r.id,'Rejected');say('Refund '+r.id+' rejected and the payer notified');},'g'):tx('')]),{hasChips:true,chips:chips('prf',['All','Pending','Approved','Rejected']),sub:'Refunds go back to the original payment method'})),
+          R('1.6fr 1fr',T('Chargebacks and disputes','.8fr 1.1fr .8fr 1.5fr 1fr .9fr 1fr',['CASE','PAYER','AMOUNT','REASON','RESPOND BY','STATUS',''],CB.map((c)=>[tx(c.id),tx(c.payer,ini(c.payer)),tx(INR(c.amt)),tx(c.reason),tx(c.due),pl(c.status),c.status==='Open'?bt('Submit evidence',()=>{upd('pcb',c.id,'Under review');say('Evidence for '+c.id+' sent to the bank: invoice, delivery proof and chat log');}):tx('')]),{sub:'Reply before the bank deadline or the amount is lost'}),HB('Refund reasons','Share of refund requests',[{l:'Visit cancelled by provider',v:'25%',p:25},{l:'Item damaged on delivery',v:'25%',p:25},{l:'Duplicate payment',v:'25%',p:25},{l:'Payment failed, amount debited',v:'12%',p:12},{l:'Service not as described',v:'13%',p:13}]))];
+      }
+      if(tab==='rc'){
+        const RC=P.recs(st);const rf2=st.f.prc;const L=RC.filter((r)=>rf2==='All'||r.status===rf2);const mis=RC.filter((r)=>r.status==='Mismatch');
+        const head=['Date','Platform ledger (INR)','Bank credit (INR)','Difference (INR)','Likely cause','Status'];const data=RC.map((r)=>[P.dstr(r.day),r.ledger,r.bank,r.diff,r.why,r.status]);
+        acts=[{l:'Auto-match all',c:'',tap:()=>{if(!mis.length){say('Everything is already matched');return;}this.setState((x)=>({prc:{...x.prc,...mis.reduce((a,r)=>({...a,[r.id]:'Matched'}),{})}}));say(mis.length+' differences booked to gateway fees and adjustments');}},{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest bank reconciliation',head,data)}];
+        fb={groups:[fmtG],sum:RC.length+' days checked · '+mis.length+' to resolve',hasPrimary:false};
+        const net=RC.reduce((a,r)=>a+(r.status==='Mismatch'?r.diff:0),0);
+        rows=[R('repeat(4,1fr)',K('MATCH RATE',Math.round((RC.length-mis.length)/RC.length*100)+'%',mis.length?mis.length+' to resolve':'Fully matched',!mis.length,[88,90,92,94,Math.round((RC.length-mis.length)/RC.length*100)]),K('UNRECONCILED',INR(Math.abs(net)),net<0?'Bank is short':net>0?'Bank is higher':'Zero',!mis.length,[3,2,3,2,1]),K('LAST BANK FEED','Today 06:10','Auto-sync every 6 h',true,[1,1,1,1,1]),K('MONTH-END CLOSE',mis.length?'Blocked':'Ready',mis.length?'Resolve all differences':'Approve and lock',!mis.length,[1,1,1,1,1])),
+          R('1fr',T('Daily ledger against bank','.9fr 1.2fr 1.2fr 1fr 1.7fr .9fr .9fr',['DATE','PLATFORM LEDGER','BANK CREDIT','DIFFERENCE','LIKELY CAUSE','STATUS',''],L.map((r)=>[tx(P.dstr(r.day)),tx(INR(r.ledger)),tx(INR(r.bank)),tx(r.diff===0?'₹0':(r.diff<0?'-':'+')+INR(Math.abs(r.diff))),tx(r.why||'No difference'),pl(r.status),r.status==='Mismatch'?bt('Resolve',()=>{upd('prc',r.id,'Matched');say(P.dstr(r.day)+' matched. '+(r.why||'Adjustment')+' booked');}):tx('')]),{hasChips:true,chips:chips('prc',['All','Matched','Mismatch']),sub:'Gateway settlements and bank credits should agree to the rupee'})),
+          R('1fr 1fr',LS('Reconciliation checklist','Before closing the month',[{t:'Gateway settlement files imported',d:'UPI, card and net banking reports',dc:'',tag:'Done',tc:'ok'},{t:'Bank statement imported',d:'Account ••4821, up to today 06:10',dc:'',tag:'Done',tc:'ok'},{t:'Differences explained',d:mis.length+' still open',dc:mis.length?'w':'',tag:mis.length?'Open':'Done',tc:mis.length?'warn':'ok'},{t:'Finance head approval',d:'Locks the month. Nothing can be edited after this',dc:'',tag:mis.length?'Waiting':'Ready',tc:mis.length?'':'ok'}]),HB('Where differences come from','Last 30 days',[{l:'Gateway fee not booked',v:'38%',p:38},{l:'Duplicate callbacks',v:'27%',p:27},{l:'Chargeback holds',v:'21%',p:21},{l:'Timing (T+1 credits)',v:'14%',p:14}]))];
+      }
+      if(tab==='iv'){
+        const IV=P.invs(st);const vf=st.f.pinv;const L=IV.filter((v)=>vf==='All'||v.status===vf);const unpaid=IV.filter((v)=>v.bal>0);
+        const bk=(a,b)=>unpaid.filter((v)=>-v.due>=a&&-v.due<=b).reduce((s,v)=>s+v.bal,0);const tot=unpaid.reduce((s,v)=>s+v.bal,0)||1;
+        const ag=[['Not yet due',unpaid.filter((v)=>v.due>=0).reduce((s,v)=>s+v.bal,0)],['1–30 days late',bk(1,30)],['31–60 days late',bk(31,60)],['Over 60 days late',bk(61,9999)]];
+        const head=['Invoice','Customer','Type','For','Due in (days)','Amount (INR)','GST 18% (INR)','Total (INR)','Paid (INR)','Balance (INR)','Status'];const data=IV.map((v)=>[v.no,v.cust,v.type,v.desc,v.due,v.base,v.gst,v.total,v.paid,v.bal,v.status]);
+        acts=[{l:'Remind all overdue',c:'',tap:()=>{const o=IV.filter((v)=>v.status==='Overdue').length;say(o?'Reminders sent for '+o+' overdue invoices (simulated)':'No overdue invoices');}},{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest invoices and tax',head,data)}];
+        fb={groups:[fmtG],sum:IV.length+' invoices · '+INR(unpaid.reduce((s,v)=>s+v.bal,0))+' unpaid',hasPrimary:false};
+        const gstOut=IV.reduce((s,v)=>s+v.gst,0);
+        rows=[R('repeat(4,1fr)',K('BILLED (INCL. GST)',CMP(IV.reduce((s,v)=>s+v.total,0)),IV.length+' invoices',true,[30,34,36,38,41]),K('COLLECTED',CMP(IV.reduce((s,v)=>s+v.paid,0)),'+7%',true,[8,10,12,14,16]),K('OVERDUE',CMP(IV.filter((v)=>v.status==='Overdue').reduce((s,v)=>s+v.bal,0)),IV.filter((v)=>v.status==='Overdue').length+' invoices',false,[6,7,8,9,8]),K('GST ON THESE INVOICES',CMP(gstOut),'Output tax 18%',true,[2,3,3,4,5])),
+          R('1fr',T('Invoices to hospitals, insurers and corporates','1.15fr 1.6fr .8fr 1.5fr .9fr .9fr .85fr .95fr .9fr',['INVOICE','CUSTOMER','TYPE','FOR','TOTAL','BALANCE','DUE','STATUS',''],L.map((v)=>[tx(v.no),tx(v.cust,ini(v.cust)),tx(v.type),tx(v.desc),tx(INR(v.total)),tx(INR(v.bal)),tx(v.bal<=0?'Cleared':v.due<0?Math.abs(v.due)+' days late':'In '+v.due+' days'),pl(v.status),v.bal>0?bt(v.status==='Overdue'?'Record payment':'Remind',()=>{if(v.status==='Overdue'){upd('pinv',v.no,1);say(INR(v.bal)+' recorded against '+v.no);}else{say('Reminder for '+v.no+' sent to '+v.cust+' (simulated)');}}):bt('PDF',()=>VQApp.inv(say,{id:v.no,order:v.desc,buyer:[v.cust,'Billing address on file',v.type],items:[{name:v.desc,type:v.type,qty:1,unit:v.total}],couponPct:0,coupon:'None',shipping:0,pay:[['Gateway','Bank transfer'],['Method','Invoice'],['Paid so far','₹'+Number(v.paid).toLocaleString('en-IN')],['Balance','₹'+Number(v.bal).toLocaleString('en-IN')],['Status',v.status]]}),'g')]),{hasChips:true,chips:chips('pinv',['All','Overdue','Due','Partially paid','Paid']),sub:'GST at 18% on platform and service fees. Sample invoices for illustration'})),
+          R('1fr 1fr',HB('Receivables ageing','Unpaid balance by days late',ag.map(([l,v])=>({l,v:INR(v),p:Math.round(v/tot*100)}))),LS('Tax and filing calendar','Dates to keep in the finance diary',[{t:'TDS deposit, 7 Dec',d:'Deducted from clinician and vendor payouts this month',dc:'w',tag:'Due soon',tc:'warn'},{t:'GSTR-1 filing, 11 Dec',d:'Outward supplies for November',dc:'',tag:'Upcoming',tc:''},{t:'GSTR-3B filing, 20 Dec',d:'Summary return and tax payment',dc:'',tag:'Upcoming',tc:''},{t:'Invoice numbering',d:'Series INV-2026 is continuous with no gaps',dc:'',tag:'Healthy',tc:'ok'}]))];
+      }
+      if(tab==='rp'){
+        const periods=['Today','This week','This month','Last quarter','FY 2026–27'];
+        const pr=st.pyr;
+        acts=[];
+        fb={groups:[{label:'DATE RANGE',opts:periods.map((l)=>({l,cls:pr===l?'on':'',tap:()=>this.setState({pyr:l})}))}],sum:'Reports are named with the '+pr.toLowerCase()+' range',hasPrimary:false};
+        const mk2=(r)=>{const head=['Section','Detail'];const tx0=P.txs(st),sl=P.setl(st),rf=P.refs(st),rc=P.recs(st),iv=P.invs(st);const nm=r[0].toLowerCase();
+          let h,d;
+          if(nm.indexOf('transaction')===0||nm.indexOf('daily')===0){h=['Transaction ID','Date','Payer','Source','For','Method','Amount (INR)','Gateway fee (INR)','Status'];d=tx0.map((t)=>[t.id,P.dstr(t.day),t.payer,t.seg,t.item,t.method,t.amt,t.fee,t.status]);}
+          else if(nm.indexOf('settlement')===0){h=['Settlement ID','Beneficiary','Type','Period','Gross (INR)','Deductions (INR)','Net payout (INR)','Status'];d=sl.map((s)=>[s.id,s.name,s.type,s.period,s.gross,s.ded,s.net,s.status]);}
+          else if(nm.indexOf('refund')===0){h=['Refund ID','Payer','For','Amount (INR)','Reason','Status'];d=rf.map((r2)=>[r2.id,r2.payer,r2.item,r2.amt,r2.reason,r2.status]);}
+          else if(nm.indexOf('bank')===0){h=['Date','Platform ledger (INR)','Bank credit (INR)','Difference (INR)','Status'];d=rc.map((r2)=>[P.dstr(r2.day),r2.ledger,r2.bank,r2.diff,r2.status]);}
+          else if(nm.indexOf('receivables')===0||nm.indexOf('gst')===0){h=['Invoice','Customer','Total (INR)','GST 18% (INR)','Paid (INR)','Balance (INR)','Status'];d=iv.map((v)=>[v.no,v.cust,v.total,v.gst,v.paid,v.bal,v.status]);}
+          else{h=['Source','Share of collections'];d=[['Patients and families','34%'],['Hospitals','38%'],['Marketplace','18%'],['Insurers (TPA)','10%']];}
+          return {h,d};};
+        const one=(r,f2)=>()=>{if(f2==='Excel'&&/transaction|reconcil|collection|daily|gateway/i.test(String(r[0]))){VQApp.run(say,'payments','xlsx',{periodSlug:pr});return;}const x=mk2(r);const nm='VivoQuest '+r[0]+' '+pr;const fn=P.save(f2,nm,x.h,x.d,r[0]+' | '+pr);say(fn?fn+' downloaded · '+x.d.length+' rows':r[0]+' prepared (the preview blocked the download)');};
+        rows=[R('repeat(3,1fr)',K('REPORTS AVAILABLE',String(P.REPORTS.length),'CSV, Excel and PDF',true,[5,6,6,7,8]),K('SCHEDULED EMAILS',String(st.psch.filter(Boolean).length),'To the finance team',true,[2,2,3,3,st.psch.filter(Boolean).length]),K('LAST GENERATED','Today 06:30','Daily pack',true,[1,1,1,1,1])),
+          R('1fr',T('Finance reports','1.4fr 2.2fr .9fr .75fr .75fr .75fr',['REPORT','WHAT IT CONTAINS','FREQUENCY','CSV','EXCEL','PDF'],P.REPORTS.map((r)=>[tx(r[0]),tx(r[1]),tx(r[2]),bt('CSV',one(r,'CSV'),'g'),bt('Excel',one(r,'Excel'),'g'),bt('PDF',one(r,'PDF'),'g')]),{sub:'CSV, Excel and PDF all download as real files'})),
+          R('1fr 1fr',TG('Scheduled reports','Emailed automatically to the finance team',[['Daily collections','Every morning at 8:00'],['Settlement statement','After each payout run'],['Receivables ageing','Monday 9:00'],['Bank reconciliation','Every morning at 7:00'],['GST and TDS summary','1st of every month']].map(([n,d],i)=>({n,d,cls:st.psch[i]?'on':'',on:st.psch[i]?'true':'false',tap:()=>{this.setState((x)=>({psch:x.psch.map((v,j)=>j===i?!v:v)}));say(n+(st.psch[i]?' schedule turned off':' schedule turned on'));}}))),LS('Controls on every export','Built in for finance and audit',[{t:'Every download is logged',d:'Who, when, which report and date range',dc:''},{t:'Amounts in rupees, no rounding',d:'Matches the bank statement to the paisa',dc:''},{t:'Payer data masked for non-finance roles',d:'Only the Finance role can see full names and references',dc:''},{t:'Locked months are read-only',d:'Reports for closed months never change',dc:''}]))];
+      }
+    }
+    if(sc==='co'){const C=COMP,P=PAYX;const INR=P.INR,CMP=P.CMP;
+      const upd=(k,id,v)=>this.setState((x)=>({[k]:{...x[k],[id]:v}}));
+      const fy=st.kfy,fmt0=st.pf;
+      const exp=(name,head,data)=>{const fn=P.save(fmt0,name+' '+fy,head,data,name+' · '+fy);say(fn?fn+' downloaded · '+data.length+' rows':name+' prepared (the preview blocked the download)');};
+      const fmtG={label:'FORMAT',opts:['CSV','Excel','PDF'].map((l)=>({l,cls:st.pf===l?'on':'',tap:()=>this.setState({pf:l})}))};
+      const fyG={label:'FINANCIAL YEAR',opts:['FY 2026-27','FY 2025-26'].map((l)=>({l,cls:fy===l?'on':'',tap:()=>this.setState({kfy:l})}))};
+      const A=C.att(st);const SCR=C.score(st);
+      if(tab==='ov'){
+        const f=C.fil(st),c=C.fcs(st),k=C.cps(st);
+        acts=[{l:'Download compliance summary',c:'',tap:()=>exp('VivoQuest compliance summary',['Measure','Value'],[['Compliance score',SCR+'%'],['Controls passing',c.filter((x)=>x.res==='Passed').length+' of '+c.length],['Filings on time',f.filter((x)=>x.status!=='Overdue').length+' of '+f.length],['Requirements compliant',k.filter((x)=>x.status==='Compliant').length+' of '+k.length],['Approvals waiting',A.apr],['Audit events logged',C.AT.length]])},{l:'Open audit trail',c:'g',tap:()=>this.go('co','at')}];
+        fb={groups:[fyG,fmtG],sum:fy+' · sample data · confirm dates and rates with your chartered accountant',hasPrimary:false};
+        const ls=[];
+        if(A.ctl)ls.push({t:A.ctl+' financial controls failed or due',d:'Run the test again once the fix is in place',dc:'b',tag:'Action',tc:'bad',b:'Open controls',tap:()=>this.go('co','fa')});
+        if(A.apr)ls.push({t:A.apr+' maker-checker approvals waiting',d:'Payouts, journals and write-offs need a second person',dc:'w',tag:'Pending',tc:'warn',b:'Review',tap:()=>this.go('co','fa')});
+        if(A.fil)ls.push({t:A.fil+' statutory filings due within 10 days',d:'GSTR-3B and PF and ESIC are the next to file',dc:'w',tag:'Due soon',tc:'warn',b:'Open filings',tap:()=>this.go('co','tx')});
+        if(A.cp)ls.push({t:A.cp+' compliance requirements need a review',d:'Licences, retention and access reviews',dc:'w',tag:'Review',tc:'warn',b:'Open register',tap:()=>this.go('co','cp')});
+        if(A.pbc)ls.push({t:A.pbc+' auditor document requests open',d:'Share the files before the due dates',dc:'',tag:'Open',tc:'',b:'Open',tap:()=>this.go('co','au')});
+        if(!ls.length)ls.push({t:'All clear',d:'Nothing needs your attention right now',dc:'',tag:'Healthy',tc:'ok'});
+        const mods=['Payments','Marketplace','Users and access','Clinical data','Settings'];
+        rows=[R('repeat(4,1fr)',K('COMPLIANCE SCORE',SCR+'%',SCR>=95?'On track':'Improve',SCR>=95,[86,88,90,91,93,SCR]),K('CONTROLS PASSING',c.filter((x)=>x.res==='Passed').length+' of '+c.length,A.ctl+' to fix',!A.ctl,[9,10,10,11,11,c.filter((x)=>x.res==='Passed').length]),K('FILINGS ON TIME',f.filter((x)=>x.status!=='Overdue').length+' of '+f.length,A.fil+' due soon',!A.fil,[8,9,10,11,12,f.filter((x)=>x.status!=='Overdue').length]),K('AUDIT EVENTS (40 DAYS)',String(C.AT.length*38),'Immutable, hash checked',true,[1.8,2,2.1,2.3,2.4,2.43])),
+          R('1fr 1fr',LS('Needs your attention','Resolve these before the next audit',ls),T('Upcoming statutory dates','1.9fr 1fr .9fr',['FILING','DUE','STATUS'],f.filter((x)=>!x.filed).sort((a,b)=>a.due-b.due).slice(0,6).map((x)=>[tx(x.name),tx(x.due<0?Math.abs(x.due)+' days late':'In '+x.due+' days'),pl(x.status)]),{sub:'Next filings by due date'})),
+          R('1fr 1fr 1fr',HB('Controls by area','Share passing',['Payments','Tax','Access','Marketplace','Close'].map((a)=>{const g=c.filter((x)=>x.area===a);const p=g.length?Math.round(g.filter((x)=>x.res==='Passed').length/g.length*100):100;return {l:a,v:p+'%',p};})),DN('Requirements by status','Healthcare and data compliance',String(k.length),'requirements',[{n:'Compliant',v:String(k.filter((x)=>x.status==='Compliant').length),n2:k.filter((x)=>x.status==='Compliant').length||.01},{n:'Review due',v:String(k.filter((x)=>x.status==='Review due').length),n2:k.filter((x)=>x.status==='Review due').length||.01},{n:'Gap',v:String(k.filter((x)=>x.status==='Gap').length),n2:k.filter((x)=>x.status==='Gap').length||.01}]),VB('Audit events by module','Last 40 days',mods.map((m)=>{const v=C.AT.filter((e)=>e.mod===m).length*38;return {l:m.split(' ')[0],v:String(v),tt:m+': '+v+' events',h:v||1};})))];
+      }
+      if(tab==='at'){
+        const mf=st.f.kat;const L=C.AT.filter((e)=>(mf==='All'||e.mod===mf||(mf==='Blocked'&&e.res==='Blocked'))&&(!q||(e.user+e.what+e.mod+e.role+e.id).toLowerCase().indexOf(q)>=0));
+        const head=['Event ID','Date','Time','User','Role','Module','Action','Result','IP address','Integrity hash'];const data=L.map((e)=>[e.id,P.dstr(e.day),e.time,e.user,e.role,e.mod,e.what,e.res,e.ip,e.hash]);
+        acts=[{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest audit trail',head,data)}];
+        fb={groups:[fmtG],sum:L.length+' of '+C.AT.length+' events shown · the log cannot be edited or deleted',hasPrimary:false};
+        rows=[R('repeat(4,1fr)',K('EVENTS LOGGED',String(C.AT.length),'Sample of last 40 days',true,[30,40,50,55,C.AT.length]),K('BLOCKED ACTIONS',String(C.AT.filter((e)=>e.res==='Blocked').length),'Policy stopped these',false,[2,3,4,3,5]),K('DATA EXPORTS',String(C.AT.filter((e)=>/Export/.test(e.what)).length),'Each one is recorded',true,[1,2,2,3,3]),K('PRIVILEGED CHANGES',String(C.AT.filter((e)=>/Changed|Granted|Locked|Created|Revoked/.test(e.what)).length),'Roles, rules and locks',true,[4,5,6,6,7])),
+          R('1fr',T('Platform audit trail','.8fr .9fr 1.3fr 1fr 2.3fr .8fr 1fr',['EVENT','WHEN','WHO','MODULE','WHAT HAPPENED','RESULT','HASH'],L.slice(0,30).map((e)=>[tx(e.id),tx(P.dstr(e.day)+' · '+e.time.slice(0,5)),tx(e.user,ini(e.user)),tx(e.mod),tx(e.what),pl(e.res),tx(e.hash)]),{hasChips:true,chips:chips('kat',['All','Payments','Marketplace','Users and access','Clinical data','Settings','Blocked']),search:true,q:st.q,sub:'Every action by every user, with a tamper-check hash. Showing the latest 30'}))];
+      }
+      if(tab==='fa'){
+        const c=C.fcs(st),ap=C.aprs(st);const cf=st.f.kfa;const L=c.filter((x)=>cf==='All'||x.res===cf);
+        const head=['Control','Description','Area','Owner','Frequency','Last tested (days ago)','Result'];const data=c.map((x)=>[x.id,x.name,x.area,x.owner,x.freq,x.last,x.res]);
+        const pend=ap.filter((a)=>a.status==='Pending');
+        acts=[{l:'Run all tests',c:'',tap:()=>{this.setState((x)=>({kres:c.reduce((a,y)=>({...a,[y.id]:'Passed'}),{})}));say(c.length+' controls tested. Results saved with a timestamp');}},{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest financial controls',head,data)}];
+        fb={groups:[fmtG],sum:c.filter((x)=>x.res==='Passed').length+' of '+c.length+' controls passing · '+pend.length+' approvals waiting',hasPrimary:false};
+        rows=[R('repeat(4,1fr)',K('CONTROLS PASSING',Math.round(c.filter((x)=>x.res==='Passed').length/c.length*100)+'%',c.filter((x)=>x.res!=='Passed').length+' need action',c.every((x)=>x.res==='Passed'),[75,80,83,88,Math.round(c.filter((x)=>x.res==='Passed').length/c.length*100)]),K('APPROVALS WAITING',String(pend.length),'Maker-checker',!pend.length,[6,5,7,4,pend.length]),K('AVG TIME TO APPROVE','3.4 h','-0.8 h',true,[6,5,4.6,4,3.4]),K('SEGREGATION BREACHES','0','This quarter',true,[1,0,0,0,0])),
+          R('1fr',T('Financial controls','.6fr 2.4fr .9fr 1.2fr .9fr .9fr .8fr .9fr',['ID','CONTROL','AREA','OWNER','CHECKED','LAST TESTED','RESULT',''],L.map((x)=>[tx(x.id),tx(x.name),tx(x.area),tx(x.owner),tx(x.freq),tx(x.last+' days ago'),pl(x.res),bt(x.res==='Passed'?'Retest':x.res==='Failed'?'Fix and retest':'Test now',()=>{upd('kres',x.id,'Passed');say(x.id+' passed on retest. Evidence saved');},x.res==='Passed'?'g':'')]),{hasChips:true,chips:chips('kfa',['All','Passed','Failed','Due']),sub:'Tested on schedule, evidence kept for the auditor'})),
+          R('1fr',T('Maker-checker approvals','.7fr 2.2fr 1.2fr 1fr 1fr .9fr .8fr .8fr',['REQUEST','WHAT','MADE BY','AMOUNT','WHEN','STATUS','',''],ap.map((a)=>[tx(a.id),tx(a.what),tx(a.maker,ini(a.maker)),tx(a.amt?INR(a.amt):'—'),tx(a.on),pl(a.status),a.status==='Pending'?bt('Approve',()=>{upd('kapp',a.id,'Approved');say(a.id+' approved by Anita Kulkarni. Logged with time and reason');}):tx(''),a.status==='Pending'?bt('Reject',()=>{upd('kapp',a.id,'Rejected');say(a.id+' rejected and returned to '+a.maker);},'g'):tx('')]),{sub:'The person who made the request can never approve it'}))];
+      }
+      if(tab==='tx'){
+        const f=C.fil(st);const ff=st.f.kfl;const L=f.filter((x)=>ff==='All'||x.status===ff);
+        const head=['Filing','Authority','Period','Due in (days)','Amount (INR)','Status'];const data=f.map((x)=>[x.name,x.auth,x.period,x.due,x.amt,x.status]);
+        const open=f.filter((x)=>!x.filed);
+        acts=[{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest statutory filings',head,data)},{l:'Share with CA',c:'g',tap:()=>say('Filing tracker shared with CA Rajesh Kulkarni (simulated)')}];
+        fb={groups:[fyG,fmtG],sum:open.length+' filings open · '+CMP(open.reduce((a,x)=>a+x.amt,0))+' to pay · dates are examples, confirm with your CA',hasPrimary:false};
+        const n=8;const mo=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov'];
+        rows=[R('repeat(4,1fr)',K('GST PAYABLE THIS MONTH',CMP(1642000),'After input credit',false,[12,14,13,15,16.4]),K('INPUT TAX CREDIT',CMP(824000),'+6%',true,[6,7,7.5,8,8.2]),K('TDS DEDUCTED',CMP(226000),'Deposit by 7 Dec',false,[1.6,1.8,2,2.1,2.26]),K('TCS COLLECTED (MARKETPLACE)',CMP(184000),'GSTR-8 filed',true,[1.2,1.4,1.6,1.7,1.84])),
+          R('1fr',T('Statutory filings and payments','2fr 1.2fr 1.1fr 1fr 1fr .9fr .9fr',['FILING','AUTHORITY','PERIOD','DUE','AMOUNT','STATUS',''],L.map((x)=>[tx(x.name),tx(x.auth),tx(x.period),tx(x.filed?'Done':x.due<0?Math.abs(x.due)+' days late':'In '+x.due+' days'),tx(x.amt?INR(x.amt):'—'),pl(x.status),x.filed?bt('Challan',()=>VQApp.tblRun(say,'PDF','Filing acknowledgement '+x.id,['Field','Detail'],[['Filing',x.name],['Authority',x.auth],['Period',x.period],['Amount',x.amt?'₹'+Number(x.amt).toLocaleString('en-IN'):'None'],['Status',x.status]],{module:'Compliance',subtitle:x.name,kv:1,kpis:[{l:'FILING',v:x.id,txt:1,d:x.auth},{l:'PERIOD',v:x.period,txt:1,d:'Return period'},{l:'AMOUNT',v:x.amt?'₹'+Number(x.amt).toLocaleString('en-IN'):'None',txt:1,d:'Tax paid'},{l:'STATUS',v:x.status,txt:1,d:'Filed'}]}),'g'):bt('Mark filed',()=>{upd('kfile',x.id,true);say(x.name+' marked as filed. Acknowledgement saved to the audit pack');})]),{hasChips:true,chips:chips('kfl',['All','Overdue','Due soon','Upcoming','Filed']),sub:'GST, TDS, PF and ESIC, professional tax, advance tax and company filings'})),
+          R('2fr 1fr',{t:'area',title:'GST output tax and input credit',sub:'₹ lakh, April to November',leg:[{n:'Output tax',c:'#4520B8'},{n:'Input credit',c:'#B9B2D3'}],...ar([11.2,12.1,12.8,13.4,14.6,15.2,16.4,16.4],[5.8,6.2,6.6,7.1,7.4,7.9,8.2,8.2],mo)},HB('Tax on VivoQuest income','Share of gross collections',[{l:'GST at 18% on platform fees',v:'12.4%',p:62},{l:'TDS withheld from payouts',v:'1.6%',p:8},{l:'TCS on marketplace sales',v:'0.8%',p:4},{l:'Income tax (advance)',v:'4.1%',p:21}]))];
+      }
+      if(tab==='cp'){
+        const k=C.cps(st);const kf=st.f.kcp;const L=k.filter((x)=>kf==='All'||x.status===kf);
+        const head=['Ref','Requirement','Law or standard','Owner','Evidence','Next review (days)','Status'];const data=k.map((x)=>[x.id,x.req,x.std,x.owner,x.ev,x.next,x.status]);
+        acts=[{l:'Download '+(fmt0==='Excel'?'Excel':fmt0),c:'s',tap:()=>exp('VivoQuest compliance register',head,data)}];
+        fb={groups:[fmtG],sum:k.filter((x)=>x.status==='Compliant').length+' of '+k.length+' compliant',hasPrimary:false};
+        rows=[R('repeat(4,1fr)',K('CONSENT RATE','97%','+1%',true,[95,96,96,97]),K('DATA REQUESTS ON TIME','100%','Avg 3.1 days',true,[92,95,98,100]),K('VENDOR LICENCES PENDING','2','Of 6 vendors',false,[4,3,3,2]),K('ACCESS REVIEWS DONE','3 of 4','This year',false,[1,2,3,3])),
+          R('1fr',T('Healthcare and data compliance register','.6fr 2.3fr 1.7fr 1.2fr 1.5fr .9fr .9fr',['REF','REQUIREMENT','LAW OR STANDARD','OWNER','EVIDENCE','STATUS',''],L.map((x)=>[tx(x.id),tx(x.req),tx(x.std),tx(x.owner),tx(x.ev),pl(x.status),x.status==='Compliant'?bt('View',()=>say('Evidence for '+x.id+': '+x.ev),'g'):bt(x.status==='Gap'?'Attach evidence':'Mark reviewed',()=>{upd('kev',x.id,true);say(x.id+' updated. Next review date set');})]),{hasChips:true,chips:chips('kcp',['All','Compliant','Review due','Gap']),sub:'DPDP Act, payments, vendor licences and clinical practice'})),
+          R('1fr 1fr',HB('Evidence strength','Requirements with current evidence',[{l:'Data protection',v:'100%',p:100},{l:'Payments security',v:'100%',p:100},{l:'Clinical practice',v:'100%',p:100},{l:'Vendor licences',v:'67%',p:67}]),LS('Policy documents','Review every year or on change',[{t:'Privacy policy',d:'Reviewed 2 months ago',dc:'',tag:'Current',tc:'ok'},{t:'Information security policy',d:'Review due in 3 weeks',dc:'w',tag:'Soon',tc:'warn'},{t:'Data retention schedule',d:'8 years for clinical records',dc:'',tag:'Current',tc:'ok'},{t:'Incident response plan',d:'Last tested 30 days past due',dc:'b',tag:'Overdue',tc:'bad'}]))];
+      }
+      if(tab==='au'){
+        const au=C.auds(st),pb=C.pbcs(st);const lockedAll=C.MON2.filter((m)=>m[1]).length;const nov=st.klock;
+        const head=['Request','Document','Requested by','Due in (days)','Status'];const data=pb.map((x)=>[x.id,x.req,x.from,x.due,x.status]);
+        acts=[{l:'Add auditor',c:'',tap:()=>say('Invitation sent. Access is read only and expires in 90 days (simulated)')},{l:'Download request list',c:'s',tap:()=>exp('VivoQuest auditor requests',head,data)}];
+        fb={groups:[fmtG],sum:au.filter((x)=>x.status==='Active').length+' auditors with access · '+pb.filter((x)=>x.status==='Open').length+' requests open',hasPrimary:false};
+        rows=[R('repeat(4,1fr)',K('AUDITORS WITH ACCESS',String(au.filter((x)=>x.status==='Active').length),'All read only',true,[1,2,3,3]),K('REQUESTS OPEN',String(pb.filter((x)=>x.status==='Open').length),'Share before due date',false,[7,6,6,5,pb.filter((x)=>x.status==='Open').length]),K('MONTHS LOCKED',String(lockedAll+(nov?1:0))+' of 8','April to November',true,[5,6,6,7,lockedAll+(nov?1:0)]),K('AUDIT PACK READY','82%','Next: statutory audit',true,[50,60,70,76,82])),
+          R('1fr 1fr',T('Auditor and adviser access','1.3fr 1.6fr .8fr .8fr',['PERSON','ACCESS','EXPIRES','STATUS'],au.map((a)=>[tx(a.name,ini(a.name)),tx(a.scope+' · '+a.firm),tx(a.status==='Active'?'In '+a.exp+' days':'Ended'),a.status==='Active'?bt('Revoke',()=>{upd('kaud',a.id,'Revoked');say('Access for '+a.name+' revoked and logged');},'g'):pl('Revoked')]),{sub:'Read only. Every view and download is in the audit trail'}),T('Document requests from auditors','.7fr 2fr 1.1fr .8fr .8fr',['REQUEST','DOCUMENT','FROM','DUE','STATUS'],pb.map((x)=>[tx(x.id),tx(x.req),tx(x.from),x.status==='Shared'?tx('Done'):tx('In '+x.due+' days'),x.status==='Open'?bt('Share',()=>{upd('kdoc',x.id,'Shared');say(x.req+' shared with '+x.from);}):pl('Approved')]),{sub:'The list your auditor asks for each year'})),
+          R('1fr',T('Books and period lock','1fr 1.4fr 1.2fr 1.2fr .9fr',['MONTH','RECONCILIATION','LOCK STATUS','LOCKED BY',''],[...C.MON2.slice(-3).map((m)=>[tx(m[0]+' 2026'),pl('Matched'),pl(m[1]?'Approved':nov?'Approved':'Pending'),tx(m[1]?'Rohit Menon':nov?'Anita Kulkarni':'—'),m[1]?tx(''):(nov?bt('Unlock',()=>{this.setState({klock:false});say('Unlock needs a second approver. Request sent (simulated)');},'g'):bt('Lock books',()=>{this.setState({klock:true});say('November locked. No edits are possible without a second approver');}))])],{sub:'A locked month cannot be edited. Reopening needs a second approver and a reason'}))];
+        rows[2].bl[0].rows=rows[2].bl[0].rows.map((r)=>({cells:r.cells.map((c)=>c.k_p&&c.t==='Approved'?{...c,t:'Locked'}:c.k_p&&c.t==='Pending'?{...c,t:'Open'}:c)}));
+      }
+      if(tab==='rp'){
+        const periods=['FY 2026-27','FY 2025-26'];
+        acts=[{l:'Download full audit pack',c:'',tap:()=>{const fn=P.save(fmt0,'VivoQuest audit pack '+fy,['Section','Rows'],[['Audit trail',C.AT.length],['Financial controls',C.FC.length],['Approvals',C.APR.length],['Statutory filings',C.FIL.length],['Compliance register',C.CP.length],['Auditor requests',C.PBC.length]],'Audit pack · '+fy);say(fn?fn+' downloaded':'Audit pack prepared (the preview blocked the download)');}}];
+        fb={groups:[fyG,fmtG],sum:'Reports are named with '+fy+' and the format you choose',hasPrimary:false};
+        const mk=(r)=>{const nm=r[0].toLowerCase();let h,d;
+          if(nm.indexOf('audit trail')===0){h=['Event ID','Date','Time','User','Role','Module','Action','Result','IP','Hash'];d=C.AT.map((e)=>[e.id,P.dstr(e.day),e.time,e.user,e.role,e.mod,e.what,e.res,e.ip,e.hash]);}
+          else if(nm.indexOf('user access')===0){h=['User','Role','Can approve payments','Can export data','Last sign-in'];d=C.USERS.map((u,i)=>[u[0],u[1],i<2?'Yes':'No',i<3?'Yes':'No',i===5?'Automated':(i+1)+' h ago']);}
+          else if(nm.indexOf('financial')===0){h=['Control','Description','Area','Owner','Last tested (days ago)','Result'];d=C.fcs(st).map((x)=>[x.id,x.name,x.area,x.owner,x.last,x.res]);}
+          else if(nm.indexOf('maker')===0){h=['Request','What','Made by','Amount (INR)','Status'];d=C.aprs(st).map((a)=>[a.id,a.what,a.maker,a.amt,a.status]);}
+          else if(nm.indexOf('statutory')===0){h=['Filing','Authority','Period','Due in (days)','Amount (INR)','Status'];d=C.fil(st).map((x)=>[x.name,x.auth,x.period,x.due,x.amt,x.status]);}
+          else if(nm.indexOf('healthcare')===0){h=['Ref','Requirement','Law or standard','Owner','Evidence','Status'];d=C.cps(st).map((x)=>[x.id,x.req,x.std,x.owner,x.ev,x.status]);}
+          else if(nm.indexOf('auditor')===0){h=['Request','Document','From','Due in (days)','Status'];d=C.pbcs(st).map((x)=>[x.id,x.req,x.from,x.due,x.status]);}
+          else{h=['Month','Status'];d=C.MON2.map((m)=>[m[0]+' 2026',m[1]||st.klock?'Locked':'Open']);}
+          return {h,d};};
+        const one=(r,f2)=>()=>{const x=mk(r);const fn=P.save(f2,'VivoQuest '+r[0]+' '+fy,x.h,x.d,r[0]+' · '+fy);say(fn?fn+' downloaded · '+x.d.length+' rows':r[0]+' prepared (the preview blocked the download)');};
+        rows=[R('repeat(3,1fr)',K('REPORTS AVAILABLE',String(C.REPORTS.length),'CSV, Excel and PDF',true,[4,5,6,7,8]),K('SCHEDULED PACKS',String(st.ksch.filter(Boolean).length),'To CA and finance head',true,[1,2,2,3,st.ksch.filter(Boolean).length]),K('DOWNLOADS LOGGED','100%','Who, when, which',true,[100,100,100,100])),
+          R('1fr',T('Audit and compliance reports','1.5fr 2.3fr .9fr .75fr .75fr .75fr',['REPORT','WHAT IT CONTAINS','FREQUENCY','CSV','EXCEL','PDF'],C.REPORTS.map((r)=>[tx(r[0]),tx(r[1]),tx(r[2]),bt('CSV',one(r,'CSV'),'g'),bt('Excel',one(r,'Excel'),'g'),bt('PDF',one(r,'PDF'),'g')]),{sub:'All three formats download as real files'})),
+          R('1fr 1fr',TG('Scheduled packs','Sent automatically to the right people',[['Monthly audit pack','To finance head on the 5th'],['Statutory filing tracker','To CA every Monday'],['Access review','Every quarter to the administrator'],['Controls test results','After each test run']].map(([n,d],i)=>({n,d,cls:st.ksch[i]?'on':'',on:st.ksch[i]?'true':'false',tap:()=>{this.setState((x)=>({ksch:x.ksch.map((v,j)=>j===i?!v:v)}));say(n+(st.ksch[i]?' schedule turned off':' schedule turned on'));}}))),LS('Built in for audit','Every report follows these rules',[{t:'Every download is logged',d:'Who, when, which report and year',dc:''},{t:'Amounts in rupees to the paisa',d:'Agrees with the ledger and bank statement',dc:''},{t:'Each row carries a hash',d:'Shows nothing was changed after the event',dc:''},{t:'Closed periods never change',d:'Reports for locked months are read only',dc:''}]))];
+      }
+    }
+    const tabs=(TB[sc]||[]).map(([k,l])=>({l,cls:tab===k?'on':'',tap:()=>this.go(sc,k)}));
+    return {groups:nav,eyebrow:TT[sc][0],title:TT[sc][1],acts,tabs,hasTabs:tabs.length>0,hasChips,chips:chp,fb:fb||{},hasFb:!!fb,rows,cat,cf,toast:st.toast,
+      a:{help:()=>say('Support desk opened (simulated)'),q:(e)=>this.setState({q:e.target.value})}};}
+}
+</script>
+
+
+</x-dc></body></html>

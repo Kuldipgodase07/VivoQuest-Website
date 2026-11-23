@@ -1,0 +1,508 @@
+VivoQuest Backend Implementation Plan
+Nov 15, 2026 · @Sunil
+1. Purpose, scope and what the frontend implies
+This plan turns the current VivoQuest web app (11 role screens, a marketplace, a payments and compliance console, and the PDF and Excel reports) into a production backend that can pass a government audit. It is written for the team that will build it: an architect, 4 to 6 backend engineers, a DBA, a DevOps engineer and QA.
+The frontend today is a prototype with sample data. Reading every screen shows the backend must serve these business areas.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="2816"/><w:gridCol w:w="1747"/><w:gridCol w:w="4797"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Area
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Who uses it
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">What it must do
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Identity and access
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Everyone
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Mobile OTP sign-in, city selection, language (English, Marathi), role switching, app lock, device sessions
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Member care
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Patient, Family, Caregiver
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care plan, visits, medicines, messages, updates, consent and sharing, data download and deletion
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Clinical operations
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Nurse, Clinician, Remote care desk
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Visit schedule, vitals, escalations, offline sync, orders and handovers
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Programmes
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Discharge planner, Health plan and ACO, Adult vaccination
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Discharge plans, outcome analytics, vaccination bookings and reminders
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Marketplace
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Members, vendors, Administrator
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Catalogue, cart, checkout, orders, deliveries, vendor onboarding, services and subscriptions
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payments and finance
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Administrator, finance
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Razorpay (INR) and Stripe (international), settlements, refunds, invoices, GST, reconciliation, receivables
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Compliance and security
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Administrator, auditors
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Controls, approvals, statutory filings, audit trail, DPDP requests, privacy reports
+<w:tc><w:tcPr><w:tcW w:w="2816" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Reports
+<w:tcPr><w:tcW w:w="1747" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Every role
+<w:tcPr><w:tcW w:w="4797" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Server-side PDF and Excel generation, scheduling, download history
+Design principles
+Safety first for health data. Every read of a person's record is authorised, consent-checked and audit-logged.
+India-resident by default. All primary data, backups and logs stay in Indian regions.
+Money is a ledger. Payment state changes only through verified gateway events, and every rupee is traceable.
+Modular monolith first. Clear module boundaries now, split into services only where load or team size demands it.
+Nothing is deleted silently. Soft delete, retention rules and legal holds; erasure follows DPDP rules with documented exceptions.
+Out of scope for this plan
+The mobile app shell, clinical decision support, and live video consultation. Each can plug into the APIs defined here.
+2. Target architecture and technology stack
+VivoQuest runs as one modular Node.js API in front of MongoDB Atlas, all hosted on Google Cloud in the Mumbai region (asia-south1), split into eight bounded modules that can later be peeled into services without touching the data model. Every module owns its collections, identified by a name prefix.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="2499"/><w:gridCol w:w="4077"/><w:gridCol w:w="2784"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Layer
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Choice
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Why
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">API runtime
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Node.js 22 LTS, TypeScript, NestJS (Fastify adapter)
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Same language as the existing JS report engine; strong module boundaries
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Database
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">MongoDB Atlas M30+ on Google Cloud, 3-node replica set in asia-south1 (Mumbai), DR copy in asia-south2 (Delhi)
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Data stays in India; automatic failover; continuous backup
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Cache and rate limits
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Memorystore for Redis, Standard tier (high availability)
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">OTP counters, sessions, idempotency keys, rate limits
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Queue and jobs
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Cloud Tasks and Pub/Sub for durable jobs; BullMQ on Memorystore for fast in-app jobs
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Webhooks, notifications, report jobs, settlement sync
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Object storage
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Cloud Storage buckets in asia-south1, CMEK keys in Cloud KMS, signed URLs
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Generated PDF/Excel reports, invoices, uploaded documents
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Edge
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Global external Application Load Balancer + Cloud CDN + Cloud Armor (WAF) + API Gateway
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">TLS 1.2+, rate limits, bot rules, request IDs
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Auth
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">OTP by SMS (DLT-registered), short-lived JWT + rotating refresh token
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Matches the existing phone and 6-digit code sign-in
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payments
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Razorpay (INR), Stripe (international)
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">As in the Marketplace and Payments screens
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Observability
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">OpenTelemetry to Cloud Trace, Cloud Monitoring, Cloud Logging and Error Reporting
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Trace every request end to end
+<w:tc><w:tcPr><w:tcW w:w="2499" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">CI/CD
+<w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GitHub Actions + Cloud Build, Artifact Registry, Cloud Run (GKE later), Terraform
+<w:tcPr><w:tcW w:w="2784" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Repeatable, reviewable releases
+Request path: clients reach only the edge; the edge forwards to one API; each module reads and writes only its own prefixed collections; slow work (reports, notifications, webhooks) goes through Cloud Tasks and Pub/Sub to worker services. The API and the workers are separate Cloud Run services built from one codebase, so they scale independently.
+Google Cloud setup
+Organisation with three projects: vq-dev, vq-stage and vq-prod, created by Terraform; folders and policies applied at the organisation level.
+Region: asia-south1 (Mumbai) primary, asia-south2 (Delhi) for disaster recovery; an organisation policy restricts resource locations to these two so data cannot leave India.
+Identity: each service runs as its own service account with least-privilege IAM roles; no service account keys, Workload Identity Federation for GitHub Actions.
+Secrets and keys: Secret Manager for gateway keys and database URIs; Cloud KMS for CMEK and field-level encryption keys, rotated yearly.
+Network: a private VPC; Cloud Run reaches MongoDB Atlas over Private Service Connect; no public database endpoint.
+Cost guardrails: budgets and alerts per project at 50%, 80% and 100%; committed-use discounts only after three months of steady usage.
+3. Frontend-to-backend map
+Every screen and action in the current web app maps to one module, a set of endpoints and the collections it touches.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="1510"/><w:gridCol w:w="1782"/><w:gridCol w:w="1510"/><w:gridCol w:w="2487"/><w:gridCol w:w="2070"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">App area
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">What the user does
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Module
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Main endpoints
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Collections
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Landing and sign-in
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Pick city, enter phone, verify 6-digit code, choose role
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Identity
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">POST /v1/auth/otp/send, /otp/verify, /token/refresh, PUT /v1/me/role
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">iam_users, iam_otp_challenges, iam_sessions
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Patient workspace
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Appointments, medicines, records, data copy, care-plan report
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET/POST /v1/patients/{id}/appointments, /records; POST /v1/me/data-exports
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_patients, care_appointments, care_medications, care_records, cmp_dsr_requests
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Caregiver workspace
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Visits, tasks, shared patient view, exports
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /v1/caregivers/{id}/visits, POST /v1/visits/{id}/notes
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_caregivers, care_visits, care_visit_notes
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Nurse and remote desk
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Shift roster, vitals, escalations
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET/POST /v1/nurse/shifts, /vitals, /escalations
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_shifts, care_vitals, care_escalations
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Clinician workspace
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Patient list, orders, discharge, outcome reports
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /v1/clinicians/{id}/patients, POST /v1/orders
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_orders, care_discharge_plans, care_outcomes
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Health plan / ACO
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Cohorts, quality and outcome measures
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /v1/aco/cohorts, /measures
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aco_cohorts, aco_measures
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Adult vaccination
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Schedules, doses, certificates
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /v1/vaccinations, POST /v1/vaccinations/{id}/doses
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">vac_schedules, vac_doses, vac_certificates
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Marketplace
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Browse, cart, checkout, invoice
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Marketplace
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /v1/mkt/products, POST /v1/mkt/orders, GET /v1/mkt/orders/{id}/invoice
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">mkt_products, mkt_carts, mkt_orders, mkt_order_items
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payments (admin)
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Transactions, settlements, refunds, receivables, reconciliation
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payments
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /v1/pay/transactions, POST /v1/pay/refunds, /reconciliation/runs
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_transactions, pay_settlements, pay_refunds, pay_invoices, pay_reconciliations
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Compliance (admin)
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Controls, approvals, filings, audit trail
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Compliance
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /v1/cmp/controls, POST /v1/cmp/approvals/{id}/decision
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">cmp_controls, cmp_approvals, cmp_filings, aud_events
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Every download button
+<w:tcPr><w:tcW w:w="1782" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">PDF or Excel report
+<w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Reports
+<w:tcPr><w:tcW w:w="2487" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">POST /v1/reports, GET /v1/reports/{id}/download
+<w:tcPr><w:tcW w:w="2070" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">rpt_jobs, rpt_templates
+Rule: the browser never builds a report or an invoice itself once the backend is live. It asks the Reports service for a job and downloads the finished file from a signed URL.
+4. MongoDB design
+One Atlas cluster, one database per environment (vivoquest_prod, vivoquest_stage, vivoquest_dev), and 69 collections grouped by a module prefix so they sort together in Atlas.
+Naming standard
+Collections: lower snake_case, plural, module prefix + noun, for example care_visits. No spaces, no camelCase.
+Fields: camelCase; ids are ObjectId named _id; references are named xxxId (patientId).
+Every document carries createdAt, updatedAt, createdBy, schemaVersion; soft delete uses deletedAt.
+Money is stored as integer paise (amountMinor) plus currency, never a float.
+Dates are UTC Date values; the app renders IST.
+Indexes: ix_<collection><fields>; unique ones ux<collection>_<fields>.
+Collection catalogue
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="932"/><w:gridCol w:w="3148"/><w:gridCol w:w="5278"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Prefix
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Module
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Collections
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">iam_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Identity and access
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">iam_users, iam_otp_challenges, iam_sessions, iam_roles, iam_permissions, iam_role_grants, iam_api_keys, iam_devices
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">prf_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Profiles
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">prf_patients, prf_caregivers, prf_nurses, prf_clinicians, prf_organisations, prf_care_relationships
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care delivery
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_appointments, care_visits, care_visit_notes, care_tasks, care_medications, care_prescriptions, care_vitals, care_records, care_orders, care_shifts, care_escalations, care_discharge_plans
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aco_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Health plan and outcomes
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aco_cohorts, aco_measures, aco_outcomes, aco_programs
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">vac_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Adult vaccination
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">vac_schedules, vac_doses, vac_certificates, vac_inventory
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">mkt_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Marketplace
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">mkt_products, mkt_categories, mkt_sellers, mkt_carts, mkt_orders, mkt_order_items, mkt_shipments
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payments and finance
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_transactions, pay_payment_intents, pay_webhook_events, pay_settlements, pay_refunds, pay_invoices, pay_credit_notes, pay_receivables, pay_reconciliations, pay_gst_ledger
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">cmp_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Compliance
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">cmp_controls, cmp_approvals, cmp_filings, cmp_consents, cmp_dsr_requests, cmp_policies
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aud_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Audit
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aud_events, aud_access_logs
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">rpt_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Reports
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">rpt_templates, rpt_jobs, rpt_schedules
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ntf_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Notifications
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ntf_templates, ntf_messages, ntf_preferences
+<w:tc><w:tcPr><w:tcW w:w="932" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">sys_
+<w:tcPr><w:tcW w:w="3148" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Platform
+<w:tcPr><w:tcW w:w="5278" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">sys_counters, sys_feature_flags, sys_idempotency_keys, sys_outbox
+Key document shapes
+// iam_users{ "_id": "ObjectId", "phoneE164": "+9198xxxxxx", "phoneHash": "hmac", "roles": ["patient"], "city": "Pune", "status": "active", "lastLoginAt": "Date", "mfa": { "enabled": false } }// pay_transactions{ "_id": "ObjectId", "orderId": "ObjectId", "gateway": "razorpay", "gatewayPaymentId": "pay_xxx", "amountMinor": 129900, "currency": "INR", "status": "captured", "method": "upi", "capturedAt": "Date", "settlementId": "ObjectId", "idempotencyKey": "string" }// care_visits{ "_id": "ObjectId", "patientId": "ObjectId", "caregiverId": "ObjectId", "scheduledAt": "Date", "status": "completed", "checkIn": { "at": "Date", "geo": "Point" }, "notesCount": 2 }// aud_events (append-only){ "_id": "ObjectId", "actorId": "ObjectId", "action": "record.read", "resource": { "type": "care_records", "id": "ObjectId" }, "ip": "string", "at": "Date", "hash": "sha256(prev+body)" }
+Indexes, validation, sharding and retention
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="2421"/><w:gridCol w:w="4920"/><w:gridCol w:w="2019"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Collection
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Index (name)
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Purpose
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">iam_users
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ux_iam_users_phoneHash (unique)
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">One account per phone
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">iam_otp_challenges
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">TTL on expiresAt, 10 min
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Auto-purge codes
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">iam_sessions
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ix_iam_sessions_userId_revokedAt; TTL on expiresAt
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Session lookup and cleanup
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_visits
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ix_care_visits_patientId_scheduledAt; ix_care_visits_caregiverId_status
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Dashboards
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_vitals
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ix_care_vitals_patientId_recordedAt (time-series collection)
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">High-volume vitals
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">mkt_orders
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ux_mkt_orders_orderNo; ix_mkt_orders_buyerId_createdAt
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Order lookup
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_transactions
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ux_pay_transactions_gatewayPaymentId; ix_pay_transactions_status_capturedAt
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Reconciliation
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_webhook_events
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ux_pay_webhook_events_eventId; TTL 90 days
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Idempotent webhooks
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aud_events
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ix_aud_events_actorId_at; ix_aud_events_resource
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Audit queries; no TTL, 8-year retention
+<w:tc><w:tcPr><w:tcW w:w="2421" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">rpt_jobs
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ix_rpt_jobs_requestedBy_createdAt; TTL on expiresAt, 30 days
+<w:tcPr><w:tcW w:w="2019" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Report history
+Validation: every collection has a $jsonSchema validator with validationLevel strict and validationAction error; schemas live in the repo and are applied by migrations.
+Sharding: start unsharded on M30; shard care_vitals, aud_events and pay_webhook_events first, on a hashed patientId, actorId and eventId key respectively, when any exceeds 200 GB.
+Encryption: Atlas encryption at rest plus client-side field-level encryption for phoneE164, government ids, ABHA numbers and clinical notes.
+Migrations: versioned scripts (migrate-mongo) run in CI before a release; no manual changes in Atlas.
+5. API design
+A versioned REST API (OpenAPI 3.1 is the contract), JSON over HTTPS, generated client SDK for the web app.
+Conventions
+Base path /v1; breaking changes go to /v2 with a 12-month overlap.
+Auth: Authorization Bearer JWT (15 min); refresh token rotates on every use.
+Every write accepts an Idempotency-Key header; replays return the original response.
+Pagination is cursor-based (limit, cursor); filters and sort are whitelisted per endpoint.
+Errors follow RFC 9457 problem+json with a stable code, for example PAY_REFUND_EXCEEDS_CAPTURE.
+Every response carries X-Request-Id; rate limits return 429 with Retry-After.
+Endpoint catalogue
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="1582"/><w:gridCol w:w="4920"/><w:gridCol w:w="2858"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Module
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Endpoints
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Roles allowed
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Identity
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">POST /auth/otp/send, POST /auth/otp/verify, POST /auth/token/refresh, POST /auth/logout, GET /me, PUT /me/role
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">public, then any signed-in user
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Profiles
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET/PUT /patients/{id}, /caregivers/{id}, /nurses/{id}, /clinicians/{id}; POST /care-relationships
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">owner, linked caregiver, clinician, admin
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Care
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">/appointments, /visits, /visits/{id}/notes, /tasks, /medications, /vitals, /records, /orders, /shifts, /escalations, /discharge-plans (CRUD where relevant)
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">by role and consent
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Outcomes
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /aco/cohorts, /aco/measures, /aco/outcomes
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">health plan, admin
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Vaccination
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /vaccinations/schedules, POST /vaccinations/{id}/doses, GET /vaccinations/{id}/certificate
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">patient, nurse, clinician
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Marketplace
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /mkt/products, POST /mkt/carts, POST /mkt/orders, GET /mkt/orders/{id}, GET /mkt/orders/{id}/invoice
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">any signed-in user; sellers manage products
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payments
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">POST /pay/intents, POST /pay/webhooks/razorpay, POST /pay/webhooks/stripe, GET /pay/transactions, POST /pay/refunds, GET /pay/settlements, POST /pay/reconciliation/runs, GET /pay/receivables
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">finance admin; webhooks signature-verified
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Compliance
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /cmp/controls, GET/POST /cmp/approvals, POST /cmp/approvals/{id}/decision, GET /cmp/filings, POST /me/consents, POST /me/data-exports, POST /me/erasure-requests
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">admin; users for their own consent and requests
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Audit
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET /aud/events (filter by actor, resource, date)
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">compliance officer
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Reports
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">POST /reports, GET /reports/{id}, GET /reports/{id}/download
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">by report type and role
+<w:tc><w:tcPr><w:tcW w:w="1582" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Notifications
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GET/PUT /me/notification-preferences
+<w:tcPr><w:tcW w:w="2858" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">any signed-in user
+Webhooks are the only unauthenticated write endpoints; they verify the provider signature, store the raw event in pay_webhook_events, return 200 immediately, and process through the queue.
+6. Identity, OTP login, RBAC, consent and sessions
+Sign-in stays phone plus 6-digit code; the backend replaces the demo code with real SMS OTP and adds role-based and consent-based access.
+send: POST /auth/otp/send creates an iam_otp_challenges row (code stored as a salted hash, 10-minute TTL, 5 attempts) and sends SMS through a DLT-registered template.
+Limits: 3 sends per phone per hour, 10 per IP per hour, tracked in Redis; repeated failures lock the phone for 30 minutes.
+verify: POST /auth/otp/verify returns a 15-minute access JWT and a rotating refresh token stored hashed in iam_sessions; reuse of an old refresh token revokes the whole session family.
+role: the user picks Patient, Caregiver, Nurse, Clinician, Remote desk, Health plan, Marketplace seller or Administrator; privileged roles (clinician, nurse, admin) need verification by an admin before grants activate.
+Admins and finance users must use MFA (TOTP) and are bound to allow-listed devices.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="2215"/><w:gridCol w:w="4612"/><w:gridCol w:w="2533"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="2215" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Access layer
+<w:tcPr><w:tcW w:w="4612" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">How it works
+<w:tcPr><w:tcW w:w="2533" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Collections
+<w:tc><w:tcPr><w:tcW w:w="2215" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">RBAC
+<w:tcPr><w:tcW w:w="4612" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Role maps to permissions such as care.records.read, pay.refund.approve
+<w:tcPr><w:tcW w:w="2533" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">iam_roles, iam_permissions, iam_role_grants
+<w:tc><w:tcPr><w:tcW w:w="2215" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Relationship check
+<w:tcPr><w:tcW w:w="4612" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">A caregiver sees a patient only through an active care relationship
+<w:tcPr><w:tcW w:w="2533" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">prf_care_relationships
+<w:tc><w:tcPr><w:tcW w:w="2215" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Consent
+<w:tcPr><w:tcW w:w="4612" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Clinical data is shared per purpose and expiry; withdrawal takes effect immediately
+<w:tcPr><w:tcW w:w="2533" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">cmp_consents
+<w:tc><w:tcPr><w:tcW w:w="2215" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Maker-checker
+<w:tcPr><w:tcW w:w="4612" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Refunds, role grants and filings need a second approver
+<w:tcPr><w:tcW w:w="2533" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">cmp_approvals
+<w:tc><w:tcPr><w:tcW w:w="2215" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Break-glass
+<w:tcPr><w:tcW w:w="4612" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Emergency access is time-boxed, reason-coded and alerts compliance
+<w:tcPr><w:tcW w:w="2533" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aud_access_logs
+Every permission check runs server-side in a guard; the front-end hides what a role cannot use but is never the control.
+7. Payments: Razorpay, Stripe, settlements, refunds, invoices and GST
+The backend, not the browser, creates every payment and trusts only signed provider events. Card and UPI details never touch VivoQuest servers (hosted checkout, PCI SAQ-A).
+Checkout: POST /mkt/orders creates mkt_orders (status pending) and a pay_payment_intents row; the gateway order is created with an idempotency key; INR goes to Razorpay, other currencies to Stripe.
+Client pays in the provider widget; the provider calls our webhook.
+Webhook: verify signature, insert into pay_webhook_events (unique eventId), enqueue; the worker writes pay_transactions, marks the order paid, issues the invoice and emits notifications. Duplicate events are no-ops.
+Settlement: a daily job pulls provider settlements into pay_settlements, splits fees and GST on fees, and links each pay_transactions row to its settlement.
+Reconciliation: pay_reconciliations compares provider records, our transactions and the bank statement; mismatches open a ticket in cmp_approvals for finance.
+Refunds: POST /pay/refunds is maker-checker; the amount can never exceed captured minus refunded; the result lands in pay_refunds and a pay_credit_notes row.
+Invoices: pay_invoices numbers are gapless per financial year from sys_counters (format VQ/2026-27/000123), with GSTIN, HSN or SAC, CGST/SGST or IGST split, and an e-invoice IRN and QR where the turnover threshold applies.
+Receivables: pay_receivables ages unpaid B2B and plan invoices into 0-30, 31-60, 61-90 and 90+ buckets for the finance reports.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="2721"/><w:gridCol w:w="6638"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="2721" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Control
+<w:tcPr><w:tcW w:w="6638" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Rule
+<w:tc><w:tcPr><w:tcW w:w="2721" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Amounts
+<w:tcPr><w:tcW w:w="6638" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Integer paise plus currency; rounding rule documented per tax line
+<w:tc><w:tcPr><w:tcW w:w="2721" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Idempotency
+<w:tcPr><w:tcW w:w="6638" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Header key on every write; unique indexes on gateway ids
+<w:tc><w:tcPr><w:tcW w:w="2721" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Data localisation
+<w:tcPr><w:tcW w:w="6638" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payment records stored in India only (RBI directive)
+<w:tc><w:tcPr><w:tcW w:w="2721" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Ledger
+<w:tcPr><w:tcW w:w="6638" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_gst_ledger holds one immutable line per tax event; corrections are new reversing lines
+<w:tc><w:tcPr><w:tcW w:w="2721" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Secrets
+<w:tcPr><w:tcW w:w="6638" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Gateway keys in a secrets manager, rotated every 90 days; webhook secrets per environment
+8. Reports service
+The PDF and Excel engine already built into the web app (payments, outcomes, care, discharge, invoices and the generic table report) moves server-side as one Reports module, so files are identical in look and are audited.
+Request: POST /reports with type, filters and format (pdf or xlsx); permission and consent are checked; a row is written to rpt_jobs (queued).
+Worker: loads rpt_templates, queries MongoDB with a read preference of secondary, renders with the same engine code, and writes the file to object storage.
+Delivery: GET /reports/{id}/download returns a 5-minute signed URL; files expire after 30 days; each download writes an aud_events row.
+Scheduling: rpt_schedules runs daily or monthly packs (finance pack, discharge summary) and emails a signed link.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="2647"/><w:gridCol w:w="4508"/><w:gridCol w:w="2204"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Report type
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Source collections
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Roles
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">payments-workbook, reconciliation, collections
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_transactions, pay_settlements, pay_reconciliations
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">finance admin
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">refunds, receivables, gst-ledger
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_refunds, pay_receivables, pay_gst_ledger
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">finance admin
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">invoice
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">pay_invoices, mkt_orders, mkt_order_items
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">buyer, finance admin
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">patient-care, my-data-copy
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">prf_patients, care_records, care_medications, care_appointments
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">patient, caregiver (with consent)
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">discharge-summary
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">care_discharge_plans, care_orders
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">clinician
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">outcomes
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">aco_measures, aco_outcomes
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">health plan, clinician
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">compliance-pack, audit-extract
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">cmp_controls, cmp_filings, aud_events
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">compliance officer
+<w:tc><w:tcPr><w:tcW w:w="2647" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">table (generic)
+<w:tcPr><w:tcW w:w="4508" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">any admin list view
+<w:tcPr><w:tcW w:w="2204" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">admin, by list permission
+Large reports stream rows from a cursor, cap at 500,000 rows per file, and run at most 3 concurrent jobs per user.
+9. Security, privacy and government compliance
+VivoQuest handles health and payment data, so it is built to meet Indian law first and international norms second.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="3517"/><w:gridCol w:w="5842"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Requirement
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">What the backend does
+<w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">DPDP Act 2023 and Rules
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Purpose-bound consent in cmp_consents; notice and withdrawal APIs; data-principal requests (access, correction, erasure, nominee) tracked in cmp_dsr_requests with a 30-day SLA; breach notification runbook to the Data Protection Board; verifiable parental consent for minors
+<w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ABDM / ABHA
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ABHA create and link, consent artefacts and FHIR R4 records exchanged through the ABDM gateway as a Health Information Provider and User; sandbox first, then production certification
+<w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">CERT-In directions
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Logs kept 180 days in India, incident reporting within 6 hours, NTP-synced clocks, named point of contact
+<w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">RBI payment data
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payment data stored in India; PCI DSS scope reduced with hosted checkout; settlement records kept 8 years
+<w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">GST and e-invoicing
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Gapless invoice series, IRN and QR through the GST portal where applicable, monthly GSTR data export from pay_gst_ledger
+<w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Clinical record retention
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Medical records retained per applicable rules and Indian medical council guidance; erasure requests handled with a legal-hold check
+<w:tc><w:tcPr><w:tcW w:w="3517" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Government audit
+<w:tcPr><w:tcW w:w="5842" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Read-only auditor role, tamper-evident aud_events (hash chain), exportable evidence packs
+Technical controls:
+Encryption: TLS 1.2+ in transit; Atlas encryption at rest; client-side field-level encryption with KMS keys per data class; keys rotate yearly.
+Application: OWASP ASVS L2, input validation on every route, no secrets in code, dependency and container scanning in CI, annual third-party penetration test.
+Audit: every read of clinical data and every admin action writes aud_events with actor, purpose, IP and result.
+Privacy by design: phone numbers hashed for lookup, minimum fields in logs, analytics uses de-identified copies.
+Certification path: ISO 27001 and SOC 2 Type II within 12 months of go-live.
+10. Infrastructure, DevOps, observability, backup and disaster recovery
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="2759"/><w:gridCol w:w="6600"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Area
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Design
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Environments
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">dev, stage and prod as separate Google Cloud projects (vq-dev, vq-stage, vq-prod) and separate Atlas projects; prod access by break-glass only
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Network
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Private VPC, Private Service Connect to Atlas, no public database endpoint, Cloud NAT egress allow-list, VPC Service Controls around Cloud Storage and Secret Manager
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Deploy
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Cloud Run revisions with traffic splitting (5%, 50%, 100%), health checks and one-click rollback; infrastructure as code with Terraform
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Pipeline
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Lint, unit tests, contract tests, SAST and dependency scan, build, deploy to stage, smoke tests, manual approval, prod
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Observability
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Cloud Trace, Cloud Monitoring and Error Reporting; dashboards per module; alert policies on error rate, p95 latency, queue depth and webhook lag; uptime checks from India
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Logging
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Structured JSON to Cloud Logging, request ID everywhere, PII masked; log buckets pinned to India and retained 180 days (CERT-In)
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Backup
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Atlas continuous backup with point-in-time restore for 7 days, daily snapshots kept 35 days, monthly kept 12 months, quarterly restore test
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Disaster recovery
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Secondary region in Delhi (asia-south2): Cloud Run deployed in both regions behind one load balancer, Atlas cross-region copy; RPO 5 minutes, RTO 60 minutes; DR drill twice a year
+<w:tc><w:tcPr><w:tcW w:w="2759" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Runbooks
+<w:tcPr><w:tcW w:w="6600" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payment webhook backlog, OTP provider outage, Atlas failover, key rotation, data breach
+Service levels: 99.9% monthly availability for the API, 99.95% for payment webhooks intake, on-call rotation with a 15-minute response for sev-1.
+11. Scalability, performance targets and capacity planning
+The design targets 100,000 registered users and 5,000 concurrent sessions in year one, with a path to 10 times that without re-architecture.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="3442"/><w:gridCol w:w="5917"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="3442" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Metric
+<w:tcPr><w:tcW w:w="5917" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Target
+<w:tc><w:tcPr><w:tcW w:w="3442" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">API latency
+<w:tcPr><w:tcW w:w="5917" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">p95 under 300 ms reads, under 600 ms writes
+<w:tc><w:tcPr><w:tcW w:w="3442" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payment webhook intake
+<w:tcPr><w:tcW w:w="5917" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Acknowledged under 200 ms; processed within 30 s
+<w:tc><w:tcPr><w:tcW w:w="3442" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Report generation
+<w:tcPr><w:tcW w:w="5917" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Under 10 s for 10,000 rows; async beyond that
+<w:tc><w:tcPr><w:tcW w:w="3442" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Throughput
+<w:tcPr><w:tcW w:w="5917" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">500 requests per second sustained, 2,000 burst
+<w:tc><w:tcPr><w:tcW w:w="3442" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Availability
+<w:tcPr><w:tcW w:w="5917" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">99.9% monthly
+How it scales:
+API is stateless; horizontal autoscaling on CPU and request rate, 3 pods minimum across 2 zones.
+MongoDB: scale vertically M30 to M50 first, add read replicas for reports, then shard the three high-volume collections (care_vitals, aud_events, pay_webhook_events).
+Reads that tolerate lag (reports, dashboards) use secondaries; payments and auth always read the primary.
+Redis caches product catalogue, permissions and feature flags with explicit invalidation.
+Queues absorb spikes; workers scale on queue depth; per-tenant rate limits protect shared capacity.
+Capacity review each quarter using Atlas Performance Advisor, slow-query log (over 100 ms) and storage growth.
+12. Testing, quality gates and go-live checklist
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="1345"/><w:gridCol w:w="4920"/><w:gridCol w:w="3095"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Test layer
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Scope
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Gate to merge or release
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Unit
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Services, guards, money and tax maths
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">85% coverage on payments and identity
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Contract
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">OpenAPI schema against the web app client
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">No breaking diff
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Integration
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">API with real MongoDB and Redis in containers
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">All green
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payments
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Razorpay and Stripe test modes, signed webhook replays, duplicate and out-of-order events
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">All scenarios pass
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Reports
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Golden files for each PDF and Excel template
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Visual and cell diff clean
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Security
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">SAST, dependency scan, ZAP scan, pen test
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">No high findings open
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Load
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">k6 at 2x target traffic
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">p95 targets met
+<w:tc><w:tcPr><w:tcW w:w="1345" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Resilience
+<w:tcPr><w:tcW w:w="4920" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Atlas failover, Redis loss, provider outage
+<w:tcPr><w:tcW w:w="3095" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Recovery inside RTO
+Go-live checklist:
+☐ Production Atlas cluster, PrivateLink and backups verified with a restore drill
+☐ All validators and indexes applied by migration; no collection scans in the slow-query log
+☐ DLT sender and templates approved; SMS and email delivery tested
+☐ Razorpay and Stripe live keys, webhooks and settlement sync verified with a Rs 1 live payment
+☐ GST registration, invoice series and e-invoice credentials configured
+☐ DPDP notice, consent text and grievance officer published
+☐ Pen test fixed and signed off; audit trail verified tamper-evident
+☐ Runbooks, on-call rota and status page ready
+☐ Data migration from the demo data set rehearsed twice
+13. Phased roadmap, team, risks and open decisions
+The full backend ships in about 30 weeks in five phases; each phase ends at a gate that must pass before the next starts.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="1510"/><w:gridCol w:w="916"/><w:gridCol w:w="4603"/><w:gridCol w:w="2331"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Phase
+<w:tcPr><w:tcW w:w="916" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Weeks
+<w:tcPr><w:tcW w:w="4603" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Delivers
+<w:tcPr><w:tcW w:w="2331" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Exit gate
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">0. Foundation
+<w:tcPr><w:tcW w:w="916" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">1-4
+<w:tcPr><w:tcW w:w="4603" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Repos, CI/CD, Google Cloud organisation and projects, Atlas, Memorystore, observability, OpenAPI skeleton, collection validators
+<w:tcPr><w:tcW w:w="2331" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Hello-world deployed to stage with traces
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">1. Identity and care core
+<w:tcPr><w:tcW w:w="916" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">5-12
+<w:tcPr><w:tcW w:w="4603" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">OTP login, RBAC, consent, profiles, appointments, visits, medications, records
+<w:tcPr><w:tcW w:w="2331" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Patient, caregiver and clinician flows run on the real API
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">2. Marketplace and payments
+<w:tcPr><w:tcW w:w="916" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">13-20
+<w:tcPr><w:tcW w:w="4603" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Catalogue, orders, Razorpay and Stripe, webhooks, invoices, refunds, settlements, GST ledger
+<w:tcPr><w:tcW w:w="2331" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Test-mode payments reconcile to the paisa
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">3. Reports, compliance, outcomes
+<w:tcPr><w:tcW w:w="916" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">21-26
+<w:tcPr><w:tcW w:w="4603" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Reports service, audit trail, DSR and consent flows, ACO measures, vaccination, discharge
+<w:tcPr><w:tcW w:w="2331" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Every download button served by the backend
+<w:tc><w:tcPr><w:tcW w:w="1510" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">4. Hardening and go-live
+<w:tcPr><w:tcW w:w="916" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">27-30
+<w:tcPr><w:tcW w:w="4603" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Pen test, load and DR drills, ABDM sandbox certification, data migration
+<w:tcPr><w:tcW w:w="2331" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Go-live checklist 100% complete
+Team: 1 tech lead, 4 backend engineers, 1 DevOps/SRE, 1 QA automation, 1 security and compliance lead (part time), 1 database engineer (part time), 1 product owner.
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLayout w:type="fixed"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="4077"/><w:gridCol w:w="5282"/></w:tblGrid><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc><w:tcPr><w:tcW w:w="4077" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Risk
+<w:tcPr><w:tcW w:w="5282" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Mitigation
+<w:tc><w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">ABDM certification delays
+<w:tcPr><w:tcW w:w="5282" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Start sandbox in phase 1; keep ABHA linking behind a feature flag
+<w:tc><w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">SMS OTP delivery failures (DLT)
+<w:tcPr><w:tcW w:w="5282" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Two SMS providers with failover; register templates in week 1
+<w:tc><w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Payment reconciliation gaps
+<w:tcPr><w:tcW w:w="5282" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Daily automated reconciliation and alerting from the first test payment
+<w:tc><w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Scope growth from new roles
+<w:tcPr><w:tcW w:w="5282" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Module boundaries and prefixed collections keep additions isolated
+<w:tc><w:tcPr><w:tcW w:w="4077" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Regulatory change
+<w:tcPr><w:tcW w:w="5282" w:type="dxa"/></w:tcPr><w:p><w:pPr></w:pPr><w:r><w:t xml:space="preserve">Quarterly compliance review; policies versioned in cmp_policies

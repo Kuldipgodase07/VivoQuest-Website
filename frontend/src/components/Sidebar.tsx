@@ -1,0 +1,235 @@
+import React, { useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Logo } from './Logo';
+import { useAuth } from '../hooks/useAuth';
+import { Role } from '../types';
+
+export const Sidebar: React.FC = () => {
+  const { session, switchRole, logout } = useAuth();
+  const navigate = useNavigate();
+
+  // Retrieve persistent sidebar collapsed state from localStorage
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('vivoquest_sidebar_collapsed') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const toggleSidebar = () => {
+    const nextState = !isCollapsed;
+    setIsCollapsed(nextState);
+    try {
+      localStorage.setItem('vivoquest_sidebar_collapsed', nextState ? 'true' : 'false');
+    } catch {
+      // ignore
+    }
+  };
+
+  const handleGoBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
+  const roleWorkspaces: { role: Role; path: string; label: string; icon: string }[] = [
+    { role: 'patient', path: '/patient', label: 'Patient and Family', icon: '👤' },
+    { role: 'caregiver', path: '/caregiver', label: 'Caregiver', icon: '🤝' },
+    { role: 'nurse', path: '/nurse', label: 'Nurse Field Visit', icon: '🩺' },
+    { role: 'clinician', path: '/clinician', label: 'Clinician / Physician', icon: '👨‍⚕️' },
+    { role: 'remote-desk', path: '/remote-desk', label: 'Remote Care Desk', icon: '🖥️' },
+    { role: 'discharge-planner', path: '/discharge', label: 'Discharge Planner', icon: '📋' },
+    { role: 'health-plan', path: '/health-plan', label: 'Health Plan / ACO', icon: '🛡️' },
+    { role: 'vaccination', path: '/vaccination', label: 'Adult Vaccination', icon: '💉' },
+    { role: 'marketplace', path: '/marketplace', label: 'Marketplace', icon: '🛒' },
+    { role: 'admin', path: '/admin', label: 'Administrator Console', icon: '⚙️' }
+  ];
+
+  return (
+    <aside
+      className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}
+      style={{
+        width: isCollapsed ? '76px' : '260px',
+        flex: 'none',
+        background: '#FFFFFF',
+        borderRight: '1.5px solid #E6E2F0',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: isCollapsed ? '16px 8px' : '20px 14px',
+        transition: 'width 0.24s cubic-bezier(0.4, 0, 0.2, 1), padding 0.24s cubic-bezier(0.4, 0, 0.2, 1)',
+        position: 'relative'
+      }}
+    >
+      {/* Top Header Controls: Back Button & Minimize Toggle */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: isCollapsed ? 'center' : 'space-between',
+        flexDirection: isCollapsed ? 'column' : 'row',
+        gap: '8px',
+        paddingBottom: '12px',
+        marginBottom: '14px',
+        borderBottom: '1px solid #ECE7FB'
+      }}>
+        {/* Back Page Button */}
+        <button
+          onClick={handleGoBack}
+          title="Go back to previous page"
+          type="button"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            background: '#F7F5FF',
+            border: '1px solid #ECE7FB',
+            color: '#4520B8',
+            padding: isCollapsed ? '6px' : '6px 12px',
+            borderRadius: '9px',
+            fontSize: '12px',
+            fontWeight: 800,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease'
+          }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          {!isCollapsed && <span>Back</span>}
+        </button>
+
+        {/* Minimize / Expand Toggle Button */}
+        <button
+          onClick={toggleSidebar}
+          title={isCollapsed ? 'Expand sidebar' : 'Minimize sidebar'}
+          type="button"
+          style={{
+            width: '30px',
+            height: '30px',
+            borderRadius: '8px',
+            border: '1px solid #ECE7FB',
+            background: '#FFFFFF',
+            color: '#4520B8',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+          }}
+        >
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{
+              transform: isCollapsed ? 'rotate(180deg)' : 'rotate(0deg)',
+              transition: 'transform 0.2s ease'
+            }}
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Brand Logo */}
+      <div style={{
+        marginBottom: '20px',
+        paddingLeft: isCollapsed ? '0' : '8px',
+        display: 'flex',
+        justifyContent: isCollapsed ? 'center' : 'flex-start'
+      }}>
+        <NavLink to="/" title="VivoQuest Home">
+          <Logo size={28} />
+        </NavLink>
+      </div>
+
+      {!isCollapsed && (
+        <div style={{
+          fontSize: '11px',
+          fontWeight: 800,
+          color: '#667085',
+          textTransform: 'uppercase',
+          letterSpacing: '.06em',
+          padding: '0 8px 8px'
+        }}>
+          Workspaces
+        </div>
+      )}
+
+      {/* Workspace Navigation Links */}
+      <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, overflowY: 'auto' }}>
+        {roleWorkspaces.map(w => {
+          const isActive = session?.role === w.role;
+          return (
+            <NavLink
+              key={w.role}
+              to={w.path}
+              title={w.label}
+              onClick={() => switchRole(w.role)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: isCollapsed ? 'center' : 'flex-start',
+                gap: '12px',
+                padding: isCollapsed ? '10px 0' : '10px 14px',
+                borderRadius: '12px',
+                fontWeight: 700,
+                fontSize: '14px',
+                color: isActive ? '#4520B8' : '#4B5565',
+                background: isActive ? '#EAE4FF' : 'transparent',
+                transition: 'background .15s, color .15s',
+                textDecoration: 'none'
+              }}
+            >
+              <span style={{ fontSize: '18px' }}>{w.icon}</span>
+              {!isCollapsed && (
+                <span style={{
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis'
+                }}>
+                  {w.label}
+                </span>
+              )}
+            </NavLink>
+          );
+        })}
+      </nav>
+
+      {/* Footer Sign out */}
+      <div style={{ paddingTop: '16px', borderTop: '1px solid #E6E2F0' }}>
+        <button
+          onClick={logout}
+          title="Sign out of VivoQuest"
+          type="button"
+          style={{
+            width: '100%',
+            padding: isCollapsed ? '10px 0' : '10px 14px',
+            borderRadius: '10px',
+            color: '#B42332',
+            background: 'transparent',
+            border: 'none',
+            fontWeight: 700,
+            fontSize: '14px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px'
+          }}
+        >
+          <span>🚪</span>
+          {!isCollapsed && <span>Sign out</span>}
+        </button>
+      </div>
+    </aside>
+  );
+};

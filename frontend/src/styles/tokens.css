@@ -1,0 +1,21 @@
+:root {
+  --primary: #4520B8;
+  --accent: #6D42E8;
+  --lav: #EAE4FF;
+  --bg: #F7F5FF;
+  --ink: #17143A;
+  --muted: #667085;
+  --line: #E6E2F0;
+  --ok: #18845B;
+  --warn: #A96513;
+  --bad: #B42332;
+
+  --font-sans: 'Manrope', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(23, 20, 58, 0.05);
+  --shadow-md: 0 4px 12px rgba(69, 32, 184, 0.08);
+  --shadow-lg: 0 10px 28px rgba(69, 32, 184, 0.12);
+}

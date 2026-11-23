@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>VivoQuest Health plan and ACO</title>
+<script src="a3bd3aa2-d04d-440e-97c6-23377f7be85e"></script><script src="f1bd834f-9a31-49c7-8a58-3f92305b796e"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("f61c7c59-062f-4d8e-ae96-b191cbf19041") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("b5eef40f-8cc3-4473-8ebc-d4c926a76828") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("6b8278cb-484d-4333-a03e-c7717f8ab8a4") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("9ec78545-6ed5-4647-85ad-91bbfd2ec9d5") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("91efa6fb-ec10-4f5b-badf-9cdfb8382530") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("a0f38c3e-897d-4b2c-a427-b4e044149d29") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f61c7c59-062f-4d8e-ae96-b191cbf19041") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("b5eef40f-8cc3-4473-8ebc-d4c926a76828") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("6b8278cb-484d-4333-a03e-c7717f8ab8a4") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("9ec78545-6ed5-4647-85ad-91bbfd2ec9d5") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("91efa6fb-ec10-4f5b-badf-9cdfb8382530") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("a0f38c3e-897d-4b2c-a427-b4e044149d29") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("f61c7c59-062f-4d8e-ae96-b191cbf19041") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("b5eef40f-8cc3-4473-8ebc-d4c926a76828") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("6b8278cb-484d-4333-a03e-c7717f8ab8a4") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("9ec78545-6ed5-4647-85ad-91bbfd2ec9d5") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("91efa6fb-ec10-4f5b-badf-9cdfb8382530") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("a0f38c3e-897d-4b2c-a427-b4e044149d29") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("f61c7c59-062f-4d8e-ae96-b191cbf19041") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("b5eef40f-8cc3-4473-8ebc-d4c926a76828") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("6b8278cb-484d-4333-a03e-c7717f8ab8a4") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("9ec78545-6ed5-4647-85ad-91bbfd2ec9d5") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("91efa6fb-ec10-4f5b-badf-9cdfb8382530") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("a0f38c3e-897d-4b2c-a427-b4e044149d29") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("12d81faa-a668-4647-9269-edf36adffb18") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f5b54c7b-2fc6-44cf-ad7b-010736a02026") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("da05eec9-47a1-43c3-83d2-bfd1bcd46144") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("359c930e-a07a-42e5-bea1-1a0cd715cf8d") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("7a62323d-4d5f-4b1d-93e2-00b5ed227918") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("9502b27f-ab9d-4d67-9136-0550ffe9766e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F7F5FF;font-family:'Manrope',system-ui,sans-serif;color:#17143A}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none;padding:0;text-align:left}
+:focus-visible{outline:3px solid #6D42E8;outline-offset:2px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:flex;width:100%;height:1000px;background:#F7F5FF}
+.side{width:280px;flex:none;background:#fff;border-right:1px solid #E6E2F0;padding:20px 16px;display:flex;flex-direction:column;gap:20px}
+.nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.navb{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4B5565}
+.navb:hover{background:#F7F5FF}.navb.on{background:#EAE4FF;color:#4520B8}
+.cnt{margin-left:auto;background:#B42332;color:#fff;border-radius:99px;font-size:12px;padding:2px 8px}
+.main{flex:1;min-width:0;overflow:auto;padding:32px 40px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:16px}
+.h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:#4520B8}
+.sub{color:#667085}.row{display:flex;align-items:center;gap:12px}.col{display:flex;flex-direction:column;gap:12px}
+.grid{display:grid;gap:20px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1.4fr 1fr}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 1px 2px rgba(23,20,58,.05),0 10px 28px rgba(69,32,184,.07)}
+.card h2{margin:0 0 14px;font-size:18px;font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:700;font-size:15px;background:#4520B8;color:#fff}
+.btn:hover{background:#3A1A9C}.btn.g{background:#fff;color:#17143A;box-shadow:inset 0 0 0 1.5px #E6E2F0}.btn.s{background:#EAE4FF;color:#4520B8}.btn.d{background:#B42332}
+.item{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1.5px #E6E2F0;background:#fff;font-weight:700}
+.item:hover{box-shadow:inset 0 0 0 1.5px #6D42E8}.item.on{background:#EAE4FF;box-shadow:inset 0 0 0 2px #4520B8;color:#4520B8}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid #C9C3DD;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}.on .chk{background:#18845B;border-color:#18845B}
+.avatar{width:42px;height:42px;border-radius:99px;background:#EAE4FF;color:#4520B8;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:800;background:#EAE4FF;color:#4520B8}.pill.bad{background:#FBE4E7;color:#B42332}.pill.warn{background:#FDEFD6;color:#A96513}.pill.ok{background:#DDF3EA;color:#18845B}
+.switch{width:52px;height:30px;border-radius:99px;background:#C9C3DD;position:relative;flex:none}.switch i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff;transition:left .15s}.switch.on{background:#4520B8}.switch.on i{left:25px}
+.input{width:100%;min-height:52px;border-radius:14px;border:1.5px solid #E6E2F0;background:#fff;padding:12px 16px;font-size:15px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20}
+.dlgbg{position:fixed;inset:0;background:rgba(23,20,58,.45);display:flex;align-items:center;justify-content:center;z-index:10}.dlg{background:#fff;border-radius:22px;padding:28px;width:440px}
+.rowline{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #E6E2F0}.rowline:last-child{border:0}
+.bar{display:flex;align-items:flex-end;gap:14px;height:170px}.bar>div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%;font-size:12px;font-weight:700;color:#667085}.bar i{display:block;width:100%;border-radius:10px 10px 4px 4px;background:#6D42E8}.bar i.lt{background:#EAE4FF}
+.prog{height:10px;border-radius:99px;background:#EAE4FF;overflow:hidden}.prog i{display:block;height:100%;background:#4520B8;border-radius:99px}
+.top2{display:flex;justify-content:space-between;align-items:center;padding:16px 40px;background:#fff;border-bottom:1px solid #E6E2F0}
+.pg{height:1000px;display:flex;flex-direction:column;background:#F7F5FF}.pg .main{flex:1}
+.warnbox{display:flex;gap:12px;align-items:center;padding:14px 18px;border-radius:14px;background:#FDEFD6;color:#7A4A0B;font-weight:700;font-size:14px}
+</style>
+</helmet>
+<div class="pg"><header class="top2"><div class="row"><div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Health plan and ACO workspace</div></div></div><span class="pill">Sample data</span></header>
+<main class="main"><div class="top"><div><div class="eyebrow">MEDICARE ADVANTAGE · MANAGED MEDICAID · ACO</div><h1 class="h1">Readmissions and care gaps</h1><div class="sub">Proof that home recovery is lowering cost and lifting quality scores.</div></div><div class="row"><sc-for list="{{ ranges }}" as="g"><button class="item {{ g.cls }}" style="width:auto;padding:8px 16px" onclick="{{ g.tap }}">{{ g.label }}</button></sc-for><button class="btn s" style="min-height:40px;padding:0 16px" onclick="{{ dlp }}">Download PDF report</button><button class="btn s" style="min-height:40px;padding:0 16px" onclick="{{ dlx }}">Download Excel report</button></div></div>
+<div class="grid g4" style="margin-bottom:20px"><div class="card"><div class="eyebrow sub">READMISSIONS AVOIDED</div><div style="font-size:34px;font-weight:800">{{ k.avoid }}</div><div class="sub" style="font-size:13px">vs. matched baseline</div></div><div class="card"><div class="eyebrow sub">COST AVOIDED</div><div style="font-size:34px;font-weight:800;color:#18845B">{{ k.save }}</div><div class="sub" style="font-size:13px">at $16.3K per readmission</div></div><div class="card"><div class="eyebrow sub">OPEN CARE GAPS CLOSED</div><div style="font-size:34px;font-weight:800">{{ k.gaps }}%</div><div class="sub" style="font-size:13px">target 80–90%</div></div><div class="card"><div class="eyebrow sub">MEMBERS RECOVERING AT HOME</div><div style="font-size:34px;font-weight:800">{{ k.mem }}</div><div class="sub" style="font-size:13px">after discharge</div></div></div>
+<div class="grid g3" style="margin-bottom:20px"><div class="card"><h2>30-day readmission rate</h2><div class="bar"><sc-for list="{{ bars }}" as="b"><div><span>{{ b.v }}%</span><i class="{{ b.cls }}" style="height:{{ b.h }}%"></i><span>{{ b.m }}</span></div></sc-for></div><div class="row sub" style="margin-top:14px;font-size:13px"><i style="width:12px;height:12px;border-radius:4px;background:#EAE4FF"></i>Before VivoQuest<i style="width:12px;height:12px;border-radius:4px;background:#6D42E8;margin-left:12px"></i>With VivoQuest</div></div>
+<div class="card"><h2>Care gaps closed</h2><div class="col" style="gap:18px"><sc-for list="{{ gaps }}" as="p"><div><div class="row" style="justify-content:space-between;font-weight:700;font-size:14px;margin-bottom:6px"><span>{{ p.n }}</span><span>{{ p.v }}%</span></div><div class="prog"><i style="width:{{ p.v }}%"></i></div></div></sc-for></div></div></div>
+<div class="grid g2"><div class="card"><h2>How value is shared</h2><sc-for list="{{ rev }}" as="r"><div class="rowline"><div><div style="font-weight:800">{{ r.n }}</div><div class="sub" style="font-size:13px">{{ r.d }}</div></div><span class="pill" style="margin-left:auto">{{ r.t }}</span></div></sc-for></div>
+<div class="card"><h2>Members needing attention</h2><sc-for list="{{ mem }}" as="m"><div class="rowline"><div class="avatar">{{ m.i }}</div><div><div style="font-weight:800">{{ m.n }}</div><div class="sub" style="font-size:13px">{{ m.d }}</div></div><span class="pill {{ m.c }}" style="margin-left:auto">{{ m.t }}</span></div></sc-for></div></div></main><sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div role="status" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20">{{ toast }}</div></sc-if></div>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000}}">
+const R={'30':{avoid:'38',save:'$619K',gaps:86,mem:'412',v:[18,17,15,13,12,11]},'60':{avoid:'71',save:'$1.16M',gaps:84,mem:'655',v:[18,16,14,12,11,10]},'90':{avoid:'109',save:'$1.78M',gaps:82,mem:'903',v:[19,16,14,12,10,9]}};
+const M=['May','Jun','Jul','Aug','Sep','Oct'];
+class Component extends DCLogic {
+  state={r:'30',toast:''};say=(m)=>{this.setState({toast:m});clearTimeout(this._t);this._t=setTimeout(()=>this.setState({toast:''}),2800);};
+  renderVals(){const r=this.state.r;const D=R[r];
+    return {toast:this.state.toast,dlp:()=>VQApp.run((m)=>this.say(m),'outcomes','pdf',{periodSlug:'Last-'+r+'-days'}),dlx:()=>VQApp.run((m)=>this.say(m),'outcomes','xlsx',{periodSlug:'Last-'+r+'-days'}),k:D,ranges:[['30','30 days'],['60','60 days'],['90','90 days']].map(([k,l])=>({label:l,cls:r===k?'on':'',tap:()=>this.setState({r:k})})),
+      bars:D.v.map((v,i)=>({v,m:M[i],h:v*4.5,cls:i<2?'lt':''})),
+      gaps:[{n:'Annual wellness exams',v:D.gaps+4},{n:'Medication refills',v:D.gaps+7},{n:'Lab and diagnostic tests',v:D.gaps-3},{n:'Post-discharge follow-ups',v:D.gaps+1}],
+      rev:[{n:'Per-member-per-month fee',d:'Platform and AI triage for enrolled members',t:'PMPM'},{n:'Care delivery visits',d:'Nurse, therapy and lab draws billed per visit',t:'Fee-for-service'},{n:'Shared bonus',d:'Share of quality and readmission savings',t:'Value-based'},{n:'Marketplace commission',d:'Equipment and nutrition orders',t:'Take rate'}],
+      mem:[{i:'KD',n:'Kamal Deshmukh',d:'Cardiology follow-up due in 2 days',t:'Due soon',c:'warn'},{i:'SP',n:'Sunita Patil',d:'Two missed medicine reminders',t:'At risk',c:'bad'},{i:'RJ',n:'Ramesh Jadhav',d:'Wellness exam overdue',t:'Open gap',c:''}]};}
+}
+</script>
+
+
+</x-dc></body></html>

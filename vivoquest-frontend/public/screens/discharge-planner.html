@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../assets/react.production.min.js"></script>
+<script src="../assets/react-dom.production.min.js"></script>
+
+<meta charset="utf-8">
+<title>VivoQuest Discharge planner</title>
+<script src="../assets/941b1661-351b-4081-985a-7b8bf6450b35.js"></script><script src="../assets/8ece5b2a-508e-43d8-a638-ecccd38dd8c8.js"></script>
+<script id="vq-auth-guard">(function(){if(window.top===window){try{var s=localStorage.getItem("vq_session")||sessionStorage.getItem("vq_session");if(!s&&window.location.pathname.indexOf("landing")===-1){window.location.replace("/signin");}}catch(e){}}})();</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/9e245e48-7830-4273-961e-13051a2bc368.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/568d68dc-1d87-47f6-b6c8-6f14e4b50da0.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/7e4ec615-72b0-4b98-8d0f-19c054562d4e.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/78c396a0-621a-48e6-9524-7bf19d6f4de1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/7da3fdbf-6ec8-4a84-8147-232a56811337.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/a70e28f6-711d-4f2d-8093-9107a6a12a4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/9e245e48-7830-4273-961e-13051a2bc368.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/568d68dc-1d87-47f6-b6c8-6f14e4b50da0.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/7e4ec615-72b0-4b98-8d0f-19c054562d4e.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/78c396a0-621a-48e6-9524-7bf19d6f4de1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/7da3fdbf-6ec8-4a84-8147-232a56811337.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/a70e28f6-711d-4f2d-8093-9107a6a12a4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/9e245e48-7830-4273-961e-13051a2bc368.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/568d68dc-1d87-47f6-b6c8-6f14e4b50da0.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/7e4ec615-72b0-4b98-8d0f-19c054562d4e.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/78c396a0-621a-48e6-9524-7bf19d6f4de1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/7da3fdbf-6ec8-4a84-8147-232a56811337.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/a70e28f6-711d-4f2d-8093-9107a6a12a4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/9e245e48-7830-4273-961e-13051a2bc368.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/568d68dc-1d87-47f6-b6c8-6f14e4b50da0.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/7e4ec615-72b0-4b98-8d0f-19c054562d4e.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/78c396a0-621a-48e6-9524-7bf19d6f4de1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/7da3fdbf-6ec8-4a84-8147-232a56811337.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/a70e28f6-711d-4f2d-8093-9107a6a12a4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/e1efb12a-327d-4469-adfb-1b5419e5d3f8.woff2") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/eeb69554-afe9-49b1-bfbd-6af4067f76f2.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/35ec0f80-3f4a-4cfe-afee-5edec1075016.woff2") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/488a324e-73ef-4d3e-b8eb-33c71b67b688.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/ddb6c662-b975-4647-9a86-52ff7de1226f.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/e9f53cf2-0b1e-41ae-9b20-1b6a2583a8ef.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F7F5FF;font-family:'Manrope',system-ui,sans-serif;color:#17143A}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none;padding:0;text-align:left}
+:focus-visible{outline:3px solid #6D42E8;outline-offset:2px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:flex;width:100%;height:1000px;background:#F7F5FF}
+.side{width:280px;flex:none;background:#fff;border-right:1px solid #E6E2F0;padding:20px 16px;display:flex;flex-direction:column;gap:20px}
+.nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.navb{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4B5565}
+.navb:hover{background:#F7F5FF}.navb.on{background:#EAE4FF;color:#4520B8}
+.cnt{margin-left:auto;background:#B42332;color:#fff;border-radius:99px;font-size:12px;padding:2px 8px}
+.main{flex:1;min-width:0;overflow:auto;padding:32px 40px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:16px}
+.h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:#4520B8}
+.sub{color:#667085}.row{display:flex;align-items:center;gap:12px}.col{display:flex;flex-direction:column;gap:12px}
+.grid{display:grid;gap:20px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1.4fr 1fr}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 1px 2px rgba(23,20,58,.05),0 10px 28px rgba(69,32,184,.07)}
+.card h2{margin:0 0 14px;font-size:18px;font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:700;font-size:15px;background:#4520B8;color:#fff}
+.btn:hover{background:#3A1A9C}.btn.g{background:#fff;color:#17143A;box-shadow:inset 0 0 0 1.5px #E6E2F0}.btn.s{background:#EAE4FF;color:#4520B8}.btn.d{background:#B42332}
+.item{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1.5px #E6E2F0;background:#fff;font-weight:700}
+.item:hover{box-shadow:inset 0 0 0 1.5px #6D42E8}.item.on{background:#EAE4FF;box-shadow:inset 0 0 0 2px #4520B8;color:#4520B8}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid #C9C3DD;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}.on .chk{background:#18845B;border-color:#18845B}
+.avatar{width:42px;height:42px;border-radius:99px;background:#EAE4FF;color:#4520B8;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:800;background:#EAE4FF;color:#4520B8}.pill.bad{background:#FBE4E7;color:#B42332}.pill.warn{background:#FDEFD6;color:#A96513}.pill.ok{background:#DDF3EA;color:#18845B}
+.switch{width:52px;height:30px;border-radius:99px;background:#C9C3DD;position:relative;flex:none}.switch i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff;transition:left .15s}.switch.on{background:#4520B8}.switch.on i{left:25px}
+.input{width:100%;min-height:52px;border-radius:14px;border:1.5px solid #E6E2F0;background:#fff;padding:12px 16px;font-size:15px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20}
+.dlgbg{position:fixed;inset:0;background:rgba(23,20,58,.45);display:flex;align-items:center;justify-content:center;z-index:10}.dlg{background:#fff;border-radius:22px;padding:28px;width:440px}
+.rowline{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #E6E2F0}.rowline:last-child{border:0}
+.bar{display:flex;align-items:flex-end;gap:14px;height:170px}.bar>div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%;font-size:12px;font-weight:700;color:#667085}.bar i{display:block;width:100%;border-radius:10px 10px 4px 4px;background:#6D42E8}.bar i.lt{background:#EAE4FF}
+.prog{height:10px;border-radius:99px;background:#EAE4FF;overflow:hidden}.prog i{display:block;height:100%;background:#4520B8;border-radius:99px}
+.top2{display:flex;justify-content:space-between;align-items:center;padding:16px 40px;background:#fff;border-bottom:1px solid #E6E2F0}
+.pg{height:1000px;display:flex;flex-direction:column;background:#F7F5FF}.pg .main{flex:1}
+.warnbox{display:flex;gap:12px;align-items:center;padding:14px 18px;border-radius:14px;background:#FDEFD6;color:#7A4A0B;font-weight:700;font-size:14px}
+</style>
+</helmet>
+<div class="pg"><header class="top2"><div class="row">
+<button class="vq-header-back-btn" title="Go back to previous page (Alt + ←)" type="button">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5M12 19l-7-7 7-7"/>
+  </svg>
+  <span>Back</span>
+</button><div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Discharge planner portal</div></div></div><span class="pill">Sample data</span></header>
+<main class="main"><div class="top"><div><div class="eyebrow">TRANSITION OF CARE</div><h1 class="h1">From discharge summary to home care plan</h1><div class="sub">One upload sets up nursing, equipment, nutrition and support.</div></div><div class="row"><button class="btn s" onclick="{{ a.dl }}">Download discharge summary (PDF)</button><span class="pill {{ st.cls }}">{{ st.label }}</span></div></div>
+<div class="warnbox" style="margin-bottom:20px"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg>Every item stays a draft until a remote nurse approves it. Reminders, scheduling and orders run on fixed rules, not AI guesses.</div>
+<div class="grid g3"><div class="card"><h2>Discharge summary</h2><div class="item on" style="margin-bottom:14px"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5"></path></svg><div><div>Discharge_Kamal_Deshmukh.pdf</div><div class="sub" style="font-size:12px;font-weight:600">Read by the Discharge Synthesizer</div></div></div><div class="col" style="gap:8px;font-size:14px"><div><b>Patient</b> Kamal Deshmukh, 72, M</div><div><b>Admission</b> Heart failure with a slow-healing foot wound</div><div><b>Discharged</b> 19 Oct, to home in Pune</div><div><b>Caregiver</b> Rahul Deshmukh (son)</div></div><div style="margin-top:20px"><button class="btn" style="width:100%" onclick="{{ a.next }}">{{ btn }}</button></div></div>
+<div class="card"><h2>Home care blueprint</h2><sc-for list="{{ blocks }}" as="b"><div class="rowline" style="align-items:flex-start"><div class="avatar">{{ b.i }}</div><div style="flex:1"><div style="font-weight:800">{{ b.n }}</div><div class="sub" style="font-size:13px">{{ b.a }}</div><div style="font-size:14px;margin-top:4px">{{ b.d }}</div></div><span class="pill {{ st.cls }}">{{ st.short }}</span></div></sc-for></div></div></main><sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div role="status" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20">{{ toast }}</div></sc-if></div>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000}}">
+const ST=[{label:'Draft',short:'Draft',cls:'warn',btn:'Send to remote nurse'},{label:'Waiting for nurse approval',short:'Pending',cls:'',btn:'Record nurse approval (demo)'},{label:'Approved and live',short:'Approved',cls:'ok',btn:'Start over'}];
+const B=[{i:'Rx',n:'Medicines',a:'Discharge Synthesizer',d:'4 medicines found. Reminders set for morning and evening.'},{i:'Cal',n:'Follow-ups and visits',a:'Care Logistics Coordinator',d:'Cardiology within 72 hours. Nurse visit tomorrow 10:00. Rahul covers Thursday.'},{i:'Eq',n:'Equipment and nutrition',a:'Supply Chain Specialist',d:'Oxygen concentrator ordered. Low-salt meals, 7 days.'},{i:'Sup',n:'Support needs',a:'Resource and Support Agent',d:'Medicaid enrolment advisor suggested. Caregiver check-in in week 1.'}];
+class Component extends DCLogic {
+  state={s:0,toast:''};say=(m)=>{this.setState({toast:m});clearTimeout(this._t);this._t=setTimeout(()=>this.setState({toast:''}),2800);};
+  renderVals(){const s=this.state.s;return {toast:this.state.toast,st:ST[s],btn:ST[s].btn,blocks:B,a:{dl:()=>VQApp.run((m)=>this.say(m),'discharge','pdf',{}),next:()=>this.setState({s:(s+1)%3})}};}
+}
+</script>
+
+
+</x-dc>
+<script>
+window.addEventListener('click', function(e) {
+  const target = e.target.closest('a, button');
+  if (!target) return;
+  const href = target.getAttribute('href');
+  const txt = (target.textContent || '').trim();
+  if (href === '/signin' || href === '#auth' || txt === 'Sign in' || txt === 'साइन इन') {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'NAVIGATE', path: '/signin' }, '*');
+    }
+  }
+  if (txt === 'Get started' || txt === 'सुरू करा') {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'NAVIGATE', path: '/signin' }, '*');
+    }
+  }
+  if (href === '/patient' || txt === 'Patient or Family' || txt === 'रुग्ण किंवा कुटुंब') {
+    if (window.parent !== window) window.parent.postMessage({ type: 'NAVIGATE', path: '/patient' }, '*');
+  }
+}, true);
+</script>
+
+
+
+
+
+
+
+<!-- VivoQuest Enterprise Sidebar & Navigation System -->
+<style id="vq-sidebar-system-css">
+/* Base Smooth Sidebar Transitions */
+aside.side, aside.side2, aside.av-side, aside.sidebar {
+  transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.22s cubic-bezier(0.4, 0, 0.2, 1), padding 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+/* Collapsed State (76px icon rail) */
+aside.side.collapsed, aside.side2.collapsed, aside.av-side.collapsed, aside.sidebar.collapsed {
+  width: 76px !important;
+  min-width: 76px !important;
+  max-width: 76px !important;
+  flex: 0 0 76px !important;
+  padding: 16px 8px !important;
+}
+
+/* Controls Bar */
+.vq-sidebar-controls {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  padding: 0 2px 12px !important;
+  margin-bottom: 10px !important;
+  border-bottom: 1px solid rgba(230, 226, 240, 0.45) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+
+aside.collapsed .vq-sidebar-controls {
+  flex-direction: column !important;
+  padding: 0 0 10px !important;
+  gap: 8px !important;
+}
+
+/* Back Button */
+.vq-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(69, 32, 184, 0.08) !important;
+  border: 1px solid rgba(69, 32, 184, 0.18) !important;
+  color: #4520B8 !important;
+  padding: 6px 12px !important;
+  border-radius: 9px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  font-family: inherit !important;
+  line-height: 1 !important;
+}
+
+.vq-back-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+  box-shadow: 0 2px 8px rgba(69, 32, 184, 0.25) !important;
+}
+
+/* Dark sidebar overrides (e.g. Admin) */
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-back-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #FFFFFF !important;
+}
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-back-btn:hover {
+  background: #FFFFFF !important;
+  color: #4520B8 !important;
+  border-color: #FFFFFF !important;
+}
+
+aside.collapsed .vq-back-btn {
+  padding: 7px !important;
+  width: 32px !important;
+  height: 32px !important;
+  justify-content: center !important;
+}
+
+aside.collapsed .vq-back-btn span {
+  display: none !important;
+}
+
+/* Minimize Toggle Button */
+.vq-minimize-btn {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 9px !important;
+  border: 1px solid rgba(69, 32, 184, 0.18) !important;
+  background: #FFFFFF !important;
+  color: #4520B8 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+}
+
+.vq-minimize-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+  box-shadow: 0 2px 8px rgba(69, 32, 184, 0.25) !important;
+}
+
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-minimize-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #FFFFFF !important;
+}
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-minimize-btn:hover {
+  background: #FFFFFF !important;
+  color: #4520B8 !important;
+  border-color: #FFFFFF !important;
+}
+
+.vq-chevron-icon {
+  transition: transform 0.22s ease !important;
+}
+
+aside.collapsed .vq-chevron-icon {
+  transform: rotate(180deg) !important;
+}
+
+/* Collapsed Navigation Items: center icons, hide labels */
+aside.side.collapsed .nh,
+aside.side.collapsed .sub,
+aside.side.collapsed .cnt,
+aside.side.collapsed .navb span,
+aside.side.collapsed .btn span,
+aside.side.collapsed [style*="font-size:19px"],
+aside.side.collapsed [style*="font-size:20px"],
+aside.side.collapsed .avatar + div,
+aside.side.collapsed .row > div:not([style*="width:42px"]):not([style*="width:44px"]):not(.avatar),
+aside.side2.collapsed .nh,
+aside.side2.collapsed span,
+aside.side2.collapsed .row > div:not([style*="width:42px"]):not([style*="width:44px"]),
+aside.av-side.collapsed h2 span,
+aside.av-side.collapsed h3,
+aside.av-side.collapsed label,
+aside.av-side.collapsed .sub,
+aside.av-side.collapsed div:not(.vq-sidebar-controls),
+aside.collapsed .vq-hide-collapsed {
+  display: none !important;
+}
+
+aside.side.collapsed .navb, aside.side2.collapsed .navb {
+  justify-content: center !important;
+  padding: 10px 0 !important;
+}
+
+aside.side.collapsed .navb svg, aside.side2.collapsed .navb svg {
+  margin: 0 !important;
+}
+
+aside.side.collapsed .row {
+  justify-content: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Header Back Button (for screens with header.top2 or header.nav) */
+.vq-header-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E2F0 !important;
+  color: #4520B8 !important;
+  padding: 7px 14px !important;
+  border-radius: 11px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  margin-right: 14px !important;
+  font-family: inherit !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+  line-height: 1 !important;
+  user-select: none !important;
+}
+
+.vq-header-back-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+  box-shadow: 0 4px 12px rgba(69, 32, 184, 0.25) !important;
+}
+</style>
+
+<!-- VivoQuest Resilient Sidebar & Back Controller -->
+<script id="vq-sidebar-system-js">
+(function() {
+  function isCollapsedStored() {
+    try {
+      return localStorage.getItem('vivoquest_sidebar_collapsed') === 'true';
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function applyCollapsedState(aside, collapsed) {
+    if (!aside) return;
+    if (collapsed) {
+      aside.classList.add('collapsed');
+    } else {
+      aside.classList.remove('collapsed');
+    }
+    var minBtn = aside.querySelector('.vq-minimize-btn');
+    if (minBtn) {
+      minBtn.title = collapsed ? 'Expand sidebar' : 'Minimize sidebar';
+    }
+    var chevron = aside.querySelector('.vq-chevron-icon');
+    if (chevron) {
+      chevron.style.transform = collapsed ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+  }
+
+  function ensureSidebarControls() {
+    var isCol = isCollapsedStored();
+
+    // 1. Check for aside
+    var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+    if (aside) {
+      applyCollapsedState(aside, isCol);
+
+      if (!aside.querySelector('.vq-sidebar-controls')) {
+        var ctrl = document.createElement('div');
+        ctrl.className = 'vq-sidebar-controls';
+        ctrl.setAttribute('data-vq-controls', 'true');
+        ctrl.innerHTML = [
+          '<button class="vq-back-btn" title="Go back to previous page (Alt + ←)" type="button">',
+          '  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>',
+          '  <span>Back</span>',
+          '</button>',
+          '<button class="vq-minimize-btn" title="' + (isCol ? 'Expand sidebar' : 'Minimize sidebar') + '" type="button">',
+          '  <svg class="vq-chevron-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform:' + (isCol ? 'rotate(180deg)' : 'rotate(0deg)') + '">',
+          '    <path d="M15 18l-6-6 6-6"/>',
+          '  </svg>',
+          '</button>'
+        ].join('');
+        aside.insertBefore(ctrl, aside.firstChild);
+      }
+
+      // Add tooltips to nav buttons
+      aside.querySelectorAll('button.navb, button.btn, button.nav-item, nav button').forEach(function(btn) {
+        var txt = (btn.textContent || '').trim();
+        if (txt && !btn.title) {
+          btn.title = txt;
+        }
+      });
+    }
+
+    // 2. Check for header without aside
+    if (!aside) {
+      var headerRow = document.querySelector('header.top2 .row, header .row, .top .row, .top2 .row, header');
+      if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
+        var hBack = document.createElement('button');
+        hBack.className = 'vq-header-back-btn';
+        hBack.title = 'Go back to previous page';
+        hBack.type = 'button';
+        hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
+        headerRow.insertBefore(hBack, headerRow.firstChild);
+      }
+    }
+  }
+
+  function triggerGoBack() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'NAVIGATE_BACK' }, '*');
+    }
+    if (window.history && window.history.length > 1) {
+      window.history.back();
+    } else {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'NAVIGATE', path: '/' }, '*');
+      } else {
+        window.location.href = '/';
+      }
+    }
+  }
+
+  // Document-level delegated click handler (resilient against React VDOM updates)
+  document.addEventListener('click', function(e) {
+    var backBtn = e.target.closest('.vq-back-btn, .vq-header-back-btn');
+    if (backBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      triggerGoBack();
+      return;
+    }
+
+    var minBtn = e.target.closest('.vq-minimize-btn');
+    if (minBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+      if (aside) {
+        var willCollapse = !aside.classList.contains('collapsed');
+        try {
+          localStorage.setItem('vivoquest_sidebar_collapsed', willCollapse ? 'true' : 'false');
+        } catch(err) {}
+        applyCollapsedState(aside, willCollapse);
+      }
+      return;
+    }
+  }, true);
+
+  // Keyboard shortcut: Alt + Left Arrow triggers Back
+  window.addEventListener('keydown', function(e) {
+    if (e.altKey && e.key === 'ArrowLeft') {
+      triggerGoBack();
+    }
+  });
+
+  // Run immediately, on DOM ready, and via continuous MutationObserver
+  ensureSidebarControls();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureSidebarControls);
+  }
+  window.addEventListener('load', ensureSidebarControls);
+
+  // MutationObserver to guarantee presence after React mounts/re-renders
+  try {
+    var obs = new MutationObserver(function() {
+      ensureSidebarControls();
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+  } catch(e) {}
+
+  // Periodic safety check for first 5 seconds
+  var safetyCounter = 0;
+  var timer = setInterval(function() {
+    ensureSidebarControls();
+    safetyCounter++;
+    if (safetyCounter > 20) clearInterval(timer);
+  }, 250);
+})();
+</script>
+
+</body></html>

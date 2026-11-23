@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>VivoQuest Clinician</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/90ade8692168ea8ac9be1b006048b30a") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/7241cfb46a24cd3e40b6426ca7b6ad8d") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/196998e2171d34de5113bbf191840938") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/965076e3fc882007d25daf736292406a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/1e13d694f560d6934e1130dea1103c23") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/cfefdd853f7a18f0d37c3bbfb395c995") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F7F5FF;font-family:'Manrope',system-ui,sans-serif;color:#17143A}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none;padding:0;text-align:left}
+:focus-visible{outline:3px solid #6D42E8;outline-offset:2px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:flex;width:100%;height:1000px;background:#F7F5FF}
+.side{width:280px;flex:none;background:#fff;border-right:1px solid #E6E2F0;padding:20px 16px;display:flex;flex-direction:column;gap:20px}
+.nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.navb{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4B5565}
+.navb:hover{background:#F7F5FF}.navb.on{background:#EAE4FF;color:#4520B8}
+.cnt{margin-left:auto;background:#B42332;color:#fff;border-radius:99px;font-size:12px;padding:2px 8px}
+.main{flex:1;min-width:0;overflow:auto;padding:32px 40px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:16px}
+.h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:#4520B8}
+.sub{color:#667085}.row{display:flex;align-items:center;gap:12px}.col{display:flex;flex-direction:column;gap:12px}
+.grid{display:grid;gap:20px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1.4fr 1fr}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 1px 2px rgba(23,20,58,.05),0 10px 28px rgba(69,32,184,.07)}
+.card h2{margin:0 0 14px;font-size:18px;font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:700;font-size:15px;background:#4520B8;color:#fff}
+.btn:hover{background:#3A1A9C}.btn.g{background:#fff;color:#17143A;box-shadow:inset 0 0 0 1.5px #E6E2F0}.btn.s{background:#EAE4FF;color:#4520B8}.btn.d{background:#B42332}
+.item{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1.5px #E6E2F0;background:#fff;font-weight:700}
+.item:hover{box-shadow:inset 0 0 0 1.5px #6D42E8}.item.on{background:#EAE4FF;box-shadow:inset 0 0 0 2px #4520B8;color:#4520B8}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid #C9C3DD;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}.on .chk{background:#18845B;border-color:#18845B}
+.avatar{width:42px;height:42px;border-radius:99px;background:#EAE4FF;color:#4520B8;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:800;background:#EAE4FF;color:#4520B8}.pill.bad{background:#FBE4E7;color:#B42332}.pill.warn{background:#FDEFD6;color:#A96513}.pill.ok{background:#DDF3EA;color:#18845B}
+.switch{width:52px;height:30px;border-radius:99px;background:#C9C3DD;position:relative;flex:none}.switch i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff;transition:left .15s}.switch.on{background:#4520B8}.switch.on i{left:25px}
+.input{width:100%;min-height:52px;border-radius:14px;border:1.5px solid #E6E2F0;background:#fff;padding:12px 16px;font-size:15px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20}
+.dlgbg{position:fixed;inset:0;background:rgba(23,20,58,.45);display:flex;align-items:center;justify-content:center;z-index:10}.dlg{background:#fff;border-radius:22px;padding:28px;width:440px}
+.rowline{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #E6E2F0}.rowline:last-child{border:0}
+</style>
+</helmet>
+<div class="app">
+<aside class="side">
+ <div class="row"><div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" viewBox="0 0 24 24" role="img" aria-label="VivoQuest logo" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Clinician workspace</div></div></div>
+ <nav class="nav" aria-label="Main"><sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6"><button class="navb {{ n.cls }}" onClick="{{ n.tap }}"><svg class="ic" viewBox="0 0 24 24"><path d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button></sc-for></nav>
+ <div class="col"><div class="row" style="padding:12px;border-radius:16px;background:#F7F5FF"><div class="avatar">MJ</div><div><div style="font-weight:800;font-size:14px">Dr. Meera Joshi</div><div class="sub" style="font-size:12px">Clinician · Pune</div></div></div><button class="btn g" onClick="{{ a.switchRole }}">Switch role</button></div>
+</aside>
+<main class="main">
+<div class="top"><div><div class="eyebrow">WED, 21 OCT</div><h1 class="h1">{{ title }}</h1></div><div class="row"><button class="btn s" onClick="{{ a.vqCare }}">Download care summary (PDF)</button><button class="btn d" onClick="{{ a.em }}">Emergency: call 108</button></div></div>
+<sc-if value="{{ s.inbox }}" hint-placeholder-val="{{ true }}"><div class="grid g4" style="margin-bottom:20px"><div class="card"><div class="eyebrow sub">OPEN ESCALATIONS</div><div style="font-size:34px;font-weight:800">{{ openN }}</div></div><div class="card"><div class="eyebrow sub">URGENT</div><div style="font-size:34px;font-weight:800;color:#B42332">{{ urgN }}</div></div><div class="card"><div class="eyebrow sub">FOLLOW-UPS DUE</div><div style="font-size:34px;font-weight:800">{{ fuN }}</div></div><div class="card"><div class="eyebrow sub">PATIENTS</div><div style="font-size:34px;font-weight:800">4</div></div></div>
+ <div class="grid g3"><div class="card"><h2>Escalation inbox</h2><div class="row" style="margin-bottom:12px"><sc-for list="{{ filters }}" as="f" hint-placeholder-count="3"><button class="item {{ f.cls }}" style="width:auto;padding:8px 16px" onClick="{{ f.tap }}">{{ f.label }}</button></sc-for></div><sc-for list="{{ escs }}" as="e" hint-placeholder-count="3"><button class="item {{ e.cls }}" style="margin-bottom:10px" onClick="{{ e.tap }}"><div class="avatar">{{ e.ini }}</div><div style="flex:1"><div>{{ e.name }} · {{ e.reason }}</div><div class="sub" style="font-size:13px;font-weight:600">{{ e.from }} · {{ e.time }}</div></div><span class="pill {{ e.ucls }}">{{ e.urg }}</span></button></sc-for></div>
+ <div class="card"><h2>{{ cur.name }}</h2><p style="margin:0 0 14px">{{ cur.detail }}</p><div class="sub" style="font-weight:700;margin-bottom:8px">Instruction to the nurse</div><div class="col"><sc-for list="{{ instr }}" as="n" hint-placeholder-count="4"><button class="item {{ n.cls }}" onClick="{{ n.tap }}">{{ n.label }}</button></sc-for></div><div class="row" style="margin-top:16px"><button class="btn" onClick="{{ a.ack }}">{{ cur.ackLabel }}</button><button class="btn g" onClick="{{ a.callNurse }}">Call nurse</button></div></div></div></sc-if>
+<sc-if value="{{ s.patients }}" hint-placeholder-val="{{ false }}"><div class="grid g3" style="grid-template-columns:1fr 1.5fr"><div class="card"><h2>Patients</h2><sc-for list="{{ pats }}" as="p" hint-placeholder-count="4"><button class="item {{ p.cls }}" style="margin-bottom:10px" onClick="{{ p.tap }}"><div class="avatar">{{ p.ini }}</div><div style="flex:1"><div>{{ p.name }}</div><div class="sub" style="font-size:13px;font-weight:600">{{ p.age }} · {{ p.dx }}</div></div><span class="pill {{ p.rcls }}">{{ p.risk }}</span></button></sc-for></div>
+ <div class="card"><h2>{{ pt.name }}</h2><p class="sub" style="margin:0 0 12px">{{ pt.problems }}</p><div class="rowline"><b>Allergy</b><span>{{ pt.allergy }}</span></div><div class="rowline"><b>Last vitals</b><span>{{ pt.last }}</span></div><div class="rowline"><b>Recorded by</b><span>{{ pt.lastBy }}</span></div><div class="eyebrow sub" style="margin:18px 0 6px">SYSTOLIC BP, LAST 7 READINGS</div><svg viewBox="0 0 300 80" style="width:100%;height:100px" role="img" aria-label="Blood pressure trend"><polyline points="{{ pt.spark }}" fill="none" stroke="#4520B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg><div class="eyebrow sub" style="margin:12px 0 6px">MEDICINES</div><sc-for list="{{ pt.meds }}" as="m" hint-placeholder-count="3"><div class="rowline"><span>{{ m }}</span></div></sc-for></div></div></sc-if>
+<sc-if value="{{ s.fu }}" hint-placeholder-val="{{ false }}"><div class="card" style="max-width:820px"><h2>Follow-ups</h2><sc-for list="{{ fus }}" as="f" hint-placeholder-count="3"><button class="item {{ f.cls }}" style="margin-bottom:10px" aria-pressed="{{ f.done }}" onClick="{{ f.tap }}"><span class="chk"><svg class="ic" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="{{ i.check }}"></path></svg></span><span style="flex:1">{{ f.title }}<span class="sub" style="font-size:13px"> · {{ f.name }}</span></span><span class="pill {{ f.ucls }}">{{ f.due }}</span></button></sc-for></div></sc-if>
+<sc-if value="{{ s.audit }}" hint-placeholder-val="{{ false }}"><div class="card"><h2>Who has seen what</h2><div class="row" style="margin-bottom:12px"><sc-for list="{{ auf }}" as="f" hint-placeholder-count="3"><button class="item {{ f.cls }}" style="width:auto;padding:8px 16px" onClick="{{ f.tap }}">{{ f.label }}</button></sc-for></div><sc-for list="{{ audit }}" as="r" hint-placeholder-count="5"><div class="rowline"><div class="avatar">{{ r.ini }}</div><div style="flex:1"><div style="font-weight:800">{{ r.who }}</div><div class="sub" style="font-size:13px">{{ r.what }}</div></div><span class="sub" style="font-size:13px">{{ r.time }}</span><span class="pill {{ r.cls }}">{{ r.tag }}</span></div></sc-for></div></sc-if>
+<sc-if value="{{ s.more }}" hint-placeholder-val="{{ false }}"><div class="grid g2"><div class="card"><h2>Alert thresholds</h2><div class="rowline"><div style="flex:1"><b>Systolic BP above</b><div class="sub" style="font-size:13px">Escalates a nurse reading</div></div><button class="btn g" aria-label="Lower systolic limit" onClick="{{ a.sysM }}">−</button><b style="min-width:44px;text-align:center">{{ sysHi }}</b><button class="btn g" aria-label="Raise systolic limit" onClick="{{ a.sysP }}">+</button></div><div class="rowline"><div style="flex:1"><b>Pulse above</b></div><button class="btn g" aria-label="Lower pulse limit" onClick="{{ a.pulM }}">−</button><b style="min-width:44px;text-align:center">{{ pulHi }}</b><button class="btn g" aria-label="Raise pulse limit" onClick="{{ a.pulP }}">+</button></div><div class="row" style="margin-top:16px"><button class="btn" onClick="{{ a.approve }}">{{ apLabel }}</button></div></div>
+ <div class="card"><h2>Privacy and security</h2><sc-for list="{{ prefs }}" as="p" hint-placeholder-count="3"><div class="rowline"><div style="flex:1"><div style="font-weight:800">{{ p.label }}</div><div class="sub" style="font-size:13px">{{ p.hint }}</div></div><button class="switch {{ p.cls }}" role="switch" aria-checked="{{ p.on }}" aria-label="{{ p.label }}" onClick="{{ p.tap }}"><i></i></button></div></sc-for></div>
+ <div class="card"><h2>Help and emergency</h2><div class="col"><button class="item" onClick="{{ a.em }}">Call ambulance 108</button><button class="item" onClick="{{ a.t112 }}">Call 112</button></div><p class="sub" style="font-size:13px">VivoQuest supports clinician-led care and never gives a diagnosis.</p></div><div class="card"><h2>About</h2><p style="margin:0">VivoQuest version 2.4.0 (build 2410)</p><p class="sub" style="font-size:13px">All names and records in this prototype are fictional.</p></div></div></sc-if>
+
+</main>
+</div>
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div class="toast" role="status">{{ toast }}</div></sc-if>
+<sc-if value="{{ dlg }}" hint-placeholder-val="{{ false }}"><div class="dlgbg"><div class="dlg" role="dialog" aria-label="Call 108"><h2 style="margin:0 0 8px">Call 108?</h2><p class="sub">This is a prototype. No call will be placed.</p><div class="row" style="margin-top:20px"><button class="btn d" onClick="{{ a.doCall }}">Call now</button><button class="btn g" onClick="{{ a.closeDlg }}">Cancel</button></div></div></div></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;onSwitch&quot;:{&quot;editor&quot;:null},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000}}">
+const I={home:'M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z',users:'M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2 20a7 7 0 0 1 14 0M16 4.5a3.5 3.5 0 0 1 0 6.5M18 14a6 6 0 0 1 4 6',list:'M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01',alert:'M12 4 2.5 20h19zM12 10v4M12 17h.01',msg:'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z',shield:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',review:'M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1zM8 6H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2M9 13l2 2 4-4',doc:'M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h6',check:'M5 12.5l4.5 4.5L19 7.5',help:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01'};
+const PAT={kamal:{name:'Kamal Deshmukh',ini:'KD',age:'72 · M',dx:'Post-op knee wound',risk:'Escalated',allergy:'Penicillin',problems:'Hypertension, type 2 diabetes. Left knee replacement on 2 Oct, wound healing.',last:'BP 168/98 · Pulse 96 · SpO₂ 97%',lastBy:'Priya Kulkarni, RN · today 11:42 AM',meds:['Metformin 500 mg, twice daily','Amlodipine 5 mg, once daily','Calcium 500 mg, once daily'],series:[138,134,132,136,130,132,168]},
+meena:{name:'Meena Pawar',ini:'MP',age:'81 · F',dx:'Hypertension',risk:'Escalated',allergy:'None recorded',problems:'Hypertension, mild hearing loss. Lives with her son.',last:'BP 146/90 · Pulse 82 · SpO₂ 96%',lastBy:'Priya Kulkarni, RN · Tue 20 Oct',meds:['Telmisartan 40 mg, once daily','Aspirin 75 mg, once daily'],series:[142,146,150,144,148,146,146]},
+ravi:{name:'Ravi Shinde',ini:'RS',age:'59 · M',dx:'Post-stroke recovery',risk:'Review due',allergy:'Sulfa drugs',problems:'Ischaemic stroke 6 weeks ago. Right-sided weakness improving.',last:'BP 138/86 · Pulse 80 · SpO₂ 96%',lastBy:'Priya Kulkarni, RN · Mon 19 Oct',meds:['Clopidogrel 75 mg, once daily','Atorvastatin 20 mg, night'],series:[140,138,136,142,138,138,138]},
+sushila:{name:'Sushila Kale',ini:'SK',age:'68 · F',dx:'Diabetic foot care',risk:'Stable',allergy:'None recorded',problems:'Type 2 diabetes, peripheral neuropathy.',last:'BP 128/80 · Pulse 74 · SpO₂ 98%',lastBy:'Priya Kulkarni, RN · today 9:20 AM',meds:['Metformin 1000 mg, twice daily','Glimepiride 1 mg, morning'],series:[130,128,126,130,128,126,128]}};
+const ORDER=['kamal','meena','ravi','sushila'];
+const ESC0=[{id:'e1',pid:'kamal',from:'Priya Kulkarni, RN',reason:'Vitals outside thresholds',urg:'Urgent',time:'11:48 AM',detail:'BP 168/98 and pulse 96 recorded at 11:42. Patient reports a mild headache since morning. Wound clean. Morning medicines taken.',status:'new'},{id:'e2',pid:'meena',from:'Ramesh Jadhav, caregiver',reason:'Not eating or drinking',urg:'Routine today',time:'10:15 AM',detail:'Has eaten only half a chapati since yesterday and is refusing water. Alert and talking. No fall reported.',status:'new'},{id:'e3',pid:'ravi',from:'Priya Kulkarni, RN',reason:'Medicine problem',urg:'Routine today',time:'Yesterday',detail:'Ran out of atorvastatin. Family says the pharmacy had no stock.',status:'ack'}];
+const INSTR=['Continue visit as planned','Recheck BP in 30 minutes','Arrange an urgent visit','Call me now'];
+const FU0=[{id:'f1',pid:'ravi',title:'Confirm atorvastatin supply',due:'Today',urgent:true,done:false},{id:'f2',pid:'sushila',title:'Review foot-care photos',due:'Tomorrow',urgent:false,done:false},{id:'f3',pid:'meena',title:'Review BP trend, 3 days',due:'Fri 23',urgent:false,done:false}];
+const AUDIT=[{ini:'MJ',who:'Dr. Meera Joshi',what:'Viewed care plan · Kamal Deshmukh',time:'Today 12:01 PM',tag:'Clinician',role:'c'},{ini:'AD',who:'Anjali Deshmukh (family)',what:'Viewed visit schedule · Kamal Deshmukh',time:'Today 9:42 AM',tag:'Family',role:'f'},{ini:'PK',who:'Priya Kulkarni, RN',what:'Added vitals · Kamal Deshmukh',time:'Today 11:42 AM',tag:'Nurse',role:'c'},{ini:'RD',who:'Rahul Deshmukh (family)',what:'Medication records: access denied',time:'Yesterday 8:15 PM',tag:'Denied',role:'f'},{ini:'MJ',who:'Dr. Meera Joshi',what:'Updated care plan · added supported walk',time:'Sun 18 Oct',tag:'Clinician',role:'c'}];
+class Component extends DCLogic {
+  state={sc:'inbox',esc:ESC0,escSel:'e1',filter:'All',pid:'kamal',fu:FU0,auF:'All',instr:null,sysHi:160,pulHi:110,approved:false,toast:'',dlg:false,mfa:true,lock:true,alerts:true};
+  say=(m)=>{this.setState({toast:m});clearTimeout(this._t);this._t=setTimeout(()=>this.setState({toast:''}),2600);};
+  go=(k)=>this.setState({sc:k});
+  renderVals(){
+    const st=this.state;const sc=st.sc;
+    const openN=st.esc.filter((e)=>e.status==='new').length;
+    const NAV=[['inbox','Escalations','alert',openN],['patients','Patients','users',0],['fu','Follow-ups','review',st.fu.filter((f)=>!f.done).length],['audit','Access log','doc',0],['more','Settings and privacy','shield',0]];
+    const TITLES={inbox:'Escalation inbox',patients:'Patients',fu:'Follow-ups',audit:'Access log',more:'Settings, privacy and help'};
+    const ucls=(u)=>u==='Urgent'?'bad':'warn';
+    const rcls=(r)=>r==='Escalated'?'bad':r==='Review due'?'warn':'ok';
+    const escs=st.esc.filter((e)=>st.filter==='All'||(st.filter==='Open'?e.status==='new':e.status==='ack')).map((e)=>({ini:PAT[e.pid].ini,name:PAT[e.pid].name,reason:e.reason,from:e.from,time:e.time,urg:e.urg,ucls:ucls(e.urg),cls:st.escSel===e.id?'on':'',tap:()=>this.setState({escSel:e.id,instr:null})}));
+    const ce=st.esc.find((e)=>e.id===st.escSel)||st.esc[0];
+    const sp=(arr)=>arr.map((v,k)=>(k*50)+','+(75-(v-120)*1.2)).join(' ');
+    const p=PAT[st.pid];
+    const mk=(arr,sel,fn)=>arr.map((l)=>({label:l,cls:sel===l?'on':'',tap:()=>fn(l)}));
+    const prefs=[['mfa','Two-step sign-in','Required for clinician accounts'],['lock','Auto-lock after 5 minutes','Protects patient records'],['alerts','Urgent escalation alerts','Always on for safety']].map(([k,l,h])=>({label:l,hint:h,on:st[k],cls:st[k]?'on':'',tap:()=>this.setState({[k]:!st[k]})}));
+    return {
+      title:TITLES[sc],toast:st.toast,dlg:st.dlg,i:I,openN,urgN:st.esc.filter((e)=>e.urg==='Urgent'&&e.status==='new').length,fuN:st.fu.filter((f)=>!f.done).length,sysHi:st.sysHi,pulHi:st.pulHi,prefs,
+      apLabel:st.approved?'Thresholds approved':'Approve thresholds',
+      s:{inbox:sc==='inbox',patients:sc==='patients',fu:sc==='fu',audit:sc==='audit',more:sc==='more'},
+      navItems:NAV.map(([k,l,ic,c])=>({label:l,icon:I[ic],cls:sc===k?'on':'',badge:c>0,count:c,tap:()=>this.go(k)})),
+      filters:mk(['All','Open','Acknowledged'],st.filter,(f)=>this.setState({filter:f})),
+      escs,cur:{name:PAT[ce.pid].name+' · '+ce.reason,detail:ce.detail,ackLabel:ce.status==='ack'?'Acknowledged':'Acknowledge'},
+      instr:mk(INSTR,st.instr,(n)=>this.setState({instr:n})),
+      pats:ORDER.map((k)=>({ini:PAT[k].ini,name:PAT[k].name,age:PAT[k].age,dx:PAT[k].dx,risk:PAT[k].risk,rcls:rcls(PAT[k].risk),cls:st.pid===k?'on':'',tap:()=>this.setState({pid:k})})),
+      pt:{...p,spark:sp(p.series)},
+      fus:st.fu.map((f)=>({title:f.title,name:PAT[f.pid].name,due:f.due,ucls:f.urgent?'bad':'',done:f.done,cls:f.done?'on':'',tap:()=>this.setState((x)=>({fu:x.fu.map((y)=>y.id===f.id?{...y,done:!y.done}:y)}))})),
+      auf:mk(['All','Clinician','Family'],st.auF,(f)=>this.setState({auF:f})),
+      audit:AUDIT.filter((r)=>st.auF==='All'||(st.auF==='Clinician'?r.role==='c':r.role==='f')).map((r)=>({...r,cls:r.tag==='Denied'?'bad':''})),
+      a:{vqCare:()=>VQApp.run((m)=>this.say(m),'patient-care','pdf',{periodSlug:'This-week'}),switchRole:()=>this.props.onSwitch&&this.props.onSwitch('clinician'),em:()=>this.setState({dlg:true}),t112:()=>this.say('Prototype only. No call was placed'),doCall:()=>{this.setState({dlg:false});this.say('Prototype only. No call was placed');},closeDlg:()=>this.setState({dlg:false}),
+        ack:()=>{if(!st.instr){this.say('Choose an instruction first');return;}this.setState((x)=>({esc:x.esc.map((e)=>e.id===x.escSel?{...e,status:'ack'}:e)}));this.say('Acknowledged. Nurse notified');},callNurse:()=>this.say('Calling the nurse (simulated)'),
+        sysP:()=>this.setState((x)=>({sysHi:x.sysHi+5,approved:false})),sysM:()=>this.setState((x)=>({sysHi:x.sysHi-5,approved:false})),pulP:()=>this.setState((x)=>({pulHi:x.pulHi+5,approved:false})),pulM:()=>this.setState((x)=>({pulHi:x.pulHi-5,approved:false})),approve:()=>{this.setState({approved:true});this.say('Thresholds approved');}}
+    };
+  }
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 { stroke: #6D42E8; }
+      .cls-1, .cls-2 { fill: none; stroke-miterlimit: 10; stroke-width: 10px; stroke-linecap: round; stroke-linejoin: round; }
+      .cls-2 { stroke: #4520B8; }
+    </style>
+  </defs>
+  <!-- Nurse Cap -->
+  <path class="cls-1" d="M208,185 h84 l-12,-44 h-60 z"/>
+  <line class="cls-1" x1="250" y1="152" x2="250" y2="174"/>
+  <line class="cls-1" x1="239" y1="163" x2="261" y2="163"/>
+  <!-- Head -->
+  <circle class="cls-2" cx="250" cy="225" r="41"/>
+  <!-- Body / Shoulders -->
+  <path class="cls-2" d="M312,350 h-124 c-6,0 -10,-4 -10,-10 v-22 c0,-25 20,-45 45,-45 h54 c25,0 45,20 45,45 v22 c0,6 -4,10 -10,10 Z"/>
+  <!-- Stethoscope / Care Emblem -->
+  <path class="cls-1" d="M228,312 v18 c0,12 10,22 22,22 s22,-10 22,-22 v-18"/>
+  <circle class="cls-1" cx="250" cy="368" r="8"/>
+  <!-- Caring hands / heart halo -->
+  <path class="cls-2" d="M142,390 c-24,-30 -32,-72 -18,-115 c18,-54 68,-90 126,-90 c58,0 108,36 126,90 c14,43 6,85 -18,115"/>
+  <path class="cls-1" d="M125,410 h250"/>
+</svg>

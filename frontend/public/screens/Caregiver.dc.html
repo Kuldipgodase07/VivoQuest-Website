@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>VivoQuest Caregiver</title>
+<script src="./support.js"></script>
+<script id="vq-auth-guard">(function(){if(window.top===window){try{var s=localStorage.getItem("vq_session")||sessionStorage.getItem("vq_session");if(!s&&window.location.pathname.indexOf("landing")===-1){window.location.replace("/signin");}}catch(e){}}})();</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/4b9819c058eab12dff449e72987db0fa") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/ee534a4d82b0c1a3c951f10279b18157") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/03f3caec528b2f82513b0cfac8c8e75c") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/1d4df36f2ce7b6c6852c4413b8fac851") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/7b39862651c908ccc5fff81a3e533911") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/31d3b9bd2d86ba5c1805d9d5ed23aa82") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/90ade8692168ea8ac9be1b006048b30a") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/_blob/7241cfb46a24cd3e40b6426ca7b6ad8d") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/196998e2171d34de5113bbf191840938") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/965076e3fc882007d25daf736292406a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/_blob/1e13d694f560d6934e1130dea1103c23") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/_blob/cfefdd853f7a18f0d37c3bbfb395c995") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F7F5FF;font-family:'Manrope',system-ui,sans-serif;color:#17143A}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none;padding:0;text-align:left}
+:focus-visible{outline:3px solid #6D42E8;outline-offset:2px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:flex;width:100%;height:1000px;background:#F7F5FF}
+.side{width:280px;flex:none;background:#fff;border-right:1px solid #E6E2F0;padding:20px 16px;display:flex;flex-direction:column;gap:20px}
+.nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.navb{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4B5565}
+.navb:hover{background:#F7F5FF}.navb.on{background:#EAE4FF;color:#4520B8}
+.cnt{margin-left:auto;background:#B42332;color:#fff;border-radius:99px;font-size:12px;padding:2px 8px}
+.main{flex:1;min-width:0;overflow:auto;padding:32px 40px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:16px}
+.h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:#4520B8}
+.sub{color:#667085}.row{display:flex;align-items:center;gap:12px}.col{display:flex;flex-direction:column;gap:12px}
+.grid{display:grid;gap:20px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1.4fr 1fr}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 1px 2px rgba(23,20,58,.05),0 10px 28px rgba(69,32,184,.07)}
+.card h2{margin:0 0 14px;font-size:18px;font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:700;font-size:15px;background:#4520B8;color:#fff}
+.btn:hover{background:#3A1A9C}.btn.g{background:#fff;color:#17143A;box-shadow:inset 0 0 0 1.5px #E6E2F0}.btn.s{background:#EAE4FF;color:#4520B8}.btn.d{background:#B42332}
+.item{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1.5px #E6E2F0;background:#fff;font-weight:700}
+.item:hover{box-shadow:inset 0 0 0 1.5px #6D42E8}.item.on{background:#EAE4FF;box-shadow:inset 0 0 0 2px #4520B8;color:#4520B8}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid #C9C3DD;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}.on .chk{background:#18845B;border-color:#18845B}
+.avatar{width:42px;height:42px;border-radius:99px;background:#EAE4FF;color:#4520B8;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:800;background:#EAE4FF;color:#4520B8}.pill.bad{background:#FBE4E7;color:#B42332}.pill.warn{background:#FDEFD6;color:#A96513}.pill.ok{background:#DDF3EA;color:#18845B}
+.switch{width:52px;height:30px;border-radius:99px;background:#C9C3DD;position:relative;flex:none}.switch i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff;transition:left .15s}.switch.on{background:#4520B8}.switch.on i{left:25px}
+.input{width:100%;min-height:52px;border-radius:14px;border:1.5px solid #E6E2F0;background:#fff;padding:12px 16px;font-size:15px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20}
+.dlgbg{position:fixed;inset:0;background:rgba(23,20,58,.45);display:flex;align-items:center;justify-content:center;z-index:10}.dlg{background:#fff;border-radius:22px;padding:28px;width:440px}
+.rowline{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #E6E2F0}.rowline:last-child{border:0}
+</style>
+</helmet>
+<div class="app">
+<aside class="side">
+<!-- VivoQuest Master Sidebar Controls -->
+<div class="vq-sidebar-controls" data-vq-controls="true">
+  <button class="vq-back-btn" title="Go back to previous page (Alt + ←)" type="button">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span>Back</span>
+  </button>
+  <button class="vq-minimize-btn" title="Minimize sidebar" type="button">
+    <svg class="vq-chevron-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </button>
+</div>
+ <div class="row"><div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" viewBox="0 0 24 24" role="img" aria-label="VivoQuest logo" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Caregiver workspace</div></div></div>
+ <nav class="nav" aria-label="Main"><sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6"><button class="navb {{ n.cls }}" onClick="{{ n.tap }}"><svg class="ic" viewBox="0 0 24 24"><path d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button></sc-for></nav>
+ <div class="col"><div class="row" style="padding:12px;border-radius:16px;background:#F7F5FF"><div class="avatar">RJ</div><div><div style="font-weight:800;font-size:14px">Ramesh Jadhav</div><div class="sub" style="font-size:12px">Family caregiver · Pune</div></div></div><button class="btn g" onClick="{{ a.switchRole }}">Switch role</button></div>
+</aside>
+<main class="main">
+<div class="top"><div><div class="eyebrow">WED, 21 OCT</div><h1 class="h1">{{ title }}</h1></div><div class="row"><button class="btn d" onClick="{{ a.em }}">Emergency: call 108</button></div></div>
+<sc-if value="{{ s.today }}" hint-placeholder-val="{{ true }}"><div class="grid g3">
+ <div class="col" style="gap:20px">
+  <div class="card" style="background:#4520B8;color:#fff"><div class="eyebrow" style="color:#D8CCFF">NOW · 9:00 – 10:00 AM</div><div style="font-size:28px;font-weight:800;margin:8px 0">Hello, Ramesh</div><p style="margin:0 0 16px;color:#EAE4FF">You are doing important work. The care team is a call away.</p><div class="row"><button class="btn" style="background:#fff;color:#4520B8" onClick="{{ a.toTasks }}">Continue checklist</button><button class="btn" style="background:#6D42E8" onClick="{{ a.toConcern }}">Record a concern</button></div></div>
+  <div class="grid g4" style="grid-template-columns:repeat(3,1fr)"><div class="card"><div class="eyebrow sub">TASKS DONE</div><div style="font-size:34px;font-weight:800">{{ doneN }}/{{ total }}</div></div><div class="card"><div class="eyebrow sub">WATER TODAY</div><div style="font-size:34px;font-weight:800">{{ water }}/6</div></div><div class="card"><div class="eyebrow sub">NEXT VISIT</div><div style="font-size:22px;font-weight:800;margin-top:6px">2:30 PM</div><div class="sub" style="font-size:13px">Afternoon care</div></div></div>
+  <div class="card"><h2>Household visits</h2><sc-for list="{{ visits }}" as="v" hint-placeholder-count="2"><div class="rowline"><div class="avatar">{{ v.ini }}</div><div style="flex:1"><div style="font-weight:800">{{ v.name }}</div><div class="sub" style="font-size:13px">{{ v.time }} · {{ v.type }}</div></div><span class="pill {{ v.cls }}">{{ v.status }}</span></div></sc-for></div>
+ </div>
+ <div class="col" style="gap:20px"><div class="card"><h2>Helpful tips</h2><p style="margin:0 0 12px">Keep the room warm and the floor dry. Let Kamal do what he can by himself.</p><p style="margin:0">Look at his skin each morning. Report any red, hot or broken areas.</p></div><div class="card"><h2>Need help?</h2><div class="col"><button class="item" onClick="{{ a.toConcern }}">Record a concern</button><button class="item" onClick="{{ a.t1 }}">Contact the care team</button></div></div></div></div></sc-if>
+<sc-if value="{{ s.patients }}" hint-placeholder-val="{{ false }}"><div class="grid g2"><div class="card"><h2>Kamal Deshmukh · 72 · M</h2><p class="sub">Post-op knee wound · Hard of hearing, speak clearly</p><div class="rowline"><b>Allergy</b><span>Penicillin</span></div><div class="rowline"><b>Last vitals</b><span>BP 168/98 · Pulse 96 · SpO₂ 97%</span></div><div class="rowline"><b>Recorded by</b><span>Priya Kulkarni, RN · today 11:42 AM</span></div></div><div class="card"><h2>Mobility help</h2><p style="margin:0 0 12px">Stand on his weaker side. Walk slowly, and let him hold your arm.</p><p class="sub" style="margin:0 0 14px">Stop and rest if he feels dizzy or his knee hurts more than usual, then tell the nurse.</p><div class="sub" style="font-weight:700;margin-bottom:8px">How steady was he today?</div><div class="row"><sc-for list="{{ steady }}" as="z" hint-placeholder-count="3"><button class="item {{ z.cls }}" style="width:auto" onClick="{{ z.tap }}">{{ z.label }}</button></sc-for></div></div></div></sc-if>
+<sc-if value="{{ s.tasks }}" hint-placeholder-val="{{ false }}"><div class="grid g3"><div class="card"><h2>Daily checklist</h2><div class="col"><sc-for list="{{ tasks }}" as="t" hint-placeholder-count="6"><button class="item {{ t.cls }}" aria-pressed="{{ t.done }}" onClick="{{ t.tap }}"><span class="chk"><svg class="ic" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="{{ i.check }}"></path></svg></span><span style="flex:1">{{ t.label }}</span><span class="pill">{{ t.group }}</span></button></sc-for></div><div class="row" style="margin-top:18px"><button class="btn" onClick="{{ a.finish }}">Finish visit</button><span class="sub">{{ missing }}</span></div></div>
+ <div class="card"><h2>Water today</h2><div style="font-size:48px;font-weight:800">{{ water }}<span class="sub" style="font-size:20px"> / 6 glasses</span></div><div class="row" style="margin:14px 0"><button class="btn g" onClick="{{ a.wMinus }}">Remove</button><button class="btn" onClick="{{ a.wPlus }}">Add a glass</button></div><p class="sub" style="font-size:14px">Low-salt, home-cooked meals. No pickles or papad for now. Offer water often, but do not force it.</p></div></div></sc-if>
+<sc-if value="{{ s.concern }}" hint-placeholder-val="{{ false }}"><div class="grid g2"><div class="card"><h2>What did you notice?</h2><div class="grid g2" style="gap:12px"><sc-for list="{{ cats }}" as="c" hint-placeholder-count="6"><button class="item {{ c.cls }}" onClick="{{ c.tap }}">{{ c.label }}</button></sc-for></div></div>
+ <div class="card"><h2>How soon should someone look at this?</h2><div class="col"><sc-for list="{{ urgs }}" as="u" hint-placeholder-count="3"><button class="item {{ u.cls }}" onClick="{{ u.tap }}">{{ u.label }}</button></sc-for></div><label for="cn" style="display:block;margin:16px 0 6px;font-weight:700">Add a note (optional)</label><textarea id="cn" class="input" rows="3" onInput="{{ a.note }}">{{ note }}</textarea><div class="row" style="margin-top:16px"><button class="btn" onClick="{{ a.send }}">Send to care team</button><button class="btn s" onClick="{{ a.sms }}">Send as SMS now</button></div><p class="sub" style="font-size:13px">If Kamal is in danger, call 108 now. Do not wait for a reply.</p></div></div></sc-if>
+<sc-if value="{{ s.msgs }}" hint-placeholder-val="{{ false }}"><div class="grid g3"><div class="card"><h2>Care team thread</h2><div class="col"><sc-for list="{{ msgs }}" as="m" hint-placeholder-count="2"><div style="padding:12px 16px;border-radius:16px;max-width:70%;{{ m.sty }}">{{ m.t }}</div></sc-for></div></div><div class="card"><h2>Quick messages</h2><div class="col"><sc-for list="{{ quick }}" as="q" hint-placeholder-count="3"><button class="item" onClick="{{ q.tap }}">{{ q.label }}</button></sc-for></div><p class="sub" style="font-size:13px">If the internet is down, messages go by SMS so the team still hears from you.</p></div></div></sc-if>
+<sc-if value="{{ s.more }}" hint-placeholder-val="{{ false }}"><div class="grid g2">
+ <div class="card"><h2>Help and emergency</h2><div class="col"><button class="item" onClick="{{ a.em }}">Call ambulance 108</button><button class="item" onClick="{{ a.t112 }}">Call 112</button><button class="item" onClick="{{ a.t1 }}">Call the care team</button></div><p class="sub" style="font-size:13px">VivoQuest supports care. It does not give diagnoses and is not a substitute for emergency services.</p></div>
+ <div class="card"><h2>Privacy and security</h2><sc-for list="{{ prefs }}" as="p" hint-placeholder-count="3"><div class="rowline"><div style="flex:1"><div style="font-weight:800">{{ p.label }}</div><div class="sub" style="font-size:13px">{{ p.hint }}</div></div><button class="switch {{ p.cls }}" role="switch" aria-checked="{{ p.on }}" aria-label="{{ p.label }}" onClick="{{ p.tap }}"><i></i></button></div></sc-for>
+ <div class="row" style="margin-top:14px"><button class="btn" onClick="{{ a.vqCare }}">Download care summary (PDF)</button></div><div class="row" style="margin-top:14px"><button class="btn s" onClick="{{ a.exp }}">Download my data</button><button class="btn g" onClick="{{ a.del }}">Request deletion</button></div></div>
+ <div class="card"><h2>Language and accessibility</h2><div class="sub" style="margin-bottom:8px;font-weight:700">Text size</div><div class="row"><sc-for list="{{ sizes }}" as="z" hint-placeholder-count="3"><button class="item {{ z.cls }}" style="width:auto" onClick="{{ z.tap }}">{{ z.label }}</button></sc-for></div><p class="sub" style="font-size:13px">Marathi will arrive in the next build.</p></div>
+ <div class="card"><h2>About</h2><p style="margin:0">VivoQuest version 2.4.0 (build 2410)</p><p class="sub" style="font-size:13px">All names and records in this prototype are fictional.</p></div></div></sc-if>
+</main>
+</div>
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div class="toast" role="status">{{ toast }}</div></sc-if>
+<sc-if value="{{ dlg }}" hint-placeholder-val="{{ false }}"><div class="dlgbg"><div class="dlg" role="dialog" aria-label="Call 108"><h2 style="margin:0 0 8px">Call 108?</h2><p class="sub">This is a prototype. No call will be placed.</p><div class="row" style="margin-top:20px"><button class="btn d" onClick="{{ a.doCall }}">Call now</button><button class="btn g" onClick="{{ a.closeDlg }}">Cancel</button></div></div></div></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;onSwitch&quot;:{&quot;editor&quot;:null},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000}}">
+const I={home:'M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z',users:'M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2 20a7 7 0 0 1 14 0M16 4.5a3.5 3.5 0 0 1 0 6.5M18 14a6 6 0 0 1 4 6',list:'M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01',alert:'M12 4 2.5 20h19zM12 10v4M12 17h.01',msg:'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z',shield:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',review:'M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1zM8 6H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2M9 13l2 2 4-4',doc:'M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h6',check:'M5 12.5l4.5 4.5L19 7.5',help:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01'};
+const TASKS=[['Morning wash and dressing','Personal care'],['Check skin for red or broken areas','Personal care'],['Low-salt breakfast','Nutrition'],['Offer water often','Nutrition'],['Supported walk to the window','Mobility'],['Tidy floor and room','Mobility']];
+class Component extends DCLogic {
+  state={sc:'today',done:[true,true,false,false,false,false],water:3,steady:null,cat:null,urg:1,note:'',msgs:[{me:false,t:'Priya: Thank you for the note about his skin yesterday.'}],toast:'',dlg:false,lock:true,bio:true,alerts:true,size:0};
+  say=(m)=>{this.setState({toast:m});clearTimeout(this._t);this._t=setTimeout(()=>this.setState({toast:''}),2600);};
+  go=(k)=>this.setState({sc:k});
+  renderVals(){
+    const st=this.state;const sc=st.sc;
+    const NAV=[['today','Today','home'],['patients','Patients','users'],['tasks','Tasks','list'],['concern','Record a concern','alert'],['msgs','Messages','msg'],['more','Help and privacy','shield']];
+    const TITLES={today:'Today',patients:'Patients',tasks:'Daily checklist',concern:'Record a concern',msgs:'Messages',more:'Help, privacy and security'};
+    const doneN=st.done.filter(Boolean).length;
+    const mk=(arr,sel,fn)=>arr.map((l,k)=>({label:l,cls:sel===k?'on':'',tap:()=>fn(k)}));
+    const prefs=[['lock','Require unlock','Ask for a PIN when you open the app'],['bio','Fingerprint or face','Faster, private unlock'],['alerts','Urgent alerts','Always on for safety']].map(([k,l,h])=>({label:l,hint:h,on:st[k],cls:st[k]?'on':'',tap:()=>this.setState({[k]:!st[k]})}));
+    const msg=(t)=>this.setState((x)=>({msgs:[...x.msgs,{me:true,t}]}));
+    return {
+      title:TITLES[sc],toast:st.toast,dlg:st.dlg,i:I,doneN,total:6,water:st.water,note:st.note,prefs,
+      s:{today:sc==='today',patients:sc==='patients',tasks:sc==='tasks',concern:sc==='concern',msgs:sc==='msgs',more:sc==='more'},
+      navItems:NAV.map(([k,l,ic])=>({label:l,icon:I[ic]||I.home,cls:sc===k?'on':'',badge:false,count:0,tap:()=>this.go(k)})),
+      visits:[{ini:'KD',name:'Kamal Deshmukh',time:'9:00 – 10:00 AM',type:'Morning personal care',status:'In progress',cls:'warn'},{ini:'KD',name:'Kamal Deshmukh',time:'2:30 PM',type:'Afternoon care',status:'Confirmed',cls:'ok'}],
+      tasks:TASKS.map(([l,g],k)=>({label:l,group:g,done:st.done[k],cls:st.done[k]?'on':'',tap:()=>this.setState((x)=>({done:x.done.map((d,j)=>j===k?!d:d)}))})),
+      missing:doneN<6?'Some tasks are not done yet. You can still finish and tell the nurse why.':'All tasks done. Thank you for caring so well.',
+      steady:mk(['Steady','Needed support','Unsteady'],st.steady,(k)=>this.setState({steady:k})),
+      cats:mk(['Skin or wound','Not eating or drinking','Fall or near-fall','Confusion','Pain','Something else'],st.cat,(k)=>this.setState({cat:k})),
+      urgs:mk(['Mention at the next visit','Tell the nurse today','Urgent: call me now'],st.urg,(k)=>this.setState({urg:k})),
+      sizes:mk(['Default','Large','Extra large'],st.size,(k)=>this.setState({size:k})),
+      msgs:st.msgs.map((m)=>({t:m.t,sty:m.me?'background:#4520B8;color:#fff;margin-left:auto':'background:#F7F5FF'})),
+      quick:['Running late','I need supplies','Please call me back'].map((l)=>({label:l,tap:()=>{msg(l);this.say('Sent to the care team');}})),
+      a:{switchRole:()=>this.props.onSwitch&&this.props.onSwitch('caregiver'),em:()=>this.setState({dlg:true}),t112:()=>this.say('Prototype only. No call was placed'),t1:()=>this.say('Calling the care team (simulated)'),doCall:()=>{this.setState({dlg:false});this.say('Prototype only. No call was placed');},closeDlg:()=>this.setState({dlg:false}),
+        toTasks:()=>this.go('tasks'),toConcern:()=>this.go('concern'),wPlus:()=>this.setState((x)=>({water:Math.min(6,x.water+1)})),wMinus:()=>this.setState((x)=>({water:Math.max(0,x.water-1)})),
+        finish:()=>this.say(doneN<6?'Visit finished. Your note goes to the nurse':'Visit finished. Thank you, Ramesh'),note:(e)=>this.setState({note:e.target.value}),
+        send:()=>{if(st.cat===null){this.say('Choose what you noticed to continue');return;}this.say('Concern sent. The nurse will see it right away');this.setState({cat:null,note:''});},sms:()=>this.say('Sent as SMS'),
+        vqCare:()=>VQApp.run((m)=>this.say(m),'patient-care','pdf',{periodSlug:'This-week'}),exp:()=>VQApp.run((m)=>this.say(m),'patient-care','pdf',{periodSlug:'My-data-copy'}),del:()=>this.say('Deletion request received. We will confirm with you')}
+    };
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<!-- VivoQuest Enterprise Sidebar & Navigation System -->
+<style id="vq-sidebar-system-css">
+/* Base Smooth Sidebar Transitions */
+aside.side, aside.side2, aside.av-side, aside.sidebar {
+  transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.22s cubic-bezier(0.4, 0, 0.2, 1), padding 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+/* Collapsed State (76px icon rail) */
+aside.side.collapsed, aside.side2.collapsed, aside.av-side.collapsed, aside.sidebar.collapsed {
+  width: 76px !important;
+  min-width: 76px !important;
+  max-width: 76px !important;
+  flex: 0 0 76px !important;
+  padding: 16px 8px !important;
+}
+
+/* Controls Bar */
+.vq-sidebar-controls {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  padding: 0 2px 12px !important;
+  margin-bottom: 10px !important;
+  border-bottom: 1px solid rgba(230, 226, 240, 0.45) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+
+aside.collapsed .vq-sidebar-controls {
+  flex-direction: column !important;
+  padding: 0 0 10px !important;
+  gap: 8px !important;
+}
+
+/* Back Button */
+.vq-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(69, 32, 184, 0.08) !important;
+  border: 1px solid rgba(69, 32, 184, 0.18) !important;
+  color: #4520B8 !important;
+  padding: 6px 12px !important;
+  border-radius: 9px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  font-family: inherit !important;
+  line-height: 1 !important;
+}
+
+.vq-back-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+  box-shadow: 0 2px 8px rgba(69, 32, 184, 0.25) !important;
+}
+
+/* Dark sidebar overrides (e.g. Admin) */
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-back-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #FFFFFF !important;
+}
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-back-btn:hover {
+  background: #FFFFFF !important;
+  color: #4520B8 !important;
+  border-color: #FFFFFF !important;
+}
+
+aside.collapsed .vq-back-btn {
+  padding: 7px !important;
+  width: 32px !important;
+  height: 32px !important;
+  justify-content: center !important;
+}
+
+aside.collapsed .vq-back-btn span {
+  display: none !important;
+}
+
+/* Minimize Toggle Button */
+.vq-minimize-btn {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 9px !important;
+  border: 1px solid rgba(69, 32, 184, 0.18) !important;
+  background: #FFFFFF !important;
+  color: #4520B8 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+}
+
+.vq-minimize-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+  box-shadow: 0 2px 8px rgba(69, 32, 184, 0.25) !important;
+}
+
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-minimize-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #FFFFFF !important;
+}
+aside.side:not([style*="background:#fff"]):not([style*="background: #fff"]):not([style*="background: rgb(255, 255, 255)"]) .vq-minimize-btn:hover {
+  background: #FFFFFF !important;
+  color: #4520B8 !important;
+  border-color: #FFFFFF !important;
+}
+
+.vq-chevron-icon {
+  transition: transform 0.22s ease !important;
+}
+
+aside.collapsed .vq-chevron-icon {
+  transform: rotate(180deg) !important;
+}
+
+/* Collapsed Navigation Items: center icons, hide labels */
+aside.side.collapsed .nh,
+aside.side.collapsed .sub,
+aside.side.collapsed .cnt,
+aside.side.collapsed .navb span,
+aside.side.collapsed .btn span,
+aside.side.collapsed [style*="font-size:19px"],
+aside.side.collapsed [style*="font-size:20px"],
+aside.side.collapsed .avatar + div,
+aside.side.collapsed .row > div:not([style*="width:42px"]):not([style*="width:44px"]):not(.avatar),
+aside.side2.collapsed .nh,
+aside.side2.collapsed span,
+aside.side2.collapsed .row > div:not([style*="width:42px"]):not([style*="width:44px"]),
+aside.av-side.collapsed h2 span,
+aside.av-side.collapsed h3,
+aside.av-side.collapsed label,
+aside.av-side.collapsed .sub,
+aside.av-side.collapsed div:not(.vq-sidebar-controls),
+aside.collapsed .vq-hide-collapsed {
+  display: none !important;
+}
+
+aside.side.collapsed .navb, aside.side2.collapsed .navb {
+  justify-content: center !important;
+  padding: 10px 0 !important;
+}
+
+aside.side.collapsed .navb svg, aside.side2.collapsed .navb svg {
+  margin: 0 !important;
+}
+
+aside.side.collapsed .row {
+  justify-content: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Header Back Button (for screens with header.top2 or header.nav) */
+.vq-header-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E2F0 !important;
+  color: #4520B8 !important;
+  padding: 7px 14px !important;
+  border-radius: 11px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  margin-right: 14px !important;
+  font-family: inherit !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+  line-height: 1 !important;
+  user-select: none !important;
+}
+
+.vq-header-back-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+  box-shadow: 0 4px 12px rgba(69, 32, 184, 0.25) !important;
+}
+</style>
+
+<!-- VivoQuest Resilient Sidebar & Back Controller -->
+<script id="vq-sidebar-system-js">
+(function() {
+  function isCollapsedStored() {
+    try {
+      return localStorage.getItem('vivoquest_sidebar_collapsed') === 'true';
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function applyCollapsedState(aside, collapsed) {
+    if (!aside) return;
+    if (collapsed) {
+      aside.classList.add('collapsed');
+    } else {
+      aside.classList.remove('collapsed');
+    }
+    var minBtn = aside.querySelector('.vq-minimize-btn');
+    if (minBtn) {
+      minBtn.title = collapsed ? 'Expand sidebar' : 'Minimize sidebar';
+    }
+    var chevron = aside.querySelector('.vq-chevron-icon');
+    if (chevron) {
+      chevron.style.transform = collapsed ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+  }
+
+  function ensureSidebarControls() {
+    var isCol = isCollapsedStored();
+
+    // 1. Check for aside
+    var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+    if (aside) {
+      applyCollapsedState(aside, isCol);
+
+      if (!aside.querySelector('.vq-sidebar-controls')) {
+        var ctrl = document.createElement('div');
+        ctrl.className = 'vq-sidebar-controls';
+        ctrl.setAttribute('data-vq-controls', 'true');
+        ctrl.innerHTML = [
+          '<button class="vq-back-btn" title="Go back to previous page (Alt + ←)" type="button">',
+          '  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>',
+          '  <span>Back</span>',
+          '</button>',
+          '<button class="vq-minimize-btn" title="' + (isCol ? 'Expand sidebar' : 'Minimize sidebar') + '" type="button">',
+          '  <svg class="vq-chevron-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform:' + (isCol ? 'rotate(180deg)' : 'rotate(0deg)') + '">',
+          '    <path d="M15 18l-6-6 6-6"/>',
+          '  </svg>',
+          '</button>'
+        ].join('');
+        aside.insertBefore(ctrl, aside.firstChild);
+      }
+
+      // Add tooltips to nav buttons
+      aside.querySelectorAll('button.navb, button.btn, button.nav-item, nav button').forEach(function(btn) {
+        var txt = (btn.textContent || '').trim();
+        if (txt && !btn.title) {
+          btn.title = txt;
+        }
+      });
+    }
+
+    // 2. Check for header without aside
+    if (!aside) {
+      var headerRow = document.querySelector('header.top2 .row, header .row, .top .row, .top2 .row, header');
+      if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
+        var hBack = document.createElement('button');
+        hBack.className = 'vq-header-back-btn';
+        hBack.title = 'Go back to previous page';
+        hBack.type = 'button';
+        hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
+        headerRow.insertBefore(hBack, headerRow.firstChild);
+      }
+    }
+  }
+
+  function triggerGoBack() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'NAVIGATE_BACK' }, '*');
+    }
+    if (window.history && window.history.length > 1) {
+      window.history.back();
+    } else {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'NAVIGATE', path: '/' }, '*');
+      } else {
+        window.location.href = '/';
+      }
+    }
+  }
+
+  // Document-level delegated click handler (resilient against React VDOM updates)
+  document.addEventListener('click', function(e) {
+    var backBtn = e.target.closest('.vq-back-btn, .vq-header-back-btn');
+    if (backBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      triggerGoBack();
+      return;
+    }
+
+    var minBtn = e.target.closest('.vq-minimize-btn');
+    if (minBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+      if (aside) {
+        var willCollapse = !aside.classList.contains('collapsed');
+        try {
+          localStorage.setItem('vivoquest_sidebar_collapsed', willCollapse ? 'true' : 'false');
+        } catch(err) {}
+        applyCollapsedState(aside, willCollapse);
+      }
+      return;
+    }
+  }, true);
+
+  // Keyboard shortcut: Alt + Left Arrow triggers Back
+  window.addEventListener('keydown', function(e) {
+    if (e.altKey && e.key === 'ArrowLeft') {
+      triggerGoBack();
+    }
+  });
+
+  // Run immediately, on DOM ready, and via continuous MutationObserver
+  ensureSidebarControls();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureSidebarControls);
+  }
+  window.addEventListener('load', ensureSidebarControls);
+
+  // MutationObserver to guarantee presence after React mounts/re-renders
+  try {
+    var obs = new MutationObserver(function() {
+      ensureSidebarControls();
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+  } catch(e) {}
+
+  // Periodic safety check for first 5 seconds
+  var safetyCounter = 0;
+  var timer = setInterval(function() {
+    ensureSidebarControls();
+    safetyCounter++;
+    if (safetyCounter > 20) clearInterval(timer);
+  }, 250);
+})();
+</script>
+
+</body></html>

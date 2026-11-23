@@ -1,0 +1,15 @@
+{
+  "name": "vivoquest-web-app",
+  "version": "1.0.0",
+  "description": "VivoQuest Enterprise Healthcare Platform",
+  "private": true,
+  "scripts": {
+    "dev": "node run-dev.js",
+    "dev:backend": "npm run start:dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix vivoquest-frontend",
+    "build": "npm run build --prefix backend && npm run build --prefix vivoquest-frontend",
+    "test": "npm test --prefix backend",
+    "migrate": "npm run migrate --prefix backend",
+    "seed": "npm run seed --prefix backend"
+  }
+}

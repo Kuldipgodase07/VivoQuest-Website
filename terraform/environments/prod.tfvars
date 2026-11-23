@@ -1,0 +1,7 @@
+environment                = "prod"
+project_id                 = "vq-prod"
+primary_region             = "asia-south1"
+dr_region                  = "asia-south2"
+domain_name                = "api.vivoquest.in"
+container_image            = "asia-south1-docker.pkg.dev/vq-prod/vivoquest/api:latest"
+mongodb_atlas_psc_target   = "projects/mongodb-atlas/regions/asia-south1/serviceAttachments/atlas-prod-sa"

@@ -1,0 +1,100 @@
+name: VivoQuest CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test_and_lint:
+    name: Lint & Build Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: npm ci
+
+      - name: Build TypeScript Modular Monolith
+        working-directory: ./backend
+        run: npm run build
+
+  deploy_stage:
+    name: Deploy to Google Cloud Run (Stage)
+    needs: test_and_lint
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud via Workload Identity Federation
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: 'projects/123456789012/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+          service_account: 'vq-deployer@vq-stage.iam.gserviceaccount.com'
+
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build and Push Container to Artifact Registry
+        run: |
+          gcloud auth configure-docker asia-south1-docker.pkg.dev
+          docker build -t asia-south1-docker.pkg.dev/vq-stage/vivoquest/api:${{ github.sha }} ./backend
+          docker push asia-south1-docker.pkg.dev/vq-stage/vivoquest/api:${{ github.sha }}
+
+      - name: Deploy API to Cloud Run
+        run: |
+          gcloud run deploy vivoquest-api-stage \
+            --image asia-south1-docker.pkg.dev/vq-stage/vivoquest/api:${{ github.sha }} \
+            --region asia-south1 \
+            --platform managed
+
+  deploy_prod:
+    name: Deploy to Google Cloud Run (Production)
+    needs: test_and_lint
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production # Manual approval gate
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud via Workload Identity Federation
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: 'projects/123456789012/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+          service_account: 'vq-deployer@vq-prod.iam.gserviceaccount.com'
+
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build and Push Container to Artifact Registry
+        run: |
+          gcloud auth configure-docker asia-south1-docker.pkg.dev
+          docker build -t asia-south1-docker.pkg.dev/vq-prod/vivoquest/api:${{ github.sha }} ./backend
+          docker push asia-south1-docker.pkg.dev/vq-prod/vivoquest/api:${{ github.sha }}
+
+      - name: Deploy API with Traffic Splitting
+        run: |
+          gcloud run deploy vivoquest-api-prod \
+            --image asia-south1-docker.pkg.dev/vq-prod/vivoquest/api:${{ github.sha }} \
+            --region asia-south1 \
+            --platform managed \
+            --traffic-split 100

@@ -1,0 +1,28 @@
+/* Shell layout taken verbatim from VivoQuest HTML */
+.shell { display: flex; min-height: 100vh; background: #F7F5FF; }
+.sidebar {
+  width: 260px;
+  flex: none;
+  background: #fff;
+  border-right: 1.5px solid #E6E2F0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 14px;
+  transition: width 0.24s cubic-bezier(0.4, 0, 0.2, 1), padding 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.sidebar.collapsed {
+  width: 76px !important;
+  padding: 16px 8px !important;
+}
+
+.topbar {
+  height: 68px; background: #fff; border-bottom: 1.5px solid #E6E2F0;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 24px;
+}
+.workspace { flex: 1; display: flex; flex-direction: column; overflow-y: auto; min-width: 0; }
+.workspace-content {
+  padding: 28px; display: flex; flex-direction: column; gap: 24px; max-width: 1400px; width: 100%;
+}

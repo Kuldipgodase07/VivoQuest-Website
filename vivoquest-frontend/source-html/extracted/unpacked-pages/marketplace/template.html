@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>VivoQuest Marketplace</title>
+<script src="4cd1d949-1005-4999-bc39-9015daf06062"></script><script src="edaf69cd-6a1d-479f-b41e-ab53a311bf1d"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("f223d74c-c185-4c58-b4d9-808c17a5ac78") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("21c55a45-6cf6-4f99-89ea-ca20969d7c74") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("f81bd621-2809-403e-b38e-ce0cbef1f6ac") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("0ba53306-8f0e-4007-97e8-dcc24f634713") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("cdaf0f6b-278b-4e78-b2c9-9b28b5b32d6f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("0dd56417-cc2f-485b-9db9-cbc13b77f762") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f223d74c-c185-4c58-b4d9-808c17a5ac78") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("21c55a45-6cf6-4f99-89ea-ca20969d7c74") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f81bd621-2809-403e-b38e-ce0cbef1f6ac") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("0ba53306-8f0e-4007-97e8-dcc24f634713") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("cdaf0f6b-278b-4e78-b2c9-9b28b5b32d6f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("0dd56417-cc2f-485b-9db9-cbc13b77f762") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("f223d74c-c185-4c58-b4d9-808c17a5ac78") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("21c55a45-6cf6-4f99-89ea-ca20969d7c74") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("f81bd621-2809-403e-b38e-ce0cbef1f6ac") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("0ba53306-8f0e-4007-97e8-dcc24f634713") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("cdaf0f6b-278b-4e78-b2c9-9b28b5b32d6f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("0dd56417-cc2f-485b-9db9-cbc13b77f762") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("f223d74c-c185-4c58-b4d9-808c17a5ac78") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("21c55a45-6cf6-4f99-89ea-ca20969d7c74") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("f81bd621-2809-403e-b38e-ce0cbef1f6ac") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("0ba53306-8f0e-4007-97e8-dcc24f634713") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("cdaf0f6b-278b-4e78-b2c9-9b28b5b32d6f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("0dd56417-cc2f-485b-9db9-cbc13b77f762") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("4f128cb7-c5a3-4b8e-b5ef-6bbfc427cf07") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("7851a7f9-0894-4796-87c4-037974aa4ea3") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("9ef023f3-29b9-4090-bd2a-78ef76af89dd") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("8c130f6c-777c-4825-a275-5510a661b0b4") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("bd682977-bb0d-4679-a70c-d77498cbc17b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("f62619c4-0d5c-4577-9c43-2ea8dbf751bd") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F7F5FF;font-family:'Manrope',system-ui,sans-serif;color:#17143A}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none;padding:0;text-align:left}
+:focus-visible{outline:3px solid #6D42E8;outline-offset:2px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:flex;width:100%;height:1000px;background:#F7F5FF}
+.side{width:280px;flex:none;background:#fff;border-right:1px solid #E6E2F0;padding:20px 16px;display:flex;flex-direction:column;gap:20px}
+.nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.navb{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4B5565}
+.navb:hover{background:#F7F5FF}.navb.on{background:#EAE4FF;color:#4520B8}
+.cnt{margin-left:auto;background:#B42332;color:#fff;border-radius:99px;font-size:12px;padding:2px 8px}
+.main{flex:1;min-width:0;overflow:auto;padding:32px 40px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:16px}
+.h1{margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:#4520B8}
+.sub{color:#667085}.row{display:flex;align-items:center;gap:12px}.col{display:flex;flex-direction:column;gap:12px}
+.grid{display:grid;gap:20px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1.4fr 1fr}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 1px 2px rgba(23,20,58,.05),0 10px 28px rgba(69,32,184,.07)}
+.card h2{margin:0 0 14px;font-size:18px;font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:700;font-size:15px;background:#4520B8;color:#fff}
+.btn:hover{background:#3A1A9C}.btn.g{background:#fff;color:#17143A;box-shadow:inset 0 0 0 1.5px #E6E2F0}.btn.s{background:#EAE4FF;color:#4520B8}.btn.d{background:#B42332}
+.item{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1.5px #E6E2F0;background:#fff;font-weight:700}
+.item:hover{box-shadow:inset 0 0 0 1.5px #6D42E8}.item.on{background:#EAE4FF;box-shadow:inset 0 0 0 2px #4520B8;color:#4520B8}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid #C9C3DD;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}.on .chk{background:#18845B;border-color:#18845B}
+.avatar{width:42px;height:42px;border-radius:99px;background:#EAE4FF;color:#4520B8;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:800;background:#EAE4FF;color:#4520B8}.pill.bad{background:#FBE4E7;color:#B42332}.pill.warn{background:#FDEFD6;color:#A96513}.pill.ok{background:#DDF3EA;color:#18845B}
+.switch{width:52px;height:30px;border-radius:99px;background:#C9C3DD;position:relative;flex:none}.switch i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff;transition:left .15s}.switch.on{background:#4520B8}.switch.on i{left:25px}
+.input{width:100%;min-height:52px;border-radius:14px;border:1.5px solid #E6E2F0;background:#fff;padding:12px 16px;font-size:15px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#17143A;color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;z-index:20}
+.dlgbg{position:fixed;inset:0;background:rgba(23,20,58,.45);display:flex;align-items:center;justify-content:center;z-index:10}.dlg{background:#fff;border-radius:22px;padding:28px;width:440px}
+.rowline{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #E6E2F0}.rowline:last-child{border:0}
+</style>
+<style>
+.shop{display:flex;height:1000px;overflow:hidden;background:#F4F2FB}
+.side2{width:272px;flex:none;background:#fff;border-right:1px solid #E6E2F0;padding:22px 14px;display:flex;flex-direction:column;gap:6px;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}.side2::-webkit-scrollbar{display:none;width:0;height:0}
+.content{flex:1;min-width:0;overflow:auto}
+.mk-eyebrow{display:block;margin:0;padding:0 12px;height:auto;border:0;border-radius:0;background:none;box-shadow:none;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6B6890}
+.mk-lbl{padding:16px 12px 6px}
+.mk-nav{position:relative;display:flex;align-items:center;gap:12px;width:100%;min-height:46px;padding:0 12px;border-radius:12px;font-weight:700;font-size:14.5px;color:#3B3858}
+.mk-nav .ic{width:20px;height:20px}
+.mk-nav:hover{background:#F4F2FB}
+.mk-nav.on{background:#EAE4FF;color:#3A1A9C}
+.mk-nav.on:before{content:"";position:absolute;left:-14px;top:10px;bottom:10px;width:4px;border-radius:0 4px 4px 0;background:#4520B8}
+.mk-nav .mk-t{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mk-n{position:static;flex:none;margin:0 0 0 auto;min-width:30px;height:24px;padding:0 8px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;line-height:1;background:#EFEBFA;color:#3A1A9C}
+.mk-nav.on .mk-n{background:#4520B8;color:#fff}
+.mk-box{background:#fff;border:1px solid #ECE8F7;border-radius:16px;padding:16px;margin:0 2px}
+.mk-chip{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:6px;font-size:11px;font-weight:800;line-height:1;background:#EFEBFA;color:#3A1A9C}
+.mk-chip.warn{background:#FFF1D6;color:#7A4300}.mk-chip.ok{background:#DDF3EA;color:#0E6B47}
+.strip{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;padding:9px 16px;background:linear-gradient(90deg,#2E1380,#4520B8);color:#fff;font-size:13px;font-weight:700}.strip .dot{width:5px;height:5px;border-radius:9px;background:#CDBBFF}
+.hb{position:relative;width:52px;height:52px;border-radius:16px;background:#F4F2FB;color:#4520B8;display:flex;align-items:center;justify-content:center;flex:none}.hb:hover{background:#EAE4FF}
+.badge{position:absolute;top:-6px;right:-6px;min-width:22px;height:22px;padding:0 6px;border-radius:99px;background:#B42332;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.bar{position:sticky;top:0;z-index:8;background:#fff;box-shadow:0 1px 0 #E6E2F0}
+.wrap{padding:24px 36px 40px}
+.hero{position:relative;overflow:hidden;border-radius:24px;padding:40px 44px;color:#fff;display:flex;gap:24px;align-items:center;justify-content:space-between;min-height:260px}
+.s0{background:linear-gradient(120deg,#2E1380,#5B34D6)}.s1{background:linear-gradient(120deg,#17143A,#3A1A9C)}.s2{background:linear-gradient(120deg,#0B4533,#18845B)}
+.hero-tag{display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:99px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.hero-t{font-size:38px;font-weight:800;line-height:1.1;margin:14px 0 10px;color:#fff;letter-spacing:-.01em}
+.hero-p{color:#F3EFFF;line-height:1.55;margin:0 0 20px;font-size:16px;font-weight:600}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 24px;border-radius:14px;background:#fff;color:#2E1380;font-weight:800;font-size:15px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.hero-cta:hover{background:#F4F0FF}
+.hero-art{width:190px;height:190px;border-radius:99px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex:none;color:#fff}
+.hero-ctl{position:absolute;right:28px;bottom:20px;display:flex;align-items:center;gap:8px}
+.qb{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.2);color:#fff;font-weight:800;font-size:18px;text-align:center}.qb:hover{background:rgba(255,255,255,.32)}
+.perk{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #ECE8F7;border-radius:16px;padding:14px 16px}
+.perk i{width:38px;height:38px;border-radius:12px;background:#EAE4FF;color:#4520B8;display:flex;align-items:center;justify-content:center;flex:none;font-style:normal}
+.perk b{display:block;font-size:14px}.perk span{font-size:12.5px;color:#667085;font-weight:600}
+.sec-h{display:flex;align-items:baseline;gap:12px;margin:30px 0 14px}.sec-h h2{margin:0;font-size:22px;font-weight:800}.sec-h span{color:#667085;font-size:14px;font-weight:600}
+.cat{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 8px;border-radius:18px;background:#fff;border:1px solid #ECE8F7;font-weight:800;font-size:14px;text-align:center}
+.cat:hover{border-color:#6D42E8;transform:translateY(-2px);box-shadow:0 10px 24px rgba(69,32,184,.12)}
+.cat .ico{width:60px;height:60px;border-radius:99px;display:flex;align-items:center;justify-content:center}
+.cat small{font-size:12px;color:#667085;font-weight:600}
+.d-vq{background:linear-gradient(160deg,#F3EDFF,#DCD0FF);color:#4520B8}.d-nut{background:linear-gradient(160deg,#EAF8F0,#CDEBDB);color:#0F6B47}.d-med{background:linear-gradient(160deg,#EBF2FF,#CFE0FF);color:#1D4FB8}.d-bk{background:linear-gradient(160deg,#FFF4E2,#FFE1B3);color:#8F5200}.d-sec{background:linear-gradient(160deg,#EBEFF6,#CBD6E6);color:#243B63}.d-sw{background:linear-gradient(160deg,#F2ECFC,#D9CCF2);color:#4520B8}
+.deal{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #ECE8F7;border-radius:18px;padding:12px;text-align:left}
+.deal:hover{box-shadow:0 10px 24px rgba(69,32,184,.12)}
+.deal .th{width:86px;height:86px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.pcard{position:relative;background:#fff;border:1px solid #ECE8F7;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(69,32,184,.14)}
+.tile{height:160px;width:100%;display:flex;align-items:center;justify-content:center}
+.heart{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:99px;background:#fff;color:#667085;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(23,20,58,.15);z-index:2}.heart.on{color:#B42332}.heart.on .ic{fill:#B42332}
+.ribbon{position:absolute;left:12px;top:12px;z-index:2;background:#B42332;color:#fff;font-size:12px;font-weight:800;padding:5px 9px;border-radius:7px;line-height:1}
+.rate{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;background:#18845B;color:#fff;font-size:12px;font-weight:800;line-height:1}
+.rv{font-size:12.5px;color:#667085;font-weight:600}
+.stars{color:#C98A00;letter-spacing:1px;font-size:15px}
+.pn{font-weight:800;font-size:15.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:40px}
+.pnote{font-size:13px;line-height:1.45;color:#667085;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ship{font-size:12.5px;font-weight:700;color:#0E6B47}
+.mrp{text-decoration:line-through;color:#667085;font-size:14px;font-weight:600}.off{color:#0E6B47;font-weight:800;font-size:14px}
+.stepper{display:flex;align-items:center;justify-content:space-between;min-height:44px;border-radius:12px;background:#EAE4FF;padding:4px}
+.stepper button{width:44px;height:36px;border-radius:9px;background:#fff;color:#4520B8;font-weight:800;font-size:18px;text-align:center}
+.stepper b{color:#3A1A9C}
+.btn.ink{background:#17143A;color:#fff}.btn.ink:hover{background:#2A2560}
+.sortbar{display:flex;gap:4px;background:#fff;border:1px solid #ECE8F7;border-radius:14px;padding:4px}
+.sortb{min-height:38px;padding:0 14px;border-radius:10px;font-weight:700;font-size:14px;color:#3B3858}.sortb:hover{background:#F4F2FB}.sortb.on,.sortbar .sortb.on:hover{background:#4520B8!important;color:#fff!important;-webkit-text-fill-color:#fff;opacity:1}
+.pimg{display:block;width:100%;height:100%;object-fit:cover}.low{font-size:12.5px;font-weight:800;color:#B42332}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:440px;background:#fff;box-shadow:-20px 0 60px rgba(23,20,58,.2);z-index:15;display:flex;flex-direction:column}
+.mrp2{text-decoration:line-through}
+.lbl{display:block;font-weight:700;font-size:13px;margin:12px 0 6px}.step{flex:1;height:6px;border-radius:9px;background:#E6E2F0}.step.on{background:#4520B8}
+.foot{margin-top:36px;padding:22px 24px;border-radius:18px;background:#fff;border:1px solid #ECE8F7;font-size:13px;line-height:1.6;color:#4B5565;font-weight:600}
+</style>
+</helmet>
+<div class="shop">
+<aside class="side2" aria-label="Marketplace navigation">
+ <div class="row" style="padding:0 6px 14px;gap:10px"><div style="width:46px;height:46px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px" role="img" aria-label="VivoQuest logo"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800;line-height:1.1">VivoQuest</div><div style="font-size:12px;font-weight:700;color:#667085">Marketplace · by IGVP</div></div></div>
+ <div class="mk-eyebrow mk-lbl">Departments</div>
+ <nav class="col" style="gap:2px" aria-label="Departments"><sc-for list="{{ depts }}" as="d" hint-placeholder-count="7"><button class="mk-nav {{ d.cls }}" sc-camel-on-click="{{ d.tap }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ d.icon }}"></path></svg><span class="mk-t">{{ d.label }}</span><span class="mk-n">{{ d.n }}</span></button></sc-for></nav>
+ <div class="mk-eyebrow mk-lbl">Refine</div>
+ <div class="mk-box"><div style="font-size:13px;font-weight:700;color:#3B3858">Price up to</div><div style="font-size:24px;font-weight:800;margin:2px 0 6px;color:#3A1A9C">{{ maxLabel }}</div><input type="range" min="300" max="15000" step="100" value="{{ maxP }}" aria-label="Maximum price" sc-camel-on-input="{{ a.maxP }}" style="width:100%;accent-color:#4520B8">
+  <div class="rowline" style="padding:12px 0 8px"><div style="flex:1;font-weight:700;font-size:14px">Clinician-approved</div><button class="switch {{ appCls }}" role="switch" aria-checked="{{ appOn }}" aria-label="Clinician-approved only" sc-camel-on-click="{{ a.toggleApp }}"><i></i></button></div>
+  <div class="rowline" style="padding:12px 0 8px"><div style="flex:1;font-weight:700;font-size:14px">Free delivery</div><button class="switch {{ freeCls }}" role="switch" aria-checked="{{ freeOn }}" aria-label="Free delivery only" sc-camel-on-click="{{ a.toggleFree }}"><i></i></button></div>
+  <div class="rowline" style="padding:12px 0 0"><div style="flex:1;font-weight:700;font-size:14px">Rated 4.4 and up</div><button class="switch {{ topCls }}" role="switch" aria-checked="{{ topOn }}" aria-label="Rated 4.4 and up only" sc-camel-on-click="{{ a.toggleTop }}"><i></i></button></div></div>
+ <div class="mk-eyebrow mk-lbl">Your space</div>
+ <button class="mk-nav {{ wishCls }}" sc-camel-on-click="{{ a.wishOnly }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span class="mk-t">Wishlist</span><span class="mk-n">{{ wishN }}</span></button>
+ <button class="mk-nav" sc-camel-on-click="{{ a.openCart }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 7H6.2"></path></svg><span class="mk-t">Cart</span><span class="mk-n">{{ cartN }}</span></button>
+ <div style="margin-top:auto;padding-top:16px"><div style="padding:12px 14px;border-radius:14px;background:#F4F2FB;font-size:12px;line-height:1.5;color:#4B5565;font-weight:600;margin-bottom:12px">Sample catalogue and pricing for this prototype. Payments will connect through Stripe in the backend build. VivoQuest never diagnoses.</div><button class="btn g" style="width:100%" sc-camel-on-click="{{ a.back }}">Back to start</button></div>
+</aside>
+<div class="content">
+<header class="bar">
+ <div class="strip"><span>Free delivery on orders over ₹999</span><span class="dot"></span><span>Use code VIVO10 for 10% off</span><span class="dot"></span><span>Care picks reviewed by clinicians</span></div>
+ <div class="row" style="padding:14px 36px;gap:14px">
+  <label class="row" style="gap:8px;padding:0 14px;min-height:52px;border-radius:16px;background:#F4F2FB;flex:none"><svg class="ic" sc-camel-view-box="0 0 24 24" style="color:#4520B8"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path></svg><span><span style="display:block;font-size:11px;font-weight:700;color:#667085;line-height:1.1">Deliver to</span><input aria-label="Delivery pincode" maxlength="6" value="{{ pin }}" sc-camel-on-input="{{ a.pin }}" style="width:74px;border:0;background:transparent;font-weight:800;padding:0"></span><span style="font-size:12px;font-weight:700;color:#0E6B47">{{ pinNote }}</span></label>
+  <label class="row" style="flex:1;min-width:240px;background:#fff;border-radius:16px;padding:0 6px 0 18px;min-height:52px;box-shadow:inset 0 0 0 2px #CDBBFF"><svg class="ic" sc-camel-view-box="0 0 24 24" style="color:#4520B8"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-4.5-4.5"></path></svg><input class="input" style="border:0;padding:0;background:transparent;min-height:48px" placeholder="Search nutrition, equipment, books, security and software" aria-label="Search products" value="{{ q }}" sc-camel-on-input="{{ a.search }}"><span class="btn" style="min-height:40px;padding:0 20px;border-radius:12px">Search</span></label>
+  <button class="hb" aria-label="Wishlist" sc-camel-on-click="{{ a.wishOnly }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><span class="badge">{{ wishN }}</span></button>
+  <button class="hb" aria-label="Cart" sc-camel-on-click="{{ a.openCart }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 7H6.2M9 20h.01M17 20h.01"></path></svg><span class="badge">{{ cartN }}</span></button>
+  <div class="avatar" style="width:48px;height:48px" aria-label="Account">VQ</div>
+ </div>
+</header>
+<div class="wrap">
+ <div class="hero {{ hero.cls }}"><div style="max-width:560px;position:relative;z-index:1"><span class="hero-tag">{{ hero.eyebrow }}</span><div class="hero-t">{{ hero.title }}</div><p class="hero-p">{{ hero.text }}</p><button class="hero-cta" sc-camel-on-click="{{ hero.go }}">{{ hero.cta }}<svg class="ic" sc-camel-view-box="0 0 24 24" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div>
+  <div class="hero-art" aria-hidden="true"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:96px;height:96px;stroke-width:1.2"><path d="{{ hero.icon }}"></path></svg></div>
+  <div class="hero-ctl"><button class="qb" aria-label="Previous banner" sc-camel-on-click="{{ a.prev }}">‹</button><sc-for list="{{ dots }}" as="x" hint-placeholder-count="3"><button aria-label="Banner {{ x.n }}" sc-camel-on-click="{{ x.tap }}" style="width:10px;height:10px;border-radius:99px;background:#fff;opacity:{{ x.op }}"></button></sc-for><button class="qb" aria-label="Next banner" sc-camel-on-click="{{ a.next }}">›</button></div></div>
+ <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:16px;gap:14px"><sc-for list="{{ perks }}" as="k" hint-placeholder-count="4"><div class="perk"><i><svg class="ic" sc-camel-view-box="0 0 24 24"><path d="{{ k.icon }}"></path></svg></i><div><b>{{ k.a }}</b><span>{{ k.b }}</span></div></div></sc-for></div>
+ <sc-if value="{{ showHome }}" hint-placeholder-val="{{ true }}"><div class="sec-h"><h2>Shop by department</h2><span>Pick a department to narrow the catalogue</span></div>
+ <div class="grid" style="grid-template-columns:repeat(6,1fr);gap:14px"><sc-for list="{{ tiles }}" as="c" hint-placeholder-count="6"><button class="cat" sc-camel-on-click="{{ c.tap }}"><span class="ico {{ c.cls }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path d="{{ c.icon }}"></path></svg></span><span>{{ c.label }}</span><small>{{ c.n }} products</small></button></sc-for></div>
+ <sc-if value="{{ hasDeals }}" hint-placeholder-val="{{ true }}"><div class="sec-h"><h2>Deals of the day</h2><span>Biggest savings in the catalogue</span></div>
+ <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:14px"><sc-for list="{{ deals }}" as="p" hint-placeholder-count="4"><button class="deal" sc-camel-on-click="{{ p.view }}" aria-label="Quick view {{ p.name }}"><span class="th {{ p.dcls }}" style="overflow:hidden"><sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}"><img class="pimg" src="{{ p.img }}" alt=""></sc-if><sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:40px;height:40px;stroke-width:1.5"><path d="{{ p.icon }}"></path></svg></sc-if></span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:13.5px;font-weight:800;line-height:1.3">{{ p.name }}</span><span class="off">{{ p.offN }}</span><span style="font-size:15px;font-weight:800">{{ p.price }}</span></span></button></sc-for></div></sc-if></sc-if>
+ <div class="sec-h" style="margin-top:30px"><h2 style="flex:1">{{ heading }} <span style="font-size:14px;font-weight:600;color:#667085">· {{ count }} items</span></h2><div class="sortbar" role="group" aria-label="Sort products"><sc-for list="{{ sorts }}" as="z" hint-placeholder-count="5"><button class="sortb {{ z.cls }}" sc-camel-on-click="{{ z.tap }}">{{ z.label }}</button></sc-for></div></div>
+ <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}"><div class="card" style="text-align:center"><b>Nothing found</b><div class="sub">Try a different word, department or price.</div></div></sc-if>
+ <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(222px,1fr))"><sc-for list="{{ items }}" as="p" hint-placeholder-count="8"><article class="pcard"><sc-if value="{{ p.hasOff }}" hint-placeholder-val="{{ true }}"><span class="ribbon">{{ p.offN }}</span></sc-if><button class="heart {{ p.wcls }}" aria-label="Save to wishlist" aria-pressed="{{ p.wish }}" sc-camel-on-click="{{ p.heart }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:20px;height:20px"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
+   <button class="tile {{ p.dcls }}" aria-label="Quick view {{ p.name }}" sc-camel-on-click="{{ p.view }}"><sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}"><img class="pimg" src="{{ p.img }}" alt=""></sc-if><sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:60px;height:60px;stroke-width:1.4"><path d="{{ p.icon }}"></path></svg></sc-if></button>
+   <div style="padding:16px;display:flex;flex-direction:column;gap:8px;flex:1"><div class="row" style="gap:6px;flex-wrap:wrap"><span class="mk-chip">{{ p.brand }}</span><sc-if value="{{ p.badge }}" hint-placeholder-val="{{ true }}"><span class="mk-chip warn">{{ p.badge }}</span></sc-if></div><div class="pn">{{ p.name }}</div><sc-if value="{{ p.hasRate }}" hint-placeholder-val="{{ true }}"><div class="row" style="gap:8px"><span class="rate">{{ p.rate }} ★</span><span class="rv">{{ p.rv }} ratings</span></div></sc-if><sc-if value="{{ p.noRate }}" hint-placeholder-val="{{ false }}"><div class="row"><span class="mk-chip ok">New arrival</span></div></sc-if><div class="pnote">{{ p.note }}</div>
+   <div style="margin-top:auto"><span style="font-size:21px;font-weight:800">{{ p.price }}</span> <sc-if value="{{ p.hasOff }}" hint-placeholder-val="{{ true }}"><span class="mrp">{{ p.mrp }}</span> <span class="off">{{ p.off }}</span></sc-if></div><div class="ship">{{ p.ship }}</div><sc-if value="{{ p.lowTxt }}" hint-placeholder-val="{{ false }}"><div class="low">{{ p.lowTxt }}</div></sc-if>
+   <sc-if value="{{ p.notIn }}" hint-placeholder-val="{{ true }}"><button class="btn" style="min-height:44px" sc-camel-on-click="{{ p.tap }}">Add to cart</button></sc-if>
+   <sc-if value="{{ p.soldOut }}" hint-placeholder-val="{{ false }}"><button class="btn g" style="min-height:44px" disabled="">Out of stock</button></sc-if>
+   <sc-if value="{{ p.inCart }}" hint-placeholder-val="{{ false }}"><div class="stepper"><button aria-label="Remove one" sc-camel-on-click="{{ p.minus }}">−</button><b>{{ p.qty }} in cart</b><button aria-label="Add one" sc-camel-on-click="{{ p.plus }}">+</button></div></sc-if></div></article></sc-for></div>
+ <div class="foot"><b style="color:#17143A">About this marketplace.</b> Sample catalogue and pricing for this prototype. Equipment and care visits go to a nurse for approval before dispatch. Payments will connect through Stripe in the backend build. VivoQuest never diagnoses.</div>
+</div>
+</div></div>
+<sc-if value="{{ qv }}" hint-placeholder-val="{{ false }}"><div class="dlgbg" role="dialog" aria-label="Product details"><div class="dlg" style="width:800px;display:flex;gap:28px"><div class="tile {{ qv.dcls }}" style="width:270px;height:270px;border-radius:20px;flex:none;overflow:hidden"><sc-if value="{{ qv.hasImg }}" hint-placeholder-val="{{ false }}"><img class="pimg" src="{{ qv.img }}" alt="{{ qv.name }}"></sc-if><sc-if value="{{ qv.noImg }}" hint-placeholder-val="{{ true }}"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:100px;height:100px;stroke-width:1.2"><path d="{{ qv.icon }}"></path></svg></sc-if></div><div style="flex:1;display:flex;flex-direction:column;gap:10px"><div class="row" style="gap:6px"><span class="mk-chip">{{ qv.brand }}</span><span class="mk-chip ok">{{ qv.kind }}</span></div><h2 style="margin:0;font-size:26px;line-height:1.2">{{ qv.name }}</h2><sc-if value="{{ qv.hasRate }}" hint-placeholder-val="{{ true }}"><div class="row" style="gap:8px"><span class="rate">{{ qv.rate }} ★</span><span class="stars" aria-hidden="true">{{ qv.stars }}</span><span class="rv">{{ qv.rv }} ratings</span></div></sc-if><sc-if value="{{ qv.noRate }}" hint-placeholder-val="{{ false }}"><div class="row"><span class="mk-chip ok">New arrival</span></div></sc-if><div class="sub">{{ qv.note }}</div><div><span style="font-size:28px;font-weight:800">{{ qv.price }}</span> <sc-if value="{{ qv.hasOff }}" hint-placeholder-val="{{ true }}"><span class="mrp">{{ qv.mrp }}</span> <span class="off">{{ qv.off }}</span></sc-if></div><div class="ship">{{ qv.ship }} · {{ qv.fulfil }}</div><sc-if value="{{ qv.lowTxt }}" hint-placeholder-val="{{ false }}"><div class="low">{{ qv.lowTxt }}</div></sc-if><sc-if value="{{ qv.vendorTxt }}" hint-placeholder-val="{{ false }}"><div class="sub" style="font-size:13px;font-weight:700">{{ qv.vendorTxt }}</div></sc-if><sc-for list="{{ qv.hl }}" as="h" hint-placeholder-count="3"><div class="row" style="font-size:14px;font-weight:700;gap:10px"><span style="color:#18845B;display:flex"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:18px;height:18px"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>{{ h }}</div></sc-for><div class="row" style="margin-top:auto;padding-top:10px"><button class="btn g" sc-camel-on-click="{{ a.qvClose }}">Close</button><sc-if value="{{ qv.canBuy }}" hint-placeholder-val="{{ true }}"><button class="btn s" style="flex:1" sc-camel-on-click="{{ a.qvAdd }}">Add to cart</button><button class="btn" style="flex:1" sc-camel-on-click="{{ a.qvBuy }}">Buy now</button></sc-if><sc-if value="{{ qv.soldOut }}" hint-placeholder-val="{{ false }}"><button class="btn g" style="flex:1" disabled="">Out of stock</button></sc-if></div></div></div></div></sc-if>
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}"><div class="drawer" role="dialog" aria-label="Cart and checkout"><div class="row" style="padding:20px 24px;border-bottom:1px solid #E6E2F0"><h2 style="margin:0;flex:1;font-size:20px">{{ drawerTitle }}</h2><button class="btn g" sc-camel-on-click="{{ a.closeCart }}">Close</button></div>
+ <sc-if value="{{ s.pay1 }}" hint-placeholder-val="{{ false }}"><div class="row" style="padding:16px 24px 0"><sc-for list="{{ steps }}" as="t" hint-placeholder-count="3"><div class="step {{ t.cls }}"></div></sc-for></div></sc-if>
+ <div style="flex:1;overflow:auto;padding:8px 24px">
+ <sc-if value="{{ s.cart }}" hint-placeholder-val="{{ true }}"><sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ false }}"><p class="sub">Your cart is empty. Browse nutrition, medical products, books, security and software.</p></sc-if><sc-for list="{{ lines }}" as="l" hint-placeholder-count="2"><div class="rowline"><div style="flex:1"><div style="font-weight:800">{{ l.name }}</div><div class="sub" style="font-size:13px">{{ l.price }} each · {{ l.brand }}</div></div><button class="qb" aria-label="Remove one" sc-camel-on-click="{{ l.minus }}">−</button><b style="min-width:20px;text-align:center">{{ l.qty }}</b><button class="qb" aria-label="Add one" sc-camel-on-click="{{ l.plus }}">+</button></div></sc-for>
+  <label class="lbl" for="cp">Coupon code</label><div class="row"><input id="cp" class="input" placeholder="Try VIVO10" value="{{ coupon }}" sc-camel-on-input="{{ a.coupon }}"><button class="btn s" sc-camel-on-click="{{ a.applyCoupon }}">Apply</button></div></sc-if>
+ <sc-if value="{{ s.addr }}" hint-placeholder-val="{{ false }}"><label class="lbl" for="n1">Full name</label><input id="n1" class="input" value="{{ addr.name }}" sc-camel-on-input="{{ a.inName }}"><label class="lbl" for="n2">Mobile number</label><input id="n2" class="input" maxlength="10" value="{{ addr.phone }}" sc-camel-on-input="{{ a.inPhone }}"><label class="lbl" for="n3">Address</label><textarea id="n3" class="input" rows="3" sc-camel-on-input="{{ a.inLine }}">{{ addr.line }}</textarea><div class="sub" style="font-size:13px;margin-top:10px">Delivering to pincode {{ pin }}. {{ pinNote }}.</div></sc-if>
+ <sc-if value="{{ s.pay }}" hint-placeholder-val="{{ false }}"><div class="col" style="margin-top:12px"><sc-for list="{{ pays }}" as="m" hint-placeholder-count="3"><button class="item {{ m.cls }}" sc-camel-on-click="{{ m.tap }}"><span style="flex:1">{{ m.label }}</span><span class="sub" style="font-size:12px">{{ m.hint }}</span></button></sc-for></div><div style="margin-top:16px;padding:16px;border-radius:14px;background:#F7F5FF;font-size:13px;line-height:1.5;font-weight:600">Secure card payments will be handled by Stripe once the backend is connected. No card details are collected in this prototype.</div></sc-if>
+ <sc-if value="{{ s.done }}" hint-placeholder-val="{{ false }}"><div style="text-align:center;padding:40px 0"><div style="width:72px;height:72px;border-radius:99px;background:#DDF3EA;color:#18845B;margin:0 auto 16px;display:flex;align-items:center;justify-content:center"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:36px;height:36px"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></div><h2 style="margin:0 0 8px">Order placed</h2><p class="sub">Order {{ orderNo }} is confirmed. Equipment and care visits go to a nurse for approval before dispatch.</p><button class="btn s" style="margin-top:16px" sc-camel-on-click="{{ a.inv }}">Download invoice (PDF)</button></div></sc-if></div>
+ <div style="padding:18px 24px;border-top:1px solid #E6E2F0"><sc-if value="{{ s.totals }}" hint-placeholder-val="{{ true }}"><div class="row" style="justify-content:space-between;font-size:14px"><span class="sub">Subtotal</span><span>{{ sub }}</span></div><div class="row" style="justify-content:space-between;font-size:14px"><span class="sub">Coupon</span><span style="color:#18845B">{{ disc }}</span></div><div class="row" style="justify-content:space-between;font-size:14px"><span class="sub">Delivery</span><span>{{ ship }}</span></div><div class="row" style="justify-content:space-between;font-size:18px;font-weight:800;margin:8px 0 12px"><span>Total</span><span>{{ total }}</span></div></sc-if>
+  <div class="row"><sc-if value="{{ s.back }}" hint-placeholder-val="{{ false }}"><button class="btn g" sc-camel-on-click="{{ a.stepBack }}">Back</button></sc-if><button class="btn" style="flex:1" sc-camel-on-click="{{ a.next2 }}">{{ cta }}</button></div></div></div></sc-if>
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div class="toast" role="status">{{ toast }}</div></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;onBack&quot;:{&quot;editor&quot;:null},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000}}">
+const IC={leaf:'M5 19c0-8 5-14 14-14 0 9-6 14-14 14zM5 19l8-8',book:'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M9 8h6',eq:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h4l2-5 4 10 2-5h4',svc:'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',sec:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',sw:'M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14',nl:'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z'};
+const DI={all:'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',vq:'M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z',nut:'M5 19c0-8 5-14 14-14 0 9-6 14-14 14zM5 19l8-8',med:'M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM12 8v8M8 12h8',bk:'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M9 8h6',sec:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',sw:'M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14'};
+const DEPT=[['all','All'],['vq','VivoQuest Care'],['nut','Nutrition'],['med','Medical products'],['bk','Books'],['sec','Security'],['sw','Software']];
+const BR={vq:'VivoQuest Care',nut:'Nutrition',med:'Medical products',bk:'Books',sec:'Security',sw:'Software'};
+const VQ=(()=>{
+  const KEY='vq_catalog_v2';
+  const IC={leaf:'M5 19c0-8 5-14 14-14 0 9-6 14-14 14zM5 19l8-8',book:'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M9 8h6',eq:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h4l2-5 4 10 2-5h4',svc:'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',sec:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',sw:'M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14'};
+  const KI={'Nutrition':'leaf','Equipment':'eq','Care service':'svc','Guide':'book','Book':'book','Service':'sec','Product':'sec','Software':'sw'};
+  const DEPTS=[['vq','VivoQuest Care'],['nut','Nutrition'],['med','Medical products'],['bk','Books'],['sec','Security'],['sw','Software']];
+  const KINDS={vq:['Care service','Guide'],nut:['Nutrition'],med:['Equipment'],bk:['Book'],sec:['Service','Product'],sw:['Software']};
+  const VEN={vq:'VivoQuest Care',nut:'Nourish Kitchen',med:'HealthSense',bk:'IGVP Press',sec:'Engineers Global Venture Partners',sw:'Engineers Global Venture Partners'};
+  const RAW=[
+['p1','nut','Nutrition','leaf','Low-sodium meal kit, 7 days',1499,1799,'Home-cooked style meals for heart and BP care.',1,'Bestseller','Seven days of meals|Low salt, no pickles or papad|Reviewed by a dietitian'],
+['p2','nut','Nutrition','leaf','High-protein recovery mix',899,999,'Easy to digest. Supports healing after surgery.',1,'','Mixes with water or milk|Easy to digest|Reviewed by a dietitian'],
+['p3','nut','Nutrition','leaf','Diabetes-friendly millet pack',549,649,'Whole-grain staples with a lower sugar load.',1,'New','Whole grains|Lower sugar load|Family-size pack'],
+['p6','med','Equipment','eq','Digital BP monitor',1899,2299,'Upper-arm cuff with large, clear readings.',1,'Bestseller','Large display|Stores recent readings|Syncs with the VivoQuest app'],
+['p7','med','Equipment','eq','Pulse oximeter',1299,1599,'Fingertip SpO₂ and pulse in seconds.',1,'','Reads in seconds|Bright display|Carry pouch included'],
+['p8','med','Equipment','eq','Folding walker',2499,2999,'Height adjustable. Set up by a physiotherapist.',1,'','Height adjustable|Folds flat|Physiotherapist set-up available'],
+['p9','med','Equipment','eq','Weekly pill organiser',299,399,'Seven day, twice daily compartments.',0,'','Seven days|Morning and night|Easy-open lids'],
+['n4','nut','Nutrition','leaf','Oral rehydration sachets, 20 pack',349,429,'Electrolyte drink mix for dehydration and recovery.',1,'','Replaces salts and fluids|Lemon flavour|20 sachets'],
+['n5','nut','Nutrition','leaf','Low-salt seasoning blend',249,299,'Herb and spice mix that adds flavour without salt.',1,'New','No added salt|Everyday cooking|250 g jar'],
+['n6','nut','Nutrition','leaf','Diabetes-friendly protein bars, 12 pack',699,849,'Low-sugar bars for steady energy between meals.',1,'','Low sugar|High protein|12 bars'],
+['m1','med','Equipment','eq','Digital thermometer',349,449,'Fast, accurate temperature reading.',1,'','Reads in seconds|Fever alarm|Memory of last reading'],
+['m2','med','Equipment','eq','Glucometer with 50 strips',1099,1399,'Blood sugar monitor with a large display.',1,'Bestseller','Large display|50 test strips|Stores readings'],
+['m3','med','Equipment','eq','Steam nebuliser',1699,1999,'Quiet, compact unit for breathing therapy at home.',1,'','Compact design|Adult and child masks|Easy to clean'],
+['p10','vq','Care service','svc','Home physiotherapy visit',899,1099,'Mobility check and home safety review.',1,'','Licensed physiotherapist|Home safety review|Progress shared in the app'],
+['p11','vq','Care service','svc','Dietitian video consult',699,899,'Plan low-salt and diabetic meals with a dietitian.',1,'','30 minute video call|Personal meal plan|Follow-up in the app'],
+['p12','vq','Care service','svc','Nurse wellness visit',799,999,'Vitals, wound check and medicine review at home.',1,'','Vitals and wound check|Medicine review|Notes shared with the care team'],
+['p13','vq','Guide','book','Caregiver home guide',449,549,'Plain-language steps for daily care at home.',0,'','Plain language|Daily routines|Printed, 120 pages'],
+['p14','vq','Guide','book','Stroke recovery workbook',399,499,'Exercises and routines to follow with your care team.',0,'','Illustrated exercises|Weekly planner|Printed workbook'],
+['b1','bk','Book','book','Book [title 1]',499,599,'[Add book description and author]',0,'Bestseller','[Add highlight 1]|[Add highlight 2]|Paperback and e-book'],
+['b2','bk','Book','book','Book [title 2]',549,649,'[Add book description and author]',0,'','[Add highlight 1]|[Add highlight 2]|Paperback and e-book'],
+['s1','sec','Service','sec','Managed security monitoring, per month',7999,9499,'Round-the-clock monitoring and alerting for your systems.',0,'Popular','24x7 monitoring|Alert triage|Monthly report'],
+['s2','sec','Product','sec','Endpoint protection, 10 devices',3499,4299,'Antivirus and threat protection for laptops and phones.',0,'','10 device licence|Automatic updates|Central dashboard'],
+['s3','sec','Service','sec','Cybersecurity risk assessment',12999,14999,'A review of your setup with a clear fix list.',0,'','Expert review|Prioritised fixes|Summary for leadership'],
+['w1','sw','Software','sw','Care workflow software licence',9999,11999,'Scheduling and care records for small teams.',0,'New','Team scheduling|Care records|Role-based access'],
+['w2','sw','Software','sw','Cloud backup suite, 1 TB',2499,2999,'Encrypted backup for documents and records.',0,'','1 TB storage|Encrypted at rest|Restore in a click']
+  ];
+  const defaults=()=>RAW.map((r)=>{let h=0;for(const c of r[0])h=(h*31+c.charCodeAt(0))%997;const phys=['Nutrition','Equipment','Guide','Book'].indexOf(r[2])>=0;return {id:r[0],dept:r[1],kind:r[2],name:r[4],price:r[5],mrp:r[6],note:r[7],ok:!!r[8],badge:r[9],hl:r[10].split('|'),vendor:VEN[r[1]],stock:r[0]==='p9'?4:(phys?40:null),status:'Live',img:'',rate:+(4+(h%9)/10).toFixed(1),rv:60+(h*37)%2400};});
+  const icon=(kind,dept)=>IC[KI[kind]||({vq:'svc',nut:'leaf',med:'eq',bk:'book',sec:'sec',sw:'sw'}[dept])||'svc'];
+  const load=()=>{try{const s=window.localStorage.getItem(KEY);if(s){const a=JSON.parse(s);if(Array.isArray(a))return a;}}catch(e){}return Array.isArray(window.__vqCat)?window.__vqCat:defaults();};
+  const save=(items)=>{window.__vqCat=items;let ok=true;try{window.localStorage.setItem(KEY,JSON.stringify(items));}catch(e){ok=false;}try{window.dispatchEvent(new Event('vq-catalog'));}catch(e){}return ok;};
+  const uid=()=>'u'+Date.now().toString(36)+Math.floor(Math.random()*1296).toString(36);
+  const blank=()=>({id:'',name:'',dept:'nut',kind:'Nutrition',vendor:'',note:'',hl:'',price:'',mrp:'',badge:'None',ok:true,stock:'',status:'Live',img:'',err:'',rate:0,rv:0});
+  return {load,save,uid,blank,icon,DEPTS,KINDS,VEN};
+})();
+const catalog=()=>VQ.load().filter((p)=>p.status==='Live').map((p)=>({...p,icon:VQ.icon(p.kind,p.dept)}));
+const X=(p)=>{const rt=Number(p.rate)||0;const r=Math.round(rt);const hasOff=p.mrp>p.price;return {rate:rt.toFixed(1),hasRate:p.rv>0,noRate:!(p.rv>0),rv:(p.rv||0).toLocaleString('en-IN'),stars:'★'.repeat(r)+'☆'.repeat(5-r),hasOff,offN:hasOff?'-'+Math.round((1-p.price/p.mrp)*100)+'%':'',hasImg:!!p.img,noImg:!p.img,dcls:'d-'+p.dept,soldOut:p.stock===0,canBuy:p.stock!==0,lowTxt:(p.stock>0&&p.stock<=5)?('Only '+p.stock+' left'):'',vendorTxt:p.vendor?('Sold by '+p.vendor):'',ship:p.price>=999?'FREE delivery':'Delivery ₹79',fulfil:(p.dept==='sec'||p.dept==='sw')?'Digital delivery':((p.dept==='vq'||p.dept==='med')?'Nurse-reviewed before dispatch':'Dispatched in 2 to 4 days')};};
+const R=(n)=>'₹'+n.toLocaleString('en-IN');
+const OFF=(p)=>'Save '+Math.round((1-p.price/p.mrp)*100)+'%';
+const SL=[{eyebrow:'VIVOQUEST CARE',title:'Everything recovery at home needs',text:'Nutrition, equipment and care visits matched to the care plan, reviewed by a nurse before they ship.',cta:'Shop VivoQuest Care',d:'vq'},{eyebrow:'NUTRITION AND MEDICAL',title:'Eat well, recover well',text:'Low-salt, high-protein and diabetes-friendly nutrition, plus everyday medical products for the home.',cta:'Shop nutrition',d:'nut'},{eyebrow:'SECURITY AND SOFTWARE',title:'Protect and run your business',text:'Security services, endpoint protection and software from Engineers Global Venture Partners.',cta:'Shop security',d:'sec'}];
+class Component extends DCLogic {
+  state={dept:'all',q:'',sort:'feat',app:false,free:false,maxP:15000,cart:{},open:false,step:0,coupon:'',cok:false,wish:{},wo:false,qv:null,slide:0,top:false,pin:'411001',addr:{name:'',phone:'',line:''},pay:'upi',orderNo:'',toast:''};
+  say=(m)=>{this.setState({toast:m});clearTimeout(this._t);this._t=setTimeout(()=>this.setState({toast:''}),2600);};
+  add=(id,d)=>{const it=catalog().find((p)=>p.id===id);const cur=this.state.cart[id]||0;let q=Math.max(0,cur+d);if(it&&it.stock!=null&&q>it.stock){q=it.stock;this.say('Only '+it.stock+' in stock');}this.setState((x)=>{const c={...x.cart};if(q)c[id]=q;else delete c[id];return {cart:c};});};
+  componentDidMount(){this._l=()=>this.setState({cvt:Date.now()});try{window.addEventListener('vq-catalog',this._l);window.addEventListener('storage',this._l);}catch(e){}this._s=setInterval(()=>this.setState((x)=>({slide:(x.slide+1)%3})),6000);}
+  componentWillUnmount(){clearInterval(this._s);try{window.removeEventListener('vq-catalog',this._l);window.removeEventListener('storage',this._l);}catch(e){}}
+  renderVals(){
+    const P=catalog();const st=this.state;const ql=st.q.trim().toLowerCase();const sub=P.reduce((a,p)=>a+(st.cart[p.id]||0)*p.price,0);
+    const disc=st.cok?Math.round(sub*0.1):0;const ship=sub===0?0:(sub-disc>=999?0:79);const total=sub-disc+ship;
+    let items=P.filter((p)=>(st.dept==='all'||p.dept===st.dept)&&(!st.app||p.ok)&&(!st.free||p.price>=999)&&(!st.top||Number(p.rate)>=4.4)&&p.price<=st.maxP&&(!st.wo||st.wish[p.id])&&(!ql||(p.name+' '+p.note+' '+BR[p.dept]+' '+p.kind).toLowerCase().includes(ql)));
+    if(st.sort==='rate')items=[...items].sort((a,b)=>Number(b.rate)-Number(a.rate));if(st.sort==='lo')items=[...items].sort((a,b)=>a.price-b.price);if(st.sort==='hi')items=[...items].sort((a,b)=>b.price-a.price);if(st.sort==='disc')items=[...items].sort((a,b)=>(1-b.price/b.mrp)-(1-a.price/a.mrp));
+    const cartN=Object.values(st.cart).reduce((a,b)=>a+b,0);const sl=SL[st.slide];const qp=P.find((p)=>p.id===st.qv);const S=st.step;
+    const pinOk=/^\d{6}$/.test(st.pin);const mkCard=(p)=>({name:p.name});
+    return {
+      depts:DEPT.map(([k,l])=>({label:l,icon:DI[k],n:P.filter((p)=>k==='all'||p.dept===k).length,cls:st.dept===k&&!st.wo?'on':'',tap:()=>this.setState({dept:k,wo:false})})),
+      hero:{...sl,icon:DI[sl.d],cls:'s'+st.slide,go:()=>this.setState({dept:sl.d,wo:false})},dots:[0,1,2].map((k)=>({n:k+1,op:st.slide===k?1:0.4,tap:()=>this.setState({slide:k})})),
+      perks:[['Free delivery','On orders over ₹999','M3 7h11v9H3zM14 10h4l3 3v3h-7zM7 19h.01M17 19h.01'],['Clinician-approved','Care picks reviewed','M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM8.5 12l2.5 2.5 4.5-5'],['Pay your way','UPI, card, COD','M3 6h18v12H3zM3 10h18'],['Easy returns','Sample policy','M4 9a8 8 0 0 1 14-3l2 2M20 15a8 8 0 0 1-14 3l-2-2M20 4v4h-4M4 20v-4h4']].map(([a,b,c])=>({a,b,icon:c})),topOn:st.top,topCls:st.top?'on':'',wishCls:st.wo?'on':'',showHome:st.dept==='all'&&!ql&&!st.wo,
+      tiles:DEPT.filter(([k])=>k!=='all').map(([k,l])=>({label:l,icon:DI[k],cls:'d-'+k,n:P.filter((p)=>p.dept===k).length,tap:()=>this.setState({dept:k,wo:false})})),
+      deals:P.filter((p)=>p.mrp>p.price).sort((a,b)=>(1-b.price/b.mrp)-(1-a.price/a.mrp)).slice(0,4).map((p)=>({...p,...X(p),price:R(p.price),view:()=>this.setState({qv:p.id})})),hasDeals:P.some((p)=>p.mrp>p.price),
+      pin:st.pin,pinNote:pinOk?'Delivery in 2 to 4 days':'Enter a 6 digit pincode',maxP:st.maxP,maxLabel:R(st.maxP),appOn:st.app,appCls:st.app?'on':'',freeOn:st.free,freeCls:st.free?'on':'',
+      heading:st.wo?'Your wishlist':(st.dept==='all'?'All products':BR[st.dept]),count:items.length,empty:items.length===0,q:st.q,cartN,wishN:Object.keys(st.wish).length,
+      sorts:[['feat','Featured'],['lo','Price low'],['hi','Price high'],['disc','Top discount'],['rate','Top rated']].map(([k,l])=>({label:l,cls:st.sort===k?'on':'',tap:()=>this.setState({sort:k})})),
+      items:items.map((p)=>{const q=st.cart[p.id]||0;return {...p,...X(p),brand:BR[p.dept],price:R(p.price),mrp:R(p.mrp),off:OFF(p),qty:q,inCart:q>0,notIn:q===0&&p.stock!==0,minus:()=>this.add(p.id,-1),plus:()=>this.add(p.id,1),wish:!!st.wish[p.id],wcls:st.wish[p.id]?'on':'',heart:()=>this.setState((x)=>{const w={...x.wish};if(w[p.id])delete w[p.id];else w[p.id]=1;return {wish:w};}),view:()=>this.setState({qv:p.id}),tap:()=>{this.add(p.id,1);this.say('Added to cart');}};}),
+      qv:qp?{...qp,...X(qp),brand:BR[qp.dept],price:R(qp.price),mrp:R(qp.mrp),off:OFF(qp)}:null,
+      open:st.open,drawerTitle:['Your cart','Delivery details','Payment','Thank you'][S],s:{cart:S===0,addr:S===1,pay:S===2,done:S===3,pay1:S===1||S===2,totals:S<3,back:S===1||S===2},steps:[1,2,3].map((n)=>({cls:S>=n?'on':''})),
+      lines:P.filter((p)=>st.cart[p.id]).map((p)=>({name:p.name,brand:BR[p.dept],price:R(p.price),qty:st.cart[p.id],minus:()=>this.add(p.id,-1),plus:()=>this.add(p.id,1)})),cartEmpty:cartN===0,
+      coupon:st.coupon,addr:st.addr,sub:R(sub),disc:disc?('− '+R(disc)):'None',ship:ship?R(ship):'Free',total:R(total),orderNo:st.orderNo,toast:st.toast,
+      cta:['Checkout','Continue to payment','Place order','Continue shopping'][S],
+      pays:[['upi','UPI','Pay with any UPI app'],['card','Card','Powered by Stripe, coming soon'],['cod','Cash on delivery','Pay when it arrives']].map(([k,l,h])=>({label:l,hint:h,cls:st.pay===k?'on':'',tap:()=>this.setState({pay:k})})),
+      a:{inv:()=>VQApp.run((m)=>this.say(m),'invoice','pdf',{patch:(d)=>{const o=st.lastOrder;const D=new Date();const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];const ds=D.getDate()+' '+M[D.getMonth()]+' '+D.getFullYear();
+      d.order=st.orderNo;d.id='VQ-INV-'+String(st.orderNo).replace(/^VQ-/,'');d.date=ds;
+      if(o){d.items=o.items;d.couponPct=o.couponPct;d.coupon=o.coupon;d.shipping=o.shipping;d.buyer=[o.addr.name,o.addr.line+(o.pin?' · '+o.pin:''),'Mobile '+o.addr.phone];
+        const pm={upi:['Razorpay','UPI'],card:['Stripe','Card'],cod:['None','Cash on delivery']}[o.pay]||['Razorpay','UPI'];
+        d.pay=[['Gateway',pm[0]],['Method',pm[1]],['Payment ID','After payment (prototype)'],['Gateway order ID','After payment (prototype)'],['Order placed',ds],['Verification','Prototype, no live payment']];}}}),back:()=>this.props.onBack&&this.props.onBack(),search:(e)=>this.setState({q:e.target.value}),pin:(e)=>this.setState({pin:e.target.value.replace(/\D/g,'')}),maxP:(e)=>this.setState({maxP:Number(e.target.value)}),toggleApp:()=>this.setState({app:!st.app}),toggleFree:()=>this.setState({free:!st.free}),toggleTop:()=>this.setState({top:!st.top}),wishOnly:()=>this.setState({wo:!st.wo}),
+        prev:()=>this.setState({slide:(st.slide+2)%3}),next:()=>this.setState({slide:(st.slide+1)%3}),openCart:()=>this.setState({open:true,step:0}),closeCart:()=>this.setState({open:false,step:0}),
+        qvClose:()=>this.setState({qv:null}),qvAdd:()=>{this.add(st.qv,1);this.setState({qv:null});this.say('Added to cart');},qvBuy:()=>{this.add(st.qv,1);this.setState({qv:null,open:true,step:0});},
+        coupon:(e)=>this.setState({coupon:e.target.value}),applyCoupon:()=>{const ok=st.coupon.trim().toUpperCase()==='VIVO10';this.setState({cok:ok});this.say(ok?'Coupon applied: 10% off':'Coupon not valid');},
+        inName:(e)=>this.setState({addr:{...st.addr,name:e.target.value}}),inPhone:(e)=>this.setState({addr:{...st.addr,phone:e.target.value.replace(/\D/g,'')}}),inLine:(e)=>this.setState({addr:{...st.addr,line:e.target.value}}),
+        stepBack:()=>this.setState({step:S-1}),
+        next2:()=>{if(S===0){if(!cartN){this.say('Your cart is empty');return;}this.setState({step:1});}else if(S===1){if(!st.addr.name||st.addr.phone.length!==10||!pinOk){this.say('Enter your name, a 10 digit mobile and a 6 digit pincode');return;}this.setState({step:2});}else if(S===2){this.setState({lastOrder:{items:P.filter((p)=>st.cart[p.id]).map((p)=>({name:p.name,type:p.kind==='Service'?'Booked visit':'Shipped',qty:st.cart[p.id],unit:p.price})),couponPct:disc?10:0,coupon:disc?'VIVO10':'None',shipping:ship,addr:st.addr,pin:st.pin,pay:st.pay},step:3,cart:{},cok:false,coupon:'',orderNo:'VQ-'+(100000+Math.floor(Math.random()*899999))});}else this.setState({open:false,step:0});}}
+    };
+  }
+}
+</script>
+
+
+</body></html>

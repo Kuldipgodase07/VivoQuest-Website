@@ -1,0 +1,7 @@
+environment                = "stage"
+project_id                 = "vq-stage"
+primary_region             = "asia-south1"
+dr_region                  = "asia-south2"
+domain_name                = "api.stage.vivoquest.in"
+container_image            = "asia-south1-docker.pkg.dev/vq-stage/vivoquest/api:latest"
+mongodb_atlas_psc_target   = "projects/mongodb-atlas/regions/asia-south1/serviceAttachments/atlas-stage-sa"
