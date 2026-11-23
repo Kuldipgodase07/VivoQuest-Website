@@ -283,15 +283,19 @@ aside.side.collapsed .row {
       });
     }
 
+    // 2. Check for header without aside (only in non-landing screens with header.top2)
     if (!aside) {
-      var headerRow = document.querySelector('header.top2 .row, header .row, .top .row, .top2 .row, header');
-      if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
-        var hBack = document.createElement('button');
-        hBack.className = 'vq-header-back-btn';
-        hBack.title = 'Go back to previous page';
-        hBack.type = 'button';
-        hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
-        headerRow.insertBefore(hBack, headerRow.firstChild);
+      var isHome = window.location.pathname.indexOf('landing') !== -1 || window.location.pathname === '/' || document.querySelector('header.nav');
+      if (!isHome) {
+        var headerRow = document.querySelector('header.top2 .row, .top2 .row');
+        if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
+          var hBack = document.createElement('button');
+          hBack.className = 'vq-header-back-btn';
+          hBack.title = 'Go back to previous page';
+          hBack.type = 'button';
+          hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
+          headerRow.insertBefore(hBack, headerRow.firstChild);
+        }
       }
     }
   }
@@ -405,6 +409,10 @@ if (fs.existsSync(bundlePath)) {
         try {
           const rawBuffer = Buffer.from(item.data, 'base64');
           const decompressed = zlib.gunzipSync(rawBuffer).toString('utf8');
+          if (decompressed.includes('landing') || decompressed.includes('exploreRoles') || decompressed.includes('navRoles')) {
+            // Skip landing page in bundle
+            return;
+          }
           const upgraded = upgradeHtmlContent(decompressed);
           const recompressed = zlib.gzipSync(Buffer.from(upgraded, 'utf8')).toString('base64');
           item.data = recompressed;

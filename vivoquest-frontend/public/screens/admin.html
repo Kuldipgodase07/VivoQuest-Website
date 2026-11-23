@@ -451,7 +451,9 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;
       <path d="M15 18l-6-6 6-6"/>
     </svg>
   </button>
-</div><div class="row" style="padding:4px 8px 10px"><div style="width:42px;height:42px;border-radius:13px;background:#fff;color:#4520B8;display:flex;align-items:center;justify-content:center"><svg class="ic" sc-camel-view-box="0 0 24 24" role="img" aria-label="VivoQuest logo" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#4520B8" stroke="none"></path></svg></div><div><div style="font-size:19px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Administrator console</div></div></div>
+</div>
+<!-- VivoQuest Master Sidebar Controls -->
+<div class="row" style="padding:4px 8px 10px"><div style="width:42px;height:42px;border-radius:13px;background:#fff;color:#4520B8;display:flex;align-items:center;justify-content:center"><svg class="ic" sc-camel-view-box="0 0 24 24" role="img" aria-label="VivoQuest logo" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#4520B8" stroke="none"></path></svg></div><div><div style="font-size:19px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Administrator console</div></div></div>
 <sc-for list="{{ groups }}" as="g"><div class="nh">{{ g.h }}</div><nav class="nav" aria-label="{{ g.h }}"><sc-for list="{{ g.items }}" as="n"><button class="navb {{ n.cls }}" onclick="{{ n.tap }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button></sc-for></nav></sc-for></aside>
 <div class="wrapm"><div class="bar0"><div class="srch"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:18px;height:18px"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-5-5"></path></svg>Search members, orders, incidents</div><span class="env">Production · AWS Mumbai</span><span class="pill">Sample data</span><div style="margin-left:auto" class="row"><button class="btn g sbtn" onclick="{{ a.help }}">Support</button><div class="row" style="padding-left:12px;border-left:1px solid #E6E2F0"><div class="avatar">AK</div><div><div style="font-weight:800;font-size:14px">Anita Kulkarni</div><div class="sub" style="font-size:12px">Platform administrator</div></div></div></div></div>
 <div style="flex:1;overflow:auto"><main class="main"><div class="top" style="margin-bottom:14px"><div><div class="eyebrow">{{ eyebrow }}</div><h1 class="h1">{{ title }}</h1></div><div class="row"><sc-for list="{{ acts }}" as="x"><button class="btn {{ x.c }} sbtn" style="min-height:40px" onclick="{{ x.tap }}">{{ x.l }}</button></sc-for></div></div>
@@ -1183,6 +1185,12 @@ window.addEventListener('click', function(e) {
 
 
 
+
+
+<!-- VivoQuest Resilient Sidebar & Back Controller -->
+
+
+
 <!-- VivoQuest Enterprise Sidebar & Navigation System -->
 <style id="vq-sidebar-system-css">
 /* Base Smooth Sidebar Transitions */
@@ -1444,16 +1452,19 @@ aside.side.collapsed .row {
       });
     }
 
-    // 2. Check for header without aside
+    // 2. Check for header without aside (only in non-landing screens with header.top2)
     if (!aside) {
-      var headerRow = document.querySelector('header.top2 .row, header .row, .top .row, .top2 .row, header');
-      if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
-        var hBack = document.createElement('button');
-        hBack.className = 'vq-header-back-btn';
-        hBack.title = 'Go back to previous page';
-        hBack.type = 'button';
-        hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
-        headerRow.insertBefore(hBack, headerRow.firstChild);
+      var isHome = window.location.pathname.indexOf('landing') !== -1 || window.location.pathname === '/' || document.querySelector('header.nav');
+      if (!isHome) {
+        var headerRow = document.querySelector('header.top2 .row, .top2 .row');
+        if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
+          var hBack = document.createElement('button');
+          hBack.className = 'vq-header-back-btn';
+          hBack.title = 'Go back to previous page';
+          hBack.type = 'button';
+          hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
+          headerRow.insertBefore(hBack, headerRow.firstChild);
+        }
       }
     }
   }

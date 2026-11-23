@@ -380,7 +380,8 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;
     <path d="M19 12H5M12 19l-7-7 7-7"/>
   </svg>
   <span>Back</span>
-</button><div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Health plan and ACO workspace</div></div></div><span class="pill">Sample data</span></header>
+</button>
+<div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Health plan and ACO workspace</div></div></div><span class="pill">Sample data</span></header>
 <main class="main"><div class="top"><div><div class="eyebrow">MEDICARE ADVANTAGE · MANAGED MEDICAID · ACO</div><h1 class="h1">Readmissions and care gaps</h1><div class="sub">Proof that home recovery is lowering cost and lifting quality scores.</div></div><div class="row"><sc-for list="{{ ranges }}" as="g"><button class="item {{ g.cls }}" style="width:auto;padding:8px 16px" onclick="{{ g.tap }}">{{ g.label }}</button></sc-for><button class="btn s" style="min-height:40px;padding:0 16px" onclick="{{ dlp }}">Download PDF report</button><button class="btn s" style="min-height:40px;padding:0 16px" onclick="{{ dlx }}">Download Excel report</button></div></div>
 <div class="grid g4" style="margin-bottom:20px"><div class="card"><div class="eyebrow sub">READMISSIONS AVOIDED</div><div style="font-size:34px;font-weight:800">{{ k.avoid }}</div><div class="sub" style="font-size:13px">vs. matched baseline</div></div><div class="card"><div class="eyebrow sub">COST AVOIDED</div><div style="font-size:34px;font-weight:800;color:#18845B">{{ k.save }}</div><div class="sub" style="font-size:13px">at $16.3K per readmission</div></div><div class="card"><div class="eyebrow sub">OPEN CARE GAPS CLOSED</div><div style="font-size:34px;font-weight:800">{{ k.gaps }}%</div><div class="sub" style="font-size:13px">target 80–90%</div></div><div class="card"><div class="eyebrow sub">MEMBERS RECOVERING AT HOME</div><div style="font-size:34px;font-weight:800">{{ k.mem }}</div><div class="sub" style="font-size:13px">after discharge</div></div></div>
 <div class="grid g3" style="margin-bottom:20px"><div class="card"><h2>30-day readmission rate</h2><div class="bar"><sc-for list="{{ bars }}" as="b"><div><span>{{ b.v }}%</span><i class="{{ b.cls }}" style="height:{{ b.h }}%"></i><span>{{ b.m }}</span></div></sc-for></div><div class="row sub" style="margin-top:14px;font-size:13px"><i style="width:12px;height:12px;border-radius:4px;background:#EAE4FF"></i>Before VivoQuest<i style="width:12px;height:12px;border-radius:4px;background:#6D42E8;margin-left:12px"></i>With VivoQuest</div></div>
@@ -428,6 +429,12 @@ window.addEventListener('click', function(e) {
 
 
 
+
+
+
+
+
+<!-- VivoQuest Resilient Sidebar & Back Controller -->
 
 
 
@@ -692,16 +699,19 @@ aside.side.collapsed .row {
       });
     }
 
-    // 2. Check for header without aside
+    // 2. Check for header without aside (only in non-landing screens with header.top2)
     if (!aside) {
-      var headerRow = document.querySelector('header.top2 .row, header .row, .top .row, .top2 .row, header');
-      if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
-        var hBack = document.createElement('button');
-        hBack.className = 'vq-header-back-btn';
-        hBack.title = 'Go back to previous page';
-        hBack.type = 'button';
-        hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
-        headerRow.insertBefore(hBack, headerRow.firstChild);
+      var isHome = window.location.pathname.indexOf('landing') !== -1 || window.location.pathname === '/' || document.querySelector('header.nav');
+      if (!isHome) {
+        var headerRow = document.querySelector('header.top2 .row, .top2 .row');
+        if (headerRow && !headerRow.querySelector('.vq-header-back-btn')) {
+          var hBack = document.createElement('button');
+          hBack.className = 'vq-header-back-btn';
+          hBack.title = 'Go back to previous page';
+          hBack.type = 'button';
+          hBack.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span>';
+          headerRow.insertBefore(hBack, headerRow.firstChild);
+        }
       }
     }
   }
