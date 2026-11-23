@@ -7,9 +7,13 @@
     "dev": "node run-dev.js",
     "dev:backend": "npm run start:dev --prefix backend",
     "dev:frontend": "npm run dev --prefix vivoquest-frontend",
-    "build": "npm run build --prefix backend && npm run build --prefix vivoquest-frontend",
+    "build": "cd vivoquest-frontend && npm install && npm run build",
+    "build:all": "npm run build --prefix backend && npm run build --prefix vivoquest-frontend",
     "test": "npm test --prefix backend",
     "migrate": "npm run migrate --prefix backend",
     "seed": "npm run seed --prefix backend"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5"
   }
 }
