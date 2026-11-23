@@ -53,6 +53,7 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;
 </style>
 </helmet>
 <div class="pg"><header class="top2"><div class="row">
+<button class="vq-back-btn" title="Go back to previous page" type="button" style="margin-right:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span></button>
 <div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3)"><svg class="ic" sc-camel-view-box="0 0 24 24" style="width:28px;height:28px"><path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path><path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path></svg></div><div><div style="font-size:20px;font-weight:800">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Health plan and ACO workspace</div></div></div><span class="pill">Sample data</span></header>
 <main class="main"><div class="top"><div><div class="eyebrow">MEDICARE ADVANTAGE · MANAGED MEDICAID · ACO</div><h1 class="h1">Readmissions and care gaps</h1><div class="sub">Proof that home recovery is lowering cost and lifting quality scores.</div></div><div class="row"><sc-for list="{{ ranges }}" as="g"><button class="item {{ g.cls }}" style="width:auto;padding:8px 16px" onclick="{{ g.tap }}">{{ g.label }}</button></sc-for><button class="btn s" style="min-height:40px;padding:0 16px" onclick="{{ dlp }}">Download PDF report</button><button class="btn s" style="min-height:40px;padding:0 16px" onclick="{{ dlx }}">Download Excel report</button></div></div>
 <div class="grid g4" style="margin-bottom:20px"><div class="card"><div class="eyebrow sub">READMISSIONS AVOIDED</div><div style="font-size:34px;font-weight:800">{{ k.avoid }}</div><div class="sub" style="font-size:13px">vs. matched baseline</div></div><div class="card"><div class="eyebrow sub">COST AVOIDED</div><div style="font-size:34px;font-weight:800;color:#18845B">{{ k.save }}</div><div class="sub" style="font-size:13px">at $16.3K per readmission</div></div><div class="card"><div class="eyebrow sub">OPEN CARE GAPS CLOSED</div><div style="font-size:34px;font-weight:800">{{ k.gaps }}%</div><div class="sub" style="font-size:13px">target 80–90%</div></div><div class="card"><div class="eyebrow sub">MEMBERS RECOVERING AT HOME</div><div style="font-size:34px;font-weight:800">{{ k.mem }}</div><div class="sub" style="font-size:13px">after discharge</div></div></div>
@@ -111,4 +112,70 @@ window.addEventListener('click', function(e) {
 
 
 <!-- VivoQuest Resilient Sidebar & Back Controller -->
+<script id="vq-sidebar-system-js">
+(function() {
+  function initSidebar() {
+    var isCol = false;
+    try { isCol = localStorage.getItem('vivoquest_sidebar_collapsed') === 'true'; } catch(e) {}
+    var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+    if (aside && isCol) {
+      aside.classList.add('collapsed');
+      var chev = aside.querySelector('.vq-chevron-icon');
+      if (chev) chev.style.transform = 'rotate(180deg)';
+      var minBtn = aside.querySelector('.vq-minimize-btn');
+      if (minBtn) minBtn.title = 'Expand sidebar';
+    }
+  }
+
+  function goBack() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'NAVIGATE_BACK' }, '*');
+    }
+    if (window.history && window.history.length > 1) {
+      window.history.back();
+    } else {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'NAVIGATE', path: '/' }, '*');
+      } else {
+        window.location.href = '/';
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    var b = e.target.closest('.vq-back-btn, .vq-header-back-btn');
+    if (b) {
+      e.preventDefault();
+      e.stopPropagation();
+      goBack();
+      return;
+    }
+    var m = e.target.closest('.vq-minimize-btn');
+    if (m) {
+      e.preventDefault();
+      e.stopPropagation();
+      var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+      if (aside) {
+        var willCol = !aside.classList.contains('collapsed');
+        if (willCol) {
+          aside.classList.add('collapsed');
+        } else {
+          aside.classList.remove('collapsed');
+        }
+        try { localStorage.setItem('vivoquest_sidebar_collapsed', willCol ? 'true' : 'false'); } catch(err) {}
+        var chev = aside.querySelector('.vq-chevron-icon');
+        if (chev) chev.style.transform = willCol ? 'rotate(180deg)' : 'rotate(0deg)';
+        m.title = willCol ? 'Expand sidebar' : 'Minimize sidebar';
+      }
+      return;
+    }
+  }, true);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebar);
+  } else {
+    initSidebar();
+  }
+})();
+</script>
 </body></html>

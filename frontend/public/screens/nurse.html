@@ -7,6 +7,102 @@
 <title>VivoQuest Nurse</title>
 <script src="../assets/4e3929ee-7d97-48d2-8afc-04a0d40b8035.js"></script>
 <script id="vq-auth-guard">(function(){if(window.top===window){try{var s=localStorage.getItem("vq_session")||sessionStorage.getItem("vq_session");if(!s&&window.location.pathname.indexOf("landing")===-1){window.location.replace("/signin");}}catch(e){}}})();</script>
+<style id="vq-sidebar-system-css">
+aside.side, aside.side2, aside.av-side {
+  transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.22s cubic-bezier(0.4, 0, 0.2, 1), padding 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+aside.side.collapsed, aside.side2.collapsed, aside.av-side.collapsed {
+  width: 76px !important;
+  min-width: 76px !important;
+  max-width: 76px !important;
+  flex: 0 0 76px !important;
+  padding: 16px 8px !important;
+}
+.vq-sidebar-controls {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  padding: 0 2px 12px !important;
+  margin-bottom: 10px !important;
+  border-bottom: 1px solid rgba(230, 226, 240, 0.5) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+aside.collapsed .vq-sidebar-controls {
+  flex-direction: column !important;
+  padding: 0 0 10px !important;
+  gap: 8px !important;
+}
+aside.collapsed .vq-sidebar-controls .vq-back-btn span {
+  display: none !important;
+}
+aside.collapsed .vq-sidebar-controls .vq-chevron-icon {
+  transform: rotate(180deg) !important;
+}
+aside.collapsed .vq-brand-text,
+aside.collapsed .mk-eyebrow,
+aside.collapsed .mk-box,
+aside.collapsed .nh,
+aside.collapsed nav button span:not(.cnt):not(.badge):not(.mk-n),
+aside.collapsed .navb span:not(.cnt):not(.badge),
+aside.collapsed .mk-nav span.mk-t,
+aside.collapsed .col > div {
+  display: none !important;
+}
+aside.collapsed button.navb,
+aside.collapsed button.mk-nav,
+aside.collapsed .av-qli {
+  justify-content: center !important;
+  padding: 0 !important;
+}
+.vq-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(69, 32, 184, 0.08) !important;
+  border: 1px solid rgba(69, 32, 184, 0.18) !important;
+  color: #4520B8 !important;
+  padding: 6px 12px !important;
+  border-radius: 9px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  line-height: 1 !important;
+  font-family: inherit !important;
+}
+.vq-back-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+  box-shadow: 0 2px 8px rgba(69, 32, 184, 0.25) !important;
+}
+.vq-minimize-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  background: rgba(69, 32, 184, 0.06) !important;
+  border: 1px solid rgba(69, 32, 184, 0.15) !important;
+  color: #4520B8 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  flex-shrink: 0 !important;
+}
+.vq-minimize-btn:hover {
+  background: #4520B8 !important;
+  color: #FFFFFF !important;
+  border-color: #4520B8 !important;
+}
+</style>
 </head>
 <body>
 <x-dc>
@@ -103,8 +199,33 @@ a{text-decoration:none;color:inherit}
 
 <div class="app">
   <aside class="side">
-<div><div style="font-size:20px;font-weight:800;letter-spacing:-.02em">VivoQuest</div><div class="sub" style="font-size:12px;font-weight:700">Nurse workspace</div></div>
-    </div>
+<!-- VivoQuest Master Sidebar Controls -->
+<div class="vq-sidebar-controls" data-vq-controls="true">
+  <button class="vq-back-btn" title="Go back to previous page" type="button">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span>Back</span>
+  </button>
+  <button class="vq-minimize-btn" title="Minimize sidebar" type="button">
+    <svg class="vq-chevron-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </button>
+</div>
+<div class="row vq-brand-row" style="padding:0 6px 14px;gap:10px;display:flex;align-items:center">
+  <div style="width:44px;height:44px;border-radius:14px;background:#4520B8;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(69,32,184,.3);flex:none">
+    <svg class="ic" sc-camel-view-box="0 0 24 24" style="width:26px;height:26px" role="img" aria-label="VivoQuest logo">
+      <path d="M3.5 11 12 3.5 20.5 11V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z"></path>
+      <path d="M12 17.2c-2.4-1.6-3.6-2.8-3.6-4.2a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 1.4-1.2 2.6-3.6 4.2z" fill="#fff" stroke="none"></path>
+    </svg>
+  </div>
+  <div class="vq-brand-text" style="min-width:0;overflow:hidden">
+    <div style="font-size:19px;font-weight:800;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">VivoQuest</div>
+    <div class="sub" style="font-size:12px;font-weight:700;color:#667085;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nurse workspace</div>
+  </div>
+</div>
+
     <nav class="nav" aria-label="Main">
       <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
         <button class="navb {{ n.cls }}" sc-camel-on-click="{{ n.tap }}"><svg class="ic" sc-camel-view-box="0 0 24 24"><path sc-camel-d="{{ n.icon }}"></path></svg><span>{{ n.label }}</span><sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span class="cnt">{{ n.count }}</span></sc-if></button>
@@ -579,4 +700,70 @@ window.addEventListener('click', function(e) {
 
 
 <!-- VivoQuest Resilient Sidebar & Back Controller -->
+<script id="vq-sidebar-system-js">
+(function() {
+  function initSidebar() {
+    var isCol = false;
+    try { isCol = localStorage.getItem('vivoquest_sidebar_collapsed') === 'true'; } catch(e) {}
+    var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+    if (aside && isCol) {
+      aside.classList.add('collapsed');
+      var chev = aside.querySelector('.vq-chevron-icon');
+      if (chev) chev.style.transform = 'rotate(180deg)';
+      var minBtn = aside.querySelector('.vq-minimize-btn');
+      if (minBtn) minBtn.title = 'Expand sidebar';
+    }
+  }
+
+  function goBack() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'NAVIGATE_BACK' }, '*');
+    }
+    if (window.history && window.history.length > 1) {
+      window.history.back();
+    } else {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'NAVIGATE', path: '/' }, '*');
+      } else {
+        window.location.href = '/';
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    var b = e.target.closest('.vq-back-btn, .vq-header-back-btn');
+    if (b) {
+      e.preventDefault();
+      e.stopPropagation();
+      goBack();
+      return;
+    }
+    var m = e.target.closest('.vq-minimize-btn');
+    if (m) {
+      e.preventDefault();
+      e.stopPropagation();
+      var aside = document.querySelector('aside.side, aside.side2, aside.av-side, aside');
+      if (aside) {
+        var willCol = !aside.classList.contains('collapsed');
+        if (willCol) {
+          aside.classList.add('collapsed');
+        } else {
+          aside.classList.remove('collapsed');
+        }
+        try { localStorage.setItem('vivoquest_sidebar_collapsed', willCol ? 'true' : 'false'); } catch(err) {}
+        var chev = aside.querySelector('.vq-chevron-icon');
+        if (chev) chev.style.transform = willCol ? 'rotate(180deg)' : 'rotate(0deg)';
+        m.title = willCol ? 'Expand sidebar' : 'Minimize sidebar';
+      }
+      return;
+    }
+  }, true);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebar);
+  } else {
+    initSidebar();
+  }
+})();
+</script>
 </body></html>
