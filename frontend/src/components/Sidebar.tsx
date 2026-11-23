@@ -1,39 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Logo } from './Logo';
 import { useAuth } from '../hooks/useAuth';
 import { Role } from '../types';
 
 export const Sidebar: React.FC = () => {
   const { session, switchRole, logout } = useAuth();
-  const navigate = useNavigate();
-
-  // Retrieve persistent sidebar collapsed state from localStorage
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(() => {
-    try {
-      return localStorage.getItem('vivoquest_sidebar_collapsed') === 'true';
-    } catch {
-      return false;
-    }
-  });
-
-  const toggleSidebar = () => {
-    const nextState = !isCollapsed;
-    setIsCollapsed(nextState);
-    try {
-      localStorage.setItem('vivoquest_sidebar_collapsed', nextState ? 'true' : 'false');
-    } catch {
-      // ignore
-    }
-  };
-
-  const handleGoBack = () => {
-    if (window.history.length > 1) {
-      navigate(-1);
-    } else {
-      navigate('/');
-    }
-  };
 
   const roleWorkspaces: { role: Role; path: string; label: string; iconPath: string }[] = [
     { role: 'patient', path: '/patient', label: 'Patient and Family', iconPath: 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z' },
@@ -50,119 +22,40 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside
-      className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}
+      className="sidebar"
       style={{
-        width: isCollapsed ? '76px' : '260px',
+        width: '260px',
         flex: 'none',
         background: '#FFFFFF',
         borderRight: '1.5px solid #E6E2F0',
         display: 'flex',
         flexDirection: 'column',
-        padding: isCollapsed ? '16px 8px' : '20px 14px',
-        transition: 'width 0.24s cubic-bezier(0.4, 0, 0.2, 1), padding 0.24s cubic-bezier(0.4, 0, 0.2, 1)',
+        padding: '20px 14px',
         position: 'relative'
       }}
     >
-      {/* Top Header Controls: Back Button & Minimize Toggle */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: isCollapsed ? 'center' : 'space-between',
-        flexDirection: isCollapsed ? 'column' : 'row',
-        gap: '8px',
-        paddingBottom: '12px',
-        marginBottom: '14px',
-        borderBottom: '1px solid #ECE7FB'
-      }}>
-        {/* Back Page Button */}
-        <button
-          onClick={handleGoBack}
-          title="Go back to previous page"
-          type="button"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-            background: '#F7F5FF',
-            border: '1px solid #ECE7FB',
-            color: '#4520B8',
-            padding: isCollapsed ? '6px' : '6px 12px',
-            borderRadius: '9px',
-            fontSize: '12px',
-            fontWeight: 800,
-            cursor: 'pointer',
-            transition: 'all 0.15s ease'
-          }}
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          {!isCollapsed && <span>Back</span>}
-        </button>
-
-        {/* Minimize / Expand Toggle Button */}
-        <button
-          onClick={toggleSidebar}
-          title={isCollapsed ? 'Expand sidebar' : 'Minimize sidebar'}
-          type="button"
-          style={{
-            width: '30px',
-            height: '30px',
-            borderRadius: '8px',
-            border: '1px solid #ECE7FB',
-            background: '#FFFFFF',
-            color: '#4520B8',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            transition: 'all 0.15s ease',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
-          }}
-        >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{
-              transform: isCollapsed ? 'rotate(180deg)' : 'rotate(0deg)',
-              transition: 'transform 0.2s ease'
-            }}
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        </button>
-      </div>
-
       {/* Brand Logo */}
       <div style={{
         marginBottom: '20px',
-        paddingLeft: isCollapsed ? '0' : '8px',
+        paddingLeft: '8px',
         display: 'flex',
-        justifyContent: isCollapsed ? 'center' : 'flex-start'
+        justifyContent: 'flex-start'
       }}>
         <NavLink to="/" title="VivoQuest Home">
           <Logo size={28} />
         </NavLink>
       </div>
 
-      {!isCollapsed && (
-        <div style={{
-          fontSize: '11px',
-          fontWeight: 800,
-          color: '#667085',
-          textTransform: 'uppercase',
-          letterSpacing: '.06em',
-          padding: '0 8px 8px'
-        }}>
-          Workspaces
-        </div>
-      )}
+      <div style={{
+        fontSize: '11px',
+        fontWeight: 800,
+        color: '#667085',
+        textTransform: 'uppercase',
+        letterSpacing: '.06em',
+        padding: '0 8px 8px'
+      }}>
+        Workspaces
+      </div>
 
       {/* Workspace Navigation Links */}
       <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, overflowY: 'auto' }}>
@@ -177,9 +70,9 @@ export const Sidebar: React.FC = () => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: isCollapsed ? 'center' : 'flex-start',
+                justifyContent: 'flex-start',
                 gap: '12px',
-                padding: isCollapsed ? '10px 0' : '10px 14px',
+                padding: '10px 14px',
                 borderRadius: '12px',
                 fontWeight: 700,
                 fontSize: '14px',
@@ -192,15 +85,13 @@ export const Sidebar: React.FC = () => {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                 <path d={w.iconPath} />
               </svg>
-              {!isCollapsed && (
-                <span style={{
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis'
-                }}>
-                  {w.label}
-                </span>
-              )}
+              <span style={{
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}>
+                {w.label}
+              </span>
             </NavLink>
           );
         })}
@@ -214,7 +105,7 @@ export const Sidebar: React.FC = () => {
           type="button"
           style={{
             width: '100%',
-            padding: isCollapsed ? '10px 0' : '10px 14px',
+            padding: '10px 14px',
             borderRadius: '10px',
             color: '#B42332',
             background: 'transparent',
@@ -233,7 +124,7 @@ export const Sidebar: React.FC = () => {
             <polyline points="16 17 21 12 16 7" />
             <line x1="21" y1="12" x2="9" y2="12" />
           </svg>
-          {!isCollapsed && <span>Sign out</span>}
+          <span>Sign out</span>
         </button>
       </div>
     </aside>
