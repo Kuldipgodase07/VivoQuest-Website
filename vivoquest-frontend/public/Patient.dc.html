@@ -1297,7 +1297,7 @@ class Component extends DCLogic {
 
     const a = {
       switchRole:() => this.props.onSwitch && this.props.onSwitch('patient'),
-      setEn:() => this.setState({lang:'en'}), setMr:() => this.setState({lang:'mr'}),
+      setEn:() => { this.setState({ lang:'en' }); try { document.documentElement.lang='en'; document.body.setAttribute('data-lang','en'); document.body.classList.remove('lang-mr'); }catch(e){} }, setMr:() => { this.setState({ lang:'mr' }); try { document.documentElement.lang='mr'; document.body.setAttribute('data-lang','mr'); document.body.classList.add('lang-mr'); }catch(e){} },
       onQ:(e) => this.setState({q:this.val(e)}), toNotes:() => this.tab('notes'),
       openV1:() => this.openVisit('v1'), openV2:() => this.openVisit('v2'), reschedV1:() => this.reschedFor('v1'),
       closeSheet:() => this.setState({sheet:null}), closeDialog:() => this.setState({dialog:null}),
