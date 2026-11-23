@@ -144,6 +144,50 @@ export const HIGHWAY_CORRIDORS = [
   { name: 'Nagpur - Chandrapur Highway', path: 'M2391,447 L2451,767' }
 ];
 
+// Themed Vector Icon Component for tracking units
+const UnitIcon: React.FC<{ type: string; color?: string; size?: number }> = ({ type, color = 'currentColor', size = 18 }) => {
+  if (type === 'Ambulance' || type === 'Priority') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 16H9m10 0h3v-4l-3-4H4a2 2 0 0 0-2 2v6h2" />
+        <circle cx="6.5" cy="16.5" r="2.5" />
+        <circle cx="16.5" cy="16.5" r="2.5" />
+        <path d="M8 8h4" />
+        <path d="M10 6v4" />
+      </svg>
+    );
+  }
+  if (type === 'Vaccine Van') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m14 12 5.5-5.5a1.5 1.5 0 0 0-2-2L12 10" />
+        <path d="m10 14-5 5" />
+        <path d="m15 9 1 1" />
+        <line x1="9" y1="15" x2="11" y2="17" />
+      </svg>
+    );
+  }
+  if (type === 'Clinician') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" />
+      </svg>
+    );
+  }
+  if (type === 'Delivery') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+      </svg>
+    );
+  }
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 12h4l3-8 4 16 3-8h4" />
+    </svg>
+  );
+};
+
 // Real-Time Fleet Units Traversing Maharashtra
 const INITIAL_UNITS: TrackingUnit[] = [
   {
@@ -160,7 +204,7 @@ const INITIAL_UNITS: TrackingUnit[] = [
     destination: 'Baner Care Center, Pune (Pooja Nair)',
     patientName: 'Pooja Nair',
     status: 'En Route',
-    icon: '🩺',
+    icon: 'Nurse',
     color: '#10B981'
   },
   {
@@ -177,7 +221,7 @@ const INITIAL_UNITS: TrackingUnit[] = [
     destination: 'Kothrud Critical Triage',
     patientName: 'Kamal Deshmukh',
     status: 'Priority',
-    icon: '🚑',
+    icon: 'Ambulance',
     color: '#EF4444'
   },
   {
@@ -194,7 +238,7 @@ const INITIAL_UNITS: TrackingUnit[] = [
     destination: 'Panchavati Rural Health Hub',
     patientName: 'Vaccine Batch #914',
     status: 'In Transit',
-    icon: '💉',
+    icon: 'Vaccine',
     color: '#3B82F6'
   },
   {
@@ -211,7 +255,7 @@ const INITIAL_UNITS: TrackingUnit[] = [
     destination: 'Wardha Elder Care Wing',
     patientName: 'Suresh Patil',
     status: 'En Route',
-    icon: '👨‍⚕️',
+    icon: 'Clinician',
     color: '#8B5CF6'
   },
   {
@@ -228,7 +272,7 @@ const INITIAL_UNITS: TrackingUnit[] = [
     destination: 'Jalna Road Medical Center',
     patientName: 'Sunita Kulkarni',
     status: 'In Transit',
-    icon: '📦',
+    icon: 'Delivery',
     color: '#F59E0B'
   },
   {
@@ -245,7 +289,7 @@ const INITIAL_UNITS: TrackingUnit[] = [
     destination: 'Rajarampuri Clinic, Kolhapur',
     patientName: 'Lata Joshi',
     status: 'En Route',
-    icon: '🩸',
+    icon: 'Nurse',
     color: '#10B981'
   },
   {
@@ -262,7 +306,7 @@ const INITIAL_UNITS: TrackingUnit[] = [
     destination: 'Akola District Trauma Wing',
     patientName: 'Rameshwar Kale',
     status: 'Priority',
-    icon: '🚑',
+    icon: 'Ambulance',
     color: '#EF4444'
   }
 ];
@@ -321,12 +365,12 @@ export const MaharashtraLiveTrackingMap: React.FC<{ compact?: boolean }> = ({ co
       destination: `${curDiv.districts.split(',')[0]} SOS Emergency`,
       patientName: 'Critical Patient SOS',
       status: 'Priority',
-      icon: '🚨',
+      icon: 'Priority',
       color: '#EF4444'
     };
     setUnits(prev => [newUnit, ...prev]);
     setActiveUnit(newUnit);
-    showToast(`🚨 Priority Care Unit Dispatched to ${curDiv.subTitle} (${curDiv.title})!`);
+    showToast(`Priority Care Unit Dispatched to ${curDiv.subTitle} (${curDiv.title})!`);
   };
 
   const cur = MAHARASHTRA_DIVISIONS[selectedRegionKey] || MAHARASHTRA_DIVISIONS.Pune;
@@ -556,7 +600,7 @@ export const MaharashtraLiveTrackingMap: React.FC<{ compact?: boolean }> = ({ co
                       e.stopPropagation();
                       setActiveUnit(u);
                       setSelectedRegionKey(u.regionKey);
-                      showToast(`${u.icon} Tracking ${u.name} (${u.speed}, ETA ${u.eta})`);
+                      showToast(`Tracking ${u.name} (${u.speed}, ETA ${u.eta})`);
                     }}
                     style={{ cursor: 'pointer' }}
                   >
@@ -592,13 +636,16 @@ export const MaharashtraLiveTrackingMap: React.FC<{ compact?: boolean }> = ({ co
                     />
 
                     {/* Emoji / Glyph centered */}
-                    <text
-                      textAnchor="middle"
-                      dominantBaseline="central"
-                      fontSize={isUnitActive ? 46 : 36}
-                    >
-                      {u.icon}
-                    </text>
+                    <circle
+                      r={isUnitActive ? 26 : 20}
+                      fill={u.color}
+                      stroke="#FFFFFF"
+                      strokeWidth={isUnitActive ? 5 : 3.5}
+                    />
+                    <circle
+                      r={isUnitActive ? 11 : 8}
+                      fill="#FFFFFF"
+                    />
                   </g>
                 );
               })}
@@ -620,7 +667,9 @@ export const MaharashtraLiveTrackingMap: React.FC<{ compact?: boolean }> = ({ co
               gap: '14px'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '26px' }}>{activeUnit.icon}</span>
+                <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: '#EAE4FF', color: '#4520B8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <UnitIcon type={activeUnit.role} color="#4520B8" size={20} />
+                </div>
                 <div>
                   <div style={{ fontSize: '13px', fontWeight: 800, color: '#17143A' }}>
                     {activeUnit.name} ({activeUnit.id})
@@ -786,7 +835,9 @@ export const MaharashtraLiveTrackingMap: React.FC<{ compact?: boolean }> = ({ co
               transition: 'background 0.15s ease'
             }}
           >
-            <span>🚨</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            </svg>
             Simulate Emergency Dispatch in {cur.title}
           </button>
         </div>

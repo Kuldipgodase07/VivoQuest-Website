@@ -122,8 +122,11 @@ export const AuthPage: React.FC = () => {
           {/* Key Value Cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '460px' }}>
             <div style={{ background: 'rgba(255, 255, 255, 0.12)', borderRadius: '14px', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '14px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0 }}>
-                📍
+              <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#FFFFFF' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
               </div>
               <div>
                 <div style={{ fontWeight: 800, fontSize: '14px' }}>Maharashtra Live Field Tracking</div>
@@ -132,8 +135,12 @@ export const AuthPage: React.FC = () => {
             </div>
 
             <div style={{ background: 'rgba(255, 255, 255, 0.12)', borderRadius: '14px', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '14px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0 }}>
-                🏥
+              <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#FFFFFF' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <path d="M12 8v8" />
+                  <path d="M8 12h8" />
+                </svg>
               </div>
               <div>
                 <div style={{ fontWeight: 800, fontSize: '14px' }}>Comprehensive Clinical Care</div>
@@ -142,8 +149,11 @@ export const AuthPage: React.FC = () => {
             </div>
 
             <div style={{ background: 'rgba(255, 255, 255, 0.12)', borderRadius: '14px', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '14px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.18)' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0 }}>
-                🛡️
+              <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#FFFFFF' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
               </div>
               <div>
                 <div style={{ fontWeight: 800, fontSize: '14px' }}>Secure Role-Based Workspaces</div>
@@ -187,8 +197,12 @@ export const AuthPage: React.FC = () => {
             gap: '14px'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '20px' }}>⚡</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ width: '30px', height: '30px', borderRadius: '8px', background: '#EAE4FF', color: '#4520B8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                </div>
                 <span style={{ fontSize: '16px', fontWeight: 800, color: '#17143A' }}>Instant Demo Login</span>
               </div>
               <span style={{ fontSize: '11px', background: '#EAE4FF', color: '#4520B8', padding: '3px 8px', borderRadius: '20px', fontWeight: 800 }}>
@@ -240,10 +254,19 @@ export const AuthPage: React.FC = () => {
                 fontWeight: 800,
                 background: 'linear-gradient(135deg, #4520B8 0%, #6D42E8 100%)',
                 boxShadow: '0 4px 14px rgba(69, 32, 184, 0.3)',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px'
               }}
             >
-              {loading ? 'Signing in...' : '⚡ Enter VivoQuest Platform'}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                <polyline points="10 17 15 12 10 7" />
+                <line x1="15" y1="12" x2="3" y2="12" />
+              </svg>
+              <span>{loading ? 'Signing in...' : 'Enter VivoQuest Platform'}</span>
             </button>
           </div>
 

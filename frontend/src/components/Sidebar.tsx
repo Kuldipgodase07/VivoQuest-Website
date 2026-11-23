@@ -35,17 +35,17 @@ export const Sidebar: React.FC = () => {
     }
   };
 
-  const roleWorkspaces: { role: Role; path: string; label: string; icon: string }[] = [
-    { role: 'patient', path: '/patient', label: 'Patient and Family', icon: '👤' },
-    { role: 'caregiver', path: '/caregiver', label: 'Caregiver', icon: '🤝' },
-    { role: 'nurse', path: '/nurse', label: 'Nurse Field Visit', icon: '🩺' },
-    { role: 'clinician', path: '/clinician', label: 'Clinician / Physician', icon: '👨‍⚕️' },
-    { role: 'remote-desk', path: '/remote-desk', label: 'Remote Care Desk', icon: '🖥️' },
-    { role: 'discharge-planner', path: '/discharge', label: 'Discharge Planner', icon: '📋' },
-    { role: 'health-plan', path: '/health-plan', label: 'Health Plan / ACO', icon: '🛡️' },
-    { role: 'vaccination', path: '/vaccination', label: 'Adult Vaccination', icon: '💉' },
-    { role: 'marketplace', path: '/marketplace', label: 'Marketplace', icon: '🛒' },
-    { role: 'admin', path: '/admin', label: 'Administrator Console', icon: '⚙️' }
+  const roleWorkspaces: { role: Role; path: string; label: string; iconPath: string }[] = [
+    { role: 'patient', path: '/patient', label: 'Patient and Family', iconPath: 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z' },
+    { role: 'caregiver', path: '/caregiver', label: 'Caregiver', iconPath: 'M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2 20a7 7 0 0 1 14 0M16 4.5a3.5 3.5 0 0 1 0 6.5M18 14a6 6 0 0 1 4 6' },
+    { role: 'nurse', path: '/nurse', label: 'Nurse Field Visit', iconPath: 'M3 12h4l3-8 4 16 3-8h4' },
+    { role: 'clinician', path: '/clinician', label: 'Clinician / Physician', iconPath: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z' },
+    { role: 'remote-desk', path: '/remote-desk', label: 'Remote Care Desk', iconPath: 'M2 4h20v13H2zM8 21h8M12 17v4' },
+    { role: 'discharge-planner', path: '/discharge', label: 'Discharge Planner', iconPath: 'M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M8 2h8v4H8z' },
+    { role: 'health-plan', path: '/health-plan', label: 'Health Plan / ACO', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+    { role: 'vaccination', path: '/vaccination', label: 'Adult Vaccination', iconPath: 'M14.5 4.5l5 5M18 8l2-2a2.121 2.121 0 0 0-3-3l-2 2M13 13L4 22M9 9l6 6' },
+    { role: 'marketplace', path: '/marketplace', label: 'Marketplace', iconPath: 'M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0' },
+    { role: 'admin', path: '/admin', label: 'Administrator Console', iconPath: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z' }
   ];
 
   return (
@@ -189,7 +189,9 @@ export const Sidebar: React.FC = () => {
                 textDecoration: 'none'
               }}
             >
-              <span style={{ fontSize: '18px' }}>{w.icon}</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <path d={w.iconPath} />
+              </svg>
               {!isCollapsed && (
                 <span style={{
                   whiteSpace: 'nowrap',
@@ -226,7 +228,11 @@ export const Sidebar: React.FC = () => {
             gap: '8px'
           }}
         >
-          <span>🚪</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
           {!isCollapsed && <span>Sign out</span>}
         </button>
       </div>
