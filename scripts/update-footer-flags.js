@@ -2,15 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const targetReplacement = `<div style="font-size:15px;line-height:1.6;color:#667085;font-weight:500">{{ t.tagline }}.</div>
-          <div class="foot-presence" style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
-            <div style="display:flex;align-items:center;gap:6px">
-              <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#12B76A;box-shadow:0 0 0 3px rgba(18,183,106,.15)"></span>
-              <span style="font-size:11px;font-weight:800;letter-spacing:.08em;color:#4520B8;text-transform:uppercase">{{ t.availIn || 'Available in 2 Countries' }}</span>
-            </div>
-            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px">
+          <div class="foot-presence" style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+            <div style="font-size:12px;font-weight:800;letter-spacing:.06em;color:#4520B8;text-transform:uppercase">Available In</div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px">
               <!-- India Badge -->
-              <div style="display:inline-flex;align-items:center;gap:8px;background:#F9F8FD;border:1px solid #E4DCFA;padding:6px 12px;border-radius:999px;box-shadow:0 1px 3px rgba(69,32,184,.04)">
-                <svg width="22" height="15" viewBox="0 0 24 16" fill="none" style="border-radius:2.5px;box-shadow:0 0 0 1px rgba(0,0,0,.08);flex-shrink:0" aria-label="Flag of India">
+              <div style="display:inline-flex;align-items:center;gap:10px;background:#FFFFFF;border:1.5px solid #E4DCFA;padding:9px 18px;border-radius:12px;box-shadow:0 2px 6px rgba(69,32,184,.06);transition:transform .15s ease">
+                <svg width="30" height="20" viewBox="0 0 24 16" fill="none" style="border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex-shrink:0" aria-label="Flag of India">
                   <rect width="24" height="5.33" fill="#FF9933"/>
                   <rect y="5.33" width="24" height="5.33" fill="#FFFFFF"/>
                   <rect y="10.66" width="24" height="5.33" fill="#138808"/>
@@ -27,11 +24,11 @@ const targetReplacement = `<div style="font-size:15px;line-height:1.6;color:#667
                     <line x1="9.95" y1="8.84" x2="14.05" y2="7.16"/>
                   </g>
                 </svg>
-                <span style="font-size:12.5px;font-weight:700;color:#2D264D">{{ t.countryIndia || 'India' }}</span>
+                <span style="font-size:15px;font-weight:700;color:#1D2939;letter-spacing:-.01em">India</span>
               </div>
               <!-- United States Badge -->
-              <div style="display:inline-flex;align-items:center;gap:8px;background:#F9F8FD;border:1px solid #E4DCFA;padding:6px 12px;border-radius:999px;box-shadow:0 1px 3px rgba(69,32,184,.04)">
-                <svg width="22" height="15" viewBox="0 0 24 16" fill="none" style="border-radius:2.5px;box-shadow:0 0 0 1px rgba(0,0,0,.08);flex-shrink:0" aria-label="Flag of United States">
+              <div style="display:inline-flex;align-items:center;gap:10px;background:#FFFFFF;border:1.5px solid #E4DCFA;padding:9px 18px;border-radius:12px;box-shadow:0 2px 6px rgba(69,32,184,.06);transition:transform .15s ease">
+                <svg width="30" height="20" viewBox="0 0 24 16" fill="none" style="border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex-shrink:0" aria-label="Flag of United States">
                   <rect width="24" height="16" fill="#B22234"/>
                   <rect y="1.23" width="24" height="1.23" fill="#FFFFFF"/>
                   <rect y="3.69" width="24" height="1.23" fill="#FFFFFF"/>
@@ -61,7 +58,7 @@ const targetReplacement = `<div style="font-size:15px;line-height:1.6;color:#667
                     <circle cx="7.6" cy="7.1" r="0.45"/>
                   </g>
                 </svg>
-                <span style="font-size:12.5px;font-weight:700;color:#2D264D">{{ t.countryUS || 'United States' }}</span>
+                <span style="font-size:15px;font-weight:700;color:#1D2939;letter-spacing:-.01em">United States</span>
               </div>
             </div>
           </div>`;
@@ -78,29 +75,15 @@ files.forEach(f => {
   if (fs.existsSync(f)) {
     let content = fs.readFileSync(f, 'utf8');
 
-    // Replace the footer tagline + eyebrow with tagline + flags
+    // Replace the previous foot-presence block
     content = content.replace(
-      '<div style="font-size:15px;line-height:1.6;color:#667085;font-weight:500">{{ t.tagline }}. {{ t.eyebrow }}.</div>',
+      /<div style="font-size:15px;line-height:1.6;color:#667085;font-weight:500">{{ t\.tagline }}\.<\/div>[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/,
       targetReplacement
     );
-
-    // Add translation keys if present
-    if (content.includes("footLang:'Language'}")) {
-      content = content.replace(
-        "footLang:'Language'}",
-        "footLang:'Language',availIn:'Available in 2 Countries',countryIndia:'India',countryUS:'United States'}"
-      );
-    }
-    if (content.includes("footLang:'भाषा'}")) {
-      content = content.replace(
-        "footLang:'भाषा'}",
-        "footLang:'भाषा',availIn:'२ देशांमध्ये उपलब्ध',countryIndia:'भारत (India)',countryUS:'अमेरिका (USA)'}"
-      );
-    }
 
     fs.writeFileSync(f, content, 'utf8');
     console.log(`Updated ${f}`);
   }
 });
 
-console.log('All files updated successfully!');
+console.log('All landing files updated with large flags and proper country names!');
